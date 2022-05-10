@@ -6,7 +6,7 @@ EL EQUIPO:
 
 Juan Agustín Vázquez: 
 
-Adriana Somaza: 
+Adriana Somaza: Es Lic. en Ciencias Fiscales (Mención Aduanas y Comercio Exterior), se desempeña actualmente como Compradora en una empresa de tecnologìa, y se está preparando en Programación, ya que quiere aprender a crear NFT próximamente y monetizarlo; y adicionalmente està explorando sus dotes artisticos estudiando teatro, ya que siente pasiòn por la comedia. 
 
 Thiago Baraldo:
 
