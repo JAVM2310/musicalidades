@@ -2,7 +2,7 @@
 
 Musicalidades es una web de venta de instrumentos musicales y accesorios. Está dirigido a personas que se interesen por aprender a tocar un instrumento y también a aquellas que ya tocan alguno y quieren reeemplazarlo por uno nuevo o necesitan accesorios para su uso.
 
-EL EQUIPO: 
+EL EQUIPO DE DESARROLLO: 
 
 Juan Agustín Vázquez: Estudiante de programador full stack. En su tiempo libre le gusta tocar el piano y jugar al tenis.
 
