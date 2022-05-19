@@ -24,6 +24,6 @@ app.get("/register", (req, res)=>{
 
 app.use(express.static("public"));
 
-app.listen(3000, ()=>{gi
-    console.log("levantado el servidor en el puerto 3000")
+app.listen(3000, ()=>{
+    console.log("levantado el servidor en el puerto")
 })
