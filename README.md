@@ -26,3 +26,5 @@ Interesante la página de producto, simple y con foco en la imagen. Minimalista.
 
 - https://www.noniceramica.com/ 
 La tienda es muy limpia, ordenada y simple. El responsive es muy bueno. La fontpage no es lo que buscamos, porque tenemos muchas más categorías e información para compartir.
+
+Tablero colaborativo: https://app.clickup.com/25741509/home
