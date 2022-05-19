@@ -1,0 +1,26 @@
+{
+  "name": "musicalidades",
+  "version": "1.0.0",
+  "description": "tienda web de instrumentos y accesorios musicales",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JAVM2310/grupo_6_musicalidades.git"
+  },
+  "keywords": [
+    "ecomerce",
+    "musica"
+  ],
+  "author": "Guadalupe Flores Cottet, Adriana Somaza, Vázquez Juan Agustín",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JAVM2310/grupo_6_musicalidades/issues"
+  },
+  "homepage": "https://github.com/JAVM2310/grupo_6_musicalidades#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
