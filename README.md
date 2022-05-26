@@ -4,7 +4,7 @@ Musicalidades es una web de venta de instrumentos musicales y accesorios. Está 
 
 EL EQUIPO DE DESARROLLO: 
 
-Juan Agustín Vázquez: Tiene 26 años años y vive en Ciudad de Buenos Aires. Estudiante de programador full stack. En su tiempo libre le gusta tocar el piano y jugar al tenis.
+Juan Agustín Vázquez: Tiene 26 años años y vive en Ciudad de Buenos Aires. Completo 2 años de ingenieria aeroespacial. Trabajo independientemente diagnosticando y reparando computadoras. Estudiante de programador full stack. En su tiempo libre le gusta tocar el piano y jugar al tenis.
 
 Adriana Somaza: Tiene 38 años años y vive en Ciudad de Buenos Aires. Es Lic. en Ciencias Fiscales (Mención Aduanas y Comercio Exterior), se desempeña actualmente como Compradora en una empresa de tecnología, y se está preparando en Programación, ya que quiere aprender a crear NFT próximamente y monetizarlo; y adicionalmente está explorando sus dotes artisticos estudiando teatro, ya que siente pasión por la comedia. 
 
