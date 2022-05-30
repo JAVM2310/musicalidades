@@ -120,10 +120,12 @@ ul {
 
 .dropdown {
     position: relative;
-    background-color: #9D9D9D;
+    background-color: rgba(157, 157, 157, 0.5);
     display: none;
-    padding: 30px;
+    padding-left: 11px;
     z-index: 99999999999999;
+    margin-right: -12px;
+    padding-bottom: 7px;
 }
 
 .dropdown:hover .menu-dropdown-items {
@@ -473,6 +475,140 @@ hr {
 }
 
 
+/* DETALLE DEL PRODUCTO */
+
+.producto{
+    width: 90vw;
+    margin-left: 5vw;
+}
+
+.producto .carousel-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.producto .carousel{
+    height: 270px;
+    max-width: 480px;
+}
+
+.producto .carousel-inner {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 270px;
+    border-radius: 10px;
+}
+
+.producto .carousel .carousel-item{
+    height: 100%;
+}
+
+.producto .carousel .carousel-item img{
+    height: 100%;
+    object-fit: cover;
+}
+
+.producto .carousel-indicadores{
+    margin-top: 20px;
+    z-index: 99999999999999999999999;
+    display: flex;
+    justify-content: left;
+}
+
+.producto .carousel-indicadores img{
+    height: 60px;
+    width: 60px;
+    margin-right: 20px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: darkgray 1px solid;
+}
+
+/* .producto-descripcion{
+
+} */
+
+.producto-descripcion h2{
+    font-weight: bold;
+    color: black;
+    font-size: 1.5em;
+}
+
+.producto-descripcion h3{
+    
+    color: black;
+    font-size: 1em;
+}
+
+.producto-descripcion .precio{
+    font-size: 2em;
+    font-weight: bold;
+    color: green;
+}
+
+.producto-form{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cantidad{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: solid darkgray 1px;
+    border-radius: 3px;
+    
+}
+
+.cantidad input[type=number] {
+    appearance: textfield;
+    border: none;
+    font-weight: bold;
+    font-size: 1.5em;
+    width: 40px;
+    text-align: center;
+    height: 35px;
+}
+
+.cantidad input[type=number]:focus{
+    outline: none;
+}
+
+.cantidad button{
+    border: none;
+    background-color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    height: 100%;
+    padding: 7px 10px 6px;
+}
+.cantidad button:hover{
+    background-color: lightgray;
+}
+
+.cantidad button:active{
+    background-color: grey;
+}
+
+.producto-form #enviar{
+    border: solid darkgray 1px;
+    border-radius: 3px;
+    height: 35px;
+    padding: 0px 10px;
+}
+
+.producto-descripcion h4{
+    color: black;
+    font-size: 1.5em;
+}
+
+.producto-descripcion .descripcion-detallada{
+    color: black;
+    font-size: 1em;
+}
 /* Responsive */
 
 @media (min-width: 361px) {
@@ -553,6 +689,21 @@ hr {
     }
     .ocultar4 {
         display: block;
+    }
+
+    .producto .carousel-container{
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .producto .carousel{
+        margin: 0px;
+    }
+
+    .producto .carousel-indicadores{
+        flex-direction: column;
+        margin-right: 0px;
     }
     
 }

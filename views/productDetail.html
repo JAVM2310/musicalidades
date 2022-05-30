@@ -12,21 +12,130 @@
     <title>Detalle de Producto | Tienda Musicalidades</title>
 </head>
 <body>
-    <header>
-        <nav>
+    <header class="header">
+        <!-- LOGO -->
+        <a href="#"><p class="logo"><img class="img-logo" src="./img/logo-musicalidades-header.png" alt="logo musicalidades"><!--MUSICALIDADES--></p></a>
+        <!-- ICONO HAMBURGUESA -->
+        <input class="side-menu" type="checkbox" id="side-menu"/>
+        <label class="hamb" for="side-menu">
+            <span class="hamb-line"></span>
+        </label>
+
+        <!-- MENU -->
+        <nav class="nav">
+            <ul class="menu">
+                <li>
+                    <input type="text" placeholder="Buscar productos, marcas, etc"  id="buscador-menu">
+                    <i class="fas fa-search"></i>
+                </li>
+                <li><a href ="/index.html">INICIO</a></li>
+                <li><a href="/shop.html" class="menu-dropdown">
+                    TIENDA
+                    <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown">
+                                <a href="#"><strong>Cuerdas</strong></a>
+                                <a href="#">Instrumentos</a>
+                                <a href="#">Accesorios</a>
+                                <a href="#"><strong>Percusión</strong></a>
+                                <a href="#">Instrumentos</a>
+                                <a href="#">Accesorios</a>
+                                <a href="#"><strong>Teclas</strong></a>
+                                <a href="#">Instrumentos</a>
+                                <a href="#">Accesorios</a>
+                                <a href="#"><strong>Vientos</strong></a>
+                                <a href="#">Instrumentos</a>
+                                <a href="#">Accesorios</a>
+                    </div>
+                </li>
+                <!--<li><a class="menu-carrito" href ="/productCart.html">CARRITO</a></li>-->
+                <li><a href ="/login.html">CONTACTO</a></li>
+                <li><a href ="/login.html">INICIAR SESIÓN</a></li>
+                <!--<li><i class="fa-solid fa-cart-shopping fa-2x shopping-desktop"></i></li>-->
+            </ul>
         </nav>
+        <div class="shopping-icon"><i class="fa-solid fa-cart-shopping fa-2x"></i></div>
+        <!-- Cart 
+        <i class="fa-solid fa-cart-shopping fa-2x shopping-celular"></i>-->
     </header>
     <main>
-        <section>
-            <article>
+        <section class="producto">
+            <!-- carousel -->
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-inner">
+                        <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
+                        <div class="carousel-item">
+                            <img src="./img/producto-bateria.jpg">
+                        </div>
+                        <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
+                        <div class="carousel-item">
+                            <img src="./img/producto-guitarra.jpg">
+                        </div>
+                        <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
+                        <div class="carousel-item">
+                            <img src="./img/producto-piano.jpg">
+                        </div>
+                        <label for="carousel-3" class="carousel-control prev control-1">‹</label>
+                        <label for="carousel-2" class="carousel-control next control-1">›</label>
+                        <label for="carousel-1" class="carousel-control prev control-2">‹</label>
+                        <label for="carousel-3" class="carousel-control next control-2">›</label>
+                        <label for="carousel-2" class="carousel-control prev control-3">‹</label>
+                        <label for="carousel-1" class="carousel-control next control-3">›</label>
+                    </div>
+                </div>
+                <ol class="carousel-indicadores">
+                    <li>
+                        <label for="carousel-1" class="carousel-bullet"><img src="./img/producto-bateria.jpg" alt=""></label>
+                    </li>
+                    <li>
+                        <label for="carousel-2" class="carousel-bullet"><img src="./img/producto-guitarra.jpg" alt=""></label>
+                    </li>
+                    <li>
+                        <label for="carousel-3" class="carousel-bullet"><img src="./img/producto-piano.jpg" alt=""></label>
+                    </li>
+                </ol>
+            </div>
+                <!-- descripcion del producto -->
+                <article class="producto-descripcion">
+                <h2>nombre del producto</h2>
+                <h3>breve descripcion</h3>
+                <p class="precio">xxxxx$</p>
+                <form action="" class="producto-form">
+                    <div class="cantidad">
+                        <label for="-">
+                            <button id="-">-</button>
+                        </label>
+                        <label for="cantidad">
+                            <input type="number" name="cantidad" id="cantidad" value="1" required>
+                        </label>
+                        <label for="+">
+                            <button id="+">+</button>
+                        </label>
+                    </div>
+                    <label for="enviar">
+                        <button type="submit" id="enviar">Agregar al carrito</button>
+                    </label>
+                </form>
+            </article>
+            <article class="producto-descripcion">
+                <div>
+                    <h4>Detalles del producto:</h4>
+                    <p class="descripcion-detallada">
+                        aca va una descripcion detallada del producto
+                        aca va una descripcion detallada del producto 
+                        aca va una descripcion detallada del producto 
+                        aca va una descripcion detallada del producto 
+                        aca va una descripcion detallada del producto 
+                    </p>
+                </div>
             </article>
         </section>
     </main>
     <footer>
-        <section>
-            <article>
-            </article>
+        <section id="footer">
+            <h3>FOOTER</h3>
         </section>
-    </footer>
+    </footer> 
 </body>
 </html>
