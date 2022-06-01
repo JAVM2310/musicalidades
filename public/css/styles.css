@@ -644,6 +644,10 @@ hr {
     line-height: 1.5em;
 }
 
+.carrito .boton-enviar{
+    width: 160px;
+}
+
 /* CARRITO DE COMPRAS */
 
 .carrito{
@@ -741,26 +745,27 @@ hr {
     color: black;
 }
 
-.envio-form{
+.form{
     margin-top: 15px;
 }
 
-.envio-form .envio-datos{
+.form .datos{
     display: flex;
     flex-direction: column;
 }
 
-.envio-form .envio-datos input{
+.form .datos input{
     border: 1px darkgray solid;
     width: 100%;
     border-radius: 5px;
+    padding: 15px 10px 15px;
     margin-top: 5px;
     margin-bottom: 5px;
     height: 20px;
 }
 
-.envio-form #codigo-p{
-    width: 85px;
+.form #codigo-p{
+    width: 80px;
 }
 
 .subtotal{
@@ -800,12 +805,46 @@ hr {
     font-size: 1.5em;
 }
 
-.envio-form .botones-fondo{
+.form .botones-fondo{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     flex-direction: row;
     margin-top: 15px;
+}
+
+/* pagina de registro */
+
+.registro-body{
+    background-color: #9D9D9D;
+}
+
+.registro{
+    width: 90vw;
+    max-width: 600px;
+    margin: 10vh auto 10vh;
+}
+
+.registro img{
+    width: 100%;
+}
+
+.registro .boton-enviar{
+    width: 90px;
+}
+
+.ayuda-login{
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.ayuda-login a{
+    padding: 0px 10px;
+}
+
+.login .botones-fondo{
+    justify-content: flex-end;
 }
 
 /* Responsive */

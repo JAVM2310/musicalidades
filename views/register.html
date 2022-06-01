@@ -11,15 +11,55 @@
     <link href="../css/styles.css" rel="stylesheet">
     <title>Registro | Tienda Musicalidades</title>
 </head>
-<body>
+<body class="registro-body">
     <header>
         <nav>
         </nav>
     </header>
     <main>
-        <section>
-            <article>
-            </article>
+        <section class="registro">
+            <img src="./img/logo-musicalidades-header.png" alt="">
+            <form action="" class="form">
+                <div class="datos">
+                    <label for="nombre">
+                        <input type="text" name="nombre" id="nombre" placeholder="Nombre*" required>
+                    </label>
+                    <label for="apellido">
+                        <input type="text" name="apellido" id="apellido" placeholder="Apellido*" required>
+                    </label>
+                    <label for="email">
+                        <input type="email" name="email" id="email" placeholder="Email*" required>
+                    </label>
+                    <label for="contraseña">
+                        <input type="password" name="contraseña" id="contraseña" placeholder="Contraseña*" required>
+                    </label>
+                    <label for="contraseña-repetida">
+                        <input type="password" name="contraseña-repetida" id="contraseña-repetida" placeholder="Confirmar contraseña*" required>
+                    </label>
+                    <label for="pais">
+                        <input type="text" name="pais" id="pais" placeholder="País*" required>
+                    </label>
+                    <label for="provincia">
+                        <input type="text" name="provincia" id="provincia" placeholder="Provincia*" required>
+                    </label>
+                    <label for="ciudad">
+                        <input type="text" name="ciudad" id="ciudad" placeholder="Ciudad / Localidad" required>
+                    </label>
+                    <label for="direccion">
+                        <input type="text" name="direccion" id="direccion" placeholder="Dirección*" required>
+                    </label>
+                    <label for="codigo">
+                        <input type="text" name="codigo" id="codigo" placeholder="Código postal*" required>
+                    </label>
+                    <label for="Fecha-n">
+                        <input type="text" name="fechaNac" id="Fecha-n" placeholder="Fecha de nacimiento*" required>
+                    </label>
+                </div>
+                    <div class="botones-fondo">
+                    <button type="reset" class="boton-enviar">Borrar</button>
+                    <button type="submit" class="boton-enviar">Registrarse</button>
+                </div>
+            </form>
         </section>
     </main>
     <footer>
