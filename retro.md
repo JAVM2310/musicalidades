@@ -14,4 +14,4 @@ Dinámica Starfish o Estrella de Mar:
 
 4. Hacer menos; Dejar el mayor peso al eslabón más fuerte del equipo, sólo por que tiene mayor conocimiento en algún tema. La idea es que todos podamos poner nuestro grano de arena en la construcción del proyecto. y tengamos al menos un mismo nivel de curiosidad y dedicación para llevarlo a cabo.
 
-5. Dejar de hacer; No consideramos que haya algo que no debamos hacer más. Hemos tenido buena comunicación y nos hemos entendido desde el principio.
+5. Dejar de hacer; No consideramos que haya algo que no debamos hacer más. Hemos tenido buena comunicación y nos hemos entendido desde el principio, la mejor demostración de esto es que el sprint 1 fue todo un éxito. 
