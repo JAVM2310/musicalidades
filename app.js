@@ -24,6 +24,5 @@ app.get("/register", (req, res)=>{
 
 app.use(express.static("public"));
 
-app.listen(3000, ()=>{
-    console.log("levantado el servidor en el puerto 3000")
-})
+app.listen(process.env.PORT || 3000, () => {console.log("levantado el servidor en el puerto 3000")
+});
