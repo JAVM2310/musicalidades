@@ -958,7 +958,7 @@ footer .email i {
 
 
 @media (min-width: 769px) {
-    .header,
+    
     .section-carousel,
     #productos-destacados,
     .carrito,
@@ -988,6 +988,9 @@ footer .email i {
     .shopping-icon {
         padding-left: 15px;
         padding-right: 0px;
+    }
+    .shopping-icon a{
+        color: white;
     }
     #buscador-menu {
         margin-top: 8px;
