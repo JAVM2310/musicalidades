@@ -819,10 +819,6 @@ hr {
 
 /* pagina de registro */
 
-#footer-register,
-#footer-login {
-    display: none;
-}
 
 .registro-body{
     background-color: #9D9D9D;
