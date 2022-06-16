@@ -1,0 +1,38 @@
+<%- include('../partials/head') %>
+<body class="registro-body">
+    <%- include('../partials/header') %>
+    <main>
+        <article class="registro">
+            <form class="form" method="POST" action="/tienda/newProduct">
+                <div class="datos">
+                    <label for="name">
+                        <input type="text" name="name" id="name" placeholder="Nombre del producto*" required>
+                    </label>
+                    <label for="shortDesc">
+                        <input type="text" name="shortDesc" id="shortDesc" placeholder="Breve descripción" required>
+                    </label>
+                    <label for="longDesc">
+                        <input type="text" name="longDesc" id="longDesc" placeholder="Descripción detallada*" required>
+                    </label>
+                    <label for="price">
+                        <input type="number" name="price" id="price" placeholder="Precio*" required>
+                    </label>
+                    <label for="Stock">
+                        <input type="number" name="Stock" id="Stock" placeholder="Stock (opcional)">
+                    </label>
+                    <label for="images">
+                        <p>Imágenes</p>
+                        <input class="imagenes-input" type="file" name="images" id="images" placeholder="Imágenes">
+                    </label>
+                </div>
+            </div>
+                <div class="botones-fondo">
+                <button type="reset" class="boton-enviar">Borrar</button>
+                <button type="submit" class="boton-enviar">Crear</button>
+            </div>
+            </form>
+        </article>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+</html>

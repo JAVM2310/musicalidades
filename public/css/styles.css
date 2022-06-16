@@ -768,6 +768,10 @@ hr {
     height: 20px;
 }
 
+.form .datos .imagenes-input{
+    height: auto;
+}
+
 .form #codigo-p{
     width: 105px;
 }
@@ -814,7 +818,12 @@ hr {
     flex-wrap: wrap;
     justify-content: center;
     flex-direction: row;
+    font-size: 0.9em;
     margin-top: 15px;
+}
+
+.form .botones-fondo button{
+    text-align: center;
 }
 
 /* pagina de registro */
@@ -836,7 +845,7 @@ hr {
 
 
 .registro .boton-enviar{
-    width: 90px;
+    width: 100px;
 }
 
 .ayuda-login{
