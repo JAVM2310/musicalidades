@@ -19,7 +19,7 @@ function create(product){
         name: product.name,
         shortDesc: product.shortDesc,
         longDesc: product.longDesc,
-        precio: product.precio,
+        price: product.price,
         Stock: product.Stock
     }
     this.addProduct(newProduct)
