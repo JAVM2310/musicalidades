@@ -23,7 +23,7 @@ const controller = {
         res.render('./tienda/newProduct', {titulo: titulo});
     },
     create: (req, res) => {
-        /* console.log("se creo un nuevo producto con las caracteristicas: " + req.body); */
+        console.log(req.body);
         editor.create(req.body);
         res.redirect("/tienda/newProduct");
     }
