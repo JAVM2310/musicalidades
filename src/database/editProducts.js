@@ -1,11 +1,11 @@
 const fs = require("fs")
 
 function readProducts(){
-    return JSON.parse(fs.readFileSync("./database/products.json"))
+    return JSON.parse(fs.readFileSync("./src/database/products.json"))
 }
 
 function writeProducts(a){
-    fs.writeFileSync("./database/products.json", JSON.stringify(a))
+    fs.writeFileSync("./src/database/products.json", JSON.stringify(a))
 }
 
 function addProduct(newProduct){
