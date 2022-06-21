@@ -11,6 +11,8 @@ router.get('/productDetail', tiendaController.productDetail);
 router.get('/productCart', tiendaController.productCart);
 router.get("/newProduct", tiendaController.newProduct);
 router.post("/newProduct", tiendaController.create)
+router.get("/modifyProduct", tiendaController.modifyProduct);
+router.put("/modifyProduct", tiendaController.modify)
 
 
 

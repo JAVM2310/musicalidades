@@ -23,9 +23,16 @@ const controller = {
         res.render('./tienda/newProduct', {titulo: titulo});
     },
     create: (req, res) => {
-        console.log(req.body);
         editor.create(req.body);
         res.redirect("/tienda/newProduct");
+    },
+    modifyProduct: (req, res) => {
+        let titulo = "Modificar Producto"
+        res.render("./tienda/modifyProduct", {titulo: titulo});
+    },
+    modify: (req, res) => {
+        editor.modify(req.body);
+        res.redirect("/tienda/modifyProduct")
     }
 };
 

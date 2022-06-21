@@ -2,6 +2,8 @@ const express = require("express");
 const { route } = require("express/lib/application");
 const app = express()
 const path = require("path")
+const methodOverride = require("method-override");
+methodOverride("_method")
 
 app.use(express.static('./public'));
 app.set('view engine', 'ejs');
