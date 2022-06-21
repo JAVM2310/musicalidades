@@ -8,8 +8,11 @@
     <%- include('../partials/header') %>
     <!-------------------------MAIN------------------------------->
     <main>
-        <h1 style="color: black">ESTA SERÁ LA PÁGINA TIENDA</h1>
-        
+        <h1 class="titulo">ESTA SERÁ LA PÁGINA TIENDA</h1>
+        <div class="volver">
+            <a href="/"><i class="fa-solid fa-arrow-rotate-left"></i> Volver a la Página Principal</a>
+        </div>
+    
         <section id="productos-destacados">
             
             <div class="productos-destacados">
@@ -59,6 +62,22 @@
                 <h3>Nombre producto</h3>
                 <p class="precio">$19.750</p>
                 <p><button>AGREGAR</button></p>
+            </div>
+            <div class="pagina">
+                <div class="busqueda-paginacion">
+                    <ul>
+                        <li class="pagina-anterior">
+                            <span class="pagina-anterior">Anterior</span>
+                        </li>
+                        <li class="pagina-corriente">
+                            <span class="pagina-1">1 </span>
+                        </li>
+                        <li class="pagina-de-hasta">de  1</li>
+                        <li class="pagina-siguiente">
+                            <span class="titulo-flecha-sig">Siguiente</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </section>
     </main>

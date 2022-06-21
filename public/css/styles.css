@@ -129,7 +129,7 @@ ol {
 
 .dropdown {
     position: relative;
-    background-color: rgba(157, 157, 157, 0.5);
+    background-color: rgba(157, 157, 157, 0.8);
     display: none;
     padding-left: 11px;
     z-index: 99999999999999;
@@ -391,7 +391,15 @@ main {
 
 
 /****************ICONOS DE COMPRAS*************************/
-
+.titulo{
+    font-family: 'Zen Loop';
+    font-size: 2.1em;    
+    text-align: center;
+    color: #9D9D9D;
+    border-bottom: #9D9D9D 2px solid;
+    margin-bottom: 10px;
+    background-color: #FFF;
+}
 .iconos-compras {
     display: flex;
     justify-content: space-evenly;
@@ -432,7 +440,6 @@ main {
 #productos-destacados {
     display: flex;
     flex-wrap: wrap;
-
 }
 
 .productos-destacados {
@@ -441,8 +448,8 @@ main {
     text-align: left;
     float: left;
     padding: 5px 5px 15px;
-
 }
+
 .ocultar,
 .ocultar4 {
     display: none;
@@ -451,8 +458,13 @@ main {
     width: 100%;
     max-height: 50%;
     border-radius: 10PX;
+    box-shadow: 0px 0px 10px #666;
 }
-.productos-destacados h3 {
+.productos-destacados img:hover {
+    box-shadow: 0px 0px 10px #F9AF14;
+}
+    .productos-destacados h3 {
+    text-align: center;
     color: #000;
     font-weight: bold;
     font-size: 0.9em;
@@ -647,7 +659,40 @@ hr {
     font-size: 1em;
     line-height: 1.5em;
 }
+.volver{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 14px;
+    text-align: center;
+    padding: 3%;
+}
 
+.pagina{
+    width: 100%;
+}
+.busqueda-paginacion ul {
+    width: 100%;
+    color: rgba(0,0,0,.45);
+    display: flex;
+    justify-content: center;
+    margin: 12px 0;
+    flex-wrap: wrap;
+}
+.pagina-anterior{
+    width: auto;
+    padding: 6px;
+}
+.pagina-corriente{
+    width: auto;
+    padding: 6px;
+}    
+.pagina-de-hasta{
+    width: auto;
+    padding: 6px;
+}    
+.pagina-siguiente{
+    width: auto;
+    padding: 6px;
+}
 .carrito .boton-enviar{
     width: 160px;
 }
