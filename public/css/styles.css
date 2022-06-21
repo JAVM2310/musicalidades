@@ -639,8 +639,7 @@ hr {
     border-radius: 5px;
     height: 30px;
     margin: 0px 5px;
-    padding: 0px 15px;
-    font-size: 1em;
+    padding: 0px 5px;
 }
 
 .boton-enviar:hover{
@@ -871,6 +870,51 @@ hr {
     text-align: center;
 }
 
+
+/* pagina de contacto */
+
+
+.contacto {
+    margin: auto;
+    margin-top: 20px;
+    color: #515151;
+    width: 80%;
+    text-align: center;
+}
+.direccion {
+    margin-top: 40px;
+}
+.direccion-contacto a {
+    color: #000;
+}
+.mapouter iframe {
+    margin-top: 20px;
+    width: 100%;
+    border: 1px black;
+}
+
+.form .datos textarea {
+    border: 1px darkgray solid;
+    width: 100%;
+    border-radius: 5px;
+    padding: 5px 10px 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 150px;    
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+
+
+}
+
+.direccion img{
+    width: 50%;
+}
+
+.direccion-contacto {
+    color: black;
+}
+
 /* pagina de registro */
 
 
@@ -1035,9 +1079,61 @@ footer .email i {
         font-size: 0.85em;
     }
 
-
 }  
 
+/*------------------------ FAQ ------------------------*/
+
+
+.titulo-faq{
+    margin: 20px;
+    color: #515151;
+    border-bottom: 1px dotted #ccc;
+    padding: 24px;
+  }
+  
+  .faq-content {
+    margin: 0 auto;
+  }
+  
+  .faq-question {
+    padding: 20px 0;
+    border-bottom: 1px dotted #ccc;
+  }
+  
+  .panel-title {
+    color: #515151;
+    font-size: 1em;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 10px 10px 0 48px;
+    display: block;
+    cursor: pointer;
+  }
+  
+  .panel-content {
+    color: #515151;
+    font-size: 0.9em;
+    padding: 0px 14px;
+    margin: 0 40px;
+    height: 0;
+    overflow: hidden;
+    z-index: -1;
+    position: relative;
+    opacity: 0;
+    transition: .4s ease;
+  }
+  
+  .panel:checked ~ .panel-content{
+    height: auto;
+    opacity: 1;
+    padding: 14px;
+  }
+
+  
+  .panel {
+    display: none;
+  }
 
 @media (min-width: 769px) {
     body {
@@ -1110,7 +1206,6 @@ footer .email i {
         background-color: transparent;
         margin: auto;
         overflow: visible;
-        
     }
     .menu {
         /*margin: auto;*/
@@ -1182,6 +1277,19 @@ footer .email i {
         margin: auto;
 
     }
+    .contacto {
+        display: flex;
+        justify-content: center;
+    }
+    .direccion {
+        width: 50%;
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+    .direccion img {
+        width: 40%;
+    }
+
 
     
 }

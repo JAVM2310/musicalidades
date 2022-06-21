@@ -7,11 +7,45 @@
     <!-----------------------HEADER-------------------------->
     <%- include('./partials/header') %>
     <!-------------------------MAIN------------------------------->
-    <main>
-        <h1 style="color: black">ESTA SERÁ LA PÁGINA CONTACTO</h1>
-        
-        <section>
-            
+    <main class="contacto">
+        <section class="contactanos">
+            <h3>CONTACTANOS</h3>
+            <p>Si tenés dudas, consultas, sugerencias, o querés saber algo más, escribinos!</p>
+            <br>            
+            <form action="" class="form">
+                <div class="datos">
+                    <label for="nombre-contactenos">
+                        <input type="text" name="nombre-contactenos" id="nombre-contactenos" placeholder="Nombre y Apellido*" required>
+                    </label>
+                    <label for="email-contactenos">
+                        <input type="email" name="email-contactenos" id="email-contactenos" placeholder="Email*" required>
+                    </label>
+                    <label for="mensaje-contactenos">
+                        <textarea name="mensaje-contactenos" placeholder="Mensaje:"></textarea>
+                    </label>
+                </div>
+                    <div class="botones-fondo">
+                    <button type="reset" class="boton-enviar">Borrar</button>
+                    <button type="submit" class="boton-enviar">Enviar</button>
+                </div>
+            </form>
+        </section>
+        <section class="direccion">
+            <a href="/"><img src="./img/logo-musicalidades-header.png" alt=""></a>
+
+            <div class="direccion-contacto">
+                
+            <h4>Dirección:</h4>
+                <p>Avenida Siempre Viva 742, Ciudad de Buenos Aires</p>
+                <br>
+                <h4>Email:</h4>
+                <a href="mailto:info@tiendamusicalidades.com" target="_self">
+                    <p class="email"><i class="fa-regular fa-envelope"></i> info@tiendamusicalidades.com</p>
+                </a>
+            </div>
+            <div class="mapouter">
+                    <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=ciudad%20de%20buenos%20aires&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            </div>
         </section>
     </main>
     <!-------------------------FOOTER------------------------------->
