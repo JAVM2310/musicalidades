@@ -455,10 +455,12 @@ main {
     display: none;
 }
 .productos-destacados img {
-    width: 100%;
-    max-height: 50%;
+    width: 200px;
+    height: 200px;
     border-radius: 10PX;
     box-shadow: 0px 0px 10px #666;
+    object-fit: contain;
+    background-color: white;
 }
 .productos-destacados img:hover {
     box-shadow: 0px 0px 10px #F9AF14;
@@ -469,9 +471,20 @@ main {
     font-weight: bold;
     font-size: 0.9em;
 }  
+.precio-tachado{
+    color: #9D9D9D;
+    font-size: 0.9em;
+    text-decoration: line-through;
+}
+
 .precio {
     color: #9D9D9D;
     font-size: 0.9em;
+}
+
+.descuento{
+    height: 12px;
+    color: green;
 }
 
 .productos-destacados button {

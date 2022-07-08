@@ -16,15 +16,15 @@
                     <div class="carousel-inner">
                         <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
                         <div class="carousel-item">
-                            <img src="../img/producto-bateria.jpg">
+                            <img src="/img/<%= product.image %>">
                         </div>
                         <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
                         <div class="carousel-item">
-                            <img src="../img/producto-guitarra.jpg">
+                            <img src="/img/<%= product.image %>">
                         </div>
                         <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
                         <div class="carousel-item">
-                            <img src="../img/producto-piano.jpg">
+                            <img src="/img/<%= product.image %>">
                         </div>
                         <label for="carousel-3" class="carousel-control prev control-1">‹</label>
                         <label for="carousel-2" class="carousel-control next control-1">›</label>
@@ -36,13 +36,13 @@
                 </div>
                 <ol class="carousel-indicadores">
                     <li>
-                        <label for="carousel-1" class="carousel-bullet"><img src="../img/producto-bateria.jpg" alt=""></label>
+                        <label for="carousel-1" class="carousel-bullet"><img src="/img/<%= product.image %>" alt=""></label>
                     </li>
                     <li>
-                        <label for="carousel-2" class="carousel-bullet"><img src="../img/producto-guitarra.jpg" alt=""></label>
+                        <label for="carousel-2" class="carousel-bullet"><img src="/img/<%= product.image %>" alt=""></label>
                     </li>
                     <li>
-                        <label for="carousel-3" class="carousel-bullet"><img src="../img/producto-piano.jpg" alt=""></label>
+                        <label for="carousel-3" class="carousel-bullet"><img src="/img/<%= product.image %>" alt=""></label>
                     </li>
                 </ol>
             </div>
@@ -50,9 +50,16 @@
                 
             <div class="cont-producto-descripcion">
                 <article class="producto-descripcion">
-                    <h2>Nombre del producto</h2>
-                    <h3>Breve descripcion</h3>
-                    <p class="precio">$ xxxxx</p>
+                    <h2><%= product.name%></h2>
+                    <h3><%= product.shortDesc%></h3>
+                    <% if (product.discount > 0){ %>
+                        <span class="precio-tachado">$<%= product.price %></span>
+                        <span class="precio">$<%= (product.price * (100-product.discount))/100 %></span>
+                        <p class="descuento"><%= product.discount %>% OFF</p>
+                    <% } else { %>
+                        <p class="precio"><%= product.price %></p>
+                        <p class="descuento">      </p>
+                    <% } %>
                     <form action="" class="producto-form">
                         <div class="cantidad">
                             <label for="-">
@@ -69,12 +76,13 @@
                             <button type="submit" id="enviar" class="boton-enviar">AGREGAR AL CARRITO</button>
                         </label>
                     </form>
+                    <p class="stock"><%= product.stock %></p>
                 </article>
                 <article class="producto-descripcion">
                     <div>
                         <h4>Detalles del producto:</h4>
                         <p class="descripcion-detallada">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.o 
+                            <%= product.longDesc%>
                         </p>
                     </div>
                 </article>

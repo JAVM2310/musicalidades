@@ -1,18 +1,25 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
+const fs = require("fs");
 const editor = require("../database/editProducts")
 
+const productsFilePath = path.join(__dirname, '../database/products.json');
+const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
 let titulo = "";
+
 
 const controller = {
     tienda: (req, res) => {
         let titulo = "Tienda"
-        res.render('./tienda/tienda', {titulo: titulo});
+        res.render('./tienda/tienda', {titulo: titulo, products: products});
     },
     productDetail: (req, res) => {
         let titulo = "Detalle de Producto"
-        res.render('./tienda/productDetail', {titulo: titulo});
+        let chosenProductIndex = products.findIndex(product => product.id == req.params.id)
+        let chosenProduct = products[chosenProductIndex]
+        res.render('./tienda/productDetail', {titulo: titulo, product:chosenProduct});
     },
     productCart: (req, res) => {
         let titulo = "Carrito"

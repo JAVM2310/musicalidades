@@ -15,54 +15,21 @@
     
         <section id="productos-destacados">
             
-            <div class="productos-destacados">
-                <a href="/tienda/productDetail"><img src="./img/producto-piano.jpg" alt="Producto piano"></a>
-                <h3>Nombre producto</h3>
-                <p class="precio">$1.999</p>
-                <p><button>AGREGAR</button></p>
-            </div>
-            <div class="productos-destacados">
-                <a href="/tienda/productDetail"><img src="./img/producto-guitarra.jpg" alt="Producto guitarra"></a>
-                <h3>Nombre producto</h3>
-                <p class="precio">$9.250</p>
-                <p><button>AGREGAR</button></p>
-            </div>
-            <div class="productos-destacados">
-                <a href="/tienda/productDetail"><img src="./img/producto-bateria.jpg" alt="Producto bateria"></a>
-                <h3>Nombre producto</h3>
-                <p class="precio">$19.750</p>
-                <p><button>AGREGAR</button></p>
-            </div>
-            <div class="productos-destacados">
-                <a href="/tienda/productDetail"><img src="./img/producto-flauta.jpg" alt="Producto flauta"></a>
-                <h3>Nombre producto</h3>
-                <p class="precio">$1.999</p>
-                <p><button>AGREGAR</button></p>
-            </div>
-            <div class="productos-destacados ocultar">
-                <a href="/tienda/productDetail"><img src="./img/producto-piano.jpg" alt="Producto piano"></a>
-                <h3>Nombre producto</h3>
-                <p class="precio">$9.250</p>
-                <p><button>AGREGAR</button></p>
-            </div>
-            <div class="productos-destacados ocultar">
-                <a href="/tienda/productDetail"><img src="./img/producto-bateria.jpg" alt="Producto bateria"></a>
-                <h3>Nombre producto</h3>
-                <p class="precio">$19.750</p>
-                <p><button>AGREGAR</button></p>
-            </div>
-            <div class="productos-destacados ocultar4">
-                <a href="/tienda/productDetail"><img src="./img/producto-guitarra.jpg" alt="Producto guitarra"></a>
-                <h3>Nombre producto</h3>
-                <p class="precio">$9.250</p>
-                <p><button>AGREGAR</button></p>
-            </div>
-            <div class="productos-destacados ocultar4">
-                <a href="/tienda/productDetail"><img src="./img/producto-flauta.jpg" alt="Producto flauta"></a>
-                <h3>Nombre producto</h3>
-                <p class="precio">$19.750</p>
-                <p><button>AGREGAR</button></p>
-            </div>
+            <%products.forEach((product) => { %>
+                <div class="productos-destacados">
+                    <a href="/tienda/productDetail"><img src="/img/<%= product.image %>" alt=<%= product.name %>></a>
+                    <h3><%= product.name %></h3>
+                    <% if (product.discount > 0){ %>
+                        <span class="precio-tachado">$<%= product.price %></span>
+                        <span class="precio">$<%= (product.price * (100-product.discount))/100 %></span>
+                        <p class="descuento"><%= product.discount %>% OFF</p>
+                    <% } else { %>
+                        <p class="precio"><%= product.price %></p>
+                        <p class="descuento">      </p>
+                    <% } %>
+                    <p><button>AGREGAR</button></p>
+                </div>
+            <% }) %>
             <div class="pagina">
                 <div class="busqueda-paginacion">
                     <ul>
