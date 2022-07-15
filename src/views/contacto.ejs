@@ -11,23 +11,32 @@
         <section class="contactanos">
             <h3>CONTACTANOS</h3>
             <p>Si tenés dudas, consultas, sugerencias, o querés saber algo más, escribinos!</p>
-            <br>            
-            <form action="" class="form">
-                <div class="datos">
-                    <label for="nombre-contactenos">
-                        <input type="text" name="nombre-contactenos" id="nombre-contactenos" placeholder="Nombre y Apellido*" required>
+            <br>
+            <p class="mensajeGracias">           
+            <form class="form" action="/contacto" method="POST" enctype="text/plain">
+                <div class="datos"><p>
+                    <label for="nombreContactenos">
+                        <input class="form-relleno" type="text" name="nombreContactenos" id="nombreContactenos" placeholder="Nombre y Apellido*" required>
+                        <!-- <% if (locals.errors && locals.errors.nombreContactenos){ %>
+                            <p><%= locals.errors.nombreContactenos.msg %></p>
+
+                        <% } %>
+                        <% locals.errors && errors.nombreContactenos?'is-invalid':null %> -->
                     </label>
-                    <label for="email-contactenos">
-                        <input type="email" name="email-contactenos" id="email-contactenos" placeholder="Email*" required>
+                    <label for="emailContactenos">
+                        <input type="email" name="emailContactenos" id="email-contactenos" placeholder="Email*" required>
                     </label>
-                    <label for="mensaje-contactenos">
-                        <textarea name="mensaje-contactenos" placeholder="Mensaje:"></textarea>
+                    <label for="mensajeContactenos">
+                        <textarea name="mensajeContactenos" placeholder="Mensaje*:" required></textarea>
                     </label>
                 </div>
                     <div class="botones-fondo">
                     <button type="reset" class="boton-enviar">Borrar</button>
                     <button type="submit" class="boton-enviar">Enviar</button>
                 </div>
+                <% if(locals.errors){ 
+                    errors.forEach(error => { %> <p> <%= errors.msg %></p> <% })
+                } %>
             </form>
         </section>
         <section class="direccion">

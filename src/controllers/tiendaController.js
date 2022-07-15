@@ -29,17 +29,24 @@ const controller = {
         let titulo = "Nuevo Producto"
         res.render('./tienda/newProduct', {titulo: titulo});
     },
-    create: (req, res) => {
-        editor.create(req.body);
-        res.redirect("/tienda/newProduct");
+    createProduct: (req, res) => {
+
+        editor.create(req.body, req.files);
+        let lastProduct = products.slice(-1)[0];
+        let lastId = lastProduct.id + 1;
+        //console.log(req.files);
+        res.redirect("/tienda/productDetail/" + lastId);
+        //res.send('hola');
     },
     modifyProduct: (req, res) => {
         let titulo = "Modificar Producto"
-        res.render("./tienda/modifyProduct", {titulo: titulo});
+        let chosenProductIndex = products.findIndex(product => product.id == req.params.id);
+        let chosenProduct = products[chosenProductIndex];
+        res.render("./tienda/modifyProduct", {titulo, product:chosenProduct});
     },
     modify: (req, res) => {
-        editor.modify(req.body);
-        res.redirect("/tienda/modifyProduct")
+        //editor.modify(req.body);
+        res.redirect("/tienda/productDetail/")
     }
 };
 

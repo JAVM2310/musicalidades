@@ -8,23 +8,43 @@
     <%- include('../partials/header') %>
     <!-------------------------MAIN------------------------------->
     <main>
-        <h1 class="titulo">ESTA SERÁ LA PÁGINA TIENDA</h1>
+        <h1 class="titulo">TIENDA</h1>
         <div class="volver">
             <a href="/"><i class="fa-solid fa-arrow-rotate-left"></i> Volver a la Página Principal</a>
+            <p></p>
+            <div class="filtros">
+                <label for="filtros"><span style="text-align:right"></span>
+                    <select name="filtros" id="filtros" required> 
+                        <option value="Sin categoría">FILTRAR POR</option> 
+                        <option value="Cuerdas">Marcas</option>
+                        <option value="Percusión">Categorías</option>
+                        <option value="Teclas">Más Recientes</option>
+                        <option value="Vientos">Más Baratos</option>                           
+                    </select>
+                    <select name="ordenar-por" id="ordenador" required> 
+                        <option value="Sin categoría">ORDENAR POR</option> 
+                        <option value="Cuerdas">A-Z</option>
+                        <option value="Percusión">Z-A</option>
+                        <option value="Teclas">Más Recientes</option>
+                        <option value="Vientos">Más Baratos</option>
+                        <option value="Vientos">Más Caros</option>                                
+                    </select>
+            </label>
+            </div>
         </div>
-    
+        
         <section id="productos-destacados">
             
             <%products.forEach((product) => { %>
                 <div class="productos-destacados">
-                    <a href="/tienda/productDetail"><img src="/img/<%= product.image %>" alt=<%= product.name %>></a>
+                    <a href="/tienda/productDetail/<%= product.id %>"><img src="/img/<%= product.image[0] %>" alt=<%= product.name %>></a>
                     <h3><%= product.name %></h3>
                     <% if (product.discount > 0){ %>
                         <span class="precio-tachado">$<%= product.price %></span>
                         <span class="precio">$<%= (product.price * (100-product.discount))/100 %></span>
                         <p class="descuento"><%= product.discount %>% OFF</p>
                     <% } else { %>
-                        <p class="precio"><%= product.price %></p>
+                        <p class="precio">$<%= product.price %></p>
                         <p class="descuento">      </p>
                     <% } %>
                     <p><button>AGREGAR</button></p>

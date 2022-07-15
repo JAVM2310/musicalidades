@@ -1,8 +1,162 @@
-[{"id":"1","name":"guitarraaaaa","shortDesc":"guitarra electrica","longDesc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum","price":"100000000","discount":"50","Stock":"10","image":"producto-guitarra.png"},
-{"id":"2","name":"piano","shortDesc":"piano de cola","longDesc":"piano de cola negro","price":"1000000000","discount":"50","Stock":"1","image":"piano.jpg"},
-{"id":"3","name":"guitarra","shortDesc":"guitarra electrica","longDesc":"guitarra electrica roja","price":"100000000","discount":"0","Stock":"10","image":"producto-guitarra.png"},
-{"id":"4","name":"piano","shortDesc":"piano de cola","longDesc":"piano de cola negro","price":"1000000000","discount":"0","Stock":"1","image":"piano.jpg"},
-{"id":"5","name":"guitarra","shortDesc":"guitarra electrica","longDesc":"guitarra electrica roja","price":"100000000","discount":"0","Stock":"10","image":"producto-guitarra.png"},
-{"id":"6","name":"piano","shortDesc":"piano de cola","longDesc":"piano de cola negro","price":"1000000000","discount":"0","Stock":"1","image":"piano.jpg"},
-{"id":"7","name":"guitarra","shortDesc":"guitarra electrica","longDesc":"guitarra electrica roja","price":"100000000","discount":"30","Stock":"10","image":"producto-guitarra.png"},
-{"id":"8","name":"piano","shortDesc":"piano de cola","longDesc":"piano de cola negro","price":"1000000000","discount":"40","Stock":"1","image":"piano.jpg"}]
+[
+ {
+  "id": 1,
+  "categoria": "Sin Categoría",
+  "name": "guitarraaaaa",
+  "shortDesc": "guitarra electrica",
+  "longDesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+  "price": "100000000",
+  "discount": "50",
+  "stock": "10",
+  "marca": "Jean Baptiste",
+  "image": [
+   "producto-guitarra.jpg",
+   "/products/default.png",
+   "/products/default.png"
+  ]
+ },
+ {
+  "id": 2,
+  "categoria": "Sin Categoría",
+  "name": "piano",
+  "shortDesc": "piano de cola",
+  "longDesc": "piano de cola negro",
+  "price": "1000000000",
+  "discount": "50",
+  "stock": "1",
+  "marca": "Jean Baptiste",
+  "image": [
+   "piano.jpg",
+   "/products/default.png",
+   "/products/default.png"
+  ]
+ },
+ {
+  "id": 3,
+  "categoria": "Sin Categoría",
+  "name": "guitarra",
+  "shortDesc": "guitarra electrica",
+  "longDesc": "guitarra electrica roja",
+  "price": "100000000",
+  "discount": "0",
+  "stock": "10",
+  "marca": "Jean Baptiste",
+  "image": [
+   "producto-guitarra.jpg",
+   "/products/default.png",
+   "/products/default.png"
+  ]
+ },
+ {
+  "id": 4,
+  "categoria": "Sin Categoría",
+  "name": "piano",
+  "shortDesc": "piano de cola",
+  "longDesc": "piano de cola negro",
+  "price": "1000000000",
+  "discount": "0",
+  "stock": "1",
+  "marca": "Jean Baptiste",
+  "image": [
+   "piano.jpg",
+   "/products/default.png",
+   "/products/default.png"
+  ]
+ },
+ {
+  "id": 5,
+  "categoria": "Sin Categoría",
+  "name": "guitarra",
+  "shortDesc": "guitarra electrica",
+  "longDesc": "guitarra electrica roja",
+  "price": "100000000",
+  "discount": "0",
+  "stock": "10",
+  "marca": "Jean Baptiste",
+  "image": [
+   "producto-guitarra.jpg",
+   "/products/default.png",
+   "/products/default.png"
+  ]
+ },
+ {
+  "id": 6,
+  "categoria": "Percusión",
+  "name": "piano",
+  "shortDesc": "piano de cola",
+  "longDesc": "piano de cola negro",
+  "price": "1000000000",
+  "discount": "0",
+  "stock": "1",
+  "marca": "Jean Baptiste",
+  "image": [
+   "piano.jpg",
+   "/products/default.png",
+   "/products/default.png"
+  ]
+ },
+ {
+  "id": 7,
+  "categoria": "Teclas",
+  "name": "guitarra",
+  "shortDesc": "guitarra electrica",
+  "longDesc": "guitarra electrica roja",
+  "price": "100000000",
+  "discount": "30",
+  "stock": "10",
+  "marca": "Jean Baptiste",
+  "image": [
+   "producto-guitarra.jpg",
+   "/products/default.png",
+   "/products/default.png"
+  ]
+ },
+ {
+  "id": 8,
+  "categoria": "Cuerdas",
+  "name": "piano",
+  "shortDesc": "piano de cola",
+  "longDesc": "piano de cola negro",
+  "price": "1000000000",
+  "discount": "40",
+  "stock": "1",
+  "marca": "Jean Baptiste",
+  "image": [
+   "piano.jpg",
+   "/products/default.png",
+   "/products/default.png"
+  ]
+ },
+ {
+  "id": 9,
+  "categoria": "Vientos",
+  "name": "Saxofón Jean Baptiste",
+  "shortDesc": "Jean Baptiste 290AL Eb Alto Saxofón estudiantil",
+  "longDesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+  "price": "89500",
+  "discount": "20",
+  "stock": "5",
+  "marca": "Jean Baptiste",
+  "image": [
+   "/products/producto-1657641871127.jpg",
+   "/products/producto-1657641871124.jpg",
+   "/products/producto-1657641871123.jpg"
+  ]
+ },
+ {
+  "id": 10,
+  "categoria": "Sin Categoría",
+  "name": "Nuevo Producto",
+  "shortDesc": "Este es un nuevo producto",
+  "longDesc": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. ",
+  "price": "8599",
+  "discount": "20",
+  "stock": "10",
+  "marca": "Brand New",
+  "image": [
+   "/products/producto-1657746247518.jpg",
+   "/products/producto-1657746247519.jpg",
+   "/products/producto-1657746247522.jpg"
+  ]
+ }
+]

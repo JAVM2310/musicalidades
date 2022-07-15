@@ -3,34 +3,51 @@
     <%- include('../partials/header') %>
     <main>
         <article class="registro">
-            <form class="form" method="POST" action="/tienda/newProduct?_method=PUT">
-                <div class="datos">
-                    <label for="name">
-                        <input type="text" name="name" id="name" placeholder="Nombre del producto*" required>
+            <form class="form" method="POST" action="/tienda/productDetail/<%= product.id %>?_method=PUT" enctype="multipart/form-data">
+                    <div class="datos">
+                        <label for="categoria"><span style="text-align:right">Categoría:</span>
+                            <select name="categoria" id="categoria" >
+                                <option value="<%= product.categoria %>"><%= product.categoria %></option>  
+                                <option value="Sin categoría">Sin Categoría</option> 
+                                <option value="Cuerdas">Cuerdas</option>
+                                <option value="Percusión">Percusión</option>
+                                <option value="Teclas">Teclas</option>
+                                <option value="Vientos">Vientos</option>                           
+                            </select>
                     </label>
-                    <label for="shortDesc">
-                        <input type="text" name="shortDesc" id="shortDesc" placeholder="Breve descripción" required>
-                    </label>
-                    <label for="longDesc">
-                        <input type="text" name="longDesc" id="longDesc" placeholder="Descripción detallada*" required>
-                    </label>
-                    <label for="price">
-                        <input type="number" name="price" id="price" placeholder="Precio*" required>
-                    </label>
-                    <label for="Stock">
-                        <input type="number" name="Stock" id="Stock" placeholder="Stock (opcional)">
-                    </label>
-                    <label for="images">
-                        <p>Imágenes</p>
-                        <input class="imagenes-input" type="file" name="images" id="images" placeholder="Imágenes">
-                    </label>
+                        <label for="name">
+                            <input type="text" name="name" id="name" placeholder="<%= product.name %>" >
+                        </label>
+                        
+                        <label for="marca">
+                            <input type="text" name="marca" id="marca" placeholder="<%= product.marca %>" >
+                        </label>
+                        <label for="shortDesc">
+                            <input type="text" name="shortDesc" id="shortDesc" placeholder="<%= product.shortDesc %>" >
+                        </label>
+                        <label for="longDesc">
+                            <input type="text" name="longDesc" id="longDesc" placeholder="<%= product.longDesc %>" >
+                        </label>
+                        <label for="price">
+                            <input type="number" name="price" id="price" placeholder="<%= product.price %>" >
+                        </label>
+                        <label for="discount">
+                            <input type="number" name="discount" id="discount" placeholder="<%= product.discount %>" >
+                        </label>
+                        <label for="stock">
+                            <input type="number" name="stock" id="stock" placeholder="<%= product.stock %>" >
+                        </label>
+                        <label for="images">
+                            <p>Imágenes</p>
+                            <input class="imagenes-input" type="file" name="images" id="images" placeholder="Imágenes" multiple>
+                        </label>
+                    </div>
                 </div>
-            </div>
-                <div class="botones-fondo">
-                <button type="reset" class="boton-enviar">Borrar</button>
-                <button type="submit" class="boton-enviar">Guardar cambios</button>
-            </div>
-            </form>
+                    <div class="botones-fondo">
+                    <button type="reset" class="boton-enviar">Borrar</button>
+                    <button type="submit" class="boton-enviar">Modificar</button>
+                </div>
+                </form>
         </article>
     </main>
     <%- include('../partials/footer') %>
