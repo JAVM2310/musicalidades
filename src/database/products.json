@@ -145,18 +145,34 @@
  },
  {
   "id": 10,
-  "categoria": "Sin Categoría",
+  "categoria": "Teclas",
   "name": "Nuevo Producto",
   "shortDesc": "Este es un nuevo producto",
-  "longDesc": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. ",
-  "price": "8599",
+  "longDesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+  "price": "658895",
   "discount": "20",
-  "stock": "10",
-  "marca": "Brand New",
+  "stock": "5",
+  "marca": "Jean Baptiste",
   "image": [
-   "/products/producto-1657746247518.jpg",
-   "/products/producto-1657746247519.jpg",
-   "/products/producto-1657746247522.jpg"
+   "/products/producto-1658004646212.jpg",
+   "/products/producto-1658004646213.jpg",
+   "/products/producto-1658004646216.jpg"
+  ]
+ },
+ {
+  "id": 11,
+  "categoria": "Sin categoría",
+  "name": "Guadalupe Flores Cottet",
+  "shortDesc": "Este es un nuevo producto",
+  "longDesc": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. ",
+  "price": "852",
+  "discount": "5",
+  "stock": "5",
+  "marca": "yamaha",
+  "image": [
+   "/products/producto-1658007904227.jpg",
+   "/products/producto-1658007904228.jpg",
+   "/products/producto-1658007904231.jpg"
   ]
  }
 ]

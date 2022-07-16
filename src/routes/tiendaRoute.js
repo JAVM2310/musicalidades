@@ -36,6 +36,6 @@ router.post("/newProduct", upload.array('images'), tiendaController.createProduc
 router.get("/modifyProduct/:id", tiendaController.modifyProduct);
 router.put("/productDetail/:id", tiendaController.modify)
 
-/****me gustaria que una vez modificado te vaya a la pag del detalle del producto pero la voy a cagar si toco la ruta */
+/****me gustaria que una vez modificado te vaya a la pag del detalle del producto pero toco la ruta y la cago */
 
 module.exports = router;
