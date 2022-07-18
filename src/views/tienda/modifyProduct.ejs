@@ -3,9 +3,10 @@
     <%- include('../partials/header') %>
     <main>
         <article class="registro">
-            <form class="form" method="POST" action="/tienda/productDetail/<%= product.id %>?_method=PUT" enctype="multipart/form-data">
+            <form class="form" method="POST" action="/tienda/productDetail/<%= product.id %>?_method=PUT">
+                <!--enctype="multipart/form-data"-->
                     <div class="datos">
-                        <label for="categoria"><span style="text-align:right">Categoría:</span>
+                        <label for="categoria"><span>Categoría:</span>
                             <select name="categoria" id="categoria" >
                                 <option value="<%= product.categoria %>"><%= product.categoria %></option>  
                                 <option value="Sin categoría">Sin Categoría</option> 
@@ -16,30 +17,30 @@
                             </select>
                     </label>
                         <label for="name">
-                            <input type="text" name="name" id="name" placeholder="<%= product.name %>" >
+                            <input type="text" name="name" id="name" value="<%= product.name %>" >
                         </label>
                         
                         <label for="marca">
-                            <input type="text" name="marca" id="marca" placeholder="<%= product.marca %>" >
+                            <input type="text" name="marca" id="marca" value="<%= product.marca %>" >
                         </label>
                         <label for="shortDesc">
-                            <input type="text" name="shortDesc" id="shortDesc" placeholder="<%= product.shortDesc %>" >
+                            <input type="text" name="shortDesc" id="shortDesc" value="<%= product.shortDesc %>" >
                         </label>
                         <label for="longDesc">
-                            <input type="text" name="longDesc" id="longDesc" placeholder="<%= product.longDesc %>" >
+                            <input type="text" name="longDesc" id="longDesc" value="<%= product.longDesc %>" >
                         </label>
                         <label for="price">
-                            <input type="number" name="price" id="price" placeholder="<%= product.price %>" >
+                            <input type="number" name="price" id="price" value="<%= product.price %>" >
                         </label>
                         <label for="discount">
-                            <input type="number" name="discount" id="discount" placeholder="<%= product.discount %>" >
+                            <input type="number" name="discount" id="discount" value="<%= product.discount %>" >
                         </label>
                         <label for="stock">
-                            <input type="number" name="stock" id="stock" placeholder="<%= product.stock %>" >
+                            <input type="number" name="stock" id="stock" value="<%= product.stock %>" >
                         </label>
                         <label for="images">
                             <p>Imágenes</p>
-                            <input class="imagenes-input" type="file" name="images" id="images" placeholder="Imágenes" multiple>
+                            <input class="imagenes-input" type="file" name="images" id="images" value="<%= product.image %>" multiple>
                         </label>
                     </div>
                 </div>

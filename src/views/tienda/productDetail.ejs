@@ -8,7 +8,9 @@
     <%- include('../partials/header') %>
     <!-------------------------MAIN------------------------------->
     <main>
-        <a href="/tienda/modifyProduct/<%= product.id %>">editar producto</a>
+        <a href="/tienda/modifyProduct/<%= product.id %>">editar producto | </a>
+        
+        <a href="#">eliminar producto</a>
         <h4 class="titulo-nav-paginas">> Categoría <%= product.categoria %> <span>> Marca <%= product.marca %> <span>> <%= product.name %></span></h4>
         <section class="producto">
             <!-- carousel -->
@@ -54,11 +56,11 @@
                     <h2><%= product.name%></h2>
                     <h3><%= product.shortDesc%></h3>
                     <% if (product.discount > 0){ %>
-                        <span class="precio-tachado-big">$<%= product.price %></span>
-                        <span class="precio">$<%= (product.price * (100-product.discount))/100 %></span>
+                        <span class="precio-tachado-big">$<%= Intl.NumberFormat('sp-SP').format(product.price) %></span>
+                        <span class="precio">$<%= Intl.NumberFormat('sp-SP').format((product.price * (100-product.discount))/100) %></span>
                         <p class="descuento"><%= product.discount %>% OFF</p>
                     <% } else { %>
-                        <p class="precio"><%= product.price %></p>
+                        <p class="precio">$<%= Intl.NumberFormat('sp-SP').format(product.price) %></p>
                         <p class="descuento">      </p>
                     <% } %>
                     <form action="" class="producto-form">

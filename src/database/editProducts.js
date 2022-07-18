@@ -6,7 +6,6 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 
 function readProducts(){
-
     return JSON.parse(fs.readFileSync("./src/database/products.json"));
 }
 
@@ -14,19 +13,18 @@ function writeProducts(a){
     fs.writeFileSync(productsFilePath, JSON.stringify(a, null, " "))
 }
 
-
-
 function addProduct(newProduct){
     let arr = this.readProducts()
     arr.push(newProduct)
     this.writeProducts(arr)
 }
 
-function create(product, imagenes){
+
+function createProduct(product, imagenes){
     
     let lastProduct = products.slice(-1)[0];
     let lastId = lastProduct.id + 1;
-    console.log(imagenes);
+    //console.log(imagenes);
 
     let nombresImagenes = [];
     for (let i=0; i<imagenes.length; i++){
@@ -53,12 +51,26 @@ function create(product, imagenes){
     this.addProduct(newProduct);
 }
 
+function editProduct(editedProduct, imagenes){
+
+    //let nombresImagenes = [];
+    // for (let i=0; i<imagenes.length; i++){
+    //     nombresImagenes[i] = '/products/' + imagenes[i].filename;
+    //     //console.log(nombresImagenes);
+    // }
+    
+    
+    console.log(editedProduct);
+
+    //fs.writeFileSync(productsFilePath, JSON.stringify(editedProduct, null, " "))
+}
 
 let functions = {
     readProducts,
     writeProducts,
+    editProduct,
     addProduct,
-    create,
+    createProduct,
 }
 
 module.exports = functions;

@@ -1,130 +1,130 @@
 [
  {
   "id": 1,
-  "categoria": "Sin Categoría",
-  "name": "guitarraaaaa",
-  "shortDesc": "guitarra electrica",
-  "longDesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-  "price": "100000000",
-  "discount": "50",
-  "stock": "10",
-  "marca": "Jean Baptiste",
+  "categoria": "Cuerdas",
+  "name": "Guitarra criolla clásica",
+  "shortDesc": "Guitarra criolla clásica Yamaha C40 para diestros natural palo de rosa gloss",
+  "longDesc": "Como demuestra la C40, un precio modesto no tiene que colocar al instrumento en una categoría inferior. La tapa de pino, aros y fondo de Meranti (similar a la caoba) y un diapasón y puente de auténtico rosewood aseguran a esta guitarra una calidad de tono y capacidad de ejecución que elimina dicha etiqueta . La C40 incorpora clavijas de afinación cromadas.  Este modelo, el mas vendido por Yamaha, acaba de ser agraciado con el galardón al “mejor instrumento de cuerda” en la última edición de los premios de la industria musical (M.I.A., Music Industry Awards), celebrada en Londres.  Tapa: Pino Posterior y laterales: Meranti Trastera: Rosewood Mango: Nato Puente: Rosewood Ancho de cejilla: 52 mm Clavijero: Niquelado Tipo de cuerdas: Nylon",
+  "price": "35698",
+  "discount": "5",
+  "stock": "2",
+  "marca": "Yamaha",
   "image": [
-   "producto-guitarra.jpg",
-   "/products/default.png",
-   "/products/default.png"
+   "/products/producto-1657641871120.jpg",
+   "/products/producto-1657641871121.jpg",
+   "/products/producto-1657641871122.jpg"
   ]
  },
  {
   "id": 2,
-  "categoria": "Sin Categoría",
-  "name": "piano",
-  "shortDesc": "piano de cola",
-  "longDesc": "piano de cola negro",
-  "price": "1000000000",
-  "discount": "50",
-  "stock": "1",
-  "marca": "Jean Baptiste",
+  "categoria": "Teclas",
+  "name": "Piano Acústico",
+  "shortDesc": "Piano Acústico Yamaha Gb1k Pe Polished Ebony",
+  "longDesc": "Todos quieren un grand piano en su hogar, pero el costo puede ser prohibitivo. El Yamaha GB1K Grand Piano es el instrumento más económico en la línea Yamaha. Los Grand piano también ocupan mucho espacio; el GB1K es una opción popular para locaciones con espacio limitado. Este grand piano de 151cm tiene un tono completo, resonante, comparable con el de pianos más grandes. Trae el hall de concierto a tu hogar con el Grand Piano Yamaha GB1K.  Características rápidas del producto: * Un piano que te encantará tocar * Sonido increíble * Pedal Tonal (solo afecta la mitad mas grave del teclado)",
+  "price": "3958745",
+  "discount": "15",
+  "stock": "5",
+  "marca": "Yamaha",
   "image": [
-   "piano.jpg",
-   "/products/default.png",
-   "/products/default.png"
+   "/products/producto-1657641871117.jpg",
+   "/products/producto-1657641871118.jpg",
+   "/products/producto-1657641871119.jpg"
   ]
  },
  {
   "id": 3,
-  "categoria": "Sin Categoría",
-  "name": "guitarra",
-  "shortDesc": "guitarra electrica",
-  "longDesc": "guitarra electrica roja",
-  "price": "100000000",
-  "discount": "0",
+  "categoria": "Percusión",
+  "name": "Batería Electrónica",
+  "shortDesc": "Batería Electrónica Yamaha Dtx402k Dtx 402",
+  "longDesc": "Contiene: * Redoblante: pad de 7.5 \" * Tom1: pad de 7.5\" * Tom2: pad de 7.5\" * Tom de piso: pad de 7.5\" * Bombo / Pedal: KU100 * Hi-Hat: pad de 10\" * Crash: pad de 10\" con funcion choke * Ride: pad de 10\" * Módulo: DTX402K  Los sonidos DTX402 combinan años de experiencia creando auténticos sonidos de batería de alta calidad con 10 kits de batería incorporados, incluyendo efectos acústicos y sonidos electrónicos para ayudarle a encontrar la voz perfecta. Puedes crear fácilmente tus propios kits y elegir entre varios sonidos de alta calidad. Da voz a tu sensibilidad musical con la serie DTX402.  El DTX viene con 10 funciones de aprendizaje incorporadas que sólo son posibles con una batería electrónica. Entre ellas se incluyen la función Pad Gate, adecuada incluso para principiantes, que te entrena gradualmente a lo largo del tiempo, la función Rhythm Gate, que fomenta un sentido rítmico preciso, fundamental para la percusión, y la función Fast Blast, que mide la velocidad de tus redobles. También hay una función de puntuación para que puedas evaluar tus habilidades objetivamente. Aprovecha esta completa gama de funciones de ayuda para mejorar tu poder de expresión como baterista.  La aplicación dedicada de iOS/Android, DTX402 Touch, te permite practicar de una forma más agradable y fácil de seguir. En la función Challenge Mode, toca sobre pistas de entrenamiento incorporadas como si fuera un juego. Una vez que completes la etapa final, recibirás un certificado de batería de Yamaha. También puede utilizar la función Editor para personalizar kits de baterías. La serie DTX402 también funciona con la aplicación Rec n Share iOS para que puedas practicar y grabarte con tu música favorita y compartirla rápidamente con tus amigos y redes sociales.  Conecta el módulo a tu ordenador a través de USB y crea datos de audio a partir de los sonidos producidos en el DTX. Enlaza el módulo a la aplicación DAW para producción musical avanzada.",
+  "price": "350668",
+  "discount": "30",
   "stock": "10",
-  "marca": "Jean Baptiste",
+  "marca": "Yamaha",
   "image": [
-   "producto-guitarra.jpg",
-   "/products/default.png",
-   "/products/default.png"
+   "/products/producto-1657641871114.jpg",
+   "/products/producto-1657641871115.jpg",
+   "/products/producto-1657641871116.jpg"
   ]
  },
  {
   "id": 4,
   "categoria": "Sin Categoría",
-  "name": "piano",
-  "shortDesc": "piano de cola",
-  "longDesc": "piano de cola negro",
-  "price": "1000000000",
+  "name": "Caja De Sonido Bafle",
+  "shortDesc": "Caja De Sonido Bafle Yamaha A15 400 Watts Nueva Garantía",
+  "longDesc": "Caja de sonido pensada para el vivo, con parlante de 15 pulgadas, tweeter de 1 pulgada que soportan 400 watts y 800 de pico en 8 ohms.  Precio por unidad  Construcción: Madera forrada en alfombra Potencia: 400 Watts 8 ohms Parlante: 15 pulgadas Tweeter: 1 pulgada Entradas: Speakon x 1, Parallel Input x 1 Dimensiones: 47 x 66,5 x 37,5 cm Peso: 21,3kg",
+  "price": "236520",
   "discount": "0",
-  "stock": "1",
-  "marca": "Jean Baptiste",
+  "stock": "5",
+  "marca": "Yamaha",
   "image": [
-   "piano.jpg",
-   "/products/default.png",
-   "/products/default.png"
+   "/products/producto-1657641871111.jpg",
+   "/products/producto-1657641871112.jpg",
+   "/products/producto-1657641871113.jpg"
   ]
  },
  {
   "id": 5,
-  "categoria": "Sin Categoría",
-  "name": "guitarra",
-  "shortDesc": "guitarra electrica",
-  "longDesc": "guitarra electrica roja",
-  "price": "100000000",
+  "categoria": "Vientos",
+  "name": "Clarinete",
+  "shortDesc": "Clarinete Knight Jbcl-510 Jbcl510 17 Llaves",
+  "longDesc": "Construido en baquelita con terminación Nickel, 17 llaves y 5 elementos con doble barrilote, afinados en 440 y 442, con estuche rígido. Clarinete en si bemol.  Este es un hermoso Clarinete Knigth en su modelo JBCL-510. Un instrumento de excelente calidad sonora, ideal para quienes se inician en el estudio. Es también recomendado como instancia previa para niños que quieren aprender saxo por su portabilidad.  Estuche, paño de limpieza y un año de Garantía.",
+  "price": "58963",
   "discount": "0",
   "stock": "10",
-  "marca": "Jean Baptiste",
+  "marca": "Knight ",
   "image": [
-   "producto-guitarra.jpg",
-   "/products/default.png",
-   "/products/default.png"
+   "/products/producto-1657641871108.jpg",
+   "/products/producto-1657641871109.jpg",
+   "/products/producto-1657641871110.jpg"
   ]
  },
  {
   "id": 6,
-  "categoria": "Percusión",
-  "name": "piano",
-  "shortDesc": "piano de cola",
-  "longDesc": "piano de cola negro",
-  "price": "1000000000",
+  "categoria": "Teclas",
+  "name": "Teclado",
+  "shortDesc": "Teclado Vox Continental 61 Japon Nuevo",
+  "longDesc": "El Vox Continental usa una interfaz simple e intuitiva que permite un acceso rápido a todas las funciones. La sección de motor de sonido de alta calidad está centrada en órgano, piano eléctrico, y piano acústico, y provee una enormidad de sonidos listos para el escenario. Además, el Continental ofrece una sesión de efectos poderosa para mejorar esos sonidos, e incluso un drive analógico valvular alimentado por Nutube, la innovadora válvula de vacío. Es un instrumento que encaja perfectamente en tus requisitos para una performance en vivo para una variedad de estilos incluidos el rock, pop, jazz y más. El aire de tradición que emanan los órganos VOX, junto con la innovación de décadas de investigación, llevados al iluminados logo de VOX que exhibe el nuevo Vox Continental es una fusión de ambos, redefiniendo la existencia de los teclados de escenario modernos.  Características del producto: · Interfaz de usuario intuitiva que enfatiza en el toque en el escenario · Parte de Órgano que modela meticulosamente tres órganos vintage · Parte E.Piano de alta calidad con atención en cada detalle · Parte Piano rica alimentada por muestras de alta capacidad · Parte Key/Layer con un amplio rango de variaciones · Efectos intuitivos y poderosos que están optimizados para usarse en vivo · Sensor de toque que puede controlar una variedad de parámetros · EQ de nueve bandas que permite un control detallado de tu sonido · Sonido drive de válvula real alimentado por Nutube, la nueva válvula de vacío · Teclado en cascada recientemente desarrollado que provee excelente toque · Perillas dinámicas que te permiten personalizar libremente la sensación de toque del teclado · Memorias de escena para cambiar entre configuraciones instantáneamente · Cuerpo liviano y compacto construido de una robusta lamina de metal y aluminio · Lleva el color escarlata tradicional de los órganos VOX · INCLUYE pedal de expresión/volumen V861  Cantidad de teclas: 61 Cantidad de Sonidos: 150 Teclas sensitivas: Cascada semi-pesado (no soporta after touch) Pitch Bend: Si (Key/Layer) Display: No Polifonia: 240 (High-definition Piano sound generator) Efectos: Insert (CHORUS, PHASER, FLANGER, COMP, DRIVE, WAH); Master (DELAY: 1. DELAY, 2. CROSS, 3. TAPE, 4. MOD DLY); REVERB: 1. HALL1, 2. HALL2, 3. ROOM1, 4. ROOM2, 5. SPRING Funciones: Canciones demo: No Grabador interno: No Modo lección: No Metronomo: No Almacenamiento: Approx. 10.5 GB (in case of 48 kHz, 16-bit Linear PCM converted) Entradas: Pedales (Damper, Rotor, Control), Midi IN, USB A y B, Salidas: Jack 1/4, XLR 3-32, Auriculares, Midi Out, USB, Parlantes internos: No Accesorios incluidos: Fuente de alimentación, pedal V861 Volumen/Expresion Midi: Si Usb: A y B Dimensiones: 93.9 x 35 x 8.6 cm Peso: 7.2 Kg",
+  "price": "375600",
   "discount": "0",
   "stock": "1",
-  "marca": "Jean Baptiste",
+  "marca": "Vox",
   "image": [
-   "piano.jpg",
-   "/products/default.png",
-   "/products/default.png"
+   "/products/producto-1657641871105.jpg",
+   "/products/producto-1657641871106.jpg",
+   "/products/producto-1657641871107.jpg"
   ]
  },
  {
   "id": 7,
-  "categoria": "Teclas",
-  "name": "guitarra",
-  "shortDesc": "guitarra electrica",
-  "longDesc": "guitarra electrica roja",
-  "price": "100000000",
-  "discount": "30",
-  "stock": "10",
-  "marca": "Jean Baptiste",
+  "categoria": "Vientos",
+  "name": "Guitarra Eléctrica",
+  "shortDesc": "Guitarra Eléctrica Ibanez Gio Grx40 Bkn Black Knight",
+  "longDesc": "La Ibanez GRX40 GIO es una guitarra impresionante y llena de potencial. Contiene tres micrófonos Infinity, incluyendo un humbucker y dos simple bobina, y ofrece una amplia gama de tonos que le darán el poder de hacer que cualquier género de sonido sea excelente. El mango de maple GRX permite un juego más suave, ofreciendo una comodidad al tocar impecable. Y un puente trémolo T106 te permite añadir todo el vibrato que quieras a tus riffs. Diseñada tanto para músicos experimentados como para principiantes, esta excelenet guitarra es un brillante ejemplo de la mastría y el ojo agudo para los detalles de Ibanez.  Especificaciones técnicas: • Mango: GRX Maple • Cuerpo: Álamo • Trastera: Jatoba • Trastes: 22, Medium • Puente: Ibanez T106 tremolo • Espaciado entre cuerdas: 10.5mm • Micrófono del mango: Infinity RS simple bobina • Micrófono del medio: Infinity RS simple bobina • Micrófono del puente: Infinity RS humbucker • Calibre de cuerdas: .009/.011/.016/.024/.032/.042 • Hardware: Cromado • Largo de escala: 25.5” (648mm) • Ancho de cejilla: 42mm • Ancho en traste 22: 57mm • Grosor en traste 1: 19.5mm • Grosor en traste 12: 21.5mm",
+  "price": "68520",
+  "discount": "0",
+  "stock": "2",
+  "marca": "Ibanez",
   "image": [
-   "producto-guitarra.jpg",
-   "/products/default.png",
-   "/products/default.png"
+   "/products/producto-1657641871102.jpg",
+   "/products/producto-1657641871103.jpg",
+   "/products/producto-1657641871104.jpg"
   ]
  },
  {
   "id": 8,
   "categoria": "Cuerdas",
-  "name": "piano",
-  "shortDesc": "piano de cola",
-  "longDesc": "piano de cola negro",
-  "price": "1000000000",
-  "discount": "40",
+  "name": "Bajo",
+  "shortDesc": "Bajo Fender Coronado Bass Aged Cherry Burst 024-3200-531",
+  "longDesc": "El estilizado cuerpo de alder semi-hueco del Fender Coronado Bass lleva tapa y trasera de maple ribeteadas con elegantes agujeros ribeteados en forma de f. Su mango de maple con perfil en forma de “C” presenta un diapasón de rosewood 9,5” de radio con ribete blanco, 21 trastes medium jumbo y elegantes incrustaciones en bloque en blanco nacarado. Entre otras características distintivas se incluyen dos micrófonos humbucker Fideli Tron con llave selectora de tres posiciones, pickguard negro de tres capas, cuatro botones de control estilo “amplificador” (volumen y tono para cada micrófono) y puente Adjusto-Matic con cordal trapeziodal con la “F”.  Cuerpo: Maple laminado con center-block de Alder Trastera: Rosewood Mango: Maple Micrófonos: Fideli Tron Humbuckers Cantidad de trastes: 21 Medium Jumbo Controles: 2 x Volume, 2 x Tone, llave selectora de 3 posiciones Puente: Adjusto-Matic Hardware: Cromado Funda: No",
+  "price": "295480",
+  "discount": "25",
   "stock": "1",
-  "marca": "Jean Baptiste",
+  "marca": "Fender",
   "image": [
-   "piano.jpg",
-   "/products/default.png",
-   "/products/default.png"
+   "/products/producto-1657641871100.jpg",
+   "/products/producto-1657641871101.jpg",
+   "/products/producto-1657641871009.jpg"
   ]
  },
  {
@@ -146,13 +146,13 @@
  {
   "id": 10,
   "categoria": "Teclas",
-  "name": "Nuevo Producto",
-  "shortDesc": "Este es un nuevo producto",
-  "longDesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-  "price": "658895",
-  "discount": "20",
+  "name": "Estuche Para Saxo Alto",
+  "shortDesc": "Estuche Para Saxo Alto Skb-140 Skb140",
+  "longDesc": "El estuche contorneado SKB ofrece una excelente protección a un precio extraordinario. Incluye una bolsa de tela de muy buena calidad con dos compartimientos, uno para guardar el tudel y el otro para la boquilla, dicha bolsa a su vez se guarda en la campana de tu saxo.  IMPORTANTE: NO incluye la correa. IMPORTANTE: solo para saxo alto. Peso: 1,81kg",
+  "price": "41236",
+  "discount": "15",
   "stock": "5",
-  "marca": "Jean Baptiste",
+  "marca": "SKB",
   "image": [
    "/products/producto-1658004646212.jpg",
    "/products/producto-1658004646213.jpg",
@@ -162,17 +162,17 @@
  {
   "id": 11,
   "categoria": "Sin categoría",
-  "name": "Guadalupe Flores Cottet",
-  "shortDesc": "Este es un nuevo producto",
-  "longDesc": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. ",
-  "price": "852",
+  "name": "Producto editado",
+  "shortDesc": "Auriculares Cerrados De Estudio Samson Sr450",
+  "longDesc": "Obtené un monitoreo personal claro y de rango completo por un gran precio con un par de auriculares de estudio on-ear Samson SR450. Los SR450 te dan graves profundos y ricos, y agudos limpios, con gran aislamiento de sonido. Su diseño cerrado provee la separación de sonido que es crucial para entrar en los detalles de tu música. Ya sea que estés buscando un par de auriculares económicos para una escucha critica o simplemente quieras experimentar los detalles más finos de tu música favorita, vas a disfrutar escuchar con un par de Samson SR450.  Características del producto: • Drivers de 40mm que entregan una profundidad y resolución de graves extraordinarias • Diseño cerrado para aislamiento y separacion del sonido • Adaptador de 1/8” a 1/4” incluido • Almohadillas de goma con memoria • Vincha auto ajustable que es segura y comoda  Especificaciones técnicas: - Diseño: Cerrado - Tipo de calce: Supra-Aural (On-ear) - Tamaño de driver: 40mm - Respuesta de frecuencia: 20Hz-20kHz - Impedancia: 32 Ohms - Tipo de cable: Recto - Tamaño de plug: 1/8” (adaptador de 1/4\") - Color: Plateado",
+  "price": "10900",
   "discount": "5",
   "stock": "5",
-  "marca": "yamaha",
+  "marca": "Samson",
   "image": [
-   "/products/producto-1658007904227.jpg",
-   "/products/producto-1658007904228.jpg",
-   "/products/producto-1658007904231.jpg"
+    "/products/producto-1657641871006.jpg",
+    "/products/producto-1657641871007.jpg",
+    "/products/default.png"
   ]
  }
 ]
