@@ -1,1 +1,30 @@
-[]
+[
+ {
+  "id": 1,
+  "nombre": "Natalia",
+  "apellido": "Perez",
+  "email": "nperez@email.com",
+  "password": "1234",
+  "password-repetida": "1234",
+  "pais": "Argentina",
+  "provincia": "Ciudad de Buenos Aires",
+  "ciudad": "Ciudad de Buenos Aires",
+  "codigo": "1424",
+  "fechaNac": "1983/12/12",
+  "avatar": "/users/default.jpg"
+ },
+ {
+  "id": 2,
+  "nombre": "Pablo",
+  "apellido": "Vázquez",
+  "email": "pvazquez@email.com",
+  "password": "1234",
+  "password-repetida": "1234",
+  "pais": "Argentina",
+  "provincia": "Buenos Aires",
+  "ciudad": "Bernal",
+  "codigo": "1876",
+  "fechaNac": "1995/10/10",
+  "avatar": "/users/default.jpg"
+ }
+]
