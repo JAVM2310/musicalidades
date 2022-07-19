@@ -37,6 +37,7 @@ const controller = {
         let lastProduct = products.slice(-1)[0];
         let lastId = lastProduct.id + 1;
         //console.log(req.files);
+        console.log(req.body.name)
         res.redirect("/tienda/productDetail/" + lastId);
         //res.send('hola');
     },
@@ -73,6 +74,10 @@ const controller = {
 
         
         res.redirect("/tienda/productDetail/" + productToEdit.id);
+    },
+    delete(req, res){
+        editor.deleteProduct(req.params.id)
+        res.redirect('/');
     }
 };
 

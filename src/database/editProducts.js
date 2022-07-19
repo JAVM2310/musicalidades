@@ -65,12 +65,24 @@ function editProduct(editedProduct, imagenes){
     //fs.writeFileSync(productsFilePath, JSON.stringify(editedProduct, null, " "))
 }
 
+function deleteProduct(id){
+    let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+    console.log(" lista de productos");
+    console.log(products);
+    let chosenProductIndex = products.findIndex(product => product.id == id)
+    products.splice(chosenProductIndex, 1)
+    console.log("lista de productos despues de borrar");
+    console.log(products);
+    writeProducts(products)
+}
+
 let functions = {
     readProducts,
     writeProducts,
     editProduct,
     addProduct,
     createProduct,
+    deleteProduct
 }
 
 module.exports = functions;

@@ -13,30 +13,27 @@
             <p>Si tenés dudas, consultas, sugerencias, o querés saber algo más, escribinos!</p>
             <br>
             <p class="mensajeGracias">           
-            <form class="form" action="/contacto" method="POST" enctype="text/plain">
+                <% if(locals.errors){
+                    errors.forEach( error => {%>
+                    <p class="error"><%= error.msg %> </p>
+                <% }) 
+                }%>
+            <form class="form" method="POST" action="/contacto" enctype="multipart/form-data">
                 <div class="datos"><p>
-                    <label for="nombreContactenos">
-                        <input class="form-relleno" type="text" name="nombreContactenos" id="nombreContactenos" placeholder="Nombre y Apellido*" required>
-                        <!-- <% if (locals.errors && locals.errors.nombreContactenos){ %>
-                            <p><%= locals.errors.nombreContactenos.msg %></p>
-
-                        <% } %>
-                        <% locals.errors && errors.nombreContactenos?'is-invalid':null %> -->
+                    <label for="nombre">
+                        <input class="form-relleno" type="text" name="nombre" id="nombre" placeholder="Nombre y Apellido*" value="<%= locals.errors && old.nombre ? old.name : "" %>">
                     </label>
-                    <label for="emailContactenos">
-                        <input type="email" name="emailContactenos" id="email-contactenos" placeholder="Email*" required>
+                    <label for="email">
+                        <input type="email" name="email" id="email" placeholder="Email*" value="<%= locals.errors && old.email ? old.email : "" %>">
                     </label>
-                    <label for="mensajeContactenos">
-                        <textarea name="mensajeContactenos" placeholder="Mensaje*:" required></textarea>
+                    <label for="mensaje">
+                        <textarea name="mensaje" id="mensaje" placeholder="Mensaje*:" value="<%= locals.errors && old.mensaje ? old.mensaje : "" %>"></textarea>
                     </label>
                 </div>
                     <div class="botones-fondo">
                     <button type="reset" class="boton-enviar">Borrar</button>
                     <button type="submit" class="boton-enviar">Enviar</button>
                 </div>
-                <% if(locals.errors){ 
-                    errors.forEach(error => { %> <p> <%= errors.msg %></p> <% })
-                } %>
             </form>
         </section>
         <section class="direccion">
