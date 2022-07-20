@@ -76,8 +76,10 @@ const controller = {
         res.redirect("/tienda/productDetail/" + productToEdit.id);
     },
     delete(req, res){
-        editor.deleteProduct(req.params.id)
-        res.redirect('/');
+        editor.deleteProduct(Number(req.params.id.slice(1)))
+        let id = req.params.id
+        const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+        res.render('index', {titulo: "Home", products: products, deleteMessage: "se borro el producto con la id: " + id.slice(1), mensaje: ""});
     }
 };
 

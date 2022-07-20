@@ -18,7 +18,7 @@
                     <p class="error"><%= error.msg %> </p>
                 <% }) 
                 }%>
-            <form class="form" method="POST" action="/contacto" enctype="multipart/form-data">
+            <form class="form" method="POST" action="/contacto">
                 <div class="datos"><p>
                     <label for="nombre">
                         <input class="form-relleno" type="text" name="nombre" id="nombre" placeholder="Nombre y Apellido*" value="<%= locals.errors && old.nombre ? old.name : "" %>">

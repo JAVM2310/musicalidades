@@ -14,7 +14,7 @@ const controller = {
     index: (req, res) => {
         const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
         let titulo = "Home"
-        res.render('index', {titulo: titulo, products: products, deleteMessage: "no"});
+        res.render('index', {titulo: titulo, products: products, deleteMessage: "no", mensaje: ""});
     },
     faq: (req, res) => {
         let titulo = "FAQ"
@@ -33,17 +33,16 @@ const controller = {
     mandarMensaje: (req, res) => {
         let titulo = "Contacto";
         let errors = validationResult(req);
-        /* console.log(errors) */
-        console.log(req.body.params)
+        let mensaje = "gracias por tu mensaje"
 
         if(errors.isEmpty()){
-            res.redirect('index', {titulo});
+            const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+            let titulo = "Home"
+            res.render('index', {titulo: titulo, products: products, deleteMessage: "no", mensaje: "gracias por dejarnos tu mensaje"});
         }else{
             res.render('contacto', {titulo: titulo, errors: errors.array(), old: req.body});
         }
         
-        /* let mensajeGracias = "Mensaje enviado! Gracias por Contactarte con Tienda MUSICALIDADES";
-        res.send('HOLA') */
     }
 };
 
