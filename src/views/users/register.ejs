@@ -11,7 +11,7 @@
     <main>
         <section class="registro">
             <a href="/"><img src="./img/logo-musicalidades-header.png" alt=""></a>
-            <form action="" class="form">
+            <form class="form" method="POST" action="/register" enctype="multipart/form-data">
                 <div class="datos">
                     <label for="nombre">
                         <input type="text" name="nombre" id="nombre" placeholder="Nombre*" required>
@@ -25,8 +25,8 @@
                     <label for="password">
                         <input type="password" name="password" id="password" placeholder="Contraseña*" required>
                     </label>
-                    <label for="password-repetida">
-                        <input type="password" name="password-repetida" id="password-repetida" placeholder="Confirmar contraseña*" required>
+                    <label for="passwordRepetida">
+                        <input type="password" name="passwordRepetida" id="passwordRepetida" placeholder="Confirmar contraseña*" required>
                     </label>
                     <label for="pais">
                         <input type="text" name="pais" id="pais" placeholder="País*" required>
@@ -44,7 +44,7 @@
                         <input type="text" name="codigo" id="codigo" placeholder="Código postal*" required>
                     </label>
                     <label for="fechaNac">
-                        <input type="text" name="fechaNac" id="fechaNac" placeholder="Fecha de nacimiento*" required>
+                        <input type="date" name="fechaNac" id="fechaNac" placeholder="Fecha de nacimiento*" required>
                     </label>
                     <label for="images">
                         <p>Imagen de Perfil</p>
