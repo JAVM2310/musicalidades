@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const fs = require("fs");
-const editor = require("../database/editProducts")
+const editor = require("../database/editProducts");
 
 const productsFilePath = path.join(__dirname, '../database/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -36,7 +36,7 @@ const controller = {
         editor.createProduct(req.body, req.files);
         let lastProduct = products.slice(-1)[0];
         let lastId = lastProduct.id + 1;
-        //console.log(req.files);
+        //console.log(req.files); 
         console.log(req.body.name)
         res.redirect("/tienda/productDetail/" + lastId);
         //res.send('hola');

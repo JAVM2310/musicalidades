@@ -5,7 +5,7 @@
   "apellido": "Perez",
   "email": "nperez@email.com",
   "password": "1234",
-  "password-repetida": "1234",
+  "passwordRepetida": "1234",
   "pais": "Argentina",
   "provincia": "Ciudad de Buenos Aires",
   "ciudad": "Ciudad de Buenos Aires",
@@ -19,12 +19,25 @@
   "apellido": "Vázquez",
   "email": "pvazquez@email.com",
   "password": "1234",
-  "password-repetida": "1234",
+  "passwordRepetida": "1234",
   "pais": "Argentina",
   "provincia": "Buenos Aires",
   "ciudad": "Bernal",
   "codigo": "1876",
   "fechaNac": "1995/10/10",
   "avatar": "/users/default.jpg"
+ },
+ {
+  "id": 3,
+  "nombre": "Guadalupe",
+  "apellido": "Flores Cottet",
+  "password": "$2a$10$KPYJUP.MQXAZQ8huur6WzO5VqOLY2OAAVaLpXfPdkTaWv5yBFpP6q",
+  "passwordRepetida": "$2a$10$jaAIoKY6Lzm7QFYN8I6ANuJ8mIDFO2cw1i44ZkrfFEOE8vrjqCCD6",
+  "pais": "Argentina",
+  "provincia": "CABA",
+  "ciudad": "CABA",
+  "codigo": "1424",
+  "fechaNac": "2022-07-14",
+  "avatar": "/users/user-1658785543780.jpg"
  }
 ]

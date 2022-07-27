@@ -22,11 +22,13 @@
   },
   "homepage": "https://github.com/JAVM2310/grupo_6_musicalidades#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
     "express-validator": "^6.14.2",
     "method-override": "^3.0.0",
     "multer": "^1.4.5-lts.1",
+    "mysql2": "^2.3.3",
     "path": "^0.12.7"
   }
 }
