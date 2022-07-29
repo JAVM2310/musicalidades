@@ -42,6 +42,7 @@ const controller = {
                 id: lastIdUser,
                 nombre: req.body.nombre,
                 apellido: req.body.apellido,
+                email: req.body.email,
                 password: bcrypt.hashSync(req.body.password, 10),
                 passwordRepetida: bcrypt.hashSync(req.body.passwordRepetida, 10),
                 pais: req.body.pais,

@@ -1,5 +1,8 @@
 Retrospectiva
 
+------
+SPRINT 2
+
 Teniendo en cuenta que recién finalizamos el primer sprint, puede que haya mucho que mejorar como equipo, para que todos los próximos sprints que restan podamos aprovecharlos mucho más. 
 
 Para esta retrospectiva, seguimos el lineamiento del sprint y utilizamos la dinámica Starfish, la cual resultó ser de mucha utilidad, ya que pudimos observar las fallas que tuvimos, y las mejoras que requerimos para obtener aún mejores resultados. 
@@ -15,3 +18,17 @@ Dinámica Starfish o Estrella de Mar:
 4. Hacer menos; Dejar el mayor peso al eslabón más fuerte del equipo, sólo por que tiene mayor conocimiento en algún tema. La idea es que todos podamos poner nuestro grano de arena en la construcción del proyecto. y tengamos al menos un mismo nivel de curiosidad y dedicación para llevarlo a cabo.
 
 5. Dejar de hacer; No consideramos que haya algo que no debamos hacer más. Hemos tenido buena comunicación y nos hemos entendido desde el principio, la mejor demostración de esto es que el sprint 1 fue todo un éxito. 
+
+
+------
+SPRINT 3
+
+
+
+------
+SPRINT 4
+
+
+
+------
+SPRINT 5
