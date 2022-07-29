@@ -11,18 +11,18 @@
     <main class="login">
         <section class="registro">
             <a href="/"><img src="./img/logo-musicalidades-header.png" alt=""></a>
-            <form action="" class="form">
+            <form action="/login" class="form" method="post">
                 <div class="datos">
                     <label for="email">
                         <input type="email" name="email" id="email" placeholder="Dirección de correo electronico" value="<%= typeof old != 'undefined' ? old.email : '' %>">
-                        <% if(typeof(errors) != 'undefined' && errors.email){%>
+                        <% if(typeof(error) != 'undefined' && error.email){%>
                             <span class="text-danger">
                               <%= errors.email.msg %>
                             </span>
                          <%}%>
                     </label>
                     <label for="contraseña">
-                        <input type="password" class="form-control js_password" name="contraseña" id="contraseña" placeholder="contraseña" aria-label="Username">
+                        <input type="password" class="form-control js_password" name="password" id="contraseña" placeholder="contraseña" aria-label="Username">
                         <% if(typeof(errors) != 'undefined' && errors.password){%>
                             <span class="text-danger">
                                 <%= errors.password.msg %>
