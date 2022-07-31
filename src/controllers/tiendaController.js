@@ -3,6 +3,7 @@ const router = express.Router();
 const path = require('path');
 const fs = require("fs");
 const editor = require("../database/editProducts");
+const { stringify } = require('querystring');
 
 const productsFilePath = path.join(__dirname, '../database/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -51,9 +52,14 @@ const controller = {
     modify: (req, res) => {
         let id = req.params.id;
         let productToEdit = products.find(product => product.id == id);
-        //console.log(productToEdit);
-        //console.log(req.body);
-
+        console.log(productToEdit);
+        console.log(req.files);
+        let imagenesNuevas = [];
+        for (let i=0; i<req.files.length; i++){
+            imagenesNuevas = '/products/' + req.files[i].filename;
+            productToEdit.image.push(imagenesNuevas)            
+        }
+        
         productToEdit = {
             id: productToEdit.id,
             categoria: req.body.categoria,
@@ -66,8 +72,7 @@ const controller = {
             marca: req.body.marca,
             image: productToEdit.image
         };
-        
-        //console.log(productToEdit);
+
         let indice = products.findIndex(product => product.id == id);
         products[indice] = productToEdit;
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "))

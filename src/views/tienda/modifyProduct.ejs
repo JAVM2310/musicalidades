@@ -3,7 +3,7 @@
     <%- include('../partials/header') %>
     <main>
         <article class="registro">
-            <form class="form" method="POST" action="/tienda/productDetail/<%= product.id %>?_method=PUT">
+            <form class="form" method="POST" action="/tienda/productDetail/<%= product.id %>?_method=PUT" enctype="multipart/form-data">
                 <!--enctype="multipart/form-data"-->
                     <div class="datos">
                         <label for="categoria"><span>Categoría:</span>
@@ -40,7 +40,14 @@
                         </label>
                         <label for="images">
                             <p>Imágenes</p>
-                            <input class="imagenes-input" type="file" name="images" id="images" value="<%= product.image %>" multiple>
+                            <!-- <div class="img-products-edit">
+                                <% for (let i=0; i<product.image.length; i++) { %>
+                                    
+                                <button><img src="/img/<%= product.image[i] %>"></buton>
+                                    <% console.log(product.image[i]) %>
+                                <%}%>
+                        </div> -->
+                            <input class="imagenes-input" type="file" name="images" id="images" multiple>
                         </label>
                     </div>
                 </div>

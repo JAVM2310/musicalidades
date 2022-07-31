@@ -13,6 +13,11 @@
         <a href="/tienda/deleteProduct/><%= product.id%>">eliminar producto</a>
         <h4 class="titulo-nav-paginas">> Categoría <%= product.categoria %> <span>> Marca <%= product.marca %> <span>> <%= product.name %></span></h4>
         <section class="producto">
+            
+
+
+
+            
             <!-- carousel -->
             <div class="carousel-container">
                 <div class="carousel">
@@ -37,16 +42,13 @@
                         <label for="carousel-1" class="carousel-control next control-3">›</label>
                     </div>
                 </div>
-                <ol class="carousel-indicadores">
-                    <li>
-                        <label for="carousel-1" class="carousel-bullet"><img src="/img/<%= product.image[0] %>" alt=""></label>
-                    </li>
-                    <li>
-                        <label for="carousel-2" class="carousel-bullet"><img src="/img/<%= product.image[1] %>" alt=""></label>
-                    </li>
-                    <li>
-                        <label for="carousel-3" class="carousel-bullet"><img src="/img/<%= product.image[2] %>" alt=""></label>
-                    </li>
+                <ol class="carousel-indicadores"><!--i<product.image.length-->
+                    <% for (let i=0; i<3; i++) { %>
+                        <li>
+                            <label for="carousel-<%=i+1%>" class="carousel-bullet"><img src="/img/<%= product.image[i] %>" alt=""></label>
+                        </li>
+                    <%}%>
+
                 </ol>
             </div>
                 <!-- descripcion del producto -->

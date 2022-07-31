@@ -975,7 +975,11 @@ hr {
     justify-content: flex-end;
 }
 
-
+.img-products-edit {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
 /************************FOOTER**************************/
 
 footer {
@@ -1067,43 +1071,52 @@ footer .email i {
     list-style-type: circle;
 }
 
+/*------------------------ QUIENES SOMOS ------------------------*/
 
-/* Responsive */
+.quienes-somos{
+    padding: 15px;
+}
+.quienes-somos img{
+    width: 100%;
+}
+.quienes-somos h3{
+    color: #000;
+    margin-bottom: 15px;
+    margin-left: 10px;
+}
+.quienes-somos h4{
+    font-family: 'Zen Loop';
+    font-size: 2em;
+    margin-top: 20px;
+}
+.quienes-somos .container{
+    display: block;
+    color: #000;
+    margin: 0px 10px;
+}
+.quienes-somos .container div, p{
+    margin: 10px 10px;
+}
+.quienes-somos .container .logo{
+    margin-top: 30px;
+    width: 250px;
 
-@media (min-width: 361px) {
+}
+.quienes-somos .marcas{
+    float: left;
+    background-color: #FFF;
+    vertical-align: middle;
+}
 
-    body {
-        font-size: 14px;
-    }
-    .botones-redondos {
-    
-        width: 80px;
-        height: 80px;
-    }
-    
-    .botones-redondos p {
-        font-size: 1.1em;
-    }
-    .iconos-compras div {
-        max-width: 33%;
-        float: left;
-        padding: 0px 7px 0px;
-        font-size: 0.9em;
-    }
-    .productos-destacados {
-        max-width: 33%;
-    }
-    .ocultar {
-        display: block;
-    }
-    .menu-footer {
-        font-size: 0.85em;
-    }
-    .datos-footer {
-        font-size: 0.85em;
-    }
+.quienes-somos .marcas img{
+    width: 100px;
+    margin-right: 10px;
+    vertical-align: middle;
+    padding-left: 10px;
+}
 
-}  
+
+
 
 /*------------------------ FAQ ------------------------*/
 
@@ -1158,8 +1171,61 @@ footer .email i {
   .panel {
     display: none;
   }
+/* Responsive */
 
-@media (min-width: 769px) {
+@media (min-width: 361px) {
+    .quienes-somos .container{
+        display: block;
+    }
+    .quienes-somos .container .logo{
+        width: 250px;
+
+    }
+    bod
+    
+    body {
+        font-size: 14px;
+    }
+    .botones-redondos {
+    
+        width: 80px;
+        height: 80px;
+    }
+    
+    .botones-redondos p {
+        font-size: 1.1em;
+    }
+    .iconos-compras div {
+        max-width: 33%;
+        float: left;
+        padding: 0px 7px 0px;
+        font-size: 0.9em;
+    }
+    .productos-destacados {
+        max-width: 33%;
+    }
+    .ocultar {
+        display: block;
+    }
+    .menu-footer {
+        font-size: 0.85em;
+    }
+    .datos-footer {
+        font-size: 0.85em;
+    }
+
+}  
+
+
+
+@media (min-width: 890px) { /*769*/
+    .quienes-somos .container{
+        display: flex;
+        justify-content: center;
+    }
+    .quienes-somos .container .logo{
+        width: 300px;
+    }
     body {
         font-size: 16px;
     }
@@ -1314,6 +1380,7 @@ footer .email i {
     .direccion img {
         width: 40%;
     }
+    
 
 
     

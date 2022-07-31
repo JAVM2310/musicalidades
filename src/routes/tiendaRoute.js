@@ -34,7 +34,7 @@ router.get('/productCart', tiendaController.productCart);
 router.get("/newProduct", tiendaController.newProduct);
 router.post("/newProduct", upload.array('images'), tiendaController.createProduct);
 router.get("/modifyProduct/:id", tiendaController.modifyProduct);
-router.put("/productDetail/:id", tiendaController.modify)
+router.put("/productDetail/:id",  upload.array('images'), tiendaController.modify)
 router.get("/deleteProduct/:id", tiendaController.delete)
 
 /****me gustaria que una vez modificado te vaya a la pag del detalle del producto pero toco la ruta y la cago */

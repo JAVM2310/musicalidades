@@ -21,14 +21,18 @@ Dinámica Starfish o Estrella de Mar:
 
 
 ------
-SPRINT 3
+SPRINT 3 , 4, 5
 
+Tiendo en cuenta las dificulatades de la cursada en relación al cambio de docentes, cambios de alumnos en el gru`po, etc, hemos tenido algunas dificultades en relación a la nueva dinámica grupal y comunicación.
 
+Dinámica Starfish o Estrella de Mar:
 
-------
-SPRINT 4
+1. Comenzar a hacer: Reunirnos al menos 1 vez adicional en la semana, fuera del horario de las clases en vivo, para poder ponernos al día sobre los adelantos de cada actividad designada, y saldar dudas, en caso de que existan. 
 
+2. Hacer más: Mejorar la comunicación, comunicarnos las dudas entre nosotros y darnos feedback del proceso de cada uno.
 
+3. Continuar haciendo: Apoyándonos entre los tres, dado que todos tenemos ciertas fortalezas individuales. Separar las tareas de acuerdo a dichas fortalezas.
 
-------
-SPRINT 5
+4. Hacer menos: Dejar la mayor cantidad de trabajo al miembro del equipo que tiene más voluntad o tiempo. Una vez más la idea es que todos podamos poner nuestro grano de arena en la construcción del proyecto, y tengamos al menos un mismo nivel de curiosidad y dedicación para llevarlo a cabo.
+
+5. Dejar de hacer: Asignarse sólo a uno mismo tareas que no podemos completar en tiempo y forma solos, sin pedir ayuda a tiempo.
