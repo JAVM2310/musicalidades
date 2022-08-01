@@ -38,10 +38,13 @@
             <%if(user == undefined){ %>
             <li><a href ="/login">INICIAR SESIÓN</a></li>
             <%}else{%>
-            <li><a href="/signout">CERRAR SESIÓN</a></li>
+            <li><a href="/signout"> CERRAR SESIÓN</a></li>
             <%}%>
             
         </ul>
+        <%if(user){ %>
+            <%- include('../partials/profilePic') %>
+        <%}%>
     </nav>
     <div class="shopping-icon"><a href="/tienda/productCart"><i class="fa-solid fa-cart-shopping fa-2x"></i></a></div>
 </header>

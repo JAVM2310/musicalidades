@@ -237,6 +237,15 @@ ul li:hover .dropdown { display: block }
     top:0;
 }
 
+.header-avatar{
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    top: 4px;
+    position: relative;
+}
+
 
 /********************* MAIN INDEX **********************/
 main {

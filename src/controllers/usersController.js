@@ -66,7 +66,7 @@ const controller = {
         if(req.file != undefined){
             nombreImagen = '/users/' + req.file.filename;
         }else{
-            nombreImagen = '/users/default.jpg';
+            nombreImagen = '/users/default.png';
         }
         console.log(nombreImagen);
             
@@ -95,12 +95,11 @@ const controller = {
     signOut: (req, res) => {
         delete req.session.usuariosLogueado
         res.redirect("/")
-    }
+    },
 
-    // profile: (req, res) => {
-    //     let titulo = "Mi Perfil";
-    //     res.render('users//profile', {titulo, user: req.session.usuariosLogueado});
-    // },
+    profile: (req, res) => {
+        res.render('./users/myprofile', {titulo: "Perfil", user: req.session.usuariosLogueado});
+    },
 };
 
 
