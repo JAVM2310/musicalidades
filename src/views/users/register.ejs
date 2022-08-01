@@ -11,6 +11,9 @@
     <main>
         <section class="registro">
             <a href="/"><img src="./img/logo-musicalidades-header.png" alt=""></a>
+            <span class="text-danger">
+                <%= error%>
+            </span>
             <form class="form" method="POST" action="/register" enctype="multipart/form-data">
                 <div class="datos">
                     <label for="nombre">

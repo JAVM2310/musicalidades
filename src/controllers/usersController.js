@@ -18,7 +18,7 @@ const controller = {
 
     register: (req, res) => {
         let titulo = "Registro"
-        res.render('./users/register', {titulo: titulo});
+        res.render('./users/register', {titulo: titulo, error});
     },
 
     logueado: (req, res) => {
@@ -27,7 +27,7 @@ const controller = {
         if (chosenUserIndex < 0){
             const error = "El usuario debe existir";
             console.log(error)
-            res.render('./users/login', {titulo: 'login', error});
+            return res.render('./users/login', {titulo: 'login', error});
         }    
         let chosenUser = users[chosenUserIndex]; 
         
@@ -35,22 +35,27 @@ const controller = {
         if (!bcrypt.compareSync(req.body.password, chosenUser.password)){
             const error = "La contraseña no es correcta";
             console.log(error)
-            res.render('./users/login', {titulo: 'login', error});
+            return res.render('./users/login', {titulo: 'login', error});
         }
         delete chosenUser.password;
         delete chosenUser.passwordRepetida;
+        req.session.usuariosLogueado = chosenUser;
 
         //console.log(chosenUser);
         
-        req.session.usuariosLogueado = chosenUser;
         console.log(req.session.usuariosLogueado);
 
-        res.redirect('/');
+        return res.redirect('/');
 
     },
     registered: (req, res) => {
         const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8')); 
         let titulo = "Login";
+
+        if (users.findIndex(user => user.email == req.body.email) !== -1){
+            const error = "Ese mail ya está registrado"
+            return res.render('./users/register', {titulo: titulo, error});
+        }
 
         let user = req.body;
         console.log(user);
@@ -78,12 +83,18 @@ const controller = {
                 codigo: req.body.codigo,
                 fechaNac: req.body.fechaNac,
                 avatar: nombreImagen,
+                tipo: 0
             }
             
         users.push(newUser);
         fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "))
             
-        res.redirect("/login");
+        return res.redirect("/login");
+    },
+
+    signOut: (req, res) => {
+        delete req.session.usuariosLogueado
+        res.redirect("/")
     }
 
     // profile: (req, res) => {

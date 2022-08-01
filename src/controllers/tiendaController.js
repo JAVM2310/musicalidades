@@ -9,28 +9,40 @@ const productsFilePath = path.join(__dirname, '../database/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 let titulo = ""; 
+let user = undefined
+let admin = false
 
 
 const controller = {
     tienda: (req, res) => {
         let titulo = "Tienda";
         const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        res.render('./tienda/tienda', {titulo: titulo, products: products});
+        res.render('./tienda/tienda', {titulo: titulo, products: products, user: req.session.usuariosLogueado});
     },
     productDetail: (req, res) => {
         let titulo = "Detalle de Producto";
         const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
         let chosenProductIndex = products.findIndex(product => product.id == req.params.id)
         let chosenProduct = products[chosenProductIndex]
-        res.render('./tienda/productDetail', {titulo: titulo, product:chosenProduct});
+        
+        if (req.session.usuariosLogueado) {
+            if (req.session.usuariosLogueado.tipo == 9){
+                admin = true
+                res.render('./tienda/productDetail', {titulo: titulo, product:chosenProduct, user: req.session.usuariosLogueado, admin});
+                admin = false
+                console.log(admin);
+            }
+        }
+        
+        res.render('./tienda/productDetail', {titulo: titulo, product:chosenProduct, user: req.session.usuariosLogueado, admin});
     },
     productCart: (req, res) => {
         let titulo = "Carrito";
-        res.render('./tienda/productCart', {titulo: titulo});
+        res.render('./tienda/productCart', {titulo: titulo, user: req.session.usuariosLogueado});
     },
     newProduct: (req, res) => {
         let titulo = "Nuevo Producto";
-        res.render('./tienda/newProduct', {titulo: titulo});
+        res.render('./tienda/newProduct', {titulo: titulo, user: req.session.usuariosLogueado});
     },
     createProduct: (req, res) => {
         const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')); //para que vuelva a cargar el json, sino cuando creo un producto y lo quiero mostrar en el redirect, no lo trae xq esta leyendo el json previo a la creacion
@@ -47,7 +59,7 @@ const controller = {
         let chosenProductIndex = products.findIndex(product => product.id == req.params.id)
         let chosenProduct = products[chosenProductIndex];
         let titulo = "Modificar Producto";
-        res.render('./tienda/modifyProduct', {titulo: titulo, product:chosenProduct});        
+        res.render('./tienda/modifyProduct', {titulo: titulo, product:chosenProduct, user: req.session.usuariosLogueado});        
     },
     modify: (req, res) => {
         let id = req.params.id;
@@ -84,7 +96,7 @@ const controller = {
         editor.deleteProduct(Number(req.params.id.slice(1)))
         let id = req.params.id
         const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        res.render('index', {titulo: "Home", products: products, deleteMessage: "se borro el producto con la id: " + id.slice(1), mensaje: ""});
+        res.render('index', {titulo: "Home", products: products, deleteMessage: "se borro el producto con la id: " + id.slice(1), mensaje: "", user: req.session.usuariosLogueado});
     }
 };
 

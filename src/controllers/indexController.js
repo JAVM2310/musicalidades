@@ -9,24 +9,31 @@ const productsFilePath = path.join(__dirname, '../database/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 let titulo = "";
+let admin = false
 
 const controller = {
     index: (req, res) => {
         const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
         let titulo = "Home"
-        res.render('index', {titulo: titulo, products: products, deleteMessage: "no", mensaje: "", user: req.session.usuariosLogueado});
+        if (req.session.usuariosLogueado) {
+            if (req.session.usuariosLogueado.tipo == 9){
+                admin = true
+                return res.render('index', {titulo: titulo, products: products, deleteMessage: "no", mensaje: "", user: req.session.usuariosLogueado, admin});
+            }
+        }
+        return res.render('index', {titulo: titulo, products: products, deleteMessage: "no", mensaje: "", user: req.session.usuariosLogueado, admin: false})
     },
     faq: (req, res) => {
         let titulo = "FAQ"
-        res.render('faq', {titulo: titulo});
+        res.render('faq', {titulo: titulo, user: req.session.usuariosLogueado});
     },
     quienesSomos: (req, res) => {
         let titulo = "Quienes Somos"
-        res.render('quienes-somos', {titulo: titulo});
+        res.render('quienes-somos', {titulo: titulo, user: req.session.usuariosLogueado});
     },
     contacto: (req, res) => {
         let titulo = "Contacto"
-        res.render('contacto', {titulo});
+        res.render('contacto', {titulo, user: req.session.usuariosLogueado});
         // let errors = validationResult(req);
         // console.log('aaaaaaaaaaaaaaaaaaaaaaa' + errors);
     },
@@ -38,9 +45,9 @@ const controller = {
         if(errors.isEmpty()){
             const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
             let titulo = "Home"
-            res.render('index', {titulo: titulo, products: products, deleteMessage: "no", mensaje: "gracias por dejarnos tu mensaje"});
+            res.render('index', {titulo: titulo, products: products, deleteMessage: "no", mensaje: "gracias por dejarnos tu mensaje", user: req.session.usuariosLogueado});
         }else{
-            res.render('contacto', {titulo: titulo, errors: errors.array(), old: req.body});
+            res.render('contacto', {titulo: titulo, errors: errors.array(), old: req.body, user: req.session.usuariosLogueado});
         }
         
     }

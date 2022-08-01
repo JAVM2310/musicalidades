@@ -25,6 +25,7 @@ router.get('/login', usersController.login);
 router.get('/register', usersController.register);
 router.post('/login', usersController.logueado); 
 router.post('/register', upload.single('avatar'), usersController.registered);
+router.get("/signout", usersController.signOut) 
 //router.get('/profile', usersController.profile);
 
 

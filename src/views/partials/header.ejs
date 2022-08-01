@@ -38,8 +38,9 @@
             <%if(user == undefined){ %>
             <li><a href ="/login">INICIAR SESIÓN</a></li>
             <%}else{%>
-            <li><a href ="#">Hola <%=user.nombre%></a></li>
+            <li><a href="/signout">CERRAR SESIÓN</a></li>
             <%}%>
+            
         </ul>
     </nav>
     <div class="shopping-icon"><a href="/tienda/productCart"><i class="fa-solid fa-cart-shopping fa-2x"></i></a></div>

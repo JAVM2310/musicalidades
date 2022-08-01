@@ -8,9 +8,11 @@
     <%- include('../partials/header') %>
     <!-------------------------MAIN------------------------------->
     <main>
+        <% if (admin == true) { %>
         <a href="/tienda/modifyProduct/<%= product.id %>">editar producto | </a>
         
         <a href="/tienda/deleteProduct/><%= product.id%>">eliminar producto</a>
+        <% } %>
         <h4 class="titulo-nav-paginas">> Categoría <%= product.categoria %> <span>> Marca <%= product.marca %> <span>> <%= product.name %></span></h4>
         <section class="producto">
             
