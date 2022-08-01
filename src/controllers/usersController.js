@@ -6,12 +6,14 @@ let bcrypt = require('bcryptjs');
 const multer = require('multer');
 
 const usersFilePath = path.join(__dirname, '../database/users.json');
+let error = '';
+
 
 const controller = {
 
     login: (req, res) => {
         let titulo = "Login"
-        res.render('./users/login', {titulo: titulo, error: ''});
+        res.render('./users/login', {titulo: titulo, error});
     },
 
     register: (req, res) => {
@@ -27,13 +29,21 @@ const controller = {
             console.log(error)
             res.render('./users/login', {titulo: 'login', error});
         }    
-        let chosenUser = users[chosenUserIndex];
+        let chosenUser = users[chosenUserIndex]; 
+        
 
         if (!bcrypt.compareSync(req.body.password, chosenUser.password)){
-            const error = "La Password no es correcta";
+            const error = "La contraseña no es correcta";
             console.log(error)
             res.render('./users/login', {titulo: 'login', error});
-        }    
+        }
+        delete chosenUser.password;
+        delete chosenUser.passwordRepetida;
+
+        //console.log(chosenUser);
+        
+        req.session.usuariosLogueado = chosenUser;
+        console.log(req.session.usuariosLogueado);
 
         res.redirect('/');
 
@@ -69,14 +79,17 @@ const controller = {
                 fechaNac: req.body.fechaNac,
                 avatar: nombreImagen,
             }
-        //console.log(newUser);
             
         users.push(newUser);
         fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "))
             
         res.redirect("/login");
-        //res.send('hola');
     }
+
+    // profile: (req, res) => {
+    //     let titulo = "Mi Perfil";
+    //     res.render('users//profile', {titulo, user: req.session.usuariosLogueado});
+    // },
 };
 
 

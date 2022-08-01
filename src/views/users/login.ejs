@@ -13,7 +13,7 @@
             <a href="/"><img src="./img/logo-musicalidades-header.png" alt=""></a>
             <form action="/login" class="form" method="post">
                 <div class="datos">
-                    <label for="email">
+                    <!-- <label for="email">
                         <input type="email" name="email" id="email" placeholder="Dirección de correo electronico" value="<%= typeof old != 'undefined' ? old.email : '' %>">
                         <% if(typeof(error) != 'undefined' && error.email){%>
                             <span class="text-danger">
@@ -32,8 +32,23 @@
                             <input type="checkbox" name="recordarme">
                             <label class="checkbox-inline">Recordarme</label>
                         </div>
+                    </label> -->
+                    <label for="email">
+                        <input type="email" name="email" id="email" placeholder="Dirección de correo electronico">
+                    </label>
+                    <label for="contraseña">
+                        <input type="password" class="form-control js_password" name="password" id="contraseña" placeholder="contraseña">
+                            <span class="text-danger">
+                            </span>
+                        <div class="form-group ">
+                            <input type="checkbox" name="recordarme">
+                            <label class="checkbox-inline">Recordarme</label>
+                        </div>
                     </label>
                 </div>
+                <span class="text-danger">
+                    <%= error%>
+                </span>
                     <div class="botones-fondo">
                     <button type="submit" class="boton-enviar">Ingresar</button>
                 </div>

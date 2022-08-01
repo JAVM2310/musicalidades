@@ -22,9 +22,10 @@ const upload = multer({storage});
 const usersController = require ('../controllers/usersController.js');
 
 router.get('/login', usersController.login);
-router.get('/register', usersController.register); 
-router.post('/login', usersController.logueado);
-router.post('/register', upload.single('avatar'), usersController.registered); 
+router.get('/register', usersController.register);
+router.post('/login', usersController.logueado); 
+router.post('/register', upload.single('avatar'), usersController.registered);
+//router.get('/profile', usersController.profile);
 
 
 module.exports = router;

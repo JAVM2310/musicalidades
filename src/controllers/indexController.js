@@ -14,7 +14,7 @@ const controller = {
     index: (req, res) => {
         const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
         let titulo = "Home"
-        res.render('index', {titulo: titulo, products: products, deleteMessage: "no", mensaje: ""});
+        res.render('index', {titulo: titulo, products: products, deleteMessage: "no", mensaje: "", user: req.session.usuariosLogueado});
     },
     faq: (req, res) => {
         let titulo = "FAQ"

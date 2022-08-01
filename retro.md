@@ -21,7 +21,7 @@ Dinámica Starfish o Estrella de Mar:
 
 
 ------
-SPRINT 3 , 4, 5
+SPRINTS 3 , 4, 5
 
 Tiendo en cuenta las dificulatades de la cursada en relación al cambio de docentes, cambios de alumnos en el gru`po, etc, hemos tenido algunas dificultades en relación a la nueva dinámica grupal y comunicación.
 
