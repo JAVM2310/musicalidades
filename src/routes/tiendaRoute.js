@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const multer = require('multer');
+const adminMiddleware = require('../middlewares/adminMiddleware.js');
 
 
 /************************** MULTER **************************/
@@ -31,12 +32,11 @@ const tiendaController = require ('../controllers/tiendaController');
 router.get('/', tiendaController.tienda);
 router.get('/productDetail/:id', tiendaController.productDetail);
 router.get('/productCart', tiendaController.productCart);
-router.get("/newProduct", tiendaController.newProduct);
+router.get("/newProduct", adminMiddleware, tiendaController.newProduct);
 router.post("/newProduct", upload.array('images'), tiendaController.createProduct);
-router.get("/modifyProduct/:id", tiendaController.modifyProduct);
-router.put("/productDetail/:id",  upload.array('images'), tiendaController.modify)
-router.get("/deleteProduct/:id", tiendaController.delete)
+router.get("/modifyProduct/:id", adminMiddleware, tiendaController.modifyProduct);
+router.put("/productDetail/:id", adminMiddleware, upload.array('images'), tiendaController.modify)
+router.get("/deleteProduct/:id", adminMiddleware, tiendaController.delete)
 
-/****me gustaria que una vez modificado te vaya a la pag del detalle del producto pero toco la ruta y la cago */
 
 module.exports = router;

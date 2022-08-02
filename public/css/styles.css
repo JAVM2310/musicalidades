@@ -52,6 +52,7 @@ ol {
 
 .img-logo {
     width: 150px;
+    margin-top: -10px;
 }
 
 /* Nav Menu */
@@ -1182,6 +1183,26 @@ footer .email i {
   .panel {
     display: none;
   }
+
+
+/***************************MY PROFILE *********************************/
+.myProfile {
+    
+    display: flex;
+    margin: 20px;
+}
+
+.myProfile img {
+    margin-right: 10px;
+    width: 30%;
+}
+.myProfile p {
+    margin: 10px 0px;
+}
+
+
+
+
 /* Responsive */
 
 @media (min-width: 361px) {

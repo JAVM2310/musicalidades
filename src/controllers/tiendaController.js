@@ -28,13 +28,13 @@ const controller = {
         if (req.session.usuariosLogueado) {
             if (req.session.usuariosLogueado.tipo == 9){
                 admin = true
-                res.render('./tienda/productDetail', {titulo: titulo, product:chosenProduct, user: req.session.usuariosLogueado, admin});
+                return res.render('./tienda/productDetail', {titulo: titulo, product:chosenProduct, user: req.session.usuariosLogueado, admin});
                 admin = false
                 console.log(admin);
             }
         }
         
-        res.render('./tienda/productDetail', {titulo: titulo, product:chosenProduct, user: req.session.usuariosLogueado, admin});
+        return res.render('./tienda/productDetail', {titulo: titulo, product:chosenProduct, user: req.session.usuariosLogueado, admin});
     },
     productCart: (req, res) => {
         let titulo = "Carrito";

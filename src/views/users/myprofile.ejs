@@ -1,9 +1,13 @@
 <%- include('../partials/head') %>
 <body class="registro-body">
     <%- include('../partials/header') %>
-    <main>
+    <main class="myProfile">
         <img src="/img/<%= user.avatar %>" alt="">
-        aca estaria la informacion del usuario y/o formulario para editar la misma
+        <div>
+            <h4> Hola <i><%= user.nombre%> <%=user.apellido%> </i>!</h4>
+            <p>Acá estaría la información del usuario y/o formulario para editar la misma</p>
+
+        </div>
     </main>
     <%- include('../partials/footer') %>
 </body>
