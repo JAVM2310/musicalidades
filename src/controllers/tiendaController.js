@@ -64,9 +64,17 @@ const controller = {
     modify: (req, res) => {
         let id = req.params.id;
         let productToEdit = products.find(product => product.id == id);
-        console.log(productToEdit);
-        console.log(req.files);
+        /* console.log(productToEdit);
+        console.log(req.files); */
         let imagenesNuevas = [];
+
+        for (i=0; i<productToEdit.image.length; i++){
+            if(eval("req.body.imgDel"+i) == 1) {
+                fs.unlink(path.join(__dirname, "../../public/img/") + productToEdit.image[0], error => console.log("se borro el archivo " + productToEdit.image[0] + " en la carpeta " + path.join(__dirname, "../../public/img/products/")))
+                productToEdit.image.splice("req.body.imgDel"+i, 1)
+            }
+        }
+
         for (let i=0; i<req.files.length; i++){
             imagenesNuevas = '/products/' + req.files[i].filename;
             productToEdit.image.push(imagenesNuevas)            

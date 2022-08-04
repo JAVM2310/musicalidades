@@ -38,15 +38,17 @@
                         <label for="stock">
                             <input type="number" name="stock" id="stock" value="<%= product.stock %>" >
                         </label>
+                        <div class="img-products-edit">
+                            <p>Borrar Imágenes</p>
+                            <% for (i = 0; i < product.image.length; i++) { %>
+                                <label for="imgDel<%=i%>">
+                                    <img src="/img/<%=product.image[i]%>" alt="">
+                                    <input type="checkbox" name="imgDel<%=i%>" id="imgDel<%=i%>" value="1">
+                                </label>
+                            <% } %>
+                        </div>
+                        <p>Agregar Imágenes</p>
                         <label for="images">
-                            <p>Imágenes</p>
-                            <!-- <div class="img-products-edit">
-                                <% for (let i=0; i<product.image.length; i++) { %>
-                                    
-                                <button><img src="/img/<%= product.image[i] %>"></buton>
-                                    <% console.log(product.image[i]) %>
-                                <%}%>
-                        </div> -->
                             <input class="imagenes-input" type="file" name="images" id="images" multiple>
                         </label>
                     </div>
