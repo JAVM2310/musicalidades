@@ -33,7 +33,7 @@ const controller = {
                 console.log(admin);
             }
         }
-        
+        admin = false
         return res.render('./tienda/productDetail', {titulo: titulo, product:chosenProduct, user: req.session.usuariosLogueado, admin});
     },
     productCart: (req, res) => {
