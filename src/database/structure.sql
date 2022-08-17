@@ -29,21 +29,21 @@ nombre VARCHAR(90) NOT NULL,
 apellido TEXT NOT NULL,
 email TEXT NOT NULL,
 `password` TEXT NOT NULL,
-pais INT NOT NULL,
-provincia TEXT NOT NULL,
-ciudad INT NOT NULL,
+pais VARCHAR(90) NOT NULL,
+provincia VARCHAR(90) NOT NULL,
+ciudad VARCHAR(90) NOT NULL,
 codPostal INT NOT NULL,
-fechaNac INT NOT NULL,
+fechaNac DATE NOT NULL,
 PRIMARY KEY (id)
 );
 CREATE TABLE musicalidades.productosUsuarios (
 id INT NOT NULL AUTO_INCREMENT,
 cantidad INT NOT NULL,
-productos_id INT NOT NULL,
-usuarios_id INT NOT NULL,
+producto_id INT NOT NULL,
+usuario_id INT NOT NULL,
 PRIMARY KEY (id),
-FOREIGN KEY (productos_id) REFERENCES musicalidades.productos(id),
-FOREIGN KEY (usuarios_id) REFERENCES musicalidades.usuarios(id)
+FOREIGN KEY (producto_id) REFERENCES musicalidades.productos(id),
+FOREIGN KEY (usuario_id) REFERENCES musicalidades.usuarios(id)
 );
 
 ALTER TABLE musicalidades.productos
