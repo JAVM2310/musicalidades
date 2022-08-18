@@ -40,6 +40,12 @@ module.exports = (sequelize, dataTypes) => {
         },
         fechaNac: {
             type: dataTypes.DATE
+        },
+        avatar: {
+            type:dataTypes.STRING(200)
+        },
+        permisos: {
+            type:dataTypes.INTEGER
         }
     };
     let config = {

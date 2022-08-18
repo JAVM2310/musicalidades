@@ -37,14 +37,14 @@
             
             <%products.forEach((product) => { %>
                 <div class="productos-destacados">
-                    <a href="/tienda/productDetail/<%= product.id %>"><img src="/img/<%= product.image[0] %>" alt=<%= product.name %>></a>
-                    <h3><%= product.name %></h3>
-                    <% if (product.discount > 0){ %>
-                        <span class="precio-tachado">$<%= Intl.NumberFormat('sp-SP').format(product.price) %></span>
-                        <span class="precio">$<%= Intl.NumberFormat('sp-SP').format((product.price * (100-product.discount))/100) %></span>
-                        <p class="descuento"><%= product.discount %>% OFF</p>
+                    <a href="/tienda/productDetail/<%= product.id %>"><img src="/img/<%= product.imagenes[0] %>" alt=<%= product.nombre %>></a>
+                    <h3><%= product.nombre %></h3>
+                    <% if (product.descuento > 0){ %>
+                        <span class="precio-tachado">$<%= Intl.NumberFormat('sp-SP').format(product.precio) %></span>
+                        <span class="precio">$<%= Intl.NumberFormat('sp-SP').format((product.precio * (100-product.descuento))/100) %></span>
+                        <p class="descuento"><%= product.descuento %>% OFF</p>
                     <% } else { %>
-                        <p class="precio">$<%= Intl.NumberFormat('sp-SP').format(product.price) %></p>
+                        <p class="precio">$<%= Intl.NumberFormat('sp-SP').format(product.precio) %></p>
                         <p class="descuento">      </p>
                     <% } %>
                     <p><button>AGREGAR</button></p>

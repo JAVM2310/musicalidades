@@ -39,4 +39,5 @@ router.put("/productDetail/:id", adminMiddleware, upload.array('images'), tienda
 router.get("/deleteProduct/:id", adminMiddleware, tiendaController.delete)
 
 
+
 module.exports = router;

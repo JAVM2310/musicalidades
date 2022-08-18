@@ -8,41 +8,50 @@
                     <div class="datos">
                         <label for="categoria"><span>Categoría:</span>
                             <select name="categoria" id="categoria" >
-                                <option value="<%= product.categoria %>"><%= product.categoria %></option>  
-                                <option value="Sin categoría">Sin Categoría</option> 
-                                <option value="Cuerdas">Cuerdas</option>
-                                <option value="Percusión">Percusión</option>
-                                <option value="Teclas">Teclas</option>
-                                <option value="Vientos">Vientos</option>                           
+                                <option value="<%= product.categoria_id %>"></option>
+                                <option value="5">Sin Categoria</option> 
+                                <option value="1">Cuerdas</option>
+                                <option value="3">Percusión</option>
+                                <option value="2">Teclas</option>
+                                <option value="4">Vientos</option>                             
                             </select>
-                    </label>
-                        <label for="name">
-                            <input type="text" name="name" id="name" value="<%= product.name %>" >
                         </label>
-                        
-                        <label for="marca">
-                            <input type="text" name="marca" id="marca" value="<%= product.marca %>" >
+                        <label for="marca"><span style="text-align:right">Marca:</span>
+                            <select name="marca" id="marca">
+                                <%marcas.forEach((marca) => {%>
+                                    <option value="<%= marca.id %>"><%= marca.nombre %></option>
+                                <% }) %>
+                            </select>
+                        </label>
+                        <label for="marcaNueva"><span style="text-align:right">Marca Nueva:</span>
+                            <input type="checkbox" name="marcaNueva" value="1">
+                        </label>
+                        <label for="marcaNuevaNombre">
+                            <input type="text" name="marcaNuevaNombre" id="marcaNuevaNombre" placeholder="Nombre de la nueva marca">
+                        </label>
+                        <label for="name">
+                            <input type="text" name="name" id="name" value="<%= product.nombre %>" >
                         </label>
                         <label for="shortDesc">
-                            <input type="text" name="shortDesc" id="shortDesc" value="<%= product.shortDesc %>" >
+                            <input type="text" name="shortDesc" id="shortDesc" value="<%= product.descripcion %>" >
                         </label>
                         <label for="longDesc">
-                            <input type="text" name="longDesc" id="longDesc" value="<%= product.longDesc %>" >
+                            <input type="text" name="longDesc" id="longDesc" value="<%= product.descLarga %>" >
                         </label>
                         <label for="price">
-                            <input type="number" name="price" id="price" value="<%= product.price %>" >
+                            <input type="number" name="price" id="price" value="<%= product.precio %>" >
                         </label>
                         <label for="discount">
-                            <input type="number" name="discount" id="discount" value="<%= product.discount %>" >
+                            <input type="number" name="discount" id="discount" value="<%= product.descuento %>" >
                         </label>
                         <label for="stock">
                             <input type="number" name="stock" id="stock" value="<%= product.stock %>" >
                         </label>
                         <div class="img-products-edit">
                             <p>Borrar Imágenes</p>
-                            <% for (i = 0; i < product.image.length; i++) { %>
+                            <% for (i = 0; i < product.imagenes.length; i++) { %>
                                 <label for="imgDel<%=i%>">
-                                    <img src="/img/<%=product.image[i]%>" alt="">
+                                    <img src="/img/<%=product.imagenes[i]%>" alt="">
                                     <input type="checkbox" name="imgDel<%=i%>" id="imgDel<%=i%>" value="1">
                                 </label>
                             <% } %>

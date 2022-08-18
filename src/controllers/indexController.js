@@ -4,6 +4,9 @@ const path = require('path');
 const fs = require("fs");
 const {check} = require('express-validator');
 const { validationResult } = require('express-validator');
+const db = require("../database/models/index")
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 const productsFilePath = path.join(__dirname, '../database/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -13,15 +16,24 @@ let admin = false
 
 const controller = {
     index: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        let titulo = "Home"
-        if (req.session.usuariosLogueado) {
-            if (req.session.usuariosLogueado.tipo == 9){
-                admin = true
-                return res.render('index', {titulo: titulo, products: products, deleteMessage: "no", mensaje: "", user: req.session.usuariosLogueado, admin});
+        db.Producto.findAll()
+        .then((result) => {
+            productos = []
+            result.forEach(element => {
+                productos.push(element.dataValues)
+            })
+            productos.forEach(producto => {
+                producto.imagenes = JSON.parse(producto.imagenes)
+            })
+        })
+        .then(()=>{
+            if (req.session.usuariosLogueado) {
+                if (req.session.usuariosLogueado.tipo == 9){
+                    return res.render('index', {titulo: "Home", products: productos, deleteMessage: "no", mensaje: "", user: req.session.usuariosLogueado, admin: true});
+                }
             }
-        }
-        return res.render('index', {titulo: titulo, products: products, deleteMessage: "no", mensaje: "", user: req.session.usuariosLogueado, admin: false})
+            return res.render('index', {titulo: "Home", products: productos, deleteMessage: "no", mensaje: "", user: req.session.usuariosLogueado, admin: false})
+        })
     },
     faq: (req, res) => {
         let titulo = "FAQ"

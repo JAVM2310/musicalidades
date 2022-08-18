@@ -1,3 +1,5 @@
+CREATE SCHEMA musicalidades;
+
 CREATE TABLE musicalidades.productos (
 id INT NOT NULL AUTO_INCREMENT,
 nombre VARCHAR(90) NOT NULL,
@@ -34,6 +36,8 @@ provincia VARCHAR(90) NOT NULL,
 ciudad VARCHAR(90) NOT NULL,
 codPostal INT NOT NULL,
 fechaNac DATE NOT NULL,
+avatar VARCHAR(200) NOT NULL,
+permisos INT NOT NULL,
 PRIMARY KEY (id)
 );
 CREATE TABLE musicalidades.productosUsuarios (
