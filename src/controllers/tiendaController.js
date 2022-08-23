@@ -191,18 +191,6 @@ const controller = {
             })
         })
         .then(()=>{
-            db.Producto.findAll()
-            .then((result) => {
-                productos = []
-                result.forEach(element => {
-                    productos.push(element.dataValues)
-                })
-                productos.forEach(producto => {
-                    producto.imagenes = JSON.parse(producto.imagenes)
-                })
-            })
-        })
-        .then(()=>{
             res.redirect("/")
         })
     },
