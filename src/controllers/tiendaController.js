@@ -32,21 +32,6 @@ const controller = {
             res.render('./tienda/tienda', {titulo: "Tienda", products: productos, user: req.session.usuariosLogueado});
         })
     },
-    /* productDetailOld: (req, res) => {
-        let titulo = "Detalle de Producto";
-        const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        let chosenProductIndex = products.findIndex(product => product.id == req.params.id)
-        let chosenProduct = products[chosenProductIndex]
-        
-        if (req.session.usuariosLogueado) {
-            if (req.session.usuariosLogueado.permisos == 9){
-                console.log(chosenProduct);
-                return res.render('./tienda/productDetail', {titulo: titulo, product:chosenProduct, user: req.session.usuariosLogueado, admin: true});
-            }
-        }
-        console.log(chosenProduct);
-        return res.render('./tienda/productDetail', {titulo: titulo, product:chosenProduct, user: req.session.usuariosLogueado, admin});
-    }, */
     productDetail(req, res){
         db.Producto.findByPk(req.params.id)
         .then((producto) =>{ 
@@ -163,14 +148,14 @@ const controller = {
 
             for (i=0; i<productToEdit.imagenes.length; i++){
                 if(eval("req.body.imgDel"+i) == 1) {
-                    fs.unlink(path.join(__dirname, "../../public/img/") + productToEdit.image[0], log => console.log("se borro el archivo " + productToEdit.image[0] + " en la carpeta " + path.join(__dirname, "../../public/img/products/")))
-                    productToEdit.image.splice("req.body.imgDel"+i, 1)
+                    fs.unlink(path.join(__dirname, "../../public/img/") + productToEdit.imagenes[i], log => console.log("se borro el archivo: " + productToEdit.imagenes[i] + " en la carpeta: " + path.join(__dirname, "../../public/img/products/")))
+                    productToEdit.imagenes.splice("req.body.imgDel"+i, 1)
                 }
             }
             
             for (let i=0; i<req.files.length; i++){
-                imageneNuevas = '/products/' + req.files[i].filename;
-                productToEdit.imagenes.push(imageneNuevas)            
+                imagenesNuevas = '/products/' + req.files[i].filename;
+                productToEdit.imagenes.push(imagenesNuevas)            
             }
             
             productToEdit = {
@@ -195,10 +180,31 @@ const controller = {
         res.redirect("/tienda/productDetail/" + req.params.id);
     },
     delete(req, res){
-        editor.deleteProduct(Number(req.params.id.slice(1)))
-        let id = req.params.id
-        const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        res.render('index', {titulo: "Home", products: products, deleteMessage: "se borro el producto con la id: " + id.slice(1), mensaje: "", user: req.session.usuariosLogueado});
+        db.Producto.findByPk(Number(req.params.id.slice(1)))
+        .then((producto)=>{
+            producto.dataValues.imagenes = JSON.parse(producto.dataValues.imagenes)
+            producto.dataValues.imagenes.forEach(imagen => {
+                fs.unlink(path.join(__dirname, "../../public/img/") + imagen, log => console.log("se borro el archivo: " + imagen + " en la carpeta: " + path.join(__dirname, "../../public/img/products/")))
+            })
+            db.Producto.destroy({
+                where:{id: Number(req.params.id.slice(1))}
+            })
+        })
+        .then(()=>{
+            db.Producto.findAll()
+            .then((result) => {
+                productos = []
+                result.forEach(element => {
+                    productos.push(element.dataValues)
+                })
+                productos.forEach(producto => {
+                    producto.imagenes = JSON.parse(producto.imagenes)
+                })
+            })
+        })
+        .then(()=>{
+            res.redirect("/")
+        })
     },
 
 };

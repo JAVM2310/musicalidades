@@ -11,6 +11,9 @@
         <% if (admin == true) { %>
         <a href="/tienda/modifyProduct/<%= product.id %>">editar producto | </a>
         
+        <!-- <form method="DELETE" action="/tienda/productDetail/<%= product.id %>?_method=DELETE" enctype="multipart/form-data">
+            <button type="submit">eliminar producto</button>
+        </form> -->
         <a href="/tienda/deleteProduct/><%= product.id%>">eliminar producto</a>
         <% } %>
         <h4 class="titulo-nav-paginas">> Categoría <%= product.categoria %> <span>> Marca <%= product.marca %> <span>> <%= product.name %></span></h4>
