@@ -9,8 +9,9 @@
     <!-------------------------MAIN------------------------------->
     <main>
         <% if (admin == true) { %>
-            <a href="/tienda/newProduct">nuevo producto (placeholder)</a>
-        <% } %>
+            <h2 class="titulo-admin">VISTA DE ADMINISTRACIÓN</h2>
+            <a class="botones-admin naranja" href="/tienda/newProduct">AGREGAR NUEVO PRODUCTO</a>
+        <% }%>
         <section class="section-carousel">
             <div class="carousel">
                 <div class="carousel-inner">
@@ -46,7 +47,7 @@
                 </div>
             </div>
         </section>
-
+    
         <!-- BOTONES REDONDEOS-->
         <section id="botones-redondos">
             <a href="/tienda"><button class="botones-redondos"><img class="img-boton" src="./img/guitarra.png" alt="guitarra"><p>Cuerdas</p></button></a>
@@ -92,7 +93,12 @@
                         <p class="precio">$<%= Intl.NumberFormat('sp-SP').format(product.precio) %></p>
                         <p class="descuento">      </p>
                     <% } %>
+                    <% if (admin == true) { %>
+                        <p class="p-admin"><a class="botones-admin" href="/tienda/modifyProduct/<%= product.id %>">EDITAR</a><a class="botones-admin" href="/tienda/deleteProduct/<%= product.id %>">ELIMINAR</a></p>
+                        
+                    <% }else{ %>
                     <p><button>AGREGAR</button></p>
+                    <% } %>
                 </div>
             <% }}) %>
             <div class="pagina">

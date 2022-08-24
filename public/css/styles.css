@@ -693,6 +693,7 @@ hr {
     font-size: 14px;
     text-align: center;
     padding: 3%;
+    margin-top: -40px;
 }
 .filtros {
     margin-top: 10px;
@@ -1079,6 +1080,45 @@ footer .email i {
 .menu-footer li {
     line-height: 150%;
     list-style-type: circle;
+}
+
+.marcaNuevaNombre{
+    display: block;
+}
+.stock{
+    color: #9D9D9D;
+}
+
+/*---------------------ADMIN---------------------------*/
+.p-admin{
+    display: flex;
+    padding-top: -100px;
+}
+.botones-admin{
+    background-color: blue;
+    color: #FFF;
+    padding: 5px 20px;
+    margin-right: 10px;
+    border-radius: 10px;
+    font-size: 0.7em;
+}
+.botones-admin:hover{
+    background-color:#9D9D9D;
+    cursor: pointer;
+}
+.naranja{
+    display: block;
+    text-align: center;
+    background-color: #F9AF14;
+    font-size: 1em;
+    margin: 25px 10.5em 25px 8em;
+}
+.titulo-admin{
+    background-color: blue;
+    color: #F9AF14;
+    text-align: center;
+    padding: 5px;
+    font-size: 1em;
 }
 
 /*------------------------ QUIENES SOMOS ------------------------*/

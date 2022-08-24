@@ -18,7 +18,10 @@ let admin = false
 
 const controller = {
     tienda: (req, res) => {
-        db.Producto.findAll()
+        db.Producto.findAll(/* {
+            limit: 4,
+            offset:4
+        } */)
         .then((result) => {
             productos = []
             result.forEach(element => {
@@ -29,8 +32,14 @@ const controller = {
             })
         })
         .then(()=>{
-            res.render('./tienda/tienda', {titulo: "Tienda", products: productos, user: req.session.usuariosLogueado});
+            if (req.session.usuariosLogueado) {
+                if (req.session.usuariosLogueado.permisos == 9){
+                    return res.render('./tienda/tienda', {titulo: "Tienda", products: productos, user: req.session.usuariosLogueado, admin: true});
+                }
+            }
+            return res.render('./tienda/tienda', {titulo: "Tienda", products: productos, user: req.session.usuariosLogueado, admin: false});
         })
+            
     },
     productDetail(req, res){
         db.Producto.findByPk(req.params.id)
@@ -40,7 +49,7 @@ const controller = {
         })
         .then(() => {
         if (req.session.usuariosLogueado) {
-            if (req.session.usuariosLogueado.tipo == 9){
+            if (req.session.usuariosLogueado.permisos == 9){
                 return res.render('./tienda/productDetail', {titulo: "Detalle de Producto", product:productoElegido, user: req.session.usuariosLogueado, admin: true});
             }
         }
@@ -53,7 +62,9 @@ const controller = {
     },
     newProduct: (req, res) => {
         let marcas = []
-        db.Marca.findAll()
+        db.Marca.findAll({
+            order:[['nombre', 'ASC']]
+        })
         .then((result) =>{
             result.forEach(element => {
                 marcas.push(element.dataValues)
@@ -112,7 +123,9 @@ const controller = {
     },
     modifyProduct: (req, res) => {
         let marcas = []
-        db.Marca.findAll()
+        db.Marca.findAll({
+            order:[['nombre', 'ASC']]
+        })
         .then((result) =>{
             result.forEach(element => {
                 marcas.push(element.dataValues)
@@ -120,14 +133,15 @@ const controller = {
         })
         .then(()=>{
             db.Producto.findByPk(req.params.id)
-            .then((producto) =>{ 
+            .then((producto) =>{
                 productoElegido = producto.dataValues
                 productoElegido.imagenes = JSON.parse(productoElegido.imagenes)
+                res.render('./tienda/modifyProduct', {titulo: "Modificar Producto", product:productoElegido, user: req.session.usuariosLogueado, marcas});
             })
         })
-        .then(()=>{
-            res.render('./tienda/modifyProduct', {titulo: "Modificar Producto", product:productoElegido, user: req.session.usuariosLogueado, marcas});        
-        })
+        /* .then(()=>{
+            res.render('./tienda/modifyProduct', {titulo: "Modificar Producto", product:productoElegido, user: req.session.usuariosLogueado, marcas});
+        }) */
     },
     modify: (req, res) => {
         

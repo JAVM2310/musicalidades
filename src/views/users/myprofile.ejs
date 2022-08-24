@@ -4,11 +4,21 @@
     <main class="myProfile">
         <img src="/img/<%= user.avatar %>" alt="">
         <div>
-            <h4> Hola <i><%= user.nombre%> <%=user.apellido%> </i>!</h4>
-            <p>Acá estaría la información del usuario y/o formulario para editar la misma</p>
-
+            <h2> Hola <i><%= user.nombre%> <%=user.apellido%> </i>!</h2>
+            <p></p>
+            <h5><u>Datos de Usuario</u></h5>
+            <p>NOMBRE: <span><%= user.nombre%></span></p>
+            <p>APELLIDO: <span><%= user.apellido%></span></p>
+            <p>EMAIL: <span><%= user.email%></span></p>
+            <p>PAÍS: <span><%= user.pais%></span></p>
+            <p>CIUDAD: <span><%= user.ciudad%></span></p>
+            <p>CÓDIGO POSTAL: <span><%= user.codPostal%></span></p>
+            <p>FECHA DE NACIMIENTO: <span><%= user.fechaNac%></span></p>
+            
+            <p class="p-admin"><a class="botones-admin" href="/modifyuser/<%= user.id %>">EDITAR</a><a class="botones-admin" href="/deleteUser/<%= user.id %>">ELIMINAR</a></p>
         </div>
     </main>
     <%- include('../partials/footer') %>
+    <!-- <script src="../js/myProfile.js"></script> -->
 </body>
 </html>

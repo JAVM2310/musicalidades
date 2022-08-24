@@ -30,4 +30,8 @@ router.get("/signout", usersController.signOut)
 router.get("/myprofile", authMiddleware, usersController.profile)
 
 
+router.get("/modifyuser/:id", usersController.modifyUser);
+router.patch("/myprofile", usersController.profileEdition)
+router.get("/deleteuser/:id", usersController.delete)
+
 module.exports = router;
