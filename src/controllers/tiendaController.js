@@ -42,18 +42,31 @@ const controller = {
             
     },
     productDetail(req, res){
+        let marca;
+        let categoria;
         db.Producto.findByPk(req.params.id)
         .then((producto) =>{ 
             productoElegido = producto.dataValues
             productoElegido.imagenes = JSON.parse(productoElegido.imagenes)
-        })
-        .then(() => {
-        if (req.session.usuariosLogueado) {
-            if (req.session.usuariosLogueado.permisos == 9){
-                return res.render('./tienda/productDetail', {titulo: "Detalle de Producto", product:productoElegido, user: req.session.usuariosLogueado, admin: true});
+            db.Marca.findByPk(producto.dataValues.marca_id)
+            .then((result)=>{
+                marca = result.dataValues.nombre
+                console.log("la marca es:" + marca);
+            })
+            db.Categoria.findByPk(producto.dataValues.categoria_id)
+            .then((result)=>{
+                console.log(result);
+                console.log("la categoria es:" + categoria);
+                categoria = result.dataValues.tipo
+            })
+            .then(() => {
+            if (req.session.usuariosLogueado) {
+                if (req.session.usuariosLogueado.permisos == 9){
+                    return res.render('./tienda/productDetail', {titulo: "Detalle de Producto", product:productoElegido, user: req.session.usuariosLogueado, admin: true, marca, categoria});
+                }
             }
-        }
-        return res.render('./tienda/productDetail', {titulo: "Detalle de Producto", product:productoElegido, user: req.session.usuariosLogueado, admin: false})
+            return res.render('./tienda/productDetail', {titulo: "Detalle de Producto", product:productoElegido, user: req.session.usuariosLogueado, admin: false, marca, categoria})
+            })
         })
     },
     productCart: (req, res) => {
@@ -136,12 +149,9 @@ const controller = {
             .then((producto) =>{
                 productoElegido = producto.dataValues
                 productoElegido.imagenes = JSON.parse(productoElegido.imagenes)
-                res.render('./tienda/modifyProduct', {titulo: "Modificar Producto", product:productoElegido, user: req.session.usuariosLogueado, marcas});
+                res.render('./tienda/modifyProduct', {titulo: "Modificar Producto", product: productoElegido, user: req.session.usuariosLogueado, marcas});
             })
         })
-        /* .then(()=>{
-            res.render('./tienda/modifyProduct', {titulo: "Modificar Producto", product:productoElegido, user: req.session.usuariosLogueado, marcas});
-        }) */
     },
     modify: (req, res) => {
         
