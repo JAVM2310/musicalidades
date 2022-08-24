@@ -9,13 +9,8 @@
     <!-------------------------MAIN------------------------------->
     <main>
         <% if (admin == true) { %>
-        <a href="/tienda/modifyProduct/<%= product.id %>">editar producto | </a>
-        
-        <!-- <form method="DELETE" action="/tienda/productDetail/<%= product.id %>?_method=DELETE" enctype="multipart/form-data">
-            <button type="submit">eliminar producto</button>
-        </form> -->
-        <a href="/tienda/deleteProduct/><%= product.id%>">eliminar producto</a>
-        <% } %>
+            <h2 class="titulo-admin">VISTA DE ADMINISTRACIÓN</h2>
+        <%}%>
         <h4 class="titulo-nav-paginas">> Categoría <%= product.categoria %> <span>> Marca <%= product.marca %> <span>> <%= product.name %></span></h4>
         <section class="producto">
             
@@ -82,12 +77,17 @@
                                 <button id="+" name="mas">+</button>
                             </label>
                         </div>
-                        <label for="enviar">
-                            <button type="submit" id="enviar" class="boton-enviar">AGREGAR AL CARRITO</button>
-                        </label>
+                        <% if (admin == true) { %>
+                            <p class="p-admin"><a class="botones-admin" href="/tienda/modifyProduct/<%= product.id %>">EDITAR</a><a class="botones-admin" href="/tienda/deleteProduct/<%= product.id %>">ELIMINAR</a></p>
+                            
+                        <% }else{ %>
+                            <label for="enviar">
+                                <button type="submit" id="enviar" class="boton-enviar">AGREGAR AL CARRITO</button>
+                            </label>
+                        <% } %>
+                        
                     </form>
                     <p class="stock">Stock: <%= product.stock %></p>
-                    <p class="marca">Marca: <%= product.marca %></p>
                 </article>
                 <article class="producto-descripcion">
                     <div>

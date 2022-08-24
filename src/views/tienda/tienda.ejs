@@ -8,7 +8,13 @@
     <%- include('../partials/header') %>
     <!-------------------------MAIN------------------------------->
     <main>
+        <% if (admin == true) { %>
+            <h2 class="titulo-admin">VISTA DE ADMINISTRACIÓN</h2>
+        <%}%>
         <h1 class="titulo">TIENDA</h1>
+        <% if (admin == true) { %>
+            <a class="botones-admin naranja" href="/tienda/newProduct">AGREGAR NUEVO PRODUCTO</a>
+        <%}%>
         <div class="volver">
             <a href="/"><i class="fa-solid fa-arrow-rotate-left"></i> Volver a la Página Principal</a>
             <p></p>
@@ -47,7 +53,12 @@
                         <p class="precio">$<%= Intl.NumberFormat('sp-SP').format(product.precio) %></p>
                         <p class="descuento">      </p>
                     <% } %>
+                    <% if (admin == true) { %>
+                        <p class="p-admin"><a class="botones-admin" href="/tienda/modifyProduct/<%= product.id %>">EDITAR</a><a class="botones-admin" href="/tienda/deleteProduct/<%= product.id %>">ELIMINAR</a></p>
+                        
+                    <% }else{ %>
                     <p><button>AGREGAR</button></p>
+                    <% } %>
                 </div>
             <% }) %>
             <div class="pagina">

@@ -28,7 +28,7 @@ const controller = {
         })
         .then(()=>{
             if (req.session.usuariosLogueado) {
-                if (req.session.usuariosLogueado.tipo == 9){
+                if (req.session.usuariosLogueado.permisos == 9){
                     return res.render('index', {titulo: "Home", products: productos, deleteMessage: "no", mensaje: "", user: req.session.usuariosLogueado, admin: true});
                 }
             }

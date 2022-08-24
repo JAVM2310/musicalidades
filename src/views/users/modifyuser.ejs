@@ -1,0 +1,45 @@
+<%- include('../partials/head') %>
+<body class="registro-body">
+    <%- include('../partials/header') %>
+    <h2> Editar datos de <%= user.nombre%> <%=user.apellido%></h2>
+
+    <main class="myProfile">
+        <form class="form" method="PATCH" action="/users/myprofile/<%= user.id %>?_method=PATCH" enctype="multipart/form-data">
+            <div class="datos">
+                <div>
+                    <img src="/img/<%= user.avatar %>" alt="">
+                    <label for="name">
+                        <p>Nombre:<input type="text" name="name" id="name" value="<%= user.nombre %>" ></p>
+                    </label>
+                    <label for="apellido">
+                        <p>Apellido:<input type="text" name="apellido" id="apellido" value="<%= user.apellido %>" ></p>
+                    </label>
+                    <label for="email">
+                        <p>Email:<input type="email" name="email" id="email" value="<%= user.email %>" ></p>
+                    </label>
+                </div>
+                <div>
+                    <label for="pais">
+                        <p>País:<input type="text" name="pais" id="pais" value="<%= user.pais %>" ></p>
+                    </label>
+                    <label for="provincia">
+                        <p>Provincia:<input type="text" name="provincia" id="provincia" value="<%= user.provincia %>" ></p>
+                    </label>
+                    <label for="ciudad">
+                        <p>Ciudad:<input type="text" name="ciudad" id="ciudad" value="<%= user.ciudad %>" ></p>
+                    </label>
+                    <label for="codPostal">
+                        <p>Código Postal:<input type="number" name="codPostal" id="codPostal" value="<%= user.codPostal %>" ></p>
+                    </label>
+                    <label for="fechaNac">
+                        <p>Fecha de Nacimiento:<input type="date" name="fechaNac" id="fechaNac" value="<%= user.fechaNac %>" ></p>
+                    </label>
+                    <p class="p-admin"><a class="botones-admin" href="/myprofile">EDITAR</a><a class="botones-admin" href="/deleteuser/<%= user.id %>">ELIMINAR</a></p>
+                </div>
+            </div>
+        </form>
+    </main>
+    <%- include('../partials/footer') %>
+    <!-- <script src="../js/myProfile.js"></script> -->
+</body>
+</html>
