@@ -64,60 +64,50 @@ const controller = {
         })
     },
     createProduct: (req, res) => {
+        let imagenes = []
+        let marca;
         req.files.forEach(file =>{
-            imagenes = []
             imagenes.push("/products/" + file.filename)
             imagenes = JSON.stringify(imagenes)
         })
-        .then(()=>{
-            if (req.body.marcaNueva == 1){
-                db.Marca.create({
-                    nombre: req.body.marcaNuevaNombre
-                })
-                .then(()=>{
-                    db.Marca.findOne({
-                        where:{
-                            nombre: req.body.marcaNuevaNombre
-                        }
-                    })
-                    .then((result) =>{
-                        console.log(result);
-                        db.Producto.create({
-                            nombre: req.body.name,
-                            descripcion: req.body.shortDesc,
-                            descLarga: req.body.longDesc,
-                            precio:  req.body.price,
-                            descuento: req.body.discount,
-                            stock: req.body.stock,
-                            imagenes: imagenes,
-                            marca_id: result.dataValues.id,
-                            categoria_id:  req.body.categoria,
-                        })
-                    })
-                })
-            } else {
-                db.Producto.create({
-                nombre: req.body.name,
-                descripcion: req.body.shortDesc,
-                descLarga: req.body.longDesc,
-                precio:  req.body.price,
-                descuento: req.body.discount,
-                stock: req.body.stock,
-                imagenes: imagenes,
-                marca_id: req.body.marca,
-                categoria_id:  req.body.categoria,
+        if (req.body.marcaNueva == 1){
+            db.Marca.create({
+                nombre: req.body.marcaNuevaNombre
             })
+            .then(()=>{
+                db.Marca.findOne({
+                    where:{
+                        nombre: req.body.marcaNuevaNombre
+                    }
+                })
+                .then((result) =>{
+                    marca = result.dataValues.id
+                    })
+                })
+        } else {
+            marca = req.body.marca
         }
+        db.Producto.create({
+            nombre: req.body.name,
+            descripcion: req.body.shortDesc,
+            descLarga: req.body.longDesc,
+            precio:  req.body.price,
+            descuento: req.body.discount,
+            stock: req.body.stock,
+            imagenes: imagenes,
+            marca_id: marca,
+            categoria_id:  req.body.categoria,
         })
         .then(()=>{
             db.Producto.findOne({
-                where:{
-                    nombre: req.body.name
-                }
+                    where:{
+                        nombre: req.body.name
+                    }
+                })
+            .then((result) => {
+                console.log(result);
+                res.redirect("/tienda/productDetail/" + result.dataValues.id);
             })
-        })
-        .then((result) => {
-            res.redirect("/tienda/productDetail/" + result.dataValues.id);
         })
     },
     modifyProduct: (req, res) => {

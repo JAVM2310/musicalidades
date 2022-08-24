@@ -8,12 +8,12 @@
                     <div class="datos">
                         <label for="categoria"><span>Categoría:</span>
                             <select name="categoria" id="categoria" >
-                                <option value="<%= product.categoria_id %>"></option>
-                                <option value="5">Sin Categoria</option> 
-                                <option value="1">Cuerdas</option>
-                                <option value="3">Percusión</option>
-                                <option value="2">Teclas</option>
-                                <option value="4">Vientos</option>                             
+                                <% let categorias = [{cat: "Cuerdas", id: 1}, {cat: "Teclas", id: 2}, {cat: "Percusión", id: 3}, {cat: "Vientos", id: 4}, {cat: "Sin Categoria", id: 5}] %>
+                                <% let categoriaActual = categorias.splice(product.categoria_id - 1, 1) %>
+                                    <option value="<%= product.categoria_id %>"><%= categoriaActual[0].cat %></option>
+                                <% categorias.forEach(categoria =>{ %>
+                                    <option value="categoria.id"><%= categoria.cat %></option>
+                                <% }) %>
                             </select>
                         </label>
                         <label for="marca"><span style="text-align:right">Marca:</span>
