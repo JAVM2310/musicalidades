@@ -31,7 +31,7 @@ router.get("/myprofile", authMiddleware, usersController.profile)
 
 
 router.get("/modifyuser/:id", usersController.modifyUser);
-router.patch("/myprofile", usersController.profileEdition)
+router.patch("/myprofile/:id", upload.single('avatar'), usersController.profileEdition)
 router.get("/deleteuser/:id", usersController.delete)
 
 module.exports = router;

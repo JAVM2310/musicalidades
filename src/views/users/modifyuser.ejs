@@ -1,21 +1,31 @@
 <%- include('../partials/head') %>
 <body class="registro-body">
     <%- include('../partials/header') %>
-    <h2> Editar datos de <%= user.nombre%> <%=user.apellido%></h2>
-
+    <hr>
+    <h2 style="text-align: center;"> Editar datos de <%= user.nombre%> <%=user.apellido%></h2>
+    <hr>
     <main class="myProfile">
-        <form class="form" method="PATCH" action="/users/myprofile/<%= user.id %>?_method=PATCH" enctype="multipart/form-data">
+        <form class="form myProfile" method="POST" action="/myprofile/<%= user.id %>?_method=PATCH" enctype="multipart/form-data"><!-- enctype="multipart/form-data" -->
             <div class="datos">
-                <div>
+                <div id="img">
                     <img src="/img/<%= user.avatar %>" alt="">
-                    <label for="name">
-                        <p>Nombre:<input type="text" name="name" id="name" value="<%= user.nombre %>" ></p>
+                    <p>Cambiar Imagen</p>
+                        <label for="avatar">
+                            <input class="imagenes-input" type="file" name="avatar" id="avatar">
+                        </label>
+                </div>
+                <div>
+                    <label for="nombre">
+                        <p>Nombre:<input type="text" name="nombre" id="nombre" value="<%= user.nombre %>" ></p>
                     </label>
                     <label for="apellido">
                         <p>Apellido:<input type="text" name="apellido" id="apellido" value="<%= user.apellido %>" ></p>
                     </label>
                     <label for="email">
                         <p>Email:<input type="email" name="email" id="email" value="<%= user.email %>" ></p>
+                        <span class="text-danger">
+                            <%= error%>
+                        </span>
                     </label>
                 </div>
                 <div>
@@ -33,13 +43,16 @@
                     </label>
                     <label for="fechaNac">
                         <p>Fecha de Nacimiento:<input type="date" name="fechaNac" id="fechaNac" value="<%= user.fechaNac %>" ></p>
-                    </label>
-                    <p class="p-admin"><a class="botones-admin" href="/myprofile">EDITAR</a><a class="botones-admin" href="/deleteuser/<%= user.id %>">ELIMINAR</a></p>
+                    </label><button type="submit" class="boton-enviar">Modificar Datos</button>
+                    </br><p></p>
+                    <hr>
+                    </br>
+                    <p class="p-admin" style="margin-left: 10px;"><a class="botones-admin" href="/myprofile">VOLVER</a></p>
+
                 </div>
             </div>
         </form>
     </main>
     <%- include('../partials/footer') %>
-    <!-- <script src="../js/myProfile.js"></script> -->
 </body>
 </html>

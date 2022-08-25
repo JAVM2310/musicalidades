@@ -1227,20 +1227,22 @@ footer .email i {
 
 /***************************MY PROFILE *********************************/
 .myProfile {
-    
     display: flex;
     margin: 20px;
+    justify-content: center;
 }
-
-.myProfile img {
-    margin-right: 10px;
-    width: 30%;
+.myProfile #img {
+    margin-right: 20px;
+}
+.myProfile #img img {
+    width: 150px;
 }
 .myProfile p {
     margin: 10px 0px;
 }
-
-
+.datos{
+    display: inherit;
+}
 
 
 /* Responsive */

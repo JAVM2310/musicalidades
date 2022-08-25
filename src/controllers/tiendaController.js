@@ -46,27 +46,31 @@ const controller = {
         let categoria;
         db.Producto.findByPk(req.params.id)
         .then((producto) =>{ 
-            productoElegido = producto.dataValues
-            productoElegido.imagenes = JSON.parse(productoElegido.imagenes)
-            db.Marca.findByPk(producto.dataValues.marca_id)
-            .then((result)=>{
-                marca = result.dataValues.nombre
-                console.log("la marca es:" + marca);
-            })
-            db.Categoria.findByPk(producto.dataValues.categoria_id)
-            .then((result)=>{
-                console.log(result);
-                console.log("la categoria es:" + categoria);
-                categoria = result.dataValues.tipo
-            })
-            .then(() => {
-            if (req.session.usuariosLogueado) {
-                if (req.session.usuariosLogueado.permisos == 9){
-                    return res.render('./tienda/productDetail', {titulo: "Detalle de Producto", product:productoElegido, user: req.session.usuariosLogueado, admin: true, marca, categoria});
+            if(producto != null){
+                productoElegido = producto.dataValues
+                productoElegido.imagenes = JSON.parse(productoElegido.imagenes)
+                db.Marca.findByPk(producto.dataValues.marca_id)
+                .then((result)=>{
+                    marca = result.dataValues.nombre
+                    console.log("la marca es:" + marca);
+                })
+                db.Categoria.findByPk(producto.dataValues.categoria_id)
+                .then((result)=>{
+                    console.log(result);
+                    console.log("la categoria es:" + categoria);
+                    categoria = result.dataValues.tipo
+                })
+                .then(() => {
+                if (req.session.usuariosLogueado) {
+                    if (req.session.usuariosLogueado.permisos == 9){
+                        return res.render('./tienda/productDetail', {titulo: "Detalle de Producto", product:productoElegido, user: req.session.usuariosLogueado, admin: true, marca, categoria});
+                    }
                 }
+                return res.render('./tienda/productDetail', {titulo: "Detalle de Producto", product:productoElegido, user: req.session.usuariosLogueado, admin: false, marca, categoria})
+                })
+            }else{    
+            res.status(404).render('not-found');
             }
-            return res.render('./tienda/productDetail', {titulo: "Detalle de Producto", product:productoElegido, user: req.session.usuariosLogueado, admin: false, marca, categoria})
-            })
         })
     },
     productCart: (req, res) => {
