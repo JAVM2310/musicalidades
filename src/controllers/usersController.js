@@ -7,6 +7,7 @@ const multer = require('multer');
 
 const db = require("../database/models/index")
 const Sequelize = require('sequelize');
+//const { isColString } = require('sequelize/types/utils');
 const Op = Sequelize.Op;
 
 const usersFilePath = path.join(__dirname, '../database/users.json');
@@ -136,7 +137,14 @@ const controller = {
     },
 
     profile: (req, res) => {
-        res.render('./users/myprofile', {titulo: "Perfil", user: req.session.usuariosLogueado});
+        db.Usuario.findOne({
+            where: {
+                id: req.session.usuariosLogueado.id,
+            }
+        })
+        .then(function(usuario){
+            res.render('./users/myprofile', {titulo: "Perfil", user: usuario.dataValues});
+        })
     },
 
     modifyUser: (req, res) => {//ESTE ESTÁ OK, HAY QUE RETOCAR LA VISTA PARA QUE QUEDE MÁS BELLA
@@ -144,13 +152,12 @@ const controller = {
         db.Usuario.findByPk(req.params.id)
         .then((usuario) =>{
             let error = ""
-            usuarioEditando = usuario.dataValues
-            res.render('./users/modifyuser', {titulo: "Editar Usuario", userToEdit:usuarioEditando, user: req.session.usuariosLogueado, error});
+            res.render('./users/modifyuser', {titulo: "Editar Usuario", user: usuario.dataValues, error});
         })
 
     },
 
-    profileEdition: (req, res) => {// ESTE ESTÁ OK, PERO AL REDIRIGIR NO TRAE LOS DATOS NUEVOS
+    profileEdition: (req, res) => {// ESTE ESTÁ OK
         let avatar = "";
         db.Usuario.findOne({
             where: {
@@ -160,18 +167,43 @@ const controller = {
         .then((resultado)=>{
             avatar = resultado.dataValues.avatar;
             if(resultado.dataValues.email != req.body.email){
-                db.Usuario.findAll()
-                .then((users)=>{
-                    for(i=0; i<users.length; i++){
-                        if(users[i].dataValues.email == req.body.email){
-                            let error = "El email " + users[i].dataValues.email + " ya existe. Debe elegir otro email";
-                            console.log(error)
-                            return res.render('./users/modifyuser', {titulo: 'Editar Usuario', user: req.session.usuariosLogueado, error});
+                db.Usuario.findOne({
+                    where: {
+                        email: req.body.email,
+                    }
+                }).then((resultado)=>{
+                    if(resultado != null){
+                        let error = "El email " + resultado.dataValues.email + " ya existe. Debe elegir otro email";
+                        console.log(error)
+                        return res.render('./users/modifyuser', {titulo: 'Editar Usuario', user: req.session.usuariosLogueado, error});
+                    }else{
+                        if(req.file){
+                            fs.unlink(path.join(__dirname, "../../public/img/") + avatar, log => console.log("Se borró el archivo: " + avatar + " en la carpeta: " + path.join(__dirname, "../../public/img/users/")))
+                            avatar = '/users/' + req.file.filename;
                         }
+                        db.Usuario.update({
+                            nombre: req.body.nombre,
+                            apellido: req.body.apellido,
+                            email: req.body.email,
+                            pais: req.body.pais,
+                            provincia: req.body.provincia,
+                            ciudad: req.body.ciudad,
+                            codPostal: req.body.codPostal,
+                            fechaNac: req.body.fechaNac,
+                            avatar: avatar
+                        },
+                        {
+                            where:{
+                                id: req.params.id
+                            }
+                        })
+                        .then(()=>{
+                            //res.render("users/myprofile", {titulo: "Perfil", user: req.session.usuariosLogueado});
+                            res.redirect("/myprofile");
+                        })
                     }
                 })
-            }
-        }).then(()=>{
+            }else{
                 if(req.file){
                     fs.unlink(path.join(__dirname, "../../public/img/") + avatar, log => console.log("Se borró el archivo: " + avatar + " en la carpeta: " + path.join(__dirname, "../../public/img/users/")))
                     avatar = '/users/' + req.file.filename;
@@ -193,10 +225,11 @@ const controller = {
                     }
                 })
                 .then(()=>{
-                    res.render("users/myprofile", {titulo: "Perfil", user: req.session.usuariosLogueado});
-                    //res.redirect("/myprofile");
+                    //res.render("users/myprofile", {titulo: "Perfil", user: req.session.usuariosLogueado});
+                    res.redirect("/myprofile");
                 })
-            })
+            }
+        })
     },
     delete(req, res){//ESTE ESTÁ OK
         let user = req.session.usuariosLogueado;
