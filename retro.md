@@ -23,7 +23,7 @@ Dinámica Starfish o Estrella de Mar:
 ------
 SPRINTS 3 , 4, 5
 
-Tiendo en cuenta las dificulatades de la cursada en relación al cambio de docentes, cambios de alumnos en el gru`po, etc, hemos tenido algunas dificultades en relación a la nueva dinámica grupal y comunicación.
+Teniendo en cuenta las dificulatades de la cursada en relación al cambio de docentes, cambios de alumnos en el grupo, etc, hemos tenido algunas dificultades en relación a la nueva dinámica grupal y comunicación.
 
 Dinámica Starfish o Estrella de Mar:
 
@@ -36,3 +36,18 @@ Dinámica Starfish o Estrella de Mar:
 4. Hacer menos: Dejar la mayor cantidad de trabajo al miembro del equipo que tiene más voluntad o tiempo. Una vez más la idea es que todos podamos poner nuestro grano de arena en la construcción del proyecto, y tengamos al menos un mismo nivel de curiosidad y dedicación para llevarlo a cabo.
 
 5. Dejar de hacer: Asignarse sólo a uno mismo tareas que no podemos completar en tiempo y forma solos, sin pedir ayuda a tiempo.
+
+------
+SPRINT 6
+
+Dinámica Starfish o Estrella de Mar:
+
+1. Comenzar a hacer: Que todos los miembros del equipo se involucren en las tareas adeudadas. 
+
+2. Hacer más: Socializar las dudas entre nosotros y darnos feedback del proceso de cada uno. Trabajar en equipo cuando no podemos avanzar por alguna duda.
+
+3. Continuar haciendo: Apoyándonos entre los tres, dado que todos tenemos ciertas fortalezas individuales. Separar las tareas de acuerdo a dichas fortalezas.
+
+4. Hacer menos: Dejar la mayor cantidad de trabajo al miembro del equipo que tiene más voluntad o tiempo. Una vez más la idea es que todos podamos poner nuestro grano de arena en la construcción del proyecto, y tengamos al menos un mismo nivel de curiosidad y dedicación para llevarlo a cabo.
+
+5. Dejar de hacer: No encontrar el tiempo para realizar ninguna tarea, esperando a que el resto del equipo resuelva todo.
