@@ -159,13 +159,20 @@ const controller = {
         .then((result) => {
             let productToEdit = result.dataValues
             productToEdit.imagenes = JSON.parse(productToEdit.imagenes)
-
-            for (i=0; i<productToEdit.imagenes.length; i++){
+            
+            let i = 0
+            productToEdit.imagenes.forEach((element, index) => {
                 if(eval("req.body.imgDel"+i) == 1) {
-                    fs.unlink(path.join(__dirname, "../../public/img/") + productToEdit.imagenes[i], log => console.log("se borro el archivo: " + productToEdit.imagenes[i] + " en la carpeta: " + path.join(__dirname, "../../public/img/products/")))
-                    productToEdit.imagenes.splice("req.body.imgDel"+i, 1)
+                    fs.unlink(path.join(__dirname, "../../public/img/") + element, log => console.log("se borro el archivo: " + element + " en la carpeta: " + path.join(__dirname, "../../public/img/products/")))
+                    productToEdit.imagenes[index] = "deleted"
                 }
-            }
+                i +=1
+            })
+            console.log(productToEdit.imagenes);
+            productToEdit.imagenes = productToEdit.imagenes.filter(element => {
+                return element !== "deleted";
+            });
+            
             
             for (let i=0; i<req.files.length; i++){
                 imagenesNuevas = '/products/' + req.files[i].filename;
@@ -194,14 +201,15 @@ const controller = {
         res.redirect("/tienda/productDetail/" + req.params.id);
     },
     delete(req, res){
-        db.Producto.findByPk(Number(req.params.id.slice(1)))
+        db.Producto.findByPk(req.params.id)
         .then((producto)=>{
+            console.log(producto);
             producto.dataValues.imagenes = JSON.parse(producto.dataValues.imagenes)
             producto.dataValues.imagenes.forEach(imagen => {
                 fs.unlink(path.join(__dirname, "../../public/img/") + imagen, log => console.log("se borro el archivo: " + imagen + " en la carpeta: " + path.join(__dirname, "../../public/img/products/")))
             })
             db.Producto.destroy({
-                where:{id: Number(req.params.id.slice(1))}
+                where:{id: req.params.id}
             })
         })
         .then(()=>{
