@@ -1224,6 +1224,10 @@ footer .email i {
     display: none;
   }
 
+  .error-validacion{
+    color: red
+  }
+
 
 /***************************MY PROFILE *********************************/
 .myProfile {

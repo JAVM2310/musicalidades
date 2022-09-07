@@ -46,8 +46,6 @@ const controller = {
     contacto: (req, res) => {
         let titulo = "Contacto"
         res.render('contacto', {titulo, user: req.session.usuariosLogueado});
-        // let errors = validationResult(req);
-        // console.log('aaaaaaaaaaaaaaaaaaaaaaa' + errors);
     },
     mandarMensaje: (req, res) => {
         let titulo = "Contacto";

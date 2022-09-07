@@ -168,7 +168,6 @@ const controller = {
                 }
                 i +=1
             })
-            console.log(productToEdit.imagenes);
             productToEdit.imagenes = productToEdit.imagenes.filter(element => {
                 return element !== "deleted";
             });
@@ -203,7 +202,6 @@ const controller = {
     delete(req, res){
         db.Producto.findByPk(req.params.id)
         .then((producto)=>{
-            console.log(producto);
             producto.dataValues.imagenes = JSON.parse(producto.dataValues.imagenes)
             producto.dataValues.imagenes.forEach(imagen => {
                 fs.unlink(path.join(__dirname, "../../public/img/") + imagen, log => console.log("se borro el archivo: " + imagen + " en la carpeta: " + path.join(__dirname, "../../public/img/products/")))

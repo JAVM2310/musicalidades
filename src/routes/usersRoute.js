@@ -26,6 +26,7 @@ router.get('/login', guestMiddleware, usersController.login);
 router.get('/register', guestMiddleware, usersController.register);
 router.post('/login', usersController.logueado); 
 router.post('/register', upload.single('avatar'), usersController.registered);
+router.get("/disponible/:email", usersController.checkearDisponibilidad)
 router.get("/signout", usersController.signOut) 
 router.get("/myprofile", authMiddleware, usersController.profile)
 

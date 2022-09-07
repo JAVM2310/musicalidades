@@ -30,36 +30,26 @@ const controller = {
 
         /* db.Usuario.findAll()
         .then(function(users){
-            console.log('Largo de Users: '+users.length)
             let chosenUserIndex;
             for(i=0; i<users.length; i++){
                 if(users[i].dataValues.email == req.body.email){
                     chosenUserIndex = users[i].dataValues.id
-                    console.log(chosenUserIndex)
                 }
             }
             if (!chosenUserIndex){
                 const error = "El usuario debe existir";
-                console.log(error)
                 return res.render('./users/login', {titulo: 'login', error});
             }
 
             let chosenUser = users[chosenUserIndex];
-            console.log('1111111111'+chosenUser)
-            console.log('222222222222222'+chosenUser.dataValues)
-
-            console.log(chosenUser.dataValues.password)
-            console.log(req.body.password)
 
             if (!bcrypt.compareSync(req.body.password, chosenUser.dataValues.password)){
                 const error = "La contraseña no es correcta";
-                console.log(error)
                 return res.render('./users/login', {titulo: 'login', error});
             }
             delete chosenUser.dataValues.password;
             req.session.usuariosLogueado = chosenUser;
             
-            console.log(req.session.usuariosLogueado);
 
             return res.redirect('/'); 
 
@@ -71,18 +61,12 @@ const controller = {
             }
         })
         .then(function(resultado){
-/*             console.log(resultado.dataValues);
-            console.log('stringy'+JSON.stringify(resultado));
-            console.log(resultado);
- */
             if (resultado == null){
                 const error = "No existe el Usuario";
-                console.log(error)
                 return res.render('./users/login', {titulo: 'login', error});
             }
             if (!bcrypt.compareSync(req.body.password, resultado.dataValues.password)){
                 const error = "La contraseña no es correcta";
-                console.log(error)
                 return res.render('./users/login', {titulo: 'login', error});
             }
             delete resultado.dataValues.password;
@@ -112,7 +96,6 @@ const controller = {
             }else{
                 nombreImagen = '/users/default.png';
             }
-            console.log(nombreImagen);
             db.Usuario.create({
                 nombre: req.body.nombre,
                 apellido: req.body.apellido,
@@ -127,6 +110,23 @@ const controller = {
                 permisos: 0
             })
             return res.redirect("/login");
+            }
+        })
+    },
+
+    checkearDisponibilidad:(req, res)=> {
+        console.log("check");
+        mail = req.params.email
+        db.Usuario.findOne({
+            where:{
+                email: mail
+            }
+        })
+        .then((result)=>{
+            if (result == null){
+                return res.json(true)
+            } else {
+                return res.json(false)
             }
         })
     },
@@ -174,7 +174,6 @@ const controller = {
                 }).then((resultado)=>{
                     if(resultado != null){
                         let error = "El email " + resultado.dataValues.email + " ya existe. Debe elegir otro email";
-                        console.log(error)
                         return res.render('./users/modifyuser', {titulo: 'Editar Usuario', user: req.session.usuariosLogueado, error});
                     }else{
                         if(req.file){
