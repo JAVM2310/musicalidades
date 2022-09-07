@@ -11,6 +11,12 @@ window.onload = ()=>{
         let valPasswordRepetida = false
         let valEmail = false
         let valAvatar = false
+        let valPais = false
+        let valProvincia  = false
+        let valCiudad = false
+        let valDireccion = false
+        let valCodigo = false
+        let valfechaNac = false
 
         let nombre = document.querySelector("#nombre")
         let apellido = document.querySelector("#apellido")
@@ -29,7 +35,7 @@ window.onload = ()=>{
             valNombre = false
             if (document.querySelector('label[for="nombre"] .error-validacion') == null){
                 let nombreLabel = document.querySelector('label[for="nombre"]')
-                nombreLabel.innerHTML = "<p class=error-validacion >El nombre debe tener al menos 2 caracteres:</p>" + nombreLabel.innerHTML
+                nombreLabel.innerHTML = "<p class=error-validacion >El nombre debe tener al menos 2 caracteres</p>" + nombreLabel.innerHTML
             } else {
                 document.querySelector('label[for="nombre"] .error-validacion').style.display = "block"
             }
@@ -44,7 +50,7 @@ window.onload = ()=>{
             valApellido = false
             if (document.querySelector('label[for="apellido"] .error-validacion') == null){
                 let apellidoLabel = document.querySelector('label[for="apellido"]')
-                apellidoLabel.innerHTML = "<p class=error-validacion >El apellido debe tener al menos 2 caracteres:</p>" + apellidoLabel.innerHTML
+                apellidoLabel.innerHTML = "<p class=error-validacion >El apellido debe tener al menos 2 caracteres</p>" + apellidoLabel.innerHTML
             } else {
                 document.querySelector('label[for="apellido"] .error-validacion').style.display = "block"
             }
@@ -66,7 +72,7 @@ window.onload = ()=>{
                 } else {
                     if (document.querySelector('label[for="email"] .error-validacion') == null){
                         let emailLabel = document.querySelector('label[for="email"]')
-                        emailLabel.innerHTML = "<p class=error-validacion >El mail ya está registrado:</p>" + emailLabel.innerHTML
+                        emailLabel.innerHTML = "<p class=error-validacion >El mail ya está registrado</p>" + emailLabel.innerHTML
                     } else {
                         document.querySelector('label[for="email"] .error-validacion').style.display = "block"
                     }
@@ -77,7 +83,7 @@ window.onload = ()=>{
             valPassword = false
             if (document.querySelector('label[for="password"] .error-validacion') == null){
                 let passwordLabel = document.querySelector('label[for="password"]')
-                passwordLabel.innerHTML = "<p class=error-validacion >La contraseña debe tener al menos 8 caracteres, una minúscula, una mayúscula y un número:</p>" + passwordLabel.innerHTML
+                passwordLabel.innerHTML = "<p class=error-validacion >La contraseña debe tener al menos 8 caracteres, una minúscula, una mayúscula y un número</p>" + passwordLabel.innerHTML
             } else {
                 document.querySelector('label[for="password"] .error-validacion').style.display = "block"
             }
@@ -118,7 +124,82 @@ window.onload = ()=>{
             }
         }
 
-        if (valNombre && valApellido && valEmail && valPassword && valPasswordRepetida && valAvatar){
+        if (pais.value.length > 90){
+            valPais = false
+            if (document.querySelector('label[for="pais"] .error-validacion') == null){
+                let paisLabel = document.querySelector('label[for="pais"]')
+                paisLabel.innerHTML = "<p class=error-validacion >El pais no debe tener mas de 90 caracteres</p>" + paisLabel.innerHTML
+            } else {
+                document.querySelector('label[for="pais"] .error-validacion').style.display = "block"
+            }
+        } else {
+            valPais = true
+            if (document.querySelector('label[for="pais"] .error-validacion') != null){
+                document.querySelector('label[for="pais"] .error-validacion').style.display = "none"
+            }
+        }
+
+        if (provincia.value.length > 90){
+            valProvincia = false
+            if (document.querySelector('label[for="provincia"] .error-validacion') == null){
+                let provinciaLabel = document.querySelector('label[for="provincia"]')
+                provinciaLabel.innerHTML = "<p class=error-validacion >La provincia no debe tener mas de 90 caracteres</p>" + provinciaLabel.innerHTML
+            } else {
+                document.querySelector('label[for="provincia"] .error-validacion').style.display = "block"
+            }
+        } else {
+            valProvincia = true
+            if (document.querySelector('label[for="provincia"] .error-validacion') != null){
+                document.querySelector('label[for="provincia"] .error-validacion').style.display = "none"
+            }
+        }
+
+        if (ciudad.value.length > 90){
+            valCiudad = false
+            if (document.querySelector('label[for="ciudad"] .error-validacion') == null){
+                let ciudadLabel = document.querySelector('label[for="ciudad"]')
+                ciudadLabel.innerHTML = "<p class=error-validacion >La ciudad no debe tener mas de 90 caracteres</p>" + ciudadLabel.innerHTML
+            } else {
+                document.querySelector('label[for="ciudad"] .error-validacion').style.display = "block"
+            }
+        } else {
+            valCiudad = true
+            if (document.querySelector('label[for="ciudad"] .error-validacion') != null){
+                document.querySelector('label[for="ciudad"] .error-validacion').style.display = "none"
+            }
+        }
+
+        if (!(/^\d{4,4}$/.test(codigo.value))){
+            valCodigo = false
+            if (document.querySelector('label[for="codigo"] .error-validacion') == null){
+                let codigoLabel = document.querySelector('label[for="codigo"]')
+                codigoLabel.innerHTML = "<p class=error-validacion >El codigo debe ser un número de 4 cifras</p>" + codigoLabel.innerHTML
+            } else {
+                document.querySelector('label[for="codigo"] .error-validacion').style.display = "block"
+            }
+        } else {
+            valCodigo = true
+            if (document.querySelector('label[for="codigo"] .error-validacion') != null){
+                document.querySelector('label[for="codigo"] .error-validacion').style.display = "none"
+            }
+        }
+
+        if (direccion.value.length > 90){
+            valDireccion = false
+            if (document.querySelector('label[for="direccion"] .error-validacion') == null){
+                let direccionLabel = document.querySelector('label[for="direccion"]')
+                direccionLabel.innerHTML = "<p class=error-validacion >La direccion no debe tener mas de 90 caracteres</p>" + direccionLabel.innerHTML
+            } else {
+                document.querySelector('label[for="direccion"] .error-validacion').style.display = "block"
+            }
+        } else {
+            valDireccion = true
+            if (document.querySelector('label[for="direccion"] .error-validacion') != null){
+                document.querySelector('label[for="direccion"] .error-validacion').style.display = "none"
+            }
+        }
+
+        if (valNombre && valApellido && valEmail && valPassword && valPasswordRepetida && valAvatar && valPais && valProvincia && valCiudad && valDireccion && valCodigo){
             this.submit()
         }
     })
