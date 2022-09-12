@@ -22,17 +22,25 @@
             <div class="carousel-container">
                 <div class="carousel">
                     <div class="carousel-inner">
-                        <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
-                        <div class="carousel-item">
-                            <img src="/img/<%= product.imagenes[0] %>">
-                        </div>
-                        <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
-                        <div class="carousel-item">
-                            <img src="/img/<%= product.imagenes[1] %>">
-                        </div>
-                        <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
-                        <div class="carousel-item">
-                            <img src="/img/<%= product.imagenes[2] %>">
+                        <div class="imgsCarousel">
+                            <div class="imgsDiv" id="<%= product.imagenes[0] %>">
+                                <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
+                                <div class="carousel-item">
+                                    <img src="/img<%= product.imagenes[0] %>" alt="<%= product.imagenes[0] %>">
+                                </div>
+                            </div>
+                            <div class="imgsDiv" id="<%= product.imagenes[1] %>">
+                                <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
+                                <div class="carousel-item">
+                                    <img src="/img<%= product.imagenes[1] %>" alt="<%= product.imagenes[1] %>">
+                                </div>
+                            </div>
+                            <div class="imgsDiv" id="<%= product.imagenes[1] %>">
+                                <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
+                                <div class="carousel-item">
+                                    <img src="/img<%= product.imagenes[2] %>" alt="<%= product.imagenes[2] %>">
+                                </div>
+                            </div>
                         </div>
                         <label for="carousel-3" class="carousel-control prev control-1">‹</label>
                         <label for="carousel-2" class="carousel-control next control-1">›</label>
@@ -44,8 +52,8 @@
                 </div>
                 <ol class="carousel-indicadores"><!--i<product.imagenes.length   JUANCHO DESP VEAMOS LA FORMA DE ARMAR ESTO CON TODAS LAS FOTOS QUE SE SUBAM, PERO PARA QUE NO QUEDE UNA TORRE DE IMAGENES, QUE SE OCULTEN LAS QUE SOBRAN Y SE MUEVAN CON FLECHAS <- FOTO-FOTO-FOTO ->  -->
                     <% for (let i=0; i<3; i++) { %>
-                        <li>
-                            <label for="carousel-<%=i+1%>" class="carousel-bullet"><img src="/img/<%= product.imagenes[i] %>" alt=""></label>
+                        <li id="<%= product.imagenes[i] %>">
+                            <label for="carousel-<%=i+1%>" class="carousel-bullet"><img src="/img<%= product.imagenes[i] %>" alt="<%= product.imagenes[i] %>"></label>
                         </li>
                     <%}%>
 
@@ -102,5 +110,6 @@
     </main>
     <!-------------------------FOOTER------------------------------->
     <%- include('../partials/footer') %>
+    <script src="/js/jsDetalleProducto.js"></script>
 </body>
 </html>

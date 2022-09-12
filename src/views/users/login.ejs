@@ -34,21 +34,20 @@
                         </div>
                     </label> -->
                     <label for="email">
-                        <input type="email" name="email" id="email" placeholder="Dirección de correo electronico" required>
+                        <input type="email" name="email" id="email" placeholder="Dirección de correo electrónico" required>
                     </label>
-                    <label for="contraseña">
-                        <input type="password" class="form-control js_password" name="password" id="contraseña" placeholder="contraseña" required>
-                            <span class="text-danger">
-                            </span>
+                    <label for="password">
+                        <input type="password" class="form-control js_password" name="password" id="password" placeholder="Contraseña" required>
+                        <span class="text-danger">
+                            <%= error%>
+                        </span>
                         <div class="form-group ">
                             <input type="checkbox" name="recordarme">
                             <label class="checkbox-inline">Recordarme</label>
                         </div>
                     </label>
                 </div>
-                <span class="text-danger">
-                    <%= error%>
-                </span>
+                
                     <div class="botones-fondo">
                     <button type="submit" class="boton-enviar">Ingresar</button>
                 </div>
@@ -62,6 +61,8 @@
     </main>
     <!-------------------------FOOTER------------------------------->
     <footer>
-    </footer> 
+    </footer>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/validacionLogin.js"></script>
 </body>
 </html>

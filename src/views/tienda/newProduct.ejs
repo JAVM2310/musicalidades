@@ -11,27 +11,30 @@
                             <option value="1">Cuerdas</option>
                             <option value="3">Percusión</option>
                             <option value="2">Teclas</option>
-                            <option value="4">Vientos</option>                           
+                            <option value="4">Vientos</option>
+                            <option value="6">Sin Categoría</option>                            
                         </select>
                     </label>
                     <label for="marca"><span style="text-align:right">Marca:</span>
-                        <select name="marca" id="marca">
+                        <select name="marca" id="marca"> 
+                            <option value="seleccionar">Seleccionar</option> 
                             <%marcas.forEach((marca) => {%>
                                 <option value="<%= marca.id %>"><%= marca.nombre %></option>
                             <% }) %>
                         </select>
                     </label>
-                    <label for="marcaNueva"><span style="text-align:right">Marca Nueva:</span>
-                        <input type="checkbox" id="checkMarcaNueva" name="marcaNueva" value="1">
-                    </label>
-                    <label for="marcaNuevaNombre">
-                        <input type="text" name="marcaNuevaNombre" id="marcaNuevaNombre" placeholder="Nombre de la nueva marca">
-                    </label>
+                        <label for="marcaNueva">
+                            <p>Marca Nueva:</p>
+                            <input type="checkbox" id="checkMarcaNueva" name="marcaNueva" value="1">
+                        </label>
+                        <label for="marcaNuevaNombre">
+                            <input type="text" name="marcaNuevaNombre" id="marcaNuevaNombre" placeholder="Nombre de la nueva marca">
+                        </label>
                     <label for="name">
                         <input type="text" name="name" id="name" placeholder="Nombre del producto*" required>
                     </label>
                     <label for="shortDesc">
-                        <input type="text" name="shortDesc" id="shortDesc" placeholder="Breve descripción" required>
+                        <input type="text" name="shortDesc" id="shortDesc" placeholder="Breve descripción*" required>
                     </label>
                     <label for="longDesc">
                         <input type="text" name="longDesc" id="longDesc" placeholder="Descripción detallada*" required>
@@ -59,6 +62,8 @@
         </article>
     </main>
     <%- include('../partials/footer') %>
-    <script src="/js/marcas.js"></script>
+    <!-- <script src="/js/marcas.js"></script> -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/validacionProductos.js"></script>
 </body>
 </html>

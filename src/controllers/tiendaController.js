@@ -135,13 +135,22 @@ const controller = {
         }
     },
     modifyProduct: (req, res) => {
-        let marcas = []
-        db.Marca.findAll({
+        let marcas = [];
+        let categorias = [];
+        let promesaMarcas = db.Marca.findAll({
             order:[['nombre', 'ASC']]
         })
-        .then((result) =>{
-            result.forEach(element => {
+        let promesaCategorias = db.Categoria.findAll({
+            order:[['tipo', 'ASC']]
+        })
+        Promise.all([promesaMarcas, promesaCategorias])
+
+        .then(([resultMarcas, resultCategorias]) =>{
+            resultMarcas.forEach(element => {
                 marcas.push(element.dataValues)
+            })
+            resultCategorias.forEach(element => {
+                categorias.push(element.dataValues)
             })
         })
         .then(()=>{
@@ -149,12 +158,12 @@ const controller = {
             .then((producto) =>{
                 productoElegido = producto.dataValues
                 productoElegido.imagenes = JSON.parse(productoElegido.imagenes)
-                res.render('./tienda/modifyProduct', {titulo: "Modificar Producto", product: productoElegido, user: req.session.usuariosLogueado, marcas});
+                res.render('./tienda/modifyProduct', {titulo: "Modificar Producto", product: productoElegido, user: req.session.usuariosLogueado, marcas, categorias});
+                
             })
         })
     },
     modify: (req, res) => {
-        
         db.Producto.findByPk(req.params.id)
         .then((result) => {
             let productToEdit = result.dataValues
@@ -166,12 +175,11 @@ const controller = {
                     fs.unlink(path.join(__dirname, "../../public/img/") + element, log => console.log("se borro el archivo: " + element + " en la carpeta: " + path.join(__dirname, "../../public/img/products/")))
                     productToEdit.imagenes[index] = "deleted"
                 }
-                i +=1
+                i +=1;
             })
             productToEdit.imagenes = productToEdit.imagenes.filter(element => {
                 return element !== "deleted";
             });
-            
             
             for (let i=0; i<req.files.length; i++){
                 imagenesNuevas = '/products/' + req.files[i].filename;

@@ -8,11 +8,12 @@
                     <div class="datos">
                         <label for="categoria"><span>Categoría:</span>
                             <select name="categoria" id="categoria" >
-                                <% let categorias = [{cat: "Cuerdas", id: 1}, {cat: "Teclas", id: 2}, {cat: "Percusión", id: 3}, {cat: "Vientos", id: 4}, {cat: "Sin Categoria", id: 5}] %>
-                                <% let categoriaActual = categorias.splice(product.categoria_id - 1, 1) %>
-                                    <option value="<%= product.categoria_id %>"><%= categoriaActual[0].cat %></option>
+                                <% let categoriaActual = categorias.splice(categorias.findIndex(element => element.id == product.categoria_id), 1)%>
+                                
+                                
+                                    <option value="<%= product.categoria_id %>"><%= categoriaActual[0].tipo %></option>
                                 <% categorias.forEach(categoria =>{ %>
-                                    <option value="<%= categoria.id %>"><%= categoria.cat %></option>
+                                    <option value="<%= categoria.id %>"><%= categoria.tipo %></option>
                                 <% }) %>
                             </select>
                         </label>
@@ -26,37 +27,39 @@
                             </select>
                         </label>
                         <label for="marcaNueva"><span style="text-align:right">Marca Nueva:</span>
-                            <input type="checkbox" name="marcaNueva" value="1">
+                            <input type="checkbox" id="checkMarcaNueva" name="marcaNueva" value="1">
                         </label>
                         <label for="marcaNuevaNombre">
                             <input type="text" name="marcaNuevaNombre" id="marcaNuevaNombre" placeholder="Nombre de la nueva marca">
                         </label>
                         <label for="name">
-                            <input type="text" name="name" id="name" value="<%= product.nombre %>" >
+                            <input type="text" name="name" id="name" value="<%= product.nombre %>" placeholder="Nombre del producto*">
                         </label>
                         <label for="shortDesc">
-                            <input type="text" name="shortDesc" id="shortDesc" value="<%= product.descripcion %>" >
+                            <input type="text" name="shortDesc" id="shortDesc" value="<%= product.descripcion %>" placeholder="Breve descripción*">
                         </label>
                         <label for="longDesc">
-                            <input type="text" name="longDesc" id="longDesc" value="<%= product.descLarga %>" >
+                            <input type="text" name="longDesc" id="longDesc" value="<%= product.descLarga %>" placeholder="Descripción detallada*">
                         </label>
                         <label for="price">
-                            <input type="number" name="price" id="price" value="<%= product.precio %>" >
+                            <input type="number" name="price" id="price" value="<%= product.precio %>" placeholder="Precio*">
                         </label>
                         <label for="discount">
-                            <input type="number" name="discount" id="discount" value="<%= product.descuento %>" >
+                            <input type="number" name="discount" id="discount" value="<%= product.descuento %>" placeholder="% de Descuento*">
                         </label>
                         <label for="stock">
-                            <input type="number" name="stock" id="stock" value="<%= product.stock %>" >
+                            <input type="number" name="stock" id="stock" value="<%= product.stock %>" placeholder="Stock*">
                         </label>
                         <div class="img-products-edit">
-                            <p>Borrar Imágenes</p>
-                            <% for (i = 0; i < product.imagenes.length; i++) { %>
-                                <label for="imgDel<%=i%>">
-                                    <img src="/img/<%=product.imagenes[i]%>" alt="">
-                                    <input type="checkbox" name="imgDel<%=i%>" id="imgDel<%=i%>" value="1">
-                                </label>
-                            <% } %>
+                            <p class="borrarImgs">Borrar Imágenes</p>
+                            <div id="arrayImgs">
+                                <% for (i = 0; i < product.imagenes.length; i++) { %>
+                                    <label for="imgDel<%=i%>">
+                                        <img src="/img/<%=product.imagenes[i]%>" alt="">
+                                        <input type="checkbox" name="imgDel<%=i%>" id="imgDel<%=i%>" value="1">
+                                    </label>
+                                <% } %>
+                            </div>
                         </div>
                         <p>Agregar Imágenes</p>
                         <label for="images">
@@ -72,5 +75,7 @@
         </article>
     </main>
     <%- include('../partials/footer') %>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/validacionModificarProducto.js"></script>
 </body>
 </html>
