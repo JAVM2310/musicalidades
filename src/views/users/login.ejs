@@ -16,7 +16,7 @@
                     <!-- <label for="email">
                         <input type="email" name="email" id="email" placeholder="Dirección de correo electronico" value="<%= typeof old != 'undefined' ? old.email : '' %>">
                         <% if(typeof(error) != 'undefined' && error.email){%>
-                            <span class="text-danger">
+                            <span class="error-validacion">
                               <%= errors.email.msg %>
                             </span>
                          <%}%>
@@ -24,7 +24,7 @@
                     <label for="contraseña">
                         <input type="password" class="form-control js_password" name="password" id="contraseña" placeholder="contraseña" aria-label="Username">
                         <% if(typeof(errors) != 'undefined' && errors.password){%>
-                            <span class="text-danger">
+                            <span class="error-validacion">
                                 <%= errors.password.msg %>
                             </span>
                         <%}%>
@@ -36,11 +36,19 @@
                     <label for="email">
                         <input type="email" name="email" id="email" placeholder="Dirección de correo electrónico" required>
                     </label>
+                    <% if (locals.errors && errors.email) { %>
+                        <p class="error-validacion"><%= errors.email.msg %></p>
+                    <% } %>
                     <label for="password">
                         <input type="password" class="form-control js_password" name="password" id="password" placeholder="Contraseña" required>
-                        <span class="text-danger">
+                        <span class="error-validacion">
                             <%= error%>
                         </span>
+                        <% if (locals.errors && errors.password) { %>
+                            <p class="error-validacion"><%= errors.password.msg %></p>
+                        <% } %>
+                    </label>
+                    <label for="recordarUsuario">
                         <div class="form-group ">
                             <input type="checkbox" name="recordarme">
                             <label class="checkbox-inline">Recordarme</label>
@@ -59,10 +67,7 @@
             </div>
         </section>
     </main>
-    <!-------------------------FOOTER------------------------------->
-    <footer>
-    </footer>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/js/validacionLogin.js"></script>
+    <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/validacionLogin.js"></script> -->
 </body>
 </html>

@@ -117,8 +117,8 @@ window.addEventListener('load', function() {
         }
 
         /* validación discount */
-        if(!isNaN(discount)){
-            discountLabel.innerHTML += '<p class="error">El % de Descuento debe ser un número</p>';
+        if(!isNaN(discount) || discount.value == ""){
+            discountLabel.innerHTML += '<p class="error">Dede ingresar un número en % de Descuento</p>';
             errores++;
 
         }else if(discount.value < 0){
@@ -127,8 +127,8 @@ window.addEventListener('load', function() {
         }
 
         /* validación stock */
-        if(!isNaN(stock)){
-            stockLabel.innerHTML += '<p class="error">El % de Descuento debe ser un número</p>';
+        if(!isNaN(stock) || stock.value == ""){
+            stockLabel.innerHTML += '<p class="error">Debe ingresar un número en Stock</p>';
             errores++;
         }else if(stock.value < 0){
             stockLabel.innerHTML += '<p class="error">El Stock debe ser un número mayor o igual a 0</p>';

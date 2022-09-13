@@ -186,6 +186,7 @@ window.addEventListener('load', function() {
             console.log("no mando el form")
             evento.preventDefault();
         }else{
+            evento.preventDefault();
             Swal.fire({
                 title: 'Quieres modificar el producto?',
                 text: "Esta acción no se puede deshacer!",
@@ -196,6 +197,7 @@ window.addEventListener('load', function() {
                 confirmButtonText: 'Sí, modificar!'
             }).then((result) => {
                 if (result.isConfirmed) {
+                    evento.submit;
                     Swal.fire(
                         'Hecho!',
                         'El producto ha sido modificado.',
