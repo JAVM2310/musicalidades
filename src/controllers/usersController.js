@@ -4,11 +4,14 @@ const path = require('path');
 const fs = require("fs");
 let bcrypt = require('bcryptjs');
 const multer = require('multer');
+const {validationResult} = require('express-validator');
 
 const db = require("../database/models/index")
 const Sequelize = require('sequelize');
 //const { isColString } = require('sequelize/types/utils');
 const Op = Sequelize.Op;
+
+const validacionRegistroMiddleware = require("../middlewares/validacionRegistroBack")
 
 const usersFilePath = path.join(__dirname, '../database/users.json');
 let error = '';
@@ -22,38 +25,12 @@ const controller = {
     },
 
     register: (req, res) => {
-        let titulo = "Registro"
-        res.render('./users/register', {titulo: titulo, error});
+        res.render('./users/register', {titulo: "Registro", error});
     },
 
     logueado: (req, res) => {
 
-        /* db.Usuario.findAll()
-        .then(function(users){
-            let chosenUserIndex;
-            for(i=0; i<users.length; i++){
-                if(users[i].dataValues.email == req.body.email){
-                    chosenUserIndex = users[i].dataValues.id
-                }
-            }
-            if (!chosenUserIndex){
-                const error = "El usuario debe existir";
-                return res.render('./users/login', {titulo: 'login', error});
-            }
-
-            let chosenUser = users[chosenUserIndex];
-
-            if (!bcrypt.compareSync(req.body.password, chosenUser.dataValues.password)){
-                const error = "La contraseña no es correcta";
-                return res.render('./users/login', {titulo: 'login', error});
-            }
-            delete chosenUser.dataValues.password;
-            req.session.usuariosLogueado = chosenUser;
-            
-
-            return res.redirect('/'); 
-
-        })  */
+        
 
         db.Usuario.findOne({
             where: {
@@ -77,9 +54,18 @@ const controller = {
         })
 
     },
-    registered: (req, res) => {
+    crearUsuario: (req, res) => {
         
-        let titulo = "Login";
+        console.log(req.body);
+
+        const error =  validationResult(req);
+        console.log(error.errors);
+        
+        if (error != null){
+            /* console.log(error.array()); */
+            return res.render('./users/register', {titulo: "Registro", error: error.array()});
+        }
+
         db.Usuario.findOne({
             where: {
                 email: req.body.email,
@@ -104,6 +90,7 @@ const controller = {
                 pais: req.body.pais,
                 provincia: req.body.provincia,
                 ciudad: req.body.ciudad,
+                direccion: req.body.direccion,
                 codPostal: req.body.codigo,
                 fechaNac: req.body.fechaNac,
                 avatar: nombreImagen,

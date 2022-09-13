@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <%- include('../partials/head') %>
 <body class="registro-body">
     <%- include('../partials/header') %>
@@ -10,9 +12,9 @@
                 <div id="img">
                     <img src="/img/<%= user.avatar %>" alt="">
                     <p>Cambiar Imagen</p>
-                        <label for="avatar">
-                            <input class="imagenes-input" type="file" name="avatar" id="avatar">
-                        </label>
+                    <label for="avatar">
+                        <input class="imagenes-input" type="file" name="avatar" id="avatar">
+                    </label>
                 </div>
                 <div>
                     <label for="nombre">
@@ -38,21 +40,22 @@
                     <label for="ciudad">
                         <p>Ciudad:<input type="text" name="ciudad" id="ciudad" value="<%= user.ciudad %>" ></p>
                     </label>
-                    <label for="codPostal">
-                        <p>Código Postal:<input type="number" name="codPostal" id="codPostal" value="<%= user.codPostal %>" ></p>
+                    <label for="codigo">
+                        <p>Código Postal:<input type="number" name="codigo" id="codigo" value="<%= user.codPostal %>" ></p>
                     </label>
                     <label for="fechaNac">
                         <p>Fecha de Nacimiento:<input type="date" name="fechaNac" id="fechaNac" value="<%= user.fechaNac %>" ></p>
                     </label><button type="submit" class="boton-enviar">Modificar Datos</button>
-                    </br><p></p>
-                    <hr>
-                    </br>
-                    <p class="p-admin" style="margin-left: 10px;"><a class="botones-admin" href="/myprofile">VOLVER</a></p>
-
-                </div>
-            </div>
-        </form>
-    </main>
-    <%- include('../partials/footer') %>
+                </br><p></p>
+                <hr>
+            </br>
+            <p class="p-admin" style="margin-left: 10px;"><a class="botones-admin" href="/myprofile">VOLVER</a></p>
+            
+        </div>
+    </div>
+</form>
+</main>
+<%- include('../partials/footer') %>
+<script src="js/validacionModificarUsuarioFront.js"></script>
 </body>
 </html>

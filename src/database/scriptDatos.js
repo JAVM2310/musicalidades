@@ -64,6 +64,7 @@ db.Marca.bulkCreate([
         user.permisos = user.tipo
         delete user.tipo
         delete user.passwordRepetida
+        user.direccion = "callefalsa 123"
     });
     
     db.Usuario.bulkCreate(users)
