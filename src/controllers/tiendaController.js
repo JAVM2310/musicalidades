@@ -7,6 +7,7 @@ const { stringify } = require('querystring');
 const db = require("../database/models/index")
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
+const { validationResult } = require("express-validator");
 
 const productsFilePath = path.join(__dirname, '../database/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -89,8 +90,31 @@ const controller = {
         })
     },
     createProduct: (req, res) => {
+    
+        console.log(req.body.marca)
+
         let imagenes = []
         let marca;
+
+        const resultValidation = validationResult(req);
+
+        if (resultValidation.errors.length > 0) {
+            console.log(resultValidation.errors)
+            console.log("entré")
+
+            let marcas = []
+            db.Marca.findAll({
+                order:[['nombre', 'ASC']]
+            })
+            .then((result) =>{
+                result.forEach(element => {
+                    marcas.push(element.dataValues)
+                })
+            })
+            .then(() => {
+                return res.render('./tienda/newProduct', {titulo: "Nuevo Producto", user: req.session.usuariosLogueado, marcas, errors: resultValidation.mapped()});
+            })
+        }
         req.files.forEach(file =>{
             imagenes.push("/products/" + file.filename)
         })
@@ -113,7 +137,7 @@ const controller = {
                     categoria_id:  req.body.categoria,
                 })
                 .then((result)=>{
-                        res.redirect("/tienda/productDetail/" + result.dataValues.id);
+                    res.redirect("/tienda/productDetail/" + result.dataValues.id);
                 })
             })
         } else {
@@ -130,6 +154,12 @@ const controller = {
                 categoria_id:  req.body.categoria,
             })
             .then((result) => {
+                if (resultValidation.errors.length > 0) {
+                    console.log(resultValidation.errors)
+                    console.log("entré")
+                    console.log(resultValidation)
+                    res.render('./tienda/newProduct', {titulo: "Nuevo Producto", user: req.session.usuariosLogueado, marcas, errors: resultValidation.mapped()});
+                }
                 res.redirect("/tienda/productDetail/" + result.dataValues.id);
             })
         }
