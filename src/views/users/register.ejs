@@ -12,7 +12,13 @@
         <section class="registro">
             <a href="/"><img src="./img/logo-musicalidades-header.png" alt=""></a>
             <span class="text-danger">
-                <%= error%>
+                <ul>
+                    <% if (error){ %>
+                        <% error.forEach(error =>{ %>
+                            <li class=error-validacion ><%= error.msg %></li>
+                        <% }) %>
+                    <% } %>
+                </ul>
             </span>
             <form class="form" method="POST" action="/register" enctype="multipart/form-data">
                 <div class="datos">
@@ -64,6 +70,6 @@
     <!-------------------------FOOTER------------------------------->
     <footer>
     </footer>    
-    <script src="js/validacionUsuarios.js"></script>
+    <!-- <script src="js/validacionUsuarios.js"></script> -->
 </body>
 </html>

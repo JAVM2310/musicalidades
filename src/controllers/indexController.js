@@ -50,14 +50,14 @@ const controller = {
     mandarMensaje: (req, res) => {
         let titulo = "Contacto";
         let errors = validationResult(req);
-        let mensaje = "gracias por tu mensaje"
+
+        console.log(errors.array());
 
         if(errors.isEmpty()){
             const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-            let titulo = "Home"
             res.render('index', {titulo: titulo, products: products, deleteMessage: "no", mensaje: "gracias por dejarnos tu mensaje", user: req.session.usuariosLogueado});
         }else{
-            res.render('contacto', {titulo: titulo, errors: errors.array(), old: req.body, user: req.session.usuariosLogueado});
+            res.render('contacto', {titulo: "Contacto", errors: errors.array(), old: req.body, user: req.session.usuariosLogueado});
         }
         
     }
