@@ -34,7 +34,7 @@
                         </div>
                     </label> -->
                     <label for="email">
-                        <input type="email" name="email" id="email" placeholder="Dirección de correo electrónico" required>
+                        <input type="text" name="email" id="email" placeholder="Dirección de correo electrónico" required>
                     </label>
                     <% if (locals.errors && errors.email) { %>
                         <p class="error-validacion"><%= errors.email.msg %></p>
