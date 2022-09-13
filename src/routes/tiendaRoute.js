@@ -3,6 +3,7 @@ const router = express.Router();
 const path = require('path');
 const multer = require('multer');
 const adminMiddleware = require('../middlewares/adminMiddleware.js');
+const validations = require("../middlewares/validacionProductos.js")
 
 
 /************************** MULTER **************************/
@@ -33,7 +34,7 @@ router.get('/', tiendaController.tienda);
 router.get('/productDetail/:id', tiendaController.productDetail);
 router.get('/productCart', tiendaController.productCart);
 router.get("/newProduct", adminMiddleware, tiendaController.newProduct);
-router.post("/newProduct", upload.array('images'), tiendaController.createProduct);
+router.post("/newProduct", upload.array('images'), validations, tiendaController.createProduct);
 router.get("/modifyProduct/:id", adminMiddleware, tiendaController.modifyProduct);
 router.put("/productDetail/:id", adminMiddleware, upload.array('images'), tiendaController.modify)
 router.get("/deleteProduct/:id", adminMiddleware, tiendaController.delete)

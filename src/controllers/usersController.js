@@ -4,7 +4,9 @@ const path = require('path');
 const fs = require("fs");
 let bcrypt = require('bcryptjs');
 const multer = require('multer');
-const {validationResult} = require('express-validator');
+
+const { validationResult } = require("express-validator")
+
 
 const db = require("../database/models/index")
 const Sequelize = require('sequelize');
@@ -29,23 +31,31 @@ const controller = {
     },
 
     logueado: (req, res) => {
-
+        const resultValidation = validationResult(req);
         
-
         db.Usuario.findOne({
             where: {
                 email: req.body.email,
             }
         })
         .then(function(resultado){
+
+            if (resultValidation.errors.length > 0) {
+                console.log(resultValidation.errors)
+                console.log("entré")
+                console.log(resultValidation)
+                return res.render('./users/login', {titulo: 'login', error, errors: resultValidation.mapped()});
+            }
+
             if (resultado == null){
-                const error = "No existe el Usuario";
-                return res.render('./users/login', {titulo: 'login', error});
+                let error = "No existe el Usuario";
+                return res.render('./users/login', {titulo: 'login', error, errors: resultValidation.mapped()});
             }
             if (!bcrypt.compareSync(req.body.password, resultado.dataValues.password)){
-                const error = "La contraseña no es correcta";
-                return res.render('./users/login', {titulo: 'login', error});
+                let error = "La contraseña no es correcta";
+                return res.render('./users/login', {titulo: 'login', error, errors: resultValidation.mapped()});
             }
+
             delete resultado.dataValues.password;
             req.session.usuariosLogueado = resultado.dataValues;
 

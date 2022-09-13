@@ -9,6 +9,7 @@ const authMiddleware = require('../middlewares/authMiddleware.js');
 const guestMiddleware = require('../middlewares/guestMiddleware.js');
 
 const validacionRegistroBack = require("../middlewares/validacionRegistroBack.js")
+const validacionLogin = require("../middlewares/validacionLoginBack.js")
 
 /************************** MULTER **************************/
 
@@ -30,7 +31,7 @@ const usersController = require ('../controllers/usersController.js');
 
 router.get('/login', guestMiddleware, usersController.login);
 router.get('/register', guestMiddleware, usersController.register);
-router.post('/login', usersController.logueado); 
+router.post('/login', validacionLogin, usersController.logueado); 
 router.post('/register', validacionRegistroBack, upload.single('avatar'), usersController.crearUsuario);
 router.get("/disponible/:email", usersController.checkearDisponibilidad)
 router.get("/signout", usersController.signOut) 

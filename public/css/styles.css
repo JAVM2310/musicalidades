@@ -102,6 +102,7 @@ ol {
     color: #FFF;
     padding-left: 15px;
     padding-top: 10px;
+    padding-right: 0px;
 
 }
 
@@ -134,7 +135,7 @@ ol {
     display: none;
     padding-left: 11px;
     z-index: 99999999999999;
-    margin-right: -87px;
+    margin-right: -66px;
     padding-bottom: 7px;
     top: 27px;
     right: 60px;
@@ -148,6 +149,7 @@ ol {
 
 .dropdown a{
     margin-left: -20px;
+    padding-right: 10px;
 }
 
 ul li:hover .dropdown { display: block }
@@ -986,11 +988,6 @@ hr {
     justify-content: flex-end;
 }
 
-.img-products-edit {
-    display: flex;
-    justify-content: center;
-    width: 50%;
-}
 /************************FOOTER**************************/
 
 footer {
@@ -1165,9 +1162,6 @@ footer .email i {
     padding-left: 10px;
 }
 
-.text-danger{
-    color: red;
-}
 
 
 /*------------------------ FAQ ------------------------*/
@@ -1225,6 +1219,7 @@ footer .email i {
   }
 
   .error-validacion{
+    font-size: 0.8em;
     color: red
   }
 
@@ -1248,6 +1243,18 @@ footer .email i {
     display: inherit;
 }
 
+/***** DETALLES*******/
+#arrayImgs{
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+    /*width: 50%;*/
+}
+#arrayImgs img{
+    margin: 0px 10px;
+    width: 50px;
+    height: 50px;
+}
 
 /* Responsive */
 
@@ -1258,14 +1265,11 @@ footer .email i {
     .quienes-somos .container .logo{
         width: 250px;
 
-    }
-    bod
-    
+    }    
     body {
         font-size: 14px;
     }
     .botones-redondos {
-    
         width: 80px;
         height: 80px;
     }
@@ -1312,6 +1316,9 @@ footer .email i {
         top: 50px;
         right: 70px;
         margin-bottom: 35px;
+    }
+    .dropdown a{
+        padding-right: 10px;
     }
 
     .header{
@@ -1387,6 +1394,7 @@ footer .email i {
 
     .menu a{
         font-size: 0.85em;
+        padding-right: 0px;
     }
     .shopping-icon {
         padding-left: 10px;
@@ -1406,6 +1414,7 @@ footer .email i {
     .menu a:hover{
         background-color: transparent;
         color: #F9AF14;
+
     }
     .hamb{
         display: none;
