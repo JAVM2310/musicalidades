@@ -13,34 +13,15 @@
             <a href="/"><img src="./img/logo-musicalidades-header.png" alt=""></a>
             <form action="/login" class="form" method="post">
                 <div class="datos">
-                    <!-- <label for="email">
-                        <input type="email" name="email" id="email" placeholder="Dirección de correo electronico" value="<%= typeof old != 'undefined' ? old.email : '' %>">
-                        <% if(typeof(error) != 'undefined' && error.email){%>
-                            <span class="error-validacion">
-                              <%= errors.email.msg %>
-                            </span>
-                         <%}%>
-                    </label>
-                    <label for="contraseña">
-                        <input type="password" class="form-control js_password" name="password" id="contraseña" placeholder="contraseña" aria-label="Username">
-                        <% if(typeof(errors) != 'undefined' && errors.password){%>
-                            <span class="error-validacion">
-                                <%= errors.password.msg %>
-                            </span>
-                        <%}%>
-                        <div class="form-group ">
-                            <input type="checkbox" name="recordarme">
-                            <label class="checkbox-inline">Recordarme</label>
-                        </div>
-                    </label> -->
                     <label for="email">
-                        <input type="email" name="email" id="email" placeholder="Dirección de correo electrónico" required>
+                        <input type="email" name="email" id="email" placeholder="Dirección de correo electrónico"  value="<%=locals.old && old.email ? old.email : ''%>">
                     </label>
+                    <span class="error-validación"></span>
                     <% if (locals.errors && errors.email) { %>
                         <p class="error-validacion"><%= errors.email.msg %></p>
                     <% } %>
                     <label for="password">
-                        <input type="password" class="form-control js_password" name="password" id="password" placeholder="Contraseña" required>
+                        <input type="password" class="form-control js_password" name="password" id="password" placeholder="Contraseña" value="<%=locals.old && old.password ? old.password : ''%>">
                         <span class="error-validacion">
                             <%= error%>
                         </span>
@@ -55,7 +36,6 @@
                         </div>
                     </label>
                 </div>
-                
                     <div class="botones-fondo">
                     <button type="submit" class="boton-enviar">Ingresar</button>
                 </div>
@@ -67,7 +47,7 @@
             </div>
         </section>
     </main>
-    <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/js/validacionLogin.js"></script> -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/validacionLogin.js"></script>
 </body>
 </html>

@@ -14,7 +14,8 @@ window.addEventListener('load', function() {
         let passwordLabel = document.querySelector('label[for="password"]');
 
         let errores = 0;
-
+        let emailPreErase = email.value;
+        let passwordPreErase = password.value;
         let borrarTextoErrores = document.querySelectorAll("p.error-validacion");
         if(borrarTextoErrores){
             for(let textos of borrarTextoErrores){
@@ -30,16 +31,16 @@ window.addEventListener('load', function() {
         /* validación email */
         if(email.value == "" ){
             emailLabel.innerHTML += '<p class="error-validacion">La Dirección de correo electrónico no puede estar vacía</p>'
+            document.querySelector("#email").value = passwordPreErase;
             errores++;
         }else if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value)) {
                 emailLabel.innerHTML += '<p class="error-validacion">La Dirección de correo electrónico no tiene un formato válido</p>'
+                document.querySelector("#email").value = emailPreErase;
                 errores++;
         }else{
             fetch(`/disponible/${email.value}`)
             .then(response => response.json())
             .then(emailNoExiste => {
-                console.log("errores pass")
-                console.log(errores)
                 if (emailNoExiste){
                     emailLabel.innerHTML += '<p class="error-validacion">La Dirección de correo electrónico no existe</p>'
                     errores++;
@@ -47,7 +48,6 @@ window.addEventListener('load', function() {
                 
                 /* validación errores */
                 if(errores == 0){
-                    console.log("no mando el formDB")
                     document.querySelector("form").submit();
                 }
             })

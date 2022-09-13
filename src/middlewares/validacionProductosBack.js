@@ -3,21 +3,36 @@ const fs = require("fs");
 
 module.exports = [
 
-    body('categoria').notEmpty().withMessage('Debes completar tu nombre'),
-    body('marca').notEmpty().withMessage('Debes completar tu email').bail().isEmail().withMessage('Debes ingresar un email válido'),
-    body('marcaNuevaNombre').notEmpty().withMessage('Debes escribir un mensaje'),
+/*     body('categoria').notEmpty().withMessage('Debes elegir una categoría'),
+ */    body('marca').notEmpty().withMessage('Debes elegir una marca'),
     body('name').notEmpty().withMessage('Debes completar tu nombre'),
     body('shortDesc').notEmpty().withMessage('Debes completar tu email').bail().isEmail().withMessage('Debes ingresar un email válido'),
     body('longDesc').notEmpty().withMessage('Debes escribir un mensaje'),
     body('price').notEmpty().withMessage('Debes escribir un mensaje'),
     body('discount').notEmpty().withMessage('Debes completar tu nombre'),
     body('stock').notEmpty().withMessage('Debes completar tu email').bail().isEmail().withMessage('Debes ingresar un email válido'),
-    body('file').notEmpty().withMessage('Debes escribir un mensaje'),
+    body('images').notEmpty().withMessage('Debes cargar al menos 1 imaagen'),
+
+    body('categoria').custom((value, {req}) => {
+        let categorias = req.categoria.value;
+        if (categorias == 5) {
+            throw new Error('Debes elegir una categoría.');
+        }
+        return true;
+    }),
+
+    body('marcaNuevaNombre').custom((value, {req}) => {
+        let checkMarcaNueva = req.checkMarcaNueva.value;
+        let marcaNuevaNombre = req.marcaNuevaNombre.value;
+        if (checkMarcaNueva == 1 && marcaNuevaNombre == "") {
+            throw new Error('Debes ingresar el Nombre de la Nueva Marca.');
+        }
+        return true;
+    }),
 
 
 
-
-
+/* 
     body("title").notEmpty().withMessage("El titulo no puede estar vacio!").isLength({min:2, max:50}).withMessage("El titulo debe tener entre 2 y 50 caracteres"),
     body("rating").notEmpty().withMessage("El rating no puede estar vacio!").isFloat({min:1, max:10}).withMessage("El rating debe estar entre 1-10."),
     body("awards").notEmpty().withMessage("Los premios no pueden estar vacios!").isInt({min:0}).withMessage("El rating debe ser 0 o más."),
@@ -40,7 +55,7 @@ module.exports = [
             })
             throw new Error("Adjunte una image con formato: " + acceptedExtensions + " y peso máximo 10mb.")
         } */
-        return true
-    })
+        /*return true
+    }) */
 
 ]

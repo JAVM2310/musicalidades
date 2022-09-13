@@ -51,6 +51,7 @@ window.addEventListener('load', function() {
         let errores = 0;
 
         let borrarTextoErrores = document.querySelectorAll("p.error");
+        console
         if(borrarTextoErrores){
             for(let textos of borrarTextoErrores){
                 textos.remove();
@@ -197,12 +198,7 @@ window.addEventListener('load', function() {
                 confirmButtonText: 'Sí, modificar!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    evento.submit;
-                    Swal.fire(
-                        'Hecho!',
-                        'El producto ha sido modificado.',
-                        'success'
-                    )
+                    document.querySelector("form").submit();
                 }
             })
         }

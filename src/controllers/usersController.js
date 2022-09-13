@@ -66,10 +66,8 @@ const controller = {
         .then(function(resultado){
 
             if (resultValidation.errors.length > 0) {
-                console.log(resultValidation.errors)
                 console.log("entré")
-                console.log(resultValidation)
-                return res.render('./users/login', {titulo: 'login', error, errors: resultValidation.mapped()});
+                return res.render('./users/login', {titulo: 'login', error, errors: resultValidation.mapped(), old: req.body});
             }
 
             if (resultado == null){
