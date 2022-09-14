@@ -66,12 +66,12 @@ const controller = {
         
         console.log(req.body);
 
-        const error =  validationResult(req);
-        console.log(error.errors);
+        const validacionRegistro =  validationResult(req);
+        console.log(validacionRegistro);
         
-        if (error != null){
+        if (validacionRegistro != null){
             /* console.log(error.array()); */
-            return res.render('./users/register', {titulo: "Registro", error: error.array()});
+            return res.render('./users/register', {titulo: "Registro", error: validacionRegistro.array()});
         }
 
         db.Usuario.findOne({

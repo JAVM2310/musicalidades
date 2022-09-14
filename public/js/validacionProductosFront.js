@@ -118,11 +118,11 @@ window.addEventListener('load', function() {
 
         /* validación discount */
         if(!isNaN(discount) || discount.value == ""){
-            discountLabel.innerHTML += '<p class="error">Dede ingresar un número en % de Descuento</p>';
+            discountLabel.innerHTML += '<p class="error">Debe ingresar un número en % de Descuento</p>';
             errores++;
 
-        }else if(discount.value < 0){
-            discountLabel.innerHTML += '<p class="error">El % de Descuento debe ser un número mayor o igual a 0</p>';
+        }else if(discount.value < 0 || discount.value > 100){
+            discountLabel.innerHTML += '<p class="error">El % de Descuento debe ser un número entre 0 y 100</p>';
             errores++;
         }
 
