@@ -134,9 +134,10 @@ const controller = {
                         categoria_id:  req.body.categoria,
                     })
                     .then((result)=>{
-                        res.redirect("/tienda/productDetail/" + result.dataValues.id);
+                            res.redirect("/tienda/productDetail/" + result.dataValues.id);
                     })
                 })
+            } else {
                 marca = req.body.marca
                 db.Producto.create({
                     nombre: req.body.name,
@@ -150,12 +151,6 @@ const controller = {
                     categoria_id:  req.body.categoria,
                 })
                 .then((result) => {
-                    if (resultValidation.errors.length > 0) {
-                        console.log(resultValidation.errors)
-                        console.log("entré")
-                        console.log(resultValidation)
-                        res.render('./tienda/newProduct', {titulo: "Nuevo Producto", user: req.session.usuariosLogueado, marcas, errors: resultValidation.mapped()});
-                    }
                     res.redirect("/tienda/productDetail/" + result.dataValues.id);
                 })
             }

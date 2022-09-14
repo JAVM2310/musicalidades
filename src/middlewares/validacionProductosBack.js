@@ -55,32 +55,29 @@ module.exports = [
     }),
 
     body('images').custom((value, {req}) => {
-        let files = req.files
+        value = req.files
+        console.log(req.body)
 
-        let extensionesAceptadas = [".jpg", ".png", ".gif", ".jpeg"]
-        if(files != []){
-            for (let i = 0; i < files.length; i++) {
-                let f = files[i];
-                let okFile;
-                for (let n = 0; n < extensionesAceptadas.length; n++){
-                    let ext = extensionesAceptadas[n];
-                    console.log(f)
-                    if(f.originalname.includes(ext)){
-                        okFile = "ok";
+        if (value.length == 0){
+            
+            console.log("mirameeee")
+
+            throw new Error ("Debes cargar al menos un archivo .jpg, .jpeg, .png o .gif")
+
+        }else if(value.length > 0){
+            console.log("holaaaaa cheee")
+
+            for (let i = 0; i < value.length; i++) {
+                let file = value[i];
+                    if((/(.jpg)$/).test(file.originalname) || (/(.jpeg)$/).test(file.originalname) || (/(.png)$/).test(file.originalname) || (/(.gif)$/).test(file.originalname)){
+                    } else {
+                        return Promise.reject("Todos los archivos deben ser .jpg, .jpeg, .png o .gif")
                     }
-                }
-                if(okFile != "ok"){
-                    throw new Error("Debe subir al menos una imagen de tipo " + extensionesAceptadas) 
-                }else{
-                    return true;
-                }
             }
-        }else{
-            throw new Error("Debe subir al menos una imagen")
         }
-    }),
-
-
-
+        console.log("Ok todo")
+        console.log(value)
+        return true;
+    }).bail(),
     
 ]
