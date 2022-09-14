@@ -32,7 +32,7 @@ const controller = {
 
     logueado: (req, res) => {
         const resultValidation = validationResult(req);
-        
+        console.log(resultValidation);
         db.Usuario.findOne({
             where: {
                 email: req.body.email,
@@ -153,6 +153,11 @@ const controller = {
     },
 
     profileEdition: (req, res) => {// ESTE ESTÁ OK
+
+        const error = validationResult(req)
+
+        console.log(error.array());
+
         let avatar = "";
         db.Usuario.findOne({
             where: {

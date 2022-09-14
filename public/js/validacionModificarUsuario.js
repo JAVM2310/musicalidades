@@ -1,10 +1,9 @@
 window.onload = ()=>{
-
+    console.log("se carga el script")
     let form = document.querySelector("form")
 
-    form.addEventListener("submit",(event)=>{
+    form.addEventListener("submit", (event)=>{
         event.preventDefault()
-
         let valNombre = false
         let valApellido = false
         let valEmail = false
@@ -55,28 +54,10 @@ window.onload = ()=>{
             }
         }
 
-        fetch(`/disponible/${email.value}`)
-            .then(response => response.json())
-            .then(emailDisponible => {
-                valEmail = emailDisponible
-                if (emailDisponible){
-                    if (document.querySelector('label[for="email"] .error-validacion') != null){
-                        document.querySelector('label[for="email"] .error-validacion').style.display = "none"
-                    }
-                } else {
-                    if (document.querySelector('label[for="email"] .error-validacion') == null){
-                        let emailLabel = document.querySelector('label[for="email"]')
-                        emailLabel.innerHTML = "<p class=error-validacion >El mail ya está registrado</p>" + emailLabel.innerHTML
-                    } else {
-                        document.querySelector('label[for="email"] .error-validacion').style.display = "block"
-                    }
-                }
-            })
-
         if((/(.jpg)$/).test(avatar.value) || (/(.jpeg)$/).test(avatar.value) || (/(.png)$/).test(avatar.value) || (/(.gif)$/).test(avatar.value) || avatar.value.length == 0){
             valAvatar = true
             if (document.querySelector('label[for="avatar"] .error-validacion') != null){
-            document.querySelector('label[for="avatar"] .error-validacion').style.display = "none"
+                document.querySelector('label[for="avatar"] .error-validacion').style.display = "none"
             }
         } else {
             valAvatar = false
@@ -117,7 +98,7 @@ window.onload = ()=>{
                 document.querySelector('label[for="provincia"] .error-validacion').style.display = "none"
             }
         }
-
+        
         if (ciudad.value.length > 90){
             valCiudad = false
             if (document.querySelector('label[for="ciudad"] .error-validacion') == null){
@@ -132,7 +113,22 @@ window.onload = ()=>{
                 document.querySelector('label[for="ciudad"] .error-validacion').style.display = "none"
             }
         }
-
+        
+        if (!(/^\d{4,4}$/.test(codigo.value))){
+            valCodigo = false
+            if (document.querySelector('label[for="codigo"] .error-validacion') == null){
+                let codigoLabel = document.querySelector('label[for="codigo"]')
+                codigoLabel.innerHTML = "<p class=error-validacion >El código postal debe ser un número de 4 cifras</p>" + codigoLabel.innerHTML
+            } else {
+                document.querySelector('label[for="codigo"] .error-validacion').style.display = "block"
+            }
+        } else {
+            valCodigo = true
+            if (document.querySelector('label[for="codigo"] .error-validacion') != null){
+                document.querySelector('label[for="codigo"] .error-validacion').style.display = "none"
+            }
+        }
+        
         if (direccion.value.length > 90){
             valDireccion = false
             if (document.querySelector('label[for="direccion"] .error-validacion') == null){
@@ -148,24 +144,25 @@ window.onload = ()=>{
             }
         }
 
-        if (!(/^\d{4,4}$/.test(codigo.value))){
-            valCodigo = false
-            if (document.querySelector('label[for="codigo"] .error-validacion') == null){
-                let codigoLabel = document.querySelector('label[for="codigo"]')
-                codigoLabel.innerHTML = "<p class=error-validacion >El código postal debe ser un número de 4 cifras</p>" + codigoLabel.innerHTML
-            } else {
-                document.querySelector('label[for="codigo"] .error-validacion').style.display = "block"
-            }
-        } else {
-            valCodigo = true
-            if (document.querySelector('label[for="codigo"] .error-validacion') != null){
-                document.querySelector('label[for="codigo"] .error-validacion').style.display = "none"
-            }
-        }
-
-        if (valNombre && valApellido && valEmail  && valAvatar && valPais && valProvincia && valCiudad && valDireccion && valCodigo){
-            this.submit()
-        }
+        fetch(`/disponible/${email.value}`)
+            .then(response => response.json())
+            .then(emailDisponible => {
+                valEmail = emailDisponible
+                if (emailDisponible){
+                    if (document.querySelector('label[for="email"] .error-validacion') != null){
+                        document.querySelector('label[for="email"] .error-validacion').style.display = "none"
+                    }
+                } else {
+                    if (document.querySelector('label[for="email"] .error-validacion') == null){
+                        let emailLabel = document.querySelector('label[for="email"]')
+                        emailLabel.innerHTML = "<p class=error-validacion >El mail ya está registrado</p>" + emailLabel.innerHTML
+                    } else {
+                        document.querySelector('label[for="email"] .error-validacion').style.display = "block"
+                    }
+                }
+                if (valNombre && valApellido && valEmail && valPassword && valPasswordRepetida && valAvatar && valPais && valProvincia && valCiudad && valDireccion && valCodigo){
+                    document.querySelector("form").submit()
+                }
+            })
     })
-    
 }

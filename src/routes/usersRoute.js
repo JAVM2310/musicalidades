@@ -10,6 +10,7 @@ const guestMiddleware = require('../middlewares/guestMiddleware.js');
 
 const validacionRegistroBack = require("../middlewares/validacionRegistroBack.js")
 const validacionLoginBack = require("../middlewares/validacionLoginBack.js")
+const validacionModificarUsuario = require("../middlewares/validacionModificarUsuarioBack")
 
 /************************** MULTER **************************/
 
@@ -39,7 +40,7 @@ router.get("/myprofile", authMiddleware, usersController.profile)
 
 
 router.get("/modifyuser/:id", usersController.modifyUser);
-router.patch("/myprofile/:id", upload.single('avatar'), usersController.profileEdition)
+router.patch("/myprofile/:id",validacionModificarUsuario, upload.single('avatar'), usersController.profileEdition)
 router.get("/deleteuser/:id", usersController.delete)
 
 module.exports = router;
