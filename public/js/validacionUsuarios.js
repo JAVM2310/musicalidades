@@ -231,7 +231,7 @@ window.onload = ()=>{
             if (document.querySelector('label[for="email"] .error-validacion') != null){
                 document.querySelector('label[for="email"] .error-validacion').style.display = "none"
             }
-            fetch(`/disponible/${email.value}`)
+            fetch(`/api/disponible/${email.value}`)
                 .then(response => response.json())
                 .then(emailDisponible => {
                     valEmail = emailDisponible

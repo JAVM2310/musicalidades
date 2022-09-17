@@ -116,23 +116,6 @@ const controller = {
         }
     },
 
-    checkearDisponibilidad:(req, res)=> {
-        console.log("check");
-        mail = req.params.email
-        db.Usuario.findOne({
-            where:{
-                email: mail
-            }
-        })
-        .then((result)=>{
-            if (result == null){
-                return res.json(true)
-            } else {
-                return res.json(false)
-            }
-        })
-    },
-
     signOut: (req, res) => {
         delete req.session.usuariosLogueado
         res.redirect("/")

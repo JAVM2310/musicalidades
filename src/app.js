@@ -20,10 +20,12 @@ app.use(session({
 const rutasIndex = require('./routes/indexRoute');
 const rutastienda = require('./routes/tiendaRoute');
 const rutasUsers = require('./routes/usersRoute');
+const rutasApi = require("./routes/apiRoute")
 
 app.use('/', rutasIndex);
 app.use('/', rutasUsers);
 app.use('/tienda', rutastienda);
+app.use("/api", rutasApi)
 
 
 //-----------------404------------------------//
