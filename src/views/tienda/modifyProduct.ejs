@@ -17,6 +17,9 @@
                                 <% }) %>
                             </select>
                         </label>
+                        <% if (locals.errors && errors.categoria) { %>
+                            <p class="error-validacion"><%= errors.categoria.msg %></p>
+                        <% } %>
                         <label for="marca"><span style="text-align:right">Marca:</span>
                             <select name="marca" id="marca">
                                 <% let marcaActual = marcas.splice(marcas.findIndex(element => element.id == product.marca_id), 1) %>
@@ -26,30 +29,54 @@
                                 <% }) %>
                             </select>
                         </label>
+                        <% if (locals.errors && errors.marca) { %>
+                            <p class="error-validacion"><%= errors.marca.msg %></p>
+                        <% } %>
                         <label for="marcaNueva"><span style="text-align:right">Marca Nueva:</span>
                             <input type="checkbox" id="checkMarcaNueva" name="marcaNueva" value="1">
                         </label>
                         <label for="marcaNuevaNombre">
                             <input type="text" name="marcaNuevaNombre" id="marcaNuevaNombre" placeholder="Nombre de la nueva marca">
                         </label>
+                        <% if (locals.errors && errors.marcaNuevaNombre) { %>
+                            <p class="error-validacion"><%= errors.marcaNuevaNombre.msg %></p>
+                        <% } %>
                         <label for="name">
-                            <input type="text" name="name" id="name" value="<%= product.nombre %>" placeholder="Nombre del producto*">
+                            <input type="text" name="name" id="name" value="<%if(locals.old){%><%=locals.old.name%><%}else{%><%= product.nombre %><%}%>" placeholder="Nombre del producto*">
                         </label>
+                        <% if (locals.errors && errors.name) { %>
+                            <p class="error-validacion"><%= errors.name.msg %></p>
+                        <% } %>
                         <label for="shortDesc">
-                            <input type="text" name="shortDesc" id="shortDesc" value="<%= product.descripcion %>" placeholder="Breve descripción*">
+                            <input type="text" name="shortDesc" id="shortDesc" value="<%if(locals.old){%><%=locals.old.shortDesc%><%}else{%><%= product.nombre %><%}%>" placeholder="Breve descripción*">
                         </label>
+                        <% if (locals.errors && errors.shortDesc) { %>
+                            <p class="error-validacion"><%= errors.shortDesc.msg %></p>
+                        <% } %>
                         <label for="longDesc">
-                            <input type="text" name="longDesc" id="longDesc" value="<%= product.descLarga %>" placeholder="Descripción detallada*">
+                            <input type="text" name="longDesc" id="longDesc" value="<%if(locals.old){%><%=locals.old.longDesc%><%}else{%><%= product.descLarga %><%}%>" placeholder="Descripción detallada*">
                         </label>
+                        <% if (locals.errors && errors.longDesc) { %>
+                            <p class="error-validacion"><%= errors.longDesc.msg %></p>
+                        <% } %>
                         <label for="price">
-                            <input type="number" name="price" id="price" value="<%= product.precio %>" placeholder="Precio*">
+                            <input type="number" name="price" id="price" value="<%if(locals.old){%><%=locals.old.price%><%}else{%><%= product.precio %><%}%>" placeholder="Precio*">
                         </label>
+                        <% if (locals.errors && errors.price) { %>
+                            <p class="error-validacion"><%= errors.price.msg %></p>
+                        <% } %>
                         <label for="discount">
-                            <input type="number" name="discount" id="discount" value="<%= product.descuento %>" placeholder="% de Descuento*">
+                            <input type="number" name="discount" id="discount" value="<%if(locals.old){%><%=locals.old.discount%><%}else{%><%= product.descuento %><%}%>" placeholder="% de Descuento*">
                         </label>
+                        <% if (locals.errors && errors.discount) { %>
+                            <p class="error-validacion"><%= errors.discount.msg %></p>
+                        <% } %>
                         <label for="stock">
-                            <input type="number" name="stock" id="stock" value="<%= product.stock %>" placeholder="Stock*">
+                            <input type="number" name="stock" id="stock" value="<%if(locals.old){%><%=locals.old.stock%><%}else{%><%= product.stock %><%}%>"" placeholder="Stock*">
                         </label>
+                        <% if (locals.errors && errors.stock) { %>
+                            <p class="error-validacion"><%= errors.stock.msg %></p>
+                        <% } %>
                         <div class="img-products-edit">
                             <p class="borrarImgs">Borrar Imágenes</p>
                             <div id="arrayImgs">
@@ -65,6 +92,9 @@
                         <label for="images">
                             <input class="imagenes-input" type="file" name="images" id="images" multiple>
                         </label>
+                        <% if (locals.errors && errors.images) { %>
+                            <p class="error-validacion"><%= errors.images.msg %></p>
+                        <% } %>
                     </div>
                 </div>
                     <div class="botones-fondo">
@@ -75,7 +105,7 @@
         </article>
     </main>
     <%- include('../partials/footer') %>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/js/validacionModificarProducto.js"></script>
+    <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/validacionModificarProductoFront.js"></script> -->
 </body>
 </html>

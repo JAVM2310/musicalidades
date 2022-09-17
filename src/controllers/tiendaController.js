@@ -16,7 +16,6 @@ let titulo = "";
 let user = undefined
 let admin = false
 
-
 const controller = {
     tienda: (req, res) => {
         db.Producto.findAll(/* {
@@ -91,8 +90,6 @@ const controller = {
     },
     createProduct: (req, res) => {
     
-        console.log(req.body.marca)
-
         let imagenes = []
         let marca;
 
@@ -112,7 +109,7 @@ const controller = {
                 })
             })
             .then(() => {
-                return res.render('./tienda/newProduct', {titulo: "Nuevo Producto", user: req.session.usuariosLogueado, marcas, errors: resultValidation.mapped()});
+                return res.render('./tienda/newProduct', {titulo: "Nuevo Producto", user: req.session.usuariosLogueado, marcas, errors: resultValidation.mapped(), old: req.body});
             })
         } else {
             req.files.forEach(file =>{
@@ -134,36 +131,30 @@ const controller = {
                         stock: req.body.stock,
                         imagenes: imagenes,
                         marca_id: marca,
-                        categoria_id: req.body.categoria,
+                        categoria_id:  req.body.categoria,
+                    })
+                    .then((result)=>{
+                            res.redirect("/tienda/productDetail/" + result.dataValues.id);
+                    })
                 })
-                .then((result)=>{
+            } else {
+                marca = req.body.marca
+                db.Producto.create({
+                    nombre: req.body.name,
+                    descripcion: req.body.shortDesc,
+                    descLarga: req.body.longDesc,
+                    precio:  req.body.price,
+                    descuento: req.body.discount,
+                    stock: req.body.stock,
+                    imagenes: imagenes,
+                    marca_id: marca,
+                    categoria_id:  req.body.categoria,
+                })
+                .then((result) => {
                     res.redirect("/tienda/productDetail/" + result.dataValues.id);
                 })
-            })
-        } else {
-            marca = req.body.marca
-            db.Producto.create({
-                nombre: req.body.name,
-                descripcion: req.body.shortDesc,
-                descLarga: req.body.longDesc,
-                precio:  req.body.price,
-                descuento: req.body.discount,
-                stock: req.body.stock,
-                imagenes: imagenes,
-                marca_id: marca,
-                categoria_id:  req.body.categoria,
-            })
-            .then((result) => {
-                if (resultValidation.errors.length > 0) {
-                    console.log(resultValidation.errors)
-                    console.log("entré")
-                    console.log(resultValidation)
-                    res.render('./tienda/newProduct', {titulo: "Nuevo Producto", user: req.session.usuariosLogueado, marcas, errors: resultValidation.mapped()});
-                }
-                res.redirect("/tienda/productDetail/" + result.dataValues.id);
-            })
+            }
         }
-    }
     },
     modifyProduct: (req, res) => {
         let marcas = [];
@@ -195,48 +186,83 @@ const controller = {
         })
     },
     modify: (req, res) => {
-        db.Producto.findByPk(req.params.id)
-        .then((result) => {
-            let productToEdit = result.dataValues
-            productToEdit.imagenes = JSON.parse(productToEdit.imagenes)
-            
-            let i = 0
-            productToEdit.imagenes.forEach((element, index) => {
-                if(eval("req.body.imgDel"+i) == 1) {
-                    fs.unlink(path.join(__dirname, "../../public/img/") + element, log => console.log("se borro el archivo: " + element + " en la carpeta: " + path.join(__dirname, "../../public/img/products/")))
-                    productToEdit.imagenes[index] = "deleted"
-                }
-                i +=1;
+        const resultValidation = validationResult(req);
+        console.log(resultValidation.errors)
+        console.log(resultValidation.errors.length)
+        if (resultValidation.errors.length > 0) {
+            console.log(resultValidation.errors)
+            console.log("entré")
+            let marcas = [];
+            let categorias = [];
+            let promesaMarcas = db.Marca.findAll({
+                order:[['nombre', 'ASC']]
             })
-            productToEdit.imagenes = productToEdit.imagenes.filter(element => {
-                return element !== "deleted";
-            });
-            
-            for (let i=0; i<req.files.length; i++){
-                imagenesNuevas = '/products/' + req.files[i].filename;
-                productToEdit.imagenes.push(imagenesNuevas)            
-            }
-            
-            productToEdit = {
-                categoria_id: req.body.categoria,
-                nombre: req.body.name,
-                descripcion: req.body.shortDesc,
-                descLarga: req.body.longDesc,
-                precio: req.body.price,
-                descuento: req.body.discount,
-                stock: req.body.stock,
-                marca_id: req.body.marca,
-                imagenes: JSON.stringify(productToEdit.imagenes)
-            };
+            let promesaCategorias = db.Categoria.findAll({
+                order:[['tipo', 'ASC']]
+            })
+            Promise.all([promesaMarcas, promesaCategorias])
 
-            db.Producto.update(productToEdit,{
-                where:{
-                    id: req.params.id
-                }
+            .then(([resultMarcas, resultCategorias]) =>{
+                resultMarcas.forEach(element => {
+                    marcas.push(element.dataValues)
+                })
+                resultCategorias.forEach(element => {
+                    categorias.push(element.dataValues)
+                })
             })
-        })
-        
-        res.redirect("/tienda/productDetail/" + req.params.id);
+            .then(()=>{
+                db.Producto.findByPk(req.params.id)
+                .then((producto) =>{
+                    productoElegido = producto.dataValues
+                    productoElegido.imagenes = JSON.parse(productoElegido.imagenes)
+                    console.log("lees esto??????????????????")
+                    return res.render('./tienda/modifyProduct', {titulo: "Modificar Producto", product: productoElegido, user: req.session.usuariosLogueado, marcas, categorias, errors: resultValidation.mapped(), old: req.body});
+                    
+                })
+            })
+        }else{
+            db.Producto.findByPk(req.params.id)
+            .then((result) => {
+                let productToEdit = result.dataValues
+                productToEdit.imagenes = JSON.parse(productToEdit.imagenes)
+                
+                let i = 0
+                productToEdit.imagenes.forEach((element, index) => {
+                    if(eval("req.body.imgDel"+i) == 1) {
+                        fs.unlink(path.join(__dirname, "../../public/img/") + element, log => console.log("se borro el archivo: " + element + " en la carpeta: " + path.join(__dirname, "../../public/img/products/")))
+                        productToEdit.imagenes[index] = "deleted"
+                    }
+                    i +=1;
+                })
+                productToEdit.imagenes = productToEdit.imagenes.filter(element => {
+                    return element !== "deleted";
+                });
+                
+                for (let i=0; i<req.files.length; i++){
+                    imagenesNuevas = '/products/' + req.files[i].filename;
+                    productToEdit.imagenes.push(imagenesNuevas)            
+                }
+                
+                productToEdit = {
+                    categoria_id: req.body.categoria,
+                    nombre: req.body.name,
+                    descripcion: req.body.shortDesc,
+                    descLarga: req.body.longDesc,
+                    precio: req.body.price,
+                    descuento: req.body.discount,
+                    stock: req.body.stock,
+                    marca_id: req.body.marca,
+                    imagenes: JSON.stringify(productToEdit.imagenes)
+                };
+
+                db.Producto.update(productToEdit,{
+                    where:{
+                        id: req.params.id
+                    }
+                })
+            })
+            res.redirect("/tienda/productDetail/" + req.params.id);
+        }
     },
     delete(req, res){
         db.Producto.findByPk(req.params.id)

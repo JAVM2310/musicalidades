@@ -34,43 +34,43 @@
                             <input type="checkbox" id="checkMarcaNueva" name="marcaNueva" value="1">
                         </label>
                         <label for="marcaNuevaNombre">
-                            <input type="text" name="marcaNuevaNombre" id="marcaNuevaNombre" placeholder="Nombre de la nueva marca">
+                            <input type="text" name="marcaNuevaNombre" id="marcaNuevaNombre" placeholder="Nombre de la nueva marca" value="<%=locals.old && old.marcaNuevaNombre ? old.marcaNuevaNombre : ''%>">
                         </label>
                         <% if (locals.errors && errors.marcaNuevaNombre) { %>
                             <p class="error-validacion"><%= errors.marcaNuevaNombre.msg %></p>
                         <% } %>
                     <label for="name">
-                        <input type="text" name="name" id="name" placeholder="Nombre del producto*" >
+                        <input type="text" name="name" id="name" placeholder="Nombre del producto*" value="<%=locals.old && old.name ? old.name : ''%>" >
                     </label>
                     <% if (locals.errors && errors.name) { %>
                         <p class="error-validacion"><%= errors.name.msg %></p>
                     <% } %>
                     <label for="shortDesc">
-                        <input type="text" name="shortDesc" id="shortDesc" placeholder="Breve descripción*" >
+                        <input type="text" name="shortDesc" id="shortDesc" placeholder="Breve descripción*" value="<%=locals.old && old.shortDesc ? old.shortDesc : ''%>" >
                     </label>
                     <% if (locals.errors && errors.shortDesc) { %>
                         <p class="error-validacion"><%= errors.shortDesc.msg %></p>
                     <% } %>
                     <label for="longDesc">
-                        <textarea name="longDesc"  id="longDesc" placeholder="Descripción detallada*"></textarea>
+                        <textarea name="longDesc"  id="longDesc" placeholder="Descripción detallada*"><%=locals.old && old.longDesc ? old.longDesc : ''%></textarea>
                     </label>
                     <% if (locals.errors && errors.longDesc) { %>
                         <p class="error-validacion"><%= errors.longDesc.msg %></p>
                     <% } %>
                     <label for="price">
-                        <input type="number" name="price" id="price" placeholder="Precio*" >
+                        <input type="number" name="price" id="price" placeholder="Precio*" value="<%=locals.old && old.price ? old.price : ''%>" >
                     </label>
                     <% if (locals.errors && errors.price) { %>
                         <p class="error-validacion"><%= errors.price.msg %></p>
                     <% } %>
                     <label for="discount">
-                        <input type="number" name="discount" id="discount" placeholder="% de Descuento*" >
+                        <input type="number" name="discount" id="discount" placeholder="% de Descuento*" value="<%=locals.old && old.discount ? old.discount : ''%>" >
                     </label>
                     <% if (locals.errors && errors.discount) { %>
                         <p class="error-validacion"><%= errors.discount.msg %></p>
                     <% } %>
                     <label for="stock">
-                        <input type="number" name="stock" id="stock" placeholder="Stock*" >
+                        <input type="number" name="stock" id="stock" placeholder="Stock*"  value="<%=locals.old && old.stock ? old.discount : ''%>" >
                     </label>
                     <% if (locals.errors && errors.stock) { %>
                         <p class="error-validacion"><%= errors.stock.msg %></p>
@@ -79,8 +79,8 @@
                         <p>Imágenes</p>
                         <input class="imagenes-input" type="file" name="images" id="images" placeholder="Imágenes" multiple>
                     </label>
-                    <% if (locals.errors && errors.stock) { %>
-                        <p class="error-validacion"><%= errors.stock.msg %></p>
+                    <% if (locals.errors && errors.images) { %>
+                        <p class="error-validacion"><%= errors.images.msg %></p>
                     <% } %>
                 </div>
             </div>
@@ -92,7 +92,7 @@
         </article>
     </main>
     <%- include('../partials/footer') %>
-    <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/js/validacionProductos.js"></script> -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/validacionProductosFront.js"></script>
 </body>
 </html>

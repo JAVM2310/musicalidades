@@ -8,9 +8,9 @@ const multer = require('multer');
 const authMiddleware = require('../middlewares/authMiddleware.js');
 const guestMiddleware = require('../middlewares/guestMiddleware.js');
 
-const validacionRegistro = require("../middlewares/validacionRegistroBack.js")
+const validacionRegistroBack = require("../middlewares/validacionRegistroBack.js")
+const validacionLoginBack = require("../middlewares/validacionLoginBack.js")
 const validacionModificarUsuario = require("../middlewares/validacionModificarUsuarioBack")
-const validacionLogin = require("../middlewares/validacionLoginBack.js")
 
 /************************** MULTER **************************/
 
@@ -32,8 +32,8 @@ const usersController = require ('../controllers/usersController.js');
 
 router.get('/login', guestMiddleware, usersController.login);
 router.get('/register', guestMiddleware, usersController.register);
-router.post('/login', validacionLogin, usersController.logueado); 
-router.post('/register', upload.single('avatar'), validacionRegistro, usersController.crearUsuario);
+router.post('/login', validacionLoginBack, usersController.logueado); 
+router.post('/register', upload.single('avatar'), validacionRegistroBack, usersController.crearUsuario);
 router.get("/disponible/:email", usersController.checkearDisponibilidad)
 router.get("/signout", usersController.signOut) 
 router.get("/myprofile", authMiddleware, usersController.profile)

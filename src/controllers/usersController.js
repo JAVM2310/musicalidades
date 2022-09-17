@@ -66,8 +66,13 @@ const controller = {
         
         console.log(req.body);
 
-        const error =  validationResult(req);
-        console.log(error.array());
+        const validacionRegistro =  validationResult(req);
+        console.log(validacionRegistro);
+        
+        if (validacionRegistro != null){
+            /* console.log(error.array()); */
+            return res.render('./users/register', {titulo: "Registro", error: validacionRegistro.array()});
+        }
 
         if (error.array().length > 0){
             console.log("hay errores");

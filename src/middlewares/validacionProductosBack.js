@@ -2,60 +2,82 @@ const { body } = require("express-validator");
 const fs = require("fs");
 
 module.exports = [
+    
 
 /*     body('categoria').notEmpty().withMessage('Debes elegir una categoría'),
- */    body('marca').notEmpty().withMessage('Debes elegir una marca'),
-    body('name').notEmpty().withMessage('Debes completar tu nombre'),
-    body('shortDesc').notEmpty().withMessage('Debes completar tu email').bail().isEmail().withMessage('Debes ingresar un email válido'),
-    body('longDesc').notEmpty().withMessage('Debes escribir un mensaje'),
-    body('price').notEmpty().withMessage('Debes escribir un mensaje'),
-    body('discount').notEmpty().withMessage('Debes completar tu nombre'),
-    body('stock').notEmpty().withMessage('Debes completar tu email').bail().isEmail().withMessage('Debes ingresar un email válido'),
-    body('images').notEmpty().withMessage('Debes cargar al menos 1 imaagen'),
-
-    body('categoria').custom((value, {req}) => {
-        let categorias = req.categoria.value;
-        if (categorias == 5) {
-            throw new Error('Debes elegir una categoría.');
+ */ /* body('marcaNuevaNombre').notEmpty().withMessage('Debes ingresar el Nombre de la Nueva Marca.').bail().isLength({ min: 2, max: 15 }).withMessage('El Nombre de la nueva Marca debe tener entre 2 y 15 caracteres'), */
+    body('name').notEmpty().withMessage('Debes completar el Nombre del Producto').bail().isLength({ min: 10, max: 28 }).withMessage('El Nombre del Producto debe tener entre 10 y 28 caracteres'),
+    body('shortDesc').notEmpty().withMessage('Debes completar la Breve Descripción').bail().isLength({ min: 20, max: 60 }).withMessage('La Breve Descripción debe tener entre 20 y 60 caracteres'),
+    body('longDesc').notEmpty().withMessage('Debes completar la Descripción Detallada').bail().isLength({ min: 200 }).withMessage('La Descripción Detallada debe tener más de 200 caracteres'),
+    body('price').notEmpty().withMessage('Debes completar el Precio').bail().isFloat({ min: 1}).withMessage('El Precio debe ser mayor a 0'),
+    body('discount').notEmpty().withMessage('Debes completar el % de Descuento').bail().isInt({ min: 0, max: 100 }).withMessage('El % de Descuento debe ser un número entre 0 y 100'),
+    body('stock').notEmpty().withMessage('Debes completar el Stock').bail().isInt({ min: 1}).withMessage('El Stock debe ser mayor a 0'),
+    body('marcaNuevaNombre').custom((value, { req }) => {
+        if (value == "" && req.body.marcaNueva == 1) {
+            throw new Error("Adjunte una image con formato")
+        }else{
+            return true;
         }
-        return true;
-    }),
+    }), 
 
-    body('marcaNuevaNombre').custom((value, {req}) => {
-        let checkMarcaNueva = req.checkMarcaNueva.value;
-        let marcaNuevaNombre = req.marcaNuevaNombre.value;
-        if (checkMarcaNueva == 1 && marcaNuevaNombre == "") {
+    /* body('marcaNuevaNombre').custom((value, { body }) => {
+        
+        console.log(body.marcaNueva)
+        
+        if (value == "" && body.marcaNueva.value == 1) {
+            throw new Error("Adjunte una image con formato")
+        }
+    }),*/
+    
+   
+    /*
+    body('marcaNuevaNombre').custom(value => {
+        if (value == "" && body('marcaNueva') == 1) {
             throw new Error('Debes ingresar el Nombre de la Nueva Marca.');
         }
         return true;
+    })
+    */
+
+
+
+    body('categoria').custom(value => {
+        if (value == 5) {
+            throw new Error('Debes elegir una Categoría.');
+        }
+        return true;
+    }),
+    body('marca').custom(value => {
+        if (value == "seleccionar") {
+            throw new Error('Debes elegir una Marca.');
+        }
+        return true;
     }),
 
+    body('images').custom((value, {req}) => {
+        value = req.files
+        console.log(req.body)
 
+        if (value.length == 0){
+            
+            console.log("mirameeee")
 
-/* 
-    body("title").notEmpty().withMessage("El titulo no puede estar vacio!").isLength({min:2, max:50}).withMessage("El titulo debe tener entre 2 y 50 caracteres"),
-    body("rating").notEmpty().withMessage("El rating no puede estar vacio!").isFloat({min:1, max:10}).withMessage("El rating debe estar entre 1-10."),
-    body("awards").notEmpty().withMessage("Los premios no pueden estar vacios!").isInt({min:0}).withMessage("El rating debe ser 0 o más."),
-    body("length").notEmpty().withMessage("La duración no puede estar vacia!").isFloat({min:60}).withMessage("La duración debe ser mayor a 60."),
-    body("release_date").isDate().withMessage("La fecha no puede venir vacia!"),
-    body("genre_id").notEmpty().withMessage("El genero no puede venir vacio!"),
-    body("file").custom((value, {req}) => {
-        let files = req.files
-        let acceptedExtensions = [".jpg", ".png", ".gif", ".jpeg"]
+            throw new Error ("Debes cargar al menos un archivo .jpg, .jpeg, .png o .gif")
 
-        
-        if (files == undefined) {
-            throw new Error("Adjunte una image con formato: " + acceptedExtensions + " y peso máximo 10mb.")
+        }else if(value.length > 0){
+            console.log("holaaaaa cheee")
+
+            for (let i = 0; i < value.length; i++) {
+                let file = value[i];
+                    if((/(.jpg)$/).test(file.originalname) || (/(.jpeg)$/).test(file.originalname) || (/(.png)$/).test(file.originalname) || (/(.gif)$/).test(file.originalname)){
+                    } else {
+                        return Promise.reject("Todos los archivos deben ser .jpg, .jpeg, .png o .gif")
+                    }
+            }
         }
-        /* else if (files.size > (1024 * 1024 * 10)) {
-            fs.unlink(file.path, (err) => {
-                if (err) {
-                    console.log(err)
-                }
-            })
-            throw new Error("Adjunte una image con formato: " + acceptedExtensions + " y peso máximo 10mb.")
-        } */
-        /*return true
-    }) */
-
+        console.log("Ok todo")
+        console.log(value)
+        return true;
+    }).bail(),
+    
 ]
