@@ -114,27 +114,27 @@ const controller = {
             .then(() => {
                 return res.render('./tienda/newProduct', {titulo: "Nuevo Producto", user: req.session.usuariosLogueado, marcas, errors: resultValidation.mapped()});
             })
-        }
-        req.files.forEach(file =>{
-            imagenes.push("/products/" + file.filename)
-        })
-        imagenes = JSON.stringify(imagenes)
-        if (req.body.marcaNueva == 1){
-            db.Marca.create({
-                nombre: req.body.marcaNuevaNombre
+        } else {
+            req.files.forEach(file =>{
+                imagenes.push("/products/" + file.filename)
             })
-            .then((result) =>{
-                marca = result.dataValues.id
-                db.Producto.create({
-                    nombre: req.body.name,
-                    descripcion: req.body.shortDesc,
-                    descLarga: req.body.longDesc,
-                    precio:  req.body.price,
-                    descuento: req.body.discount,
-                    stock: req.body.stock,
-                    imagenes: imagenes,
-                    marca_id: marca,
-                    categoria_id:  req.body.categoria,
+            imagenes = JSON.stringify(imagenes)
+            if (req.body.marcaNueva == 1){
+                db.Marca.create({
+                    nombre: req.body.marcaNuevaNombre
+                })
+                .then((result) =>{
+                    marca = result.dataValues.id
+                    db.Producto.create({
+                        nombre: req.body.name,
+                        descripcion: req.body.shortDesc,
+                        descLarga: req.body.longDesc,
+                        precio:  req.body.price,
+                        descuento: req.body.discount,
+                        stock: req.body.stock,
+                        imagenes: imagenes,
+                        marca_id: marca,
+                        categoria_id: req.body.categoria,
                 })
                 .then((result)=>{
                     res.redirect("/tienda/productDetail/" + result.dataValues.id);
@@ -163,6 +163,7 @@ const controller = {
                 res.redirect("/tienda/productDetail/" + result.dataValues.id);
             })
         }
+    }
     },
     modifyProduct: (req, res) => {
         let marcas = [];

@@ -33,14 +33,14 @@ const usersController = require ('../controllers/usersController.js');
 router.get('/login', guestMiddleware, usersController.login);
 router.get('/register', guestMiddleware, usersController.register);
 router.post('/login', validacionLogin, usersController.logueado); 
-router.post('/register', validacionRegistro, upload.single('avatar'), usersController.crearUsuario);
+router.post('/register', upload.single('avatar'), validacionRegistro, usersController.crearUsuario);
 router.get("/disponible/:email", usersController.checkearDisponibilidad)
 router.get("/signout", usersController.signOut) 
 router.get("/myprofile", authMiddleware, usersController.profile)
 
 
 router.get("/modifyuser/:id", usersController.modifyUser);
-router.patch("/myprofile/:id",validacionModificarUsuario, upload.single('avatar'), usersController.profileEdition)
+router.patch("/myprofile/:id", upload.single('avatar'), validacionModificarUsuario, usersController.profileEdition)
 router.get("/deleteuser/:id", usersController.delete)
 
 module.exports = router;

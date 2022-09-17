@@ -67,46 +67,48 @@ const controller = {
         console.log(req.body);
 
         const error =  validationResult(req);
-        console.log(error.errors);
-        
-        if (error != null){
-            /* console.log(error.array()); */
-            return res.render('./users/register', {titulo: "Registro", error: error.array()});
-        }
+        console.log(error.array());
 
-        db.Usuario.findOne({
-            where: {
-                email: req.body.email,
-            }
-        })
-        .then(function(resultado){
-            if (resultado){
-                const error = "Ese mail ya está registrado"
-                return res.render('./users/register', {titulo: titulo, error});
-            }else{
-                let nombreImagen = '';
-            if(req.file != undefined){
-                nombreImagen = '/users/' + req.file.filename;
-            }else{
-                nombreImagen = '/users/default.png';
-            }
-            db.Usuario.create({
-                nombre: req.body.nombre,
-                apellido: req.body.apellido,
-                email: req.body.email,
-                password: bcrypt.hashSync(req.body.password, 10),
-                pais: req.body.pais,
-                provincia: req.body.provincia,
-                ciudad: req.body.ciudad,
-                direccion: req.body.direccion,
-                codPostal: req.body.codigo,
-                fechaNac: req.body.fechaNac,
-                avatar: nombreImagen,
-                permisos: 0
+        if (error.array().length > 0){
+            console.log("hay errores");
+            console.log(error.array());
+            return res.render('./users/register', {titulo: "Registro", error: error.array()});
+        } else {
+            console.log("no hay errores");
+            db.Usuario.findOne({
+                where: {
+                    email: req.body.email,
+                }
             })
-            return res.redirect("/login");
-            }
-        })
+            .then(function(resultado){
+                if (resultado){
+                    /* const error = "Ese mail ya está registrado" */
+                    return res.render('./users/register', {titulo: "Registro", error: []});
+                }else{
+                    let nombreImagen = '';
+                    if(req.file != undefined){
+                        nombreImagen = '/users/' + req.file.filename;
+                    }else{
+                        nombreImagen = '/users/default.png';
+                    }
+                    db.Usuario.create({
+                        nombre: req.body.nombre,
+                        apellido: req.body.apellido,
+                        email: req.body.email,
+                        password: bcrypt.hashSync(req.body.password, 10),
+                        pais: req.body.pais,
+                        provincia: req.body.provincia,
+                        ciudad: req.body.ciudad,
+                        direccion: req.body.direccion,
+                        codPostal: req.body.codigo,
+                        fechaNac: req.body.fechaNac,
+                        avatar: nombreImagen,
+                        permisos: 0
+                    })
+                    return res.redirect("/login");
+                }
+            })
+        }
     },
 
     checkearDisponibilidad:(req, res)=> {
