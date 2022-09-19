@@ -10,6 +10,8 @@ const productsApi = require("../api/productsApi")
 
 /************** API USUARIOS *****************/
 router.get("/disponible/:email", api.checkearDisponibilidad)
+router.get("/users", api.users)
+router.get("/users/:id", api.userDetail)
 
 
 /************** API PRODUCTOS *****************/
