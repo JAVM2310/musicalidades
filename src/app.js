@@ -28,6 +28,7 @@ app.use('/tienda', rutastienda);
 app.use("/api", rutasApi)
 
 
+
 //-----------------404------------------------//
 app.use((req,res,next)=>{
     res.status(404).render('not-found');
@@ -35,5 +36,5 @@ app.use((req,res,next)=>{
 });
 
 //--------------SERVER-----------------//
-app.listen(process.env.PORT || 3000, () => {console.log("levantado el servidor en el puerto 3000")
+app.listen(process.env.PORT || 3001, () => {console.log("levantado el servidor en el puerto 3001")
 });
