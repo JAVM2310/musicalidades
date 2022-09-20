@@ -8,33 +8,27 @@ const Op = Sequelize.Op;
 const productsApi = {
 
     listadoProductos: (req, res) => {
-        
+
         let products = db.Producto.findAll()
         let categories = db.Categoria.findAll()
-        /* let productByCategory = db.Producto.findAll({
-            where: {categoria: categoria_id}
-        })
-        Promise.all([products, categories, productByCategory])
-        .then(([resultProducts, resultCategories, resultProductByCategory]) => {
-                return res.json({
-                productos: resultProducts,
-                categorias: resultCategories,
-                productosPorCategoria: resultProductByCategory,
-                url: "api/products",
-                status: 200
-            })
-        }) */
-        
-        Promise.all([products, categories])
-        .then(([resultProducts, resultCategories]) => {
-                return res.json({
-                productos: resultProducts,
-                categorias: resultCategories,
-                url: "api/products",
-                status: 200
-            })
+        let categoriasPorProducto = db.Producto.findAll({
+            group: ["categoria_id"],
+            attributes: ['categoria_id', [Sequelize.fn('COUNT', 'categoria_id'), 'asdasdasd']],
         })
 
+        
+        Promise.all([products, categories, categoriasPorProducto])
+        .then(([resultProducts, resultCategories, resultCategoriasPorProducto]) => {
+                    return res.json({
+                    productosPorCategoria: resultCategoriasPorProducto,
+                    productos: resultProducts,
+                    categorias: resultCategories,
+                    productosTotal: resultProducts.length,
+                    categoriasTotal: resultCategories.length,
+                    url: "api/products/:id",
+                    status: 200
+                })
+        })
     },
 
     detalleProducto: (req, res) =>{

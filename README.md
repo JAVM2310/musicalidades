@@ -6,8 +6,6 @@ EL EQUIPO DE DESARROLLO:
 
 Juan Agustín Vázquez: Tiene 26 años años y vive en Ciudad de Buenos Aires. Completo 2 años de ingenieria aeroespacial. Trabajo independientemente diagnosticando y reparando computadoras. Estudiante de programador full stack. En su tiempo libre le gusta tocar el piano y jugar al tenis.
 
-Pedro Francisco Spertino: Tiene 53 años y es de Sunchales, Provincia de Santa Fe. Pedro es analista de sistemas, dedicado a la programación desde hace mas de 30 años en forma freelance.
-
 Guadalupe Flores Cottet: Tiene 39 años años y vive en Ciudad de Buenos Aires. Es Diseñadora Gráfica y Licenciada en Tecnologías Educativas. Actualmente trabaja en análisis de información. Se desempeñó en diseño web varios años (front end) y recientemente realizó un curso QA Tesing. Busca volcarse 100% al mundo IT.
 
 Referencias: 
