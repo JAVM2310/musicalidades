@@ -22,8 +22,7 @@ let error = '';
 const controller = {
 
     login: (req, res) => {
-        let titulo = "Login"
-        res.render('./users/login', {titulo: titulo, error});
+        res.render('./users/login', {titulo: "Login", error});
     },
 
     register: (req, res) => {
@@ -67,19 +66,13 @@ const controller = {
         console.log(req.body);
 
         const validacionRegistro =  validationResult(req);
-        console.log(validacionRegistro);
+        /* console.log(validacionRegistro.array()); */
         
-        if (validacionRegistro != null){
-            /* console.log(error.array()); */
-            return res.render('./users/register', {titulo: "Registro", error: validacionRegistro.array()});
-        }
-
-        if (error.array().length > 0){
+        if (validacionRegistro.array().length > 0){
             console.log("hay errores");
-            console.log(error.array());
-            return res.render('./users/register', {titulo: "Registro", error: error.array()});
+            console.log(validacionRegistro.array());
+            return res.render('./users/register', {titulo: "Registro", error: validacionRegistro.array()});
         } else {
-            console.log("no hay errores");
             db.Usuario.findOne({
                 where: {
                     email: req.body.email,
@@ -87,7 +80,6 @@ const controller = {
             })
             .then(function(resultado){
                 if (resultado){
-                    /* const error = "Ese mail ya está registrado" */
                     return res.render('./users/register', {titulo: "Registro", error: []});
                 }else{
                     let nombreImagen = '';
