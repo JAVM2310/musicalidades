@@ -24,7 +24,7 @@
                         <input class="form-relleno" type="text" name="nombre" id="nombre" placeholder="Nombre y Apellido*" value="<%= locals.errors && old.nombre ? old.name : "" %>">
                     </label>
                     <label for="email">
-                        <input type="email" name="email" id="email" placeholder="Email*" value="<%= locals.errors && old.email ? old.email : "" %>">
+                        <input type="text" name="email" id="email" placeholder="Email*" value="<%= locals.errors && old.email ? old.email : "" %>">
                     </label>
                     <label for="mensaje">
                         <textarea name="mensaje" id="mensaje" placeholder="Mensaje*:" value="<%= locals.errors && old.mensaje ? old.mensaje : "" %>"></textarea>
@@ -56,5 +56,6 @@
     </main>
     <!-------------------------FOOTER------------------------------->
     <%- include('./partials/footer') %>
+    <script src="/js/validacionContactoFront.js"></script>
 </body>
 </html>

@@ -7,6 +7,15 @@
     <h2 style="text-align: center;"> Editar datos de <%= user.nombre%> <%=user.apellido%></h2>
     <hr>
     <main class="myProfile">
+        <span class="text-danger">
+            <ul>
+                <% if (error){ %>
+                    <% error.forEach(error =>{ %>
+                        <li class="error-validacion" ><%= error.msg %></li>
+                    <% }) %>
+                <% } %>
+            </ul>
+        </span>
         <form class="form myProfile" method="POST" action="/myprofile/<%= user.id %>?_method=PATCH" enctype="multipart/form-data"><!-- enctype="multipart/form-data" -->
             <div class="datos">
                 <div id="img">
@@ -25,9 +34,6 @@
                     </label>
                     <label for="email">
                         <p>Email:<input type="email" name="email" id="email" value="<%= user.email %>" ></p>
-                        <span class="text-danger">
-                            <%= error%>
-                        </span>
                     </label>
                 </div>
                 <div>
@@ -59,6 +65,6 @@
 </form>
 </main>
 <%- include('../partials/footer') %>
-<!-- <script src="/js/validacionModificarUsuario.js"></script> -->
+<script src="/js/validacionModificarUsuarioFront.js"></script>
 </body>
 </html>

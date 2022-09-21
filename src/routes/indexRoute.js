@@ -19,8 +19,8 @@ const indexController = require ('../controllers/indexController');
 router.get('/', indexController.index);
 router.get('/faq', indexController.faq);
 router.get('/quienes-somos', indexController.quienesSomos);
-router.get('/contacto', validacionesContacto, indexController.contacto);
-router.post('/contacto', validacionesContacto, indexController.mandarMensaje);
+router.get('/contacto', validacionesContacto, indexController.contactoGet);
+router.post('/contacto', validacionesContacto, indexController.contactoPost);
 
 
 /*

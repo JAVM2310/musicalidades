@@ -1,6 +1,4 @@
 const { body } = require("express-validator")
-const db = require("../database/models")
-
 
 module.exports = [
     body("nombre")
@@ -13,21 +11,7 @@ module.exports = [
 
     body("email")
         .exists({checkFalsy: true}).withMessage("El email es obligatorio").bail()
-        .isEmail().withMessage("El email no es valido").bail()
-        /* .custom(value =>{
-                db.Usuario.findOne({
-                    where:{
-                        email: value
-                    }
-                })
-                .then((usuario)=>{
-                    if (usuario){
-                        return Promise.reject("EL email ya esta en uso")
-                    } else {
-                        return true
-                    }
-                })
-            }).bail() */,
+        .isEmail().withMessage("El email no es valido").bail(),
 
     body("password")
         .exists({checkFalsy: true}).withMessage("La contraseña es obligatoria").bail()
@@ -42,7 +26,7 @@ module.exports = [
     body("passwordRepetida")
         .exists({checkFalsy: true}).withMessage("Debe repetir la contraseña").bail()
         .custom((value, {req}) => {
-            if (value != req.body.passwordRepetida){
+            if (value != req.body.password){
                 return Promise.reject("Las contraseñas deben ser iguales")
             } else {
                 return true
@@ -79,15 +63,16 @@ module.exports = [
         }).bail(),
 
     body("avatar")
-    .custom(value =>{
-        if (value != null){
-            if((/(.jpg)$/).test(value) || (/(.jpeg)$/).test(value) || (/(.png)$/).test(value) || (/(.gif)$/).test(value)){
-
+        .custom((value, {req}) =>{
+            value = req.file
+            if (value != null){
+                if((/(.jpg)$/).test(value.originalname) || (/(.jpeg)$/).test(value.originalname) || (/(.png)$/).test(value.originalname) || (/(.gif)$/).test(value.originalname)){
+                    return true
+                } else {
+                    return Promise.reject("Tiene que ser un archivo en formato: .jpg, .jpeg, .png o .gif")
+                }
             } else {
-                return Promise.reject("Tiene que ser un archivo en formato: .jpg, .jpeg, .png o .gif")
+                return true
             }
-        } else {
-            return true
-        }
-    }).bail()
+        }).bail(),
 ]

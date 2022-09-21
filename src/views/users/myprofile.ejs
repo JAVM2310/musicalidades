@@ -18,7 +18,11 @@
             <p>CÓDIGO POSTAL: <span><%= user.codPostal%></span></p>
             <p>FECHA DE NACIMIENTO: <span><%= user.fechaNac%></span></p>
             
-            <p class="p-admin"><a class="botones-admin" href="/modifyuser/<%= user.id %>">EDITAR</a><a class="botones-admin" href="/deleteUser/<%= user.id %>">ELIMINAR</a></p>
+            <p class="p-admin">
+                <a class="botones-admin" href="/modifyuser/<%= user.id %>">EDITAR</a>
+                <a class="botones-admin" href="/deleteUser/<%= user.id %>">ELIMINAR</a>
+                <a class="botones-admin" href="/cambiarPassword">CAMBIAR CONTRASEÑA</a>
+            </p>
         </div>
     </main>
     <%- include('../partials/footer') %>
