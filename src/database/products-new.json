@@ -24,7 +24,7 @@
   "price": "26954",
   "discount": "9",
   "stock": "5",
-  "marca": "Blackstar ",
+  "marca": "Blackstar",
   "image": [
    "/products/producto-1663874848600.jpg",
    "/products/producto-1663874848599.jpg",
@@ -50,7 +50,7 @@
  },
  {
   "id": 4,
-  "categoria": "Sin Categoría",
+  "categoria": "Sin categoría",
   "name": "Caja de Sonido -Bafle- Yamaha",
   "shortDesc": "Caja De Sonido Bafle Yamaha A15 400 Watts Nueva Garantía",
   "longDesc": "Caja de sonido pensada para el vivo, con parlante de 15 pulgadas, tweeter de 1 pulgada que soportan 400 watts y 800 de pico en 8 ohms.  Precio por unidad  Construcción: Madera forrada en alfombra Potencia: 400 Watts 8 ohms Parlante: 15 pulgadas Tweeter: 1 pulgada Entradas: Speakon x 1, Parallel Input x 1 Dimensiones: 47 x 66,5 x 37,5 cm Peso: 21,3kg",
@@ -73,7 +73,7 @@
   "price": "58963",
   "discount": "0",
   "stock": "10",
-  "marca": "Knight ",
+  "marca": "Knight",
   "image": [
    "/products/producto-1657641871108.jpg",
    "/products/producto-1657641871109.jpg",
@@ -174,7 +174,6 @@
   "image": [
    "/products/producto-1657641871006.jpg",
    "/products/producto-1657641871007.jpg",
-   "/products/default.png",
    "/products/producto-1659301727665.jpg",
    "/products/producto-1659301727668.jpg"
   ]
@@ -304,7 +303,7 @@
   "price": "7586",
   "discount": "0",
   "stock": "4",
-  "marca": "Maono ",
+  "marca": "Maono",
   "image": [
    "/products/producto-1663877586381.jpg"
   ]
@@ -524,7 +523,7 @@
   "price": "47896",
   "discount": "0",
   "stock": "6",
-  "marca": "Nacional ",
+  "marca": "Nacional",
   "image": [
    "/products/producto-1663879521446.jpg",
    "/products/producto-1663879521442.jpg",
@@ -577,7 +576,7 @@
   "price": "32500",
   "discount": "5",
   "stock": "6",
-  "marca": "Santiaguito ",
+  "marca": "Santiaguito",
   "image": [
    "/products/producto-1663879993808.jpg",
    "/products/producto-1663879993807.jpg"
@@ -592,7 +591,7 @@
   "price": "118560",
   "discount": "0",
   "stock": "14",
-  "marca": "Laney ",
+  "marca": "Laney",
   "image": [
    "/products/producto-1663880102328.jpg",
    "/products/producto-1663880102330.jpg",
@@ -636,7 +635,7 @@
   "price": "405630",
   "discount": "0",
   "stock": "5",
-  "marca": "Hohner ",
+  "marca": "Hohner",
   "image": [
    "/products/producto-1663880538446.jpg",
    "/products/producto-1663880538443.jpg",
