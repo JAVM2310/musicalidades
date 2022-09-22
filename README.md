@@ -8,7 +8,15 @@ Juan Agustín Vázquez: Tiene 26 años años y vive en Ciudad de Buenos Aires. C
 
 Guadalupe Flores Cottet: Tiene 39 años años y vive en Ciudad de Buenos Aires. Es Diseñadora Gráfica y Licenciada en Tecnologías Educativas. Actualmente trabaja en análisis de información. Se desempeñó en diseño web durante varios años (front end) y recientemente realizó un curso QA Tesing. Busca volcarse 100% al mundo IT.
 
-Referencias: 
+DASHBOARD DEL PROYECTO: https://github.com/wadaflores/musicalidadesDashboard
+
+TABLERO COLABORATIVO: https://app.clickup.com/25741509/home
+
+
+
+_____________________________________________________________________
+
+REFERENCIAS: 
 
 - https://todomusica.com.ar/ 
 Diseñaron la tienda de un modo similar a MercadoLibre, de probada eficacia. Misma temática que la nuestra. La tienda está ordenada, pero podrían mejorar el home y la identidad de marca.
@@ -24,5 +32,3 @@ Interesante la página de producto, simple y con foco en la imagen. Minimalista.
 
 - https://www.noniceramica.com/ 
 La tienda es muy limpia, ordenada y simple. El responsive es muy bueno. La fontpage no es lo que buscamos, porque tenemos muchas más categorías e información para compartir.
-
-Tablero colaborativo: https://app.clickup.com/25741509/home

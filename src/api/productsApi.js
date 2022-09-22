@@ -29,15 +29,15 @@ const productsApi = {
 
         Promise.all([products, categories, brands, productsByCategorie, lastProduct])
         .then(([resultProducts, resultCategories, resultBrands, resultproductsByCategorie, resultLastProduct]) => {
-            console.log(resultProducts)
 
-            /* for (let i=0, i< in ultimoProductoImg){
-                console.log(ultimoProductoImg[imagenes])
-            } 
-            for (let imagenes in ultimoProductoImg){
-                console.log(ultimoProductoImg[imagenes])
-            }*/
+            for(let i=0; i<resultProducts.length; i++){
+                resultProducts[i].dataValues.url = "http://localhost:3001/api/products/" + resultProducts[i].dataValues.id
+            }
 
+            resultLastProduct[0].dataValues.url = "http://localhost:3001/api/products/" + resultLastProduct[0].dataValues.id
+            resultLastProduct[0].dataValues.imagenes = resultLastProduct[0].dataValues.imagenes.replaceAll("/products/", "http://localhost:3001/img/products/");
+            resultLastProduct[0].dataValues.imagenes = JSON.parse(resultLastProduct[0].dataValues.imagenes)[0]
+            
             return res.json({
                     
                 data: {
@@ -59,12 +59,14 @@ const productsApi = {
         })
     },
 
-    detalleProducto: (req, res) =>{ // FALTA LA URL A LAS FOTOS
+    detalleProducto: (req, res) =>{
         let detalleProducto = {};
         db.Producto.findByPk(req.params.id)
         .then((productDetail) => {
             if(productDetail !=null){
                 detalleProducto.producto = productDetail;
+                detalleProducto.producto.dataValues.imagenes = detalleProducto.producto.dataValues.imagenes.replaceAll("/products/", "http://localhost:3001/img/products/");
+                
                 db.Categoria.findAll({
                     where: {
                         id: productDetail.categoria_id
@@ -72,8 +74,15 @@ const productsApi = {
                 })
                 .then((productCategory)=>{
                     detalleProducto.categoria = productCategory;
-                        console.log(detalleProducto)
-                        return res.json(detalleProducto)
+                    return res.json({
+                        data: {
+                            detalleProducto
+                        },
+                        info: {
+                            url: "api/products/" + req.params.id,
+                            status: 200
+                        }
+                    })
                     })
             }else{
                 return res.json("No se encontró el producto en la Base de Datos")
