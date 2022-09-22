@@ -43,21 +43,19 @@ const controller = {
         let titulo = "Quienes Somos"
         res.render('quienes-somos', {titulo: titulo, user: req.session.usuariosLogueado});
     },
-    contacto: (req, res) => {
-        let titulo = "Contacto"
-        res.render('contacto', {titulo, user: req.session.usuariosLogueado});
+    contactoGet: (req, res) => {
+        res.render('contacto', {titulo: "Contacto", user: req.session.usuariosLogueado});
     },
-    mandarMensaje: (req, res) => {
-        let titulo = "Contacto";
+    contactoPost: (req, res) => {
         let errors = validationResult(req);
 
         console.log(errors.array());
 
         if(errors.isEmpty()){
-            const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-            res.render('index', {titulo: titulo, products: products, deleteMessage: "no", mensaje: "gracias por dejarnos tu mensaje", user: req.session.usuariosLogueado});
+            fs.appendFileSync(path.join(__dirname, "../../mensajes-contacto/" + req.body.email + "-" + Date.now() + ".txt"),`de parte de ${req.body.nombre}: \n ${req.body.mensaje}`)
+            return res.redirect("/")
         }else{
-            res.render('contacto', {titulo: "Contacto", errors: errors.array(), old: req.body, user: req.session.usuariosLogueado});
+            return res.render('contacto', {titulo: "Contacto", errors: errors.array(), old: req.body, user: req.session.usuariosLogueado});
         }
         
     }

@@ -22,8 +22,7 @@ let error = '';
 const controller = {
 
     login: (req, res) => {
-        let titulo = "Login"
-        res.render('./users/login', {titulo: titulo, error});
+        res.render('./users/login', {titulo: "Login", error});
     },
 
     register: (req, res) => {
@@ -64,31 +63,24 @@ const controller = {
     },
     crearUsuario: (req, res) => {
         
-        console.log(req.body);
-
-        const validacionRegistro =  validationResult(req);
-        console.log(validacionRegistro);
         
-        if (validacionRegistro != null){
-            /* console.log(error.array()); */
-            return res.render('./users/register', {titulo: "Registro", error: validacionRegistro.array()});
-        }
-
-        if (error.array().length > 0){
+        const validacionRegistro =  validationResult(req);
+        
+        
+        if (validacionRegistro.array().length > 0){
             console.log("hay errores");
-            console.log(error.array());
-            return res.render('./users/register', {titulo: "Registro", error: error.array()});
+            console.log(validacionRegistro.array());
+            return res.render('./users/register', {titulo: "Registro", error: validacionRegistro.array()});
         } else {
-            console.log("no hay errores");
             db.Usuario.findOne({
                 where: {
                     email: req.body.email,
                 }
             })
             .then(function(resultado){
-                if (resultado){
-                    /* const error = "Ese mail ya está registrado" */
-                    return res.render('./users/register', {titulo: "Registro", error: []});
+                if (resultado != null){
+                    console.log("mail ya registrado");
+                    return res.render('./users/register', {titulo: "Registro", error: [{msg: "el mail ya esta registrado"}]});
                 }else{
                     let nombreImagen = '';
                     if(req.file != undefined){
@@ -128,7 +120,7 @@ const controller = {
             }
         })
         .then(function(usuario){
-            res.render('./users/myprofile', {titulo: "Perfil", user: usuario.dataValues});
+            return res.render('./users/myprofile', {titulo: "Perfil", user: usuario.dataValues});
         })
     },
 
@@ -137,7 +129,7 @@ const controller = {
         db.Usuario.findByPk(req.params.id)
         .then((usuario) =>{
             let error = ""
-            res.render('./users/modifyuser', {titulo: "Editar Usuario", user: usuario.dataValues, error});
+            return res.render('./users/modifyuser', {titulo: "Editar Usuario", user: usuario.dataValues, error});
         })
 
     },
@@ -145,94 +137,130 @@ const controller = {
     profileEdition: (req, res) => {// ESTE ESTÁ OK
 
         const error = validationResult(req)
-
         console.log(error.array());
 
-        let avatar = "";
-        db.Usuario.findOne({
-            where: {
-                id: req.params.id,
-            }
-        })
-        .then((resultado)=>{
-            avatar = resultado.dataValues.avatar;
-            if(resultado.dataValues.email != req.body.email){
-                db.Usuario.findOne({
-                    where: {
-                        email: req.body.email,
-                    }
-                }).then((resultado)=>{
-                    if(resultado != null){
-                        let error = "El email " + resultado.dataValues.email + " ya existe. Debe elegir otro email";
-                        return res.render('./users/modifyuser', {titulo: 'Editar Usuario', user: req.session.usuariosLogueado, error});
-                    }else{
-                        if(req.file){
-                            fs.unlink(path.join(__dirname, "../../public/img/") + avatar, log => console.log("Se borró el archivo: " + avatar + " en la carpeta: " + path.join(__dirname, "../../public/img/users/")))
-                            avatar = '/users/' + req.file.filename;
-                        }
-                        db.Usuario.update({
-                            nombre: req.body.nombre,
-                            apellido: req.body.apellido,
+        if (error.array().length > 0) {
+            console.log("hay errores");
+            db.Usuario.findByPk(req.params.id)
+            .then((usuario) =>{
+                return res.render('./users/modifyuser', {titulo: "Editar Usuario", user: usuario.dataValues, error: error.array()});
+            })
+        } else {
+            let avatar = "";
+            db.Usuario.findOne({
+                where: {
+                    id: req.params.id,
+                }
+            })
+            .then((resultado)=>{
+                avatar = resultado.dataValues.avatar;
+                if(resultado.dataValues.email != req.body.email){
+                    db.Usuario.findOne({
+                        where: {
                             email: req.body.email,
-                            pais: req.body.pais,
-                            provincia: req.body.provincia,
-                            ciudad: req.body.ciudad,
-                            codPostal: req.body.codPostal,
+                        }
+                    }).then((resultado)=>{
+                        if(resultado != null){
+                            let error = "El email " + resultado.dataValues.email + " ya existe. Debe elegir otro email";
+                            return res.render('./users/modifyuser', {titulo: 'Editar Usuario', user: req.session.usuariosLogueado, error});
+                        }else{
+                            if(req.file){
+                                fs.unlink(path.join(__dirname, "../../public/img/") + avatar, log => console.log("Se borró el archivo: " + avatar + " en la carpeta: " + path.join(__dirname, "../../public/img/users/")))
+                                avatar = '/users/' + req.file.filename;
+                            }
+                            db.Usuario.update({
+                                nombre: req.body.nombre,
+                                apellido: req.body.apellido,
+                                email: req.body.email,
+                                pais: req.body.pais,
+                                provincia: req.body.provincia,
+                                ciudad: req.body.ciudad,
+                                codPostal: req.body.codPostal,
                             fechaNac: req.body.fechaNac,
                             avatar: avatar
-                        },
-                        {
-                            where:{
-                                id: req.params.id
-                            }
-                        })
-                        .then(()=>{
-                            //res.render("users/myprofile", {titulo: "Perfil", user: req.session.usuariosLogueado});
-                            res.redirect("/myprofile");
-                        })
+                            },
+                            {
+                                where:{
+                                    id: req.params.id
+                                }
+                            })
+                            .then(()=>{
+                                return res.redirect("/myprofile");
+                            })
+                        }
+                    })
+                }else{
+                    if(req.file){
+                        fs.unlink(path.join(__dirname, "../../public/img/") + avatar, log => console.log("Se borró el archivo: " + avatar + " en la carpeta: " + path.join(__dirname, "../../public/img/users/")))
+                        avatar = '/users/' + req.file.filename;
                     }
-                })
-            }else{
-                if(req.file){
-                    fs.unlink(path.join(__dirname, "../../public/img/") + avatar, log => console.log("Se borró el archivo: " + avatar + " en la carpeta: " + path.join(__dirname, "../../public/img/users/")))
-                    avatar = '/users/' + req.file.filename;
+                    db.Usuario.update({
+                        nombre: req.body.nombre,
+                        apellido: req.body.apellido,
+                        email: req.body.email,
+                        pais: req.body.pais,
+                        provincia: req.body.provincia,
+                        ciudad: req.body.ciudad,
+                        codPostal: req.body.codPostal,
+                        fechaNac: req.body.fechaNac,
+                        avatar: avatar
+                    },
+                    {
+                        where:{
+                            id: req.params.id
+                        }
+                    })
+                    .then(()=>{
+                        return res.redirect("/myprofile");
+                    })
                 }
-                db.Usuario.update({
-                    nombre: req.body.nombre,
-                    apellido: req.body.apellido,
-                    email: req.body.email,
-                    pais: req.body.pais,
-                    provincia: req.body.provincia,
-                    ciudad: req.body.ciudad,
-                    codPostal: req.body.codPostal,
-                    fechaNac: req.body.fechaNac,
-                    avatar: avatar
-                },
-                {
-                    where:{
-                        id: req.params.id
-                    }
-                })
-                .then(()=>{
-                    //res.render("users/myprofile", {titulo: "Perfil", user: req.session.usuariosLogueado});
-                    res.redirect("/myprofile");
-                })
-            }
-        })
+            })
+        }
     },
-    delete(req, res){//ESTE ESTÁ OK
+    borrar: (req, res) => {
         let user = req.session.usuariosLogueado;
         
         db.Usuario.destroy({
-                where:{
-                    id: user.id
-                }
+            where:{
+                id: user.id
+            }
         })
         .then(()=>{
             delete req.session.usuariosLogueado;
-            res.redirect("/")
+            return res.redirect("/")
         })
     },
+
+    cambiarPasswordGet: (req, res) => {
+        let idUsuario = req.session.usuariosLogueado.id
+        return res.render('./users/cambiarContraseña', {titulo: "Cambiar contraseña", idUsuario, error: "", errors: ""});
+    },
+
+    cambiarPasswordPost: (req, res) => {
+        let idUsuario = req.session.usuariosLogueado.id
+        console.log("aca arranca la funcion");
+        const resultValidation = validationResult(req);
+        console.log(resultValidation.mapped());
+        if (resultValidation.errors.length > 0) {
+            return res.render('./users/cambiarContraseña', {titulo: "Cambiar contraseña", idUsuario, error: "", errors: resultValidation.mapped()});
+        } else {
+            db.Usuario.findByPk(req.params.id)
+            .then(result =>{
+                if (!bcrypt.compareSync(req.body.password, result.dataValues.password)){
+                    return res.render('./users/cambiarContraseña', {titulo: "Cambiar contraseña", idUsuario, error: "La contraseña actual no es correcta", errors: ""});
+                } else {
+                    db.Usuario.update(
+                    {
+                        password: bcrypt.hashSync(req.body.passwordNueva, 10)
+                    },
+                    {
+                        where: { id: req.params.id }
+                    })
+                    return res.redirect("/myprofile")
+                }
+            })
+        }
+    }
 };
 
 

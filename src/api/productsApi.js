@@ -66,6 +66,16 @@ const productsApi = {
         })
     },
 
+    //devuelve el producto mas nuevo en la base de datos
+    ultimoProducto: (req, res) => {
+        db.Producto.findAll({
+            limit: 1,
+            order: [ [ 'id', 'DESC' ]]
+        })
+        .then(result => {
+            return res.json(result[0].dataValues)
+        })
+    },
 }   
 
 module.exports = productsApi;

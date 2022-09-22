@@ -38,7 +38,7 @@ window.addEventListener('load', function() {
                 document.querySelector("#email").value = emailPreErase;
                 errores++;
         }else{
-            fetch(`/disponible/${email.value}`)
+            fetch(`/api/disponible/${email.value}`)
             .then(response => response.json())
             .then(emailNoExiste => {
                 if (emailNoExiste){

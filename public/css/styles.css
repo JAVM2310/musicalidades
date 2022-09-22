@@ -1234,6 +1234,7 @@ footer .email i {
     display: flex;
     margin: 20px;
     justify-content: center;
+    flex-direction: column;
 }
 .myProfile #img {
     margin-right: 20px;

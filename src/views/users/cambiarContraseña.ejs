@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-------------------------HEAD-------------------------->
+<%- include('../partials/head') %>
+
+<body class="registro-body">
+    <header>
+        <nav>
+        </nav>
+    </header>
+    <main class="login">
+        <section class="registro">
+            <a href="/"><img src="./img/logo-musicalidades-header.png" alt=""></a>
+            <form action="/cambiarPassword/<%= idUsuario %>?_method=PATCH" class="form" method="post">
+                <div class="datos">
+                    <label for="password">
+                        <span style="color:red">
+                            <%= error%>
+                        </span>
+                        <% if (errors.password) { %>
+                            <p class="error-validacion"><%= errors.password.msg %></p>
+                        <% } %>
+                        <input type="password" class="form-control js_password" name="password" id="password" placeholder="Contraseña*">
+                    </label>
+                    <label for="passwordNueva">
+                        <% if ( errors.passwordNueva) { %>
+                            <p class="error-validacion"><%= errors.passwordNueva.msg %></p>
+                        <% } %>
+                        <input type="password" class="form-control js_password" name="passwordNueva" id="passwordNueva" placeholder="Nueva contraseña*">
+                    </label>
+                    <label for="passwordRepetida">
+                        <% if ( errors.passwordRepetida) { %>
+                            <p class="error-validacion"><%= errors.passwordRepetida.msg %></p>
+                        <% } %>
+                        <input type="password" class="form-control js_password" name="passwordRepetida" id="passwordRepetida" placeholder="Repita la nueva contraseña*">
+                    </label>
+                </div>
+                    <div class="botones-fondo">
+                    <button type="submit" class="boton-enviar">Cambiar Contraseña</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/validacionCambiarContraseñaFront.js"></script>
+</body>
+</html>
