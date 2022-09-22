@@ -1,0 +1,648 @@
+[
+ {
+  "id": 1,
+  "categoria": "Cuerdas",
+  "name": "Guitarra Criolla Clásica Yamaha",
+  "shortDesc": "Guitarra criolla clásica Yamaha C40 para diestros natural palo de rosa gloss",
+  "longDesc": "Como demuestra la C40, un precio modesto no tiene que colocar al instrumento en una categoría inferior. La tapa de pino, aros y fondo de Meranti (similar a la caoba) y un diapasón y puente de auténtico rosewood aseguran a esta guitarra una calidad de tono y capacidad de ejecución que elimina dicha etiqueta . La C40 incorpora clavijas de afinación cromadas.  Este modelo, el mas vendido por Yamaha, acaba de ser agraciado con el galardón al “mejor instrumento de cuerda” en la última edición de los premios de la industria musical (M.I.A., Music Industry Awards), celebrada en Londres.  Tapa: Pino Posterior y laterales: Meranti Trastera: Rosewood Mango: Nato Puente: Rosewood Ancho de cejilla: 52 mm Clavijero: Niquelado Tipo de cuerdas: Nylon",
+  "price": "35698",
+  "discount": "5",
+  "stock": "2",
+  "marca": "Yamaha",
+  "image": [
+   "/products/producto-1657641871120.jpg",
+   "/products/producto-1657641871121.jpg",
+   "/products/producto-1657641871122.jpg"
+  ]
+ },
+ {
+  "id": 2,
+  "categoria": "Teclas",
+  "name": "Teclado Plegable Carry-on",
+  "shortDesc": "Teclado Plegable Carry-on Blackstar Fp49 49 Teclas",
+  "longDesc": "TECLADO PLEGABLE CARRY-ON BLACKSTAR FP49 49 TECLAS  Estado: Nuevo Marca: Blackstar / CARRY-ON Origen: China Garantía: 6 meses (oficial)  Pesando apenas 1.01kg y midiendo solo 39cm de largo al plegarse, el teclado plegable Carry-on es un teclado de 49 teclas único, en un formato plegable, fácil de guardar y de transportar. Gracias a su inteligente diseño, las teclas dan sensación de instrumento real, haciendo al teclado Carry-on la solución perfecta tanto para estudiantes como para profesionales. Toca en cualquier momento usando auriculares o los parlantes estéreo internos. Con 128 sonidos, acompañamientos y MIDI por USB, este es el teclado de práctica y sistema de grabación definitivo.",
+  "price": "26954",
+  "discount": "9",
+  "stock": "5",
+  "marca": "Blackstar ",
+  "image": [
+   "/products/producto-1663874848600.jpg",
+   "/products/producto-1663874848599.jpg",
+   "/products/producto-1663874848598.jpg",
+   "/products/producto-1663874848597.jpg"
+  ]
+ },
+ {
+  "id": 3,
+  "categoria": "Teclas",
+  "name": "Piano Acústico Yamaha",
+  "shortDesc": "Piano Acústico Yamaha Gb1k Pe Polished Ebony",
+  "longDesc": "Todos quieren un grand piano en su hogar, pero el costo puede ser prohibitivo. El Yamaha GB1K Grand Piano es el instrumento más económico en la línea Yamaha. Los Grand piano también ocupan mucho espacio; el GB1K es una opción popular para locaciones con espacio limitado. Este grand piano de 151cm tiene un tono completo, resonante, comparable con el de pianos más grandes. Trae el hall de concierto a tu hogar con el Grand Piano Yamaha GB1K.  Características rápidas del producto: * Un piano que te encantará tocar * Sonido increíble * Pedal Tonal (solo afecta la mitad mas grave del teclado)",
+  "price": "3958745",
+  "discount": "15",
+  "stock": "5",
+  "marca": "Yamaha",
+  "image": [
+   "/products/producto-1657641871117.jpg",
+   "/products/producto-1657641871118.jpg",
+   "/products/producto-1657641871119.jpg"
+  ]
+ },
+ {
+  "id": 4,
+  "categoria": "Sin Categoría",
+  "name": "Caja de Sonido -Bafle- Yamaha",
+  "shortDesc": "Caja De Sonido Bafle Yamaha A15 400 Watts Nueva Garantía",
+  "longDesc": "Caja de sonido pensada para el vivo, con parlante de 15 pulgadas, tweeter de 1 pulgada que soportan 400 watts y 800 de pico en 8 ohms.  Precio por unidad  Construcción: Madera forrada en alfombra Potencia: 400 Watts 8 ohms Parlante: 15 pulgadas Tweeter: 1 pulgada Entradas: Speakon x 1, Parallel Input x 1 Dimensiones: 47 x 66,5 x 37,5 cm Peso: 21,3kg",
+  "price": "236520",
+  "discount": "0",
+  "stock": "5",
+  "marca": "Yamaha",
+  "image": [
+   "/products/producto-1657641871111.jpg",
+   "/products/producto-1657641871112.jpg",
+   "/products/producto-1657641871113.jpg"
+  ]
+ },
+ {
+  "id": 5,
+  "categoria": "Vientos",
+  "name": "Clarinete Knight",
+  "shortDesc": "Clarinete Knight Jbcl-510 Jbcl510 17 Llaves",
+  "longDesc": "Construido en baquelita con terminación Nickel, 17 llaves y 5 elementos con doble barrilote, afinados en 440 y 442, con estuche rígido. Clarinete en si bemol.  Este es un hermoso Clarinete Knigth en su modelo JBCL-510. Un instrumento de excelente calidad sonora, ideal para quienes se inician en el estudio. Es también recomendado como instancia previa para niños que quieren aprender saxo por su portabilidad.  Estuche, paño de limpieza y un año de Garantía.",
+  "price": "58963",
+  "discount": "0",
+  "stock": "10",
+  "marca": "Knight ",
+  "image": [
+   "/products/producto-1657641871108.jpg",
+   "/products/producto-1657641871109.jpg",
+   "/products/producto-1657641871110.jpg"
+  ]
+ },
+ {
+  "id": 6,
+  "categoria": "Teclas",
+  "name": "Teclado Vox Continental",
+  "shortDesc": "Teclado Vox Continental 61 Japón",
+  "longDesc": "El Vox Continental usa una interfaz simple e intuitiva que permite un acceso rápido a todas las funciones. La sección de motor de sonido de alta calidad está centrada en órgano, piano eléctrico, y piano acústico, y provee una enormidad de sonidos listos para el escenario. Además, el Continental ofrece una sesión de efectos poderosa para mejorar esos sonidos, e incluso un drive analógico valvular alimentado por Nutube, la innovadora válvula de vacío. Es un instrumento que encaja perfectamente en tus requisitos para una performance en vivo para una variedad de estilos incluidos el rock, pop, jazz y más. El aire de tradición que emanan los órganos VOX, junto con la innovación de décadas de investigación, llevados al iluminados logo de VOX que exhibe el nuevo Vox Continental es una fusión de ambos, redefiniendo la existencia de los teclados de escenario modernos.  Características del producto: · Interfaz de usuario intuitiva que enfatiza en el toque en el escenario · Parte de Órgano que modela meticulosamente tres órganos vintage · Parte E.Piano de alta calidad con atención en cada detalle · Parte Piano rica alimentada por muestras de alta capacidad · Parte Key/Layer con un amplio rango de variaciones · Efectos intuitivos y poderosos que están optimizados para usarse en vivo · Sensor de toque que puede controlar una variedad de parámetros · EQ de nueve bandas que permite un control detallado de tu sonido · Sonido drive de válvula real alimentado por Nutube, la nueva válvula de vacío · Teclado en cascada recientemente desarrollado que provee excelente toque · Perillas dinámicas que te permiten personalizar libremente la sensación de toque del teclado · Memorias de escena para cambiar entre configuraciones instantáneamente · Cuerpo liviano y compacto construido de una robusta lamina de metal y aluminio · Lleva el color escarlata tradicional de los órganos VOX · INCLUYE pedal de expresión/volumen V861  Cantidad de teclas: 61 Cantidad de Sonidos: 150 Teclas sensitivas: Cascada semi-pesado (no soporta after touch) Pitch Bend: Si (Key/Layer) Display: No Polifonia: 240 (High-definition Piano sound generator) Efectos: Insert (CHORUS, PHASER, FLANGER, COMP, DRIVE, WAH); Master (DELAY: 1. DELAY, 2. CROSS, 3. TAPE, 4. MOD DLY); REVERB: 1. HALL1, 2. HALL2, 3. ROOM1, 4. ROOM2, 5. SPRING Funciones: Canciones demo: No Grabador interno: No Modo lección: No Metronomo: No Almacenamiento: Approx. 10.5 GB (in case of 48 kHz, 16-bit Linear PCM converted) Entradas: Pedales (Damper, Rotor, Control), Midi IN, USB A y B, Salidas: Jack 1/4, XLR 3-32, Auriculares, Midi Out, USB, Parlantes internos: No Accesorios incluidos: Fuente de alimentación, pedal V861 Volumen/Expresion Midi: Si Usb: A y B Dimensiones: 93.9 x 35 x 8.6 cm Peso: 7.2 Kg",
+  "price": "375600",
+  "discount": "0",
+  "stock": "1",
+  "marca": "Vox",
+  "image": [
+   "/products/producto-1657641871105.jpg",
+   "/products/producto-1657641871106.jpg",
+   "/products/producto-1657641871107.jpg"
+  ]
+ },
+ {
+  "id": 7,
+  "categoria": "Cuerdas",
+  "name": "Guitarra Eléctrica Ibanez",
+  "shortDesc": "Guitarra Eléctrica Ibanez Gio Grx40 Bkn Black Knight",
+  "longDesc": "La Ibanez GRX40 GIO es una guitarra impresionante y llena de potencial. Contiene tres micrófonos Infinity, incluyendo un humbucker y dos simple bobina, y ofrece una amplia gama de tonos que le darán el poder de hacer que cualquier género de sonido sea excelente. El mango de maple GRX permite un juego más suave, ofreciendo una comodidad al tocar impecable. Y un puente trémolo T106 te permite añadir todo el vibrato que quieras a tus riffs. Diseñada tanto para músicos experimentados como para principiantes, esta excelenet guitarra es un brillante ejemplo de la mastría y el ojo agudo para los detalles de Ibanez.  Especificaciones técnicas: • Mango: GRX Maple • Cuerpo: Álamo • Trastera: Jatoba • Trastes: 22, Medium • Puente: Ibanez T106 tremolo • Espaciado entre cuerdas: 10.5mm • Micrófono del mango: Infinity RS simple bobina • Micrófono del medio: Infinity RS simple bobina • Micrófono del puente: Infinity RS humbucker • Calibre de cuerdas: .009/.011/.016/.024/.032/.042 • Hardware: Cromado • Largo de escala: 25.5” (648mm) • Ancho de cejilla: 42mm • Ancho en traste 22: 57mm • Grosor en traste 1: 19.5mm • Grosor en traste 12: 21.5mm",
+  "price": "72520",
+  "discount": "0",
+  "stock": "2",
+  "marca": "Ibanez",
+  "image": [
+   "/products/producto-1657641871102.jpg",
+   "/products/producto-1657641871103.jpg",
+   "/products/producto-1657641871104.jpg"
+  ]
+ },
+ {
+  "id": 8,
+  "categoria": "Teclas",
+  "name": "Teclado Yamaha Sonogenic",
+  "shortDesc": "Teclado Yamaha Sonogenic Keytar Shs500 Red",
+  "longDesc": "TECLADO YAMAHA SONOGENIC KEYTAR SHS500 RED  Estado: Nuevo Marca: Yamaha Origen: China Garantía: 12 meses (oficial)  Te gustaría poder interactuar rítmicamente con tu música favorita – sin requerir teoría o habilidades de teclado? De ser así, el Sonogenic es para vos! El Yamaha Sonogenic es un keytar compacto de 37 notas que te permite enfocarte en tocar los ritmos mientras que el instrumento se hace cargo de tocar las notas correctas de las canciones. Solo tenes que conectar tu dispositivo iOS y usar la característica JAM con la app Yamaha Chord Tracker. Toca junto con tus canciones de iTunes favoritas en este keytar intuitivo – sin tocar nunca una nota errónea! Te encanta improvisar y jugar sobre tus canciones preferidas? Ya seas un tecladista viajando o apenas un principiante, vas a sonar profesional con el keytar. No necesitas conocer de teoría musical para sonar increíble. Una de las características únicas del Sonogenic es el modo JAM. Genial para los tecladistas nuevos, el modo JAM te permite tocar con tus canciones preferidas sin preocuparte sobre las notas que estas tocando o en que tono está la canción. Solo tenes que tocar las teclas junto con el ritmo de la canción y ya! Con 30 voces de instrumentos diferentes, podes elegir desde sintetizadores a baterías con tocar un botón, para divertirte durante horas! El keytar Sonogenic es ultraliviano y diseñado para viajar con vos a cualquier lugar donde te lleve tu corazón musical. Pesando menos de 1.5 Kg, podes colgar este keytar con correa sobre tu hombro por horas sin notarlo. Conecta el keytar Sonogenic a un PA externo con su salida de línea auxiliar de 1/4” o podés tocar a través de sus parlantes internos. Con funciones útiles como reverb, chorus y dynamics, vas a tener la potencia de performance que necesitas para un show!",
+  "price": "146352",
+  "discount": "0",
+  "stock": "1",
+  "marca": "Yamaha",
+  "image": [
+   "/products/producto-1663876835337.jpg",
+   "/products/producto-1663876835334.jpg",
+   "/products/producto-1663876835349.jpg",
+   "/products/producto-1663876835339.jpg"
+  ]
+ },
+ {
+  "id": 9,
+  "categoria": "Vientos",
+  "name": "Saxofón Jean Baptiste",
+  "shortDesc": "Jean Baptiste 290AL Eb Alto Saxofón estudiantil",
+  "longDesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+  "price": "89500",
+  "discount": "20",
+  "stock": "5",
+  "marca": "Jean Baptiste",
+  "image": [
+   "/products/producto-1657641871127.jpg",
+   "/products/producto-1657641871124.jpg",
+   "/products/producto-1657641871123.jpg"
+  ]
+ },
+ {
+  "id": 10,
+  "categoria": "Sin categoría",
+  "name": "Estuche Para Saxo Alto",
+  "shortDesc": "Estuche Para Saxo Alto Skb-140 Skb140",
+  "longDesc": "El estuche contorneado SKB ofrece una excelente protección a un precio extraordinario. Incluye una bolsa de tela de muy buena calidad con dos compartimientos, uno para guardar el tudel y el otro para la boquilla, dicha bolsa a su vez se guarda en la campana de tu saxo.  IMPORTANTE: NO incluye la correa. IMPORTANTE: solo para saxo alto. Peso: 1,81kg",
+  "price": "41236",
+  "discount": "15",
+  "stock": "5",
+  "marca": "SKB",
+  "image": [
+   "/products/producto-1658004646212.jpg",
+   "/products/producto-1658004646213.jpg",
+   "/products/producto-1658004646216.jpg"
+  ]
+ },
+ {
+  "id": 11,
+  "categoria": "Sin categoría",
+  "name": "Auriculares de Estudio",
+  "shortDesc": "Auriculares Cerrados De Estudio Samson Sr450",
+  "longDesc": "Obtené un monitoreo personal claro y de rango completo por un gran precio con un par de auriculares de estudio on-ear Samson SR450. Los SR450 te dan graves profundos y ricos, y agudos limpios, con gran aislamiento de sonido. Su diseño cerrado provee la separación de sonido que es crucial para entrar en los detalles de tu música. Ya sea que estés buscando un par de auriculares económicos para una escucha critica o simplemente quieras experimentar los detalles más finos de tu música favorita, vas a disfrutar escuchar con un par de Samson SR450.  Características del producto: • Drivers de 40mm que entregan una profundidad y resolución de graves extraordinarias • Diseño cerrado para aislamiento y separacion del sonido • Adaptador de 1/8” a 1/4” incluido • Almohadillas de goma con memoria • Vincha auto ajustable que es segura y comoda  Especificaciones técnicas: - Diseño: Cerrado - Tipo de calce: Supra-Aural (On-ear) - Tamaño de driver: 40mm - Respuesta de frecuencia: 20Hz-20kHz - Impedancia: 32 Ohms - Tipo de cable: Recto - Tamaño de plug: 1/8” (adaptador de 1/4\") - Color: Plateado",
+  "price": "10900",
+  "discount": "5",
+  "stock": "5",
+  "marca": "Samson",
+  "image": [
+   "/products/producto-1657641871006.jpg",
+   "/products/producto-1657641871007.jpg",
+   "/products/default.png",
+   "/products/producto-1659301727665.jpg",
+   "/products/producto-1659301727668.jpg"
+  ]
+ },
+ {
+  "id": 12,
+  "categoria": "Teclas",
+  "name": "Piano Vertical Yamaha",
+  "shortDesc": "Piano Vertical Yamaha Ju109 Nuevo Gtia Banqueta Libertella",
+  "longDesc": "El JU109 es un piano que proporciona el tacto, belleza y tono incomparables que han hecho famosos a los pianos verticales de Yamaha, al mejor precio del mercado. Es sencillamente un piano que no necesita presentación, ya que es ampliamente reconocido por la comunidad pianística. El JU109 satisface ampliamente los requisitos y sensibilidades de pianistas principiantes e intermedios.  Nuevos Atributos  El JU109 es un piano completamente rediseñado, ya que ahora cuenta con 4 postes traseros en lugar de 2, situación que le brinda una construcción más fuerte, mayor estabilidad de afinación y un sonido más firme, cálido y rico. La tabla armónica también fue mejorada, puesto que ahora se fabrica de abeto, madera que le da la flexibilidad necesaria para transmitir las vibraciones de las cuerdas de manera más eficiente, realzando la calidad del sonido. Lo mismo aplica para el pinblock o clavijero, ahora hecho de maple americano en lugar del tradicional maple chino. La parte externa de la cama del teclado ha sido redon",
+  "price": "1532698",
+  "discount": "10",
+  "stock": "2",
+  "marca": "Yamaha",
+  "image": [
+   "/products/producto-1663873664348.jpg",
+   "/products/producto-1663873664349.jpg",
+   "/products/producto-1663873664350.jpg"
+  ]
+ },
+ {
+  "id": 13,
+  "categoria": "Teclas",
+  "name": "Piano Vertical Essex By Steinway",
+  "shortDesc": "Piano Vertical Essex By Steinway Eup-116st Sheraton Usado",
+  "longDesc": "El Sheraton vertical (EUP-116ST) es perfecto para el hogar y está diseñado para reflejar un buen gusto en el estilo. Para mantenerse en línea con el mobiliario tradicional, las atractivas patas caladas son indicativas del estilo inglés formal. Diseñado por Steinway & Sons en colaboración con el renombrado diseñador de muebles William Faber, el Essex ha sido creado como un tributo a la idea de que los estilos y acabados de piano atractivos, deberían y pueden ser posibles en todos los rangos de precios. Con estilo tradicional elegante y acabado de calidad digna de un museo, el Essex será una increíble adición a tu hogar. El Essex incorpora lo último en mejoras de diseño y producción del equipo dedicado de investigación y desarrollo de Steinway. Al utilizar materiales especialmente diseñados, técnicas de producción a gran escala y ambientes de manufactura cuidadosamente seleccionados, el Essex es capaz de entregar un nivel de performance musical previamente inalcanzable en su rango de precio. Con el piano Essex, tenés el mejor valor posible por tu dinero. La placa de resonancia diseñada por Steinway es cónica, en lugar de tener un grosor uniforme, para vibrar más libremente y proveer más volumen tonal. Los pianos Essex tienen una acción completa de madera (no plástica) diseñada por Steinway para una mejor durabilidad, y respuesta y control aumentadas. Además, todos los pianos Essex ofrecen clavijero, cuerdas, placa, soportes traseros, y puentes, así como muchas partes y procedimientos de manufactura especificados por Steinway. Como resultado, el Essex es, por ponerlo simple, el mejor piano disponible en su rango de precio actualmente.",
+  "price": "1256300",
+  "discount": "2",
+  "stock": "3",
+  "marca": "Essex",
+  "image": [
+   "/products/producto-1663874082563.jpg",
+   "/products/producto-1663874082564.jpg",
+   "/products/producto-1663874082567.jpg",
+   "/products/producto-1663874082572.jpg",
+   "/products/producto-1663874082570.jpg",
+   "/products/producto-1663874082569.jpg"
+  ]
+ },
+ {
+  "id": 14,
+  "categoria": "Percusión",
+  "name": "Batería Electrónica Yamaha",
+  "shortDesc": "Batería Electrónica Yamaha Dtx402k Dtx 402",
+  "longDesc": "Contiene: * Redoblante: pad de 7.5 \" * Tom1: pad de 7.5\" * Tom2: pad de 7.5\" * Tom de piso: pad de 7.5\" * Bombo / Pedal: KU100 * Hi-Hat: pad de 10\" * Crash: pad de 10\" con funcion choke * Ride: pad de 10\" * Módulo: DTX402K  Los sonidos DTX402 combinan años de experiencia creando auténticos sonidos de batería de alta calidad con 10 kits de batería incorporados, incluyendo efectos acústicos y sonidos electrónicos para ayudarle a encontrar la voz perfecta. Puedes crear fácilmente tus propios kits y elegir entre varios sonidos de alta calidad. Da voz a tu sensibilidad musical con la serie DTX402.  El DTX viene con 10 funciones de aprendizaje incorporadas que sólo son posibles con una batería electrónica. Entre ellas se incluyen la función Pad Gate, adecuada incluso para principiantes, que te entrena gradualmente a lo largo del tiempo, la función Rhythm Gate, que fomenta un sentido rítmico preciso, fundamental para la percusión, y la función Fast Blast, que mide la velocidad de tus redobles. También hay una función de puntuación para que puedas evaluar tus habilidades objetivamente. Aprovecha esta completa gama de funciones de ayuda para mejorar tu poder de expresión como baterista.  La aplicación dedicada de iOS/Android, DTX402 Touch, te permite practicar de una forma más agradable y fácil de seguir. En la función Challenge Mode, toca sobre pistas de entrenamiento incorporadas como si fuera un juego. Una vez que completes la etapa final, recibirás un certificado de batería de Yamaha. También puede utilizar la función Editor para personalizar kits de baterías. La serie DTX402 también funciona con la aplicación Rec n Share iOS para que puedas practicar y grabarte con tu música favorita y compartirla rápidamente con tus amigos y redes sociales.  Conecta el módulo a tu ordenador a través de USB y crea datos de audio a partir de los sonidos producidos en el DTX. Enlaza el módulo a la aplicación DAW para producción musical avanzada.",
+  "price": "350668",
+  "discount": "30",
+  "stock": "10",
+  "marca": "Yamaha",
+  "image": [
+   "/products/producto-1657641871114.jpg",
+   "/products/producto-1657641871115.jpg",
+   "/products/producto-1657641871116.jpg"
+  ]
+ },
+ {
+  "id": 15,
+  "categoria": "Teclas",
+  "name": "Mini Teclado Portátil",
+  "shortDesc": "Mini Teclado Portátil Yamaha Pss-f30 37 Teclas P Niños",
+  "longDesc": "MINI TECLADO YAMAHA PSS-F30  Estado: Nuevo Marca: Yamaha Origen: China Garantía: 12 meses (oficial)  Creemos que todos deberían tener la posibilidad de experimentar el goce de hacer música. Así, no hay mejor tiempo que el presente para introducir a tu hijo a un instrumento musical. Estudios han mostrado que la música estimula el cerebro en una forma que los smartphones y juegos rara vez logran. Este teclado, el Yamaha PSS-F30, es una herramienta compacta y económica que podes usar para ayudar a que tu hijo se enamore de la música. Diseñado para ser accesible a todas las edades, este teclado ofrece voces y estilos de acompañamiento que asegura horas de experimentación y diversión. Este teclado compacto puede alimentarse con pilas o fuente USB para darle a tu hijo la habilidad de practicar en cualquier momento y lugar.  Características del producto: • Mini teclado de 37 notas especialmente diseñado para niños • Función metrónomo que ayuda con los tiempos y las cuentas • Funcion Smart Chord que te permite tocar un acorde completo con un único dedo • Canciones internas para una mejor habilidad de aprendizaje • Voces y acompañamientos para experimentar con nuevos instrumentos y estilos • Salida de auriculares para poder practicar en total calma y silencio • Diseño portátil para llevarlo a todos lados",
+  "price": "35256",
+  "discount": "20",
+  "stock": "10",
+  "marca": "Yamaha",
+  "image": [
+   "/products/producto-1663876720522.jpg",
+   "/products/producto-1663876720524.jpg",
+   "/products/producto-1663876720525.jpg",
+   "/products/producto-1663876720527.jpg"
+  ]
+ },
+ {
+  "id": 16,
+  "categoria": "Cuerdas",
+  "name": "Bajo Fender",
+  "shortDesc": "Bajo Fender Coronado Bass Aged Cherry Burst 024-3200-531",
+  "longDesc": "El estilizado cuerpo de alder semi-hueco del Fender Coronado Bass lleva tapa y trasera de maple ribeteadas con elegantes agujeros ribeteados en forma de f. Su mango de maple con perfil en forma de “C” presenta un diapasón de rosewood 9,5” de radio con ribete blanco, 21 trastes medium jumbo y elegantes incrustaciones en bloque en blanco nacarado. Entre otras características distintivas se incluyen dos micrófonos humbucker Fideli Tron con llave selectora de tres posiciones, pickguard negro de tres capas, cuatro botones de control estilo “amplificador” (volumen y tono para cada micrófono) y puente Adjusto-Matic con cordal trapeziodal con la “F”.  Cuerpo: Maple laminado con center-block de Alder Trastera: Rosewood Mango: Maple Micrófonos: Fideli Tron Humbuckers Cantidad de trastes: 21 Medium Jumbo Controles: 2 x Volume, 2 x Tone, llave selectora de 3 posiciones Puente: Adjusto-Matic Hardware: Cromado Funda: No",
+  "price": "295480",
+  "discount": "25",
+  "stock": "1",
+  "marca": "Fender",
+  "image": [
+   "/products/producto-1657641871100.jpg",
+   "/products/producto-1657641871101.jpg",
+   "/products/producto-1657641871009.jpg"
+  ]
+ },
+ {
+  "id": 17,
+  "categoria": "Teclas",
+  "name": "Teclado Casio Sa-46",
+  "shortDesc": "Teclado Casio Sa-46 Sa46 Ideal Para Niños",
+  "longDesc": "MINI TECLADO CASIO SA-46  Estado: Nuevo Marca: Casio Origen: China Garantía: 6 meses (oficial)  Más que un juguete: al fin y al cabo los pequeños tienen que divertirse desde el primer momento en el que tocan sus 32 teclas. El miniteclado SA-46 cuenta con un nuevo sonido y una polifonía de 8 voces a las que hay que añadir 100 tonos y 50 ritmos. Su pantalla LC nos demuestra que los modelos SA-46 y SA-47 son verdaderos compañeros de juego. Llama la atención su sencillo botón de cambio: en el modelo SA-46 para elegir entre los sonidos de piano y órgano.  100 timbres 50 ritmos Tecla de ajuste de piano/órgano 10 piezas de ejercicio Pantalla LC 5 drumpads (aplicación de batería digital) Sistema de entrenamiento Melody Cut 32 teclas mini Polifonía de 8 voces (máx.) 100 tonos nuevos 50 patrones de acompañamiento 5 drumpads (aplicación de batería digital) Función de desactivación de melodía 10 piezas para practicar Pantalla LC Sencillo cambio entre sonido de piano y órgano. Salida para auriculares Altavoz: 2 de 0,5 W Alimentación de corriente: conexión a la red eléctrica o 6 pilas redondas, tamaño AA (adaptador y pilas no incluidos)",
+  "price": "22850",
+  "discount": "0",
+  "stock": "1",
+  "marca": "Casio",
+  "image": [
+   "/products/producto-1663877023862.jpg",
+   "/products/producto-1663877023862.jpg"
+  ]
+ },
+ {
+  "id": 18,
+  "categoria": "Teclas",
+  "name": "Teclado Vox",
+  "shortDesc": "Teclado Vox Continental 73 Black",
+  "longDesc": "TECLADO VOX CONTINENTAL 73 BLACK  Estado: Nuevo Marca: Vox Origen: Japón Garantía: 6 meses (oficial)  De The Beatles a The Doords y The Monkees, el órgano combo transistorizado Vox Continental fue uno de sus sonidos definitivos de los sesentas. Ahora está de vuelta, en un teclado esbelto, de 73 notas, con especificaciones para hoy en día y características optimizadas para la performance en vivo. El toque es tope de gama, con un arsenal de presets de gran sonido – incluyendo pianos acústicos y eléctricos, cuerdas, y por supuesto órgano – al alcance de tus dedos para llamarlos instantáneamente en el escenario o el estudio. Crea parches perfectos al vuelo al mezclar y sumar hasta cuatro capaz de partes de sonido dedicadas. Con su interfaz rápida e intuitiva, y sus innovadoras barras táctiles virtuales, el Vox Continental provee una experiencia espontánea y divertida al tocar. Todos estamos impresionados con el Vox Continental, y si te interesan los teclados vintage como a nosotros, seguramente te vas a impresionar también.  Características del producto: * Muchísimos sonidos de alta calidad internos, incluyendo órgano, pianos acústicos y eléctricos, y cuerdas * 4 partes de sonido dedicadas que pueden mezclarse y ponerse en capas * Interfaz intuitiva con barras táctiles virtuales * Teclas LS para una respuesta optima y versatilidad sin importar que instrumento llames * Chasis de aluminio ideal para viajes; salidas XLR * Incluye pedal V861 de expresión/volumen y soporte",
+  "price": "496325",
+  "discount": "5",
+  "stock": "5",
+  "marca": "Vox",
+  "image": [
+   "/products/producto-1663877154960.jpg",
+   "/products/producto-1663877154961.jpg",
+   "/products/producto-1663877154963.jpg",
+   "/products/producto-1663877154962.jpg"
+  ]
+ },
+ {
+  "id": 19,
+  "categoria": "Sin categoría",
+  "name": "Micrófono Corbatero ",
+  "shortDesc": "Micrófono Corbatero Maono Au-100",
+  "longDesc": "MICRÓFONO CORBATERO MAONO AU-100  Estado: Nuevo Marca: Maono Origen: China Garantía: 6 meses (oficial)  El micrófono corbatero AU100 es completamente universal, compatible con smartphones, PC, cámaras, grabadores de audio, consolas, DSLR, y otros dispositivos de grabación. Hay algunas funciones especiales y útiles que distinguen al AU100 de otros en el mercado, donde destaca su cuerpo compacto.  Características del producto: - Está diseñado para grabar un increíble video o simplemente buen audio. La frecuencia más plana lo hace mejor para captar voces o instrumentos. Configurar un voltaje de operación más alto asegura una señal de salida fuerte y mejor capacidad de dirección. El cable se adapta al usuario sin problemas y puede ajustarse con velcro. El cable es flexible, estructura de aluminio, capsula de cobre para que sea anti-caídas y resistente a las rayaduras. - Amplia compatibilidad con otros dispositivos, donde OFF es para smartphones y ON para otros (cambia entre activo y pasivo). También incluye adaptador de 3.5mm a 6.5mm. Requiere la app Open Camera o ProMovie para funcionar en Android.  Incluye: * 1 micrófono corbatero con cable 236 * 2 baterías LR44 * 1 adaptador de 3.5mm a 6.5mm * 1 clip metálico * 1 pantalla de viento * manual de usuario * bolsa de transporte",
+  "price": "7586",
+  "discount": "0",
+  "stock": "4",
+  "marca": "Maono ",
+  "image": [
+   "/products/producto-1663877586381.jpg"
+  ]
+ },
+ {
+  "id": 20,
+  "categoria": "Vientos",
+  "name": "Armónica Suzuki",
+  "shortDesc": "Armónica Suzuki Folkmaster 1072 Nueva",
+  "longDesc": "ARMÓNICA SUZUKI FOLKMASTER 1072  Estado: Nuevo Marca: Suzuki Origen: China Garantía: Sin garantía  La armónica Suzuki Folkmaster 1072 es fácil de tocar y a la vez económica para comprar. Su claridad de sonido excepcional y puesta a punto perfecta es posible gracias a un proceso exclusivo de fabricación láser. Sus cañas flexibles y delgadas producen un tono suave y la más amplia selección de timbres de sonido disponibles de cualquier fabricante de armónica. Los estándares más exigentes se utilizan junto con un cuerpo a prueba de agua de plástico moldeado, y recubierta de metal esculpido para que tu experiencia musical sea lo más gratificante posible. Incluye estuche original.",
+  "price": "3652",
+  "discount": "15",
+  "stock": "4",
+  "marca": "Suzuki",
+  "image": [
+   "/products/producto-1663877755776.jpg",
+   "/products/producto-1663877755773.jpg",
+   "/products/producto-1663877755775.jpg",
+   "/products/producto-1663877755774.jpg"
+  ]
+ },
+ {
+  "id": 21,
+  "categoria": "Vientos",
+  "name": "Flauta Dulce Sopranino Barroca",
+  "shortDesc": "Flauta Dulce Sopranino Barroca Yamaha Yrn-22b Yrn22",
+  "longDesc": "FLAUTA DULCE SOPRANINO YAMAHA YRN-22B  Estado: Nuevo Marca: Yamaha Origen: Japón Garantía: 12 meses (oficial)  ¡Incorpora un nuevo timbre y dale color a tu interpretación musical! La Flauta dulce sopranino Yamaha YRN-22B tiene un sonido brillante y expresivo transitando los más altos registros con armonía y dulzura aportando color a tu interpretación con su tonalidad distintiva. Construida en resina ABS de dos cuerpos desmontables es un instrumento de fácil limpieza y mantenimiento además de cumplir con los más altos estándares de seguridad y cuidado a nivel internacional desde la selección de materias primas hasta los procesos de fabricación. Este modelo se encuentra disponible en color negro, digitación barroca y ranura de soplido recta.  * Afinación en F * Digitación barroca * Resina ABS * Fácil limpieza y mantenimiento * Cuerpo desmontable en dos partes * Ranura de soplido recta * Intérpretes principiantes * Acabado oscuro * Incluye funda.",
+  "price": "5236",
+  "discount": "10",
+  "stock": "5",
+  "marca": "Yamaha",
+  "image": [
+   "/products/producto-1663877915216.jpg"
+  ]
+ },
+ {
+  "id": 22,
+  "categoria": "Cuerdas",
+  "name": "Ukelele Soprano Bamboo",
+  "shortDesc": "Ukelele Soprano Bamboo Bu-21m Cor Bu-21 Bu21 Rojo Funda",
+  "longDesc": "UKELELE SOPRANO BAMBOO BU-21M COR  Estado: Nuevo Marca: Bamboo Origen: China Garantía: 6 meses (oficial) Instrumento para: Diestros  IMPORTANTE: Encordado de fábrica con cuerdas AQUILA! Las mejores para Ukelele.  El ukelele de cuerdas de nylon se originó en el siglo 19 en Hawai. Ganó gran popularidad en los EE.UU. durante el siglo 20 y desde allí se extendió a nivel internacional. Este ukeleke está compensando para que pueda afinar en todo el diapason, ningún ukelele en este sitio tiene esta característica. Apto profesional.  Este ukelele de construcción de caoba posee una excelente sonoridad, y ofrece un tono y apariencia muy agradables. Es una excelente opción tanto para principiantes como para estudiantes avanzados, a un costo sumamente asequible.  Incluye funda acolchada de cortesía ideal para llevarlo en bicicleta o moto!  Tapa: Caoba Posterior y laterales: Caoba Trastera:Nogal Mango: Okoume Puente: Nogal Clavijero: Abierto Trastes: 15 Funda: Genérica",
+  "price": "15265",
+  "discount": "30",
+  "stock": "4",
+  "marca": "Bamboo",
+  "image": [
+   "/products/producto-1663878281005.jpg",
+   "/products/producto-1663878281003.jpg",
+   "/products/producto-1663878281002.jpg",
+   "/products/producto-1663878281004.jpg"
+  ]
+ },
+ {
+  "id": 23,
+  "categoria": "Cuerdas",
+  "name": "Violín Hoffmann",
+  "shortDesc": "Violín Hoffmann Cx-s142 4/4 Estuche Arco Resina",
+  "longDesc": "VIOLÍN HOFFMANN CX-S142 3/4  Estado: Nuevo Marca: Hoffman Origen: China Garantía: 6 meses (oficial)  El Hoffman es un favorito entre los violines para principiantes que equipa a los estudiantes con un instrumento de calidad que incluye estuche y arco. Todos los accesorios y las maderas son seleccionadas para asegurar que funcione correctamente  Medidas: * Largo total: 60 cm * Ancho: 21.5 cm  Importante: El color del estuche puede variar sin previo aviso  Tapa: Pino Abeto Posterior: Maple flameado Laterales: Maple flameado Mentonera: Madera Clavijas: Madera Cordal: Madera ebonizada con microafinadores Accesorios incluidos: Estuche semirigido, arco y resina",
+  "price": "24563",
+  "discount": "0",
+  "stock": "2",
+  "marca": "Hoffmann",
+  "image": [
+   "/products/producto-1663878664565.jpg"
+  ]
+ },
+ {
+  "id": 24,
+  "categoria": "Vientos",
+  "name": "Trompeta Yamaha",
+  "shortDesc": "Trompeta Yamaha Ytr2330 Ytr-2330",
+  "longDesc": "TROMPETA YAMAHA YTR-2330  Estado: Nuevo Marca: Yamaha Origen: China Garantía: 24 meses (oficial)  La campana de dos piezas de la YTR-2330 se elabora usando métodos de producción de primera calidad, entregando un tono consistente y vibrante. El peso balanceado en adición a un tercer gatillo de válvula permite una posición natural de la mano y promueve una técnica correcta al tocar, mientras que la tecla de agua en el tercer slide suma a la facilidad del uso general del instrumento.  La nueva y rediseñada campana de dos piezas, está hecha de cobre amarillo, para un toque óptimo y para proporcionar una buena técnica y durabilidad.  Los pistones de alta duración hechos de Monel (nt: aleación de níquel y cobre) así como los recientemente diseñados botones de pistón y tapones inferiores ayudan a que el instrumento tenga una mayor vida útil mientras también suman a la calidad del sonido.  Los gatillos de afinación han sido construidos con los mismos métodos que los modelos profesionales, para una mejor estabilidad, un color tonal más definido, y mayor durabilidad.  · Afinada en Si Bemol · Campana de dos piezas de cobre amarillo · Diámetro de campana de 123 mm · Tamaño de boquilla 11.65 mm · Peso mediano · Acabado dorado · Boquilla TR-11B4 · Incluye estuche",
+  "price": "245632",
+  "discount": "0",
+  "stock": "4",
+  "marca": "Yamaha",
+  "image": [
+   "/products/producto-1663878067285.jpg",
+   "/products/producto-1663878067286.jpg",
+   "/products/producto-1663878067287.jpg",
+   "/products/producto-1663878067287.jpg"
+  ]
+ },
+ {
+  "id": 25,
+  "categoria": "Cuerdas",
+  "name": "Ukelele Soprano Hoffmann",
+  "shortDesc": "Ukelele Soprano Hoffmann Ku-3 Mickey Gris Funda",
+  "longDesc": "UKELELE SOPRANO HOFFMANN KU-3 MICKEY  Estado: Nuevo Marca: Hoffmann Origen: China Garantía: 6 meses (oficial)  El ukelele de cuerdas de nylon se originó en el siglo 19 en Hawai. Ganó gran popularidad en los EE.UU. durante el siglo 20 y desde allí se extendió a nivel internacional.  Este ukelele de construcción de tilo con diseño posee una excelente sonoridad, y ofrece un tono y apariencia muy agradables. Es una excelente opción para principiantes, a un costo sumamente asequible.  Tapa: Tilo Posterior y laterales: Tilo Mango: Tilo Trastera: Rosewood Puente: Rosewood Clavijero: Abierto Trastes: 15 Funda: Bolsa de viaje de una correa",
+  "price": "10963",
+  "discount": "5",
+  "stock": "5",
+  "marca": "Hoffmann",
+  "image": [
+   "/products/producto-1663878524202.jpg",
+   "/products/producto-1663878524201.jpg",
+   "/products/producto-1663878524200.jpg"
+  ]
+ },
+ {
+  "id": 26,
+  "categoria": "Cuerdas",
+  "name": "Violín Acústico Yamaha",
+  "shortDesc": "Violín Acústico Yamaha V5sa 4/4 Estuche Arco ",
+  "longDesc": "VIOLÍN ACÚSTICO YAMAHA V5SA 4/4  Estado: Nuevo Marca: Yamaha Origen: China Garantía: 12 meses (oficial)  Perfecto para el violinista que busca un instrumento de calidad, el violín V5SA está fabricado con maderas de la mejor calidad; la tapa es de madera de Pino, el fondo y el mango son de Maple, acompañados por una trastera de Ébano, clavijas de Rosewood y un impresionante arco de Pernambuco Cada instrumento se fabrica utilizando los mismos métodos tradicionales empleados para la fabricación de violines de gama superior. Estos violines, cuyo diseño, tamaño y precio responden a las necesidades de los estudiantes jóvenes, son sin duda instrumentos de una gran calidad que harán las maravillas de cualquier estudiante. Los violines V5S se suministran con su correspondiente estuche, arco y resina Cuidadosamente elaborado a mano Los violines Yamaha se hacen y terminan a mano para proporcionar a jóvenes músicos un instrumento de gran calidad. Acabado de aceite ofrece una calidad de sonido superior Debido a que el acabado tiene un gran efecto sobre el tono del instrumento, Yamaha se tomó el tiempo y esfuerzo probando distintas fórmulas y comprobó los resultados con las mediciones acústicas para desarrollar un acabado de aceite original que saca lo mejor del tono. Aplicado a mano para maximizar su efecto, el acabado mejora la respuesta del instrumento al tiempo que añade un aspecto brillante hermoso.  Tapa: Picea Posterior y laterales: Maple Trastera: Ébano Mango: Maple Mentonera: Rosewood Puente: Yamaha Clavijero: Rosewood Cordal: Rosewood Cuerdas: D Addario Prelude Accesorios incluidos: Estuche rígido, Resina, Arco",
+  "price": "185326",
+  "discount": "0",
+  "stock": "2",
+  "marca": "Yamaha",
+  "image": [
+   "/products/producto-1663878776640.jpg"
+  ]
+ },
+ {
+  "id": 27,
+  "categoria": "Cuerdas",
+  "name": "Guitarra Acústica",
+  "shortDesc": "Guitarra Acústica Vintage V300aq Vsb Vintage Sunburst",
+  "longDesc": "GUITARRA ACÚSTICA VINTAGE V300AQ VSB VINTAGE SUNBURST  Estado: Nuevo Marca: Vintage Origen: Indonesia Garantía: 6 meses (oficial)  No tomó mucho para que los guitarristas alrededor del mundo se dieran cuenta de que la Vintage V300 Acoustic Folk está lejos de ser una guitarra económica para estudiantes. Los músicos aman la estética del cuerpo de caoba oriental, la calidez, salida enfocada en rangos medios y entrega dinámica de esta increíble madera tonal. El pino sólido para la tapa, perfecta por sus características tonales ligeras, entrega un tono brillante y claro, ideal para acordes con gran proyección, notas sueltas y para tocar con los dedos de manera intrincada. La estética y las características de la Vintage V300 evocan la imagen de un modelo que costaría tres veces más, con un mango de caoba amable con las manos, trastera super suave con engarces de punto, cenefas en el cuerpo de múltiples capas, puente de caoba oriental, roseta decorativa en la boca y clavijero de engranajes suaves.  * Tapa: Pino sólido * Posterior y laterales: Caoba * Mango: Caoba oriental * Largo de escala: 642mm / 25.3” * Clavijero: Cromado * Encordado: hechas en USA, de alta calidad ________________________________________",
+  "price": "72005",
+  "discount": "5",
+  "stock": "2",
+  "marca": "Vintage",
+  "image": [
+   "/products/producto-1663878867294.jpg",
+   "/products/producto-1663878867291.jpg",
+   "/products/producto-1663878867293.jpg",
+   "/products/producto-1663878867290.jpg"
+  ]
+ },
+ {
+  "id": 28,
+  "categoria": "Sin categoría",
+  "name": "Sistema De Sonido Portátil",
+  "shortDesc": "Sistema De Sonido Portátil Samson Expedition Xp1000b Bluet",
+  "longDesc": "SISTEMA DE SONIDO PORTÁTIL SAMSON EXPEDITION XP1000B BLUETOOTH  Estado: Nuevo Marca: Samson Origen: China Garantía: 6 meses (oficial)  El sistema de audio portátil Expedition XP1000 de Samson es un sistema de sonido todo en uno con increíbles características y toneladas de potencia en un diseño compacto. Es perfecto para performances de música en vivo, sets de DJ, fiestas, clases de ejercicio en grupo, presentaciones de oficina, clases académicas y cualquier otro lugar con un gran sonido. El XP1000 tiene Bluetooth, permitiéndote transmitir música de manera inalámbrica desde tu teléfono, tablet o laptop. Una consola desmontable de 10 canales con un amplificador de clase D de 1000 watts de potencia (2 x 500) alimenta el XP1000. La consola ofrece cuatro canales con entradas de Mic/Linea combo XLR y 1/4” para conectar micrófonos o instrumentos de nivel de línea activos. Tambien incluye tres canales de entrada estéreo para conectar dispositivos externos como reproductores MP3, teclados y más. Cada canal ofrece controles de graves y agudos, y los primeros vos tienen compresor conmutable para emparejar niveles mientras previene sobrecarga y distorsión. Para un control preciso sobre tu sonido, el XP1000 provee 16 presets de efectos DSP de alta calidad, perfectamente adecuados para voces. Para aplicaciones más grandes, el XP1000 provee salidas de monitor estéreo con control de nivel para usar el sistema con bafles potenciados adicionales. Además, la consola tiene un switch de Phantom Power para habilitar la integración de micrófonos condenser en tu configuración de PA. Los parlantes de dos vías del XP1000 te dan un sonido estéreo limpio y potente. Sus woofers de 10” producen un excelente golpe de graves, mientras que los drivers HF de 1” reciben amplia dispersión con conos de 60° x 90°. Para mayor versatilidad de performance, el chasis de ABS de alto impacto ofrece montura para soportes de bafle, así como un diseño de reposo angular para usarse como monitores de piso. El Expedition XP1000 resalta como un sistema portátil completo que es perfecto para aplicaciones musicales, educacionales, empresariales y recreativas, de tamaño mediano o grande.  Características del producto: - Se junta en una única unidad portátil que pesa menos de 23 kilos - Amplificador liviano, clase D que produce una potencia estéreo de 2 x 500 watts - Chasis de bafles de dos vías con woofers de 10” y drivers de 1” - Conectividad Bluetooth para transmitir música sin cables - Consola de 10 canales, desmontable - Cuatro entradas de Mic/Linea (XLR y 1/4”) para micrófonos, guitarras y otros dispositivos de nivel línea - Tres canales estéreo con multiples opciones de entrada (1/4”, 1/8”, RCA) para conectar dispositivos externos (reproductores MP3, teclados, etc.) - Controles de graves y agudos para cada canal - 16 presets de efectos digitales de 24-bit - Phantom Power para micrófonos condenser - Dos salidas de monitor de 1/4” que permite conexiones a bafles potenciados externos - Salida RCA adicional para grabadoras externas - Compresor conmutable en dos canales de Mic/Linea - Switch Music/Speech para optimizar la ecualización en la salida para oratoria o música - Indicador de nivel de 6 segmentos con indicador de límite - Construcción en plástico ABS de alto impacto - Montura de soporte de bafle integrado de 1 3/8” - Diseño angular para poder usarlo como monitores de piso - Incluye dos cables de caja",
+  "price": "738521",
+  "discount": "10",
+  "stock": "12",
+  "marca": "Samson",
+  "image": [
+   "/products/producto-1663878990797.jpg",
+   "/products/producto-1663878990799.jpg",
+   "/products/producto-1663878990800.jpg",
+   "/products/producto-1663878990803.jpg",
+   "/products/producto-1663878990805.jpg"
+  ]
+ },
+ {
+  "id": 29,
+  "categoria": "Percusión",
+  "name": "Bongos Lp Matador",
+  "shortDesc": "Bongos Lp Matador M201 Abw Almond Brown Latin Percussion",
+  "longDesc": "BONGOE LP MATADOR M201 PR PUERTO RICO  Estado: Nuevo Marca: LP Origen: Tailandia Garantía: 6 meses (oficial)  Un instrumento perfecto de 7 y 8 pulgadas para percusionistas que buscan un sonido y estilo profesional con una construcción moderna y buen precio. La serie matador de Lp te acerca a los grandes escenarios ________________________________________ Garantía: • Los productos tienen garantía desde la fecha de compra y cubren únicamente desperfectos de la fábrica. • Se debe entregar en las mismas condiciones en la que fue entregado, con su embalaje original, completo y en perfecto estado. • El producto en garantía se toma en revisión por nuestro soporte técnico y puede demorar hasta 7 días hábiles • No se aceptan productos quemados, golpeados, rayados o con signos de maltrato. • El transporte hasta nuestro domicilio corre por cuenta y orden del cliente, así como el retiro del mismo",
+  "price": "68520",
+  "discount": "0",
+  "stock": "10",
+  "marca": "Lp",
+  "image": [
+   "/products/producto-1663879085525.jpg"
+  ]
+ },
+ {
+  "id": 30,
+  "categoria": "Percusión",
+  "name": "Batería Acústica Yamaha",
+  "shortDesc": "Batería Acústica Yamaha Rydeen Rdp2f5htr Hot Red",
+  "longDesc": "BATERÍA ACÚSTICA YAMAHA RYDEEN RDP2F5HTR HOT RED  Estado: Nuevo Marca: Yamaha Origen: China Garantía: 12 meses (oficial)  La nueva RYDEEN (pack con 5 cascos) es exactamente el kit con el que a cualquier baterista principiante le gustaría tocar. Esta batería incluye el set de hardware HW680W de Yamaha y sujeciones de toms. Los cascos están fabricados en láminas de álamo de 6 capas.  Incluye: Bombo 22\"×16\" Tom de pie 16\"×15\" Tom 12\"×8\" Tom 10\"×7\" Redoblante 14\"×5 1/2\" Soporte de Tom CL940LB x 2 Importante: el set no incluye platillos, fierros ni pedales.  Modelo de aro: Triple borde Material de aro: Acero Grosor de aro: 1.5mm Agarraderas: Separadas Madera Cascos: Álamo Parche superior: S-Side Parche inferior: Clear Parche frontal: Ebony w/ring mute + Logo Yamaha Superior redoblante: Coated",
+  "price": "239547",
+  "discount": "10",
+  "stock": "5",
+  "marca": "Yamaha",
+  "image": [
+   "/products/producto-1663879170361.jpg",
+   "/products/producto-1663879170361.jpg",
+   "/products/producto-1663879170362.jpg"
+  ]
+ },
+ {
+  "id": 31,
+  "categoria": "Cuerdas",
+  "name": "Guitarra Criolla De Viaje",
+  "shortDesc": "Guitarra Criolla De Viaje C/ Funda Fonseca 15 Niños 3/4",
+  "longDesc": "GUITARRA CRIOLLA FONSECA 15 NEGRA  Estado: Nuevo Marca: Fonseca Origen: Argentina Garantía: 6 meses (oficial) Instrumento para: Diestros  El modelo 15 es ideal para el niño que quiere empezar en el mundo de la música y la guitarra de medidas estandard le queda grande.  Guitarra de niño con lustre color negro brillante. Tapa imitación de Pino, aros y fondo de Abedul.  NOTA Dado que las guitarras de viaje tienen una escala mas corta, las cuerdas afinadas de manera estándar con un encordado de tensión normal, suelen sonar poco por la pequeña escala del instrumento. En ese caso, nosotros recomendamos afinar las guitarras pequeñas en SOL o LA . Si la idea es mantener la afinacion tradicional de la guitarra MI LA RE SOL SI MI se recomienda ponerle un encordado de tensión alta o super alta, asi la sonoridad del instrumento es mayor y la sensación de ejecución es más parecida a la de un instrumento de escala normal.  TERMINACIÓN La Terminación OPEN PORE deja ver la textura original de la madera. Tiene solamente capas de poliuretano, dejando los poros de la madera más visibles (poros abiertos – OPN). La diferencia con respecto a la terminación MATE, es que esta tiene base poliéster que no deja los poros de la madera a la vista. Mientras que la terminación OPEN PORE deja ver la textura original de la madera. Tiene solamente capas de poliuretano, dejando los poros más visibles. Ambas terminaciones permiten una mejor sonoridad! Estas utilizan materiales más sustentables. En la fabricación de estas guitarras incorporan productos y en el proceso de producción, insumos más amigables con el ambiente.  NÚMERO DE SERIE Su número de serie estará ubicado en la etiqueta, dentro del cuerpo a la altura de la boca.  AFINACIÓN Se recomienda la afinación 440 y si no utiliza la guitarra por un tiempo prolongado, que se afloje la tensión de las cuerdas. Los puentes de madera de estas guitarras están construidos para soportar cuerdas de tensión Normal o Alta. Recomendamos NO usar tensión Extra Alta, y definitivamente no poner cuerdas de Acero en una guitarra de cuerdas de Nylon. Hacerlo causará daños irreparables y anulará la garantía original.",
+  "price": "23652",
+  "discount": "0",
+  "stock": "4",
+  "marca": "Fonseca",
+  "image": [
+   "/products/producto-1663879285208.jpg",
+   "/products/producto-1663879285209.jpg",
+   "/products/producto-1663879285210.jpg"
+  ]
+ },
+ {
+  "id": 32,
+  "categoria": "Percusión",
+  "name": "Pandereta Dadi",
+  "shortDesc": "Pandereta Dadi Mt5 Infantil 4 Pares De Sonajas",
+  "longDesc": "PANDERETA DADI MT5 INFANTIL  Estado: Nuevo Marca: Dadi Origen: China Garantía: 6 meses (oficial)  * 4 pares de sonajas * Cuerpo de plástico duro * 10.5cm de diámetro en su punto mas ancho (aprox 4 pulgadas) * Ideal para niños ________________________________________ Garantía: • Los productos tienen garantía desde la fecha de compra y cubren únicamente desperfectos de la fábrica. • Se debe entregar en las mismas condiciones en la que fue entregado, con su embalaje original, completo y en perfecto estado. • El producto en garantía se toma en revisión por nuestro soporte técnico y puede demorar hasta 7 días hábiles • No se aceptan productos quemados, golpeados, rayados o con signos de maltrato. • El transporte hasta nuestro domicilio corre por cuenta y orden del cliente, así como el retiro del mismo",
+  "price": "1852",
+  "discount": "0",
+  "stock": "5",
+  "marca": "Dadi",
+  "image": [
+   "/products/producto-1663879422590.jpg",
+   "/products/producto-1663879422591.jpg",
+   "/products/producto-1663879422592.jpg"
+  ]
+ },
+ {
+  "id": 33,
+  "categoria": "Percusión",
+  "name": "Bombo Para Murga",
+  "shortDesc": "Bombo Para Murga Nacional 16086 24 Azul Con Accesorios",
+  "longDesc": "BOMBO DE MURGA NACIONAL 16086 24” AZUL  Estado: Nuevo Marca: Nacional Origen: Argentina Garantía: Sin garantía  Pack de bombo ideal para ensambles de percusión y murgas.  Incluye bombo de 24\", platillos campana, maza con fieltro y correa  Color: Azul Material del casco: Madera ________________________________________ Garantía: • Los productos tienen garantía desde la fecha de compra y cubren únicamente desperfectos de la fábrica. • Se debe entregar en las mismas condiciones en la que fue entregado, con su embalaje original, completo y en perfecto estado. • El producto en garantía se toma en revisión por nuestro soporte técnico y puede demorar hasta 7 días hábiles • No se aceptan productos quemados, golpeados, rayados o con signos de maltrato. • El transporte hasta nuestro domicilio corre por cuenta y orden del cliente, así como el retiro del mismo",
+  "price": "47896",
+  "discount": "0",
+  "stock": "6",
+  "marca": "Nacional ",
+  "image": [
+   "/products/producto-1663879521446.jpg",
+   "/products/producto-1663879521442.jpg",
+   "/products/producto-1663879521443.jpg",
+   "/products/producto-1663879521444.jpg",
+   "/products/producto-1663879521440.jpg"
+  ]
+ },
+ {
+  "id": 34,
+  "categoria": "Cuerdas",
+  "name": "Guitarra Electroacústica Vintage",
+  "shortDesc": "Guitarra Electroacústica Vintage Vec50 N Natural",
+  "longDesc": "GUITARRA ELECTROACÚSTICA VINTAGE VEC50 N NATURAL  Estado: Nuevo Marca: Vintage Origen: Indonesia Garantía: 6 meses (oficial)  Rediseñando su clásico modelo de guitarra “western” en los rangos de acústicas y electroacústicas, con construcción de nuevo diseño y patrones de abanico para darle los sonidos brillantes, vivos y responsivos de instrumentos, Vintage se enorgullece en presentar las Dreadnoughts V50 y VEC50. Ofreciendo tapas de pino sitka sólido complementadas con posterior y laterales de caoba para un tono completo y rico, aparejado a un mango fácil de tocar de caoba con trastera de rosewood ajustada con maple, verazmente recreando el estilo clásico western de guitarra, con propiedades tonales auténticas, frescas y de gran proyección. La VEC50 también se beneficia de una adición de un puente de rosewood con una cejuela GraphTech Nubone, y un clavijero cromado para una afinación perfecta, precisa y sólida. Disponible en terminación Natural, con una elegante roseta herringbone de abalone. Este modelo tiene un grácil corte para ayudar a alcanzar el rango agudo de la trastera y viene equipado con un micrófono bajo el puente Fishman Sonicore y un preamp Fishman Isys+, ambos de la más alta calidad, con salidas Jack 1/4” estándar y USB, para que puedas conectarla directamente a una computadora o cualquier dispositivo disponible con USB.  Especificaciones: - Tapa: Pino sitka sólido - Posterior y laterales: Caoba - Boca: Roseta de abalone/herringbone - Mango: Caoba oriental - Electrónica: Fishman Isys+ con piezo Fishman Sonicore - Engarces del mango: Engarce Vintage “V” en el traste 12 - Largo de escala: 648mm / 25.5” - Cejuela: Graphtech NuBone - Clavijero: Cromado - Pickguard: Transparente - Encordado: De alta calidad, hecho en USA",
+  "price": "115987",
+  "discount": "10",
+  "stock": "5",
+  "marca": "Vintage",
+  "image": [
+   "/products/producto-1663879669691.jpg",
+   "/products/producto-1663879669690.jpg",
+   "/products/producto-1663879669689.jpg",
+   "/products/producto-1663879669688.jpg",
+   "/products/producto-1663879669687.jpg",
+   "/products/producto-1663879669686.jpg"
+  ]
+ },
+ {
+  "id": 35,
+  "categoria": "Sin categoría",
+  "name": "Micrófono Dinámico",
+  "shortDesc": "Micrófono Dinámico Samson R31s",
+  "longDesc": "MICRÓFONO DINÁMICO SAMSON R31S  Estado: Nuevo Marca: Samson Origen: China Garantía: 6 meses (oficial)  El micrófono dinámico Samson R31S trae un gran sonido y versatilidad a una variedad de aplicaciones en vivo. Perfecto para voces, instrumentos y más en vivo, el R31Sesta diseñado hasta el último detalle para proveer una performance con una reproducción y una precisión de sonido excepcional. El corazón de la performance del R31S viene de su elemento con shockmount. Ofreciendo una salida de alta ganancia y un diseño de baja impedancia, la capsula también trae un patrón polar hipercardioide. Esto le permite al R31S capturar todos los matices de cualquier performance con un detalle y claridad excepcional, mientras reduce el retorno y las señales no deseadas. El R31S ofrece una respuesta de frecuencia de 50Hz-15kHz, que es ideal para aplicaciones de concierto en vivo y escenario. Tambien equipado para soportar altos niveles de presión sonora, el mic produce voces que suenan enormes y claras como el cristal. Esto hace al R31S una herramienta versátil en grabación casera y performances por igual. El R31S ofrece un conveniente switch On/Off, asi como un cable XLR a 1/4\". Para más versatilidad, se incluye también un clip de micrófono.  Características del producto: - Ideal para voces e instrumentos en vivo - Elemento de mic con shockmount interno - Patron polar hipercardioide - Salida de alta ganancia, diseño de baja impedancia - Respuesta de frecuencia 50Hz-15kHz - Switch On/Off - Cable XLR a 1/4\" - Incluye clip de mic",
+  "price": "12654",
+  "discount": "0",
+  "stock": "7",
+  "marca": "Samson",
+  "image": [
+   "/products/producto-1663879899571.jpg",
+   "/products/producto-1663879899573.jpg",
+   "/products/producto-1663879899574.jpg"
+  ]
+ },
+ {
+  "id": 36,
+  "categoria": "Percusión",
+  "name": "Bombo Leguero Grande",
+  "shortDesc": "Bombo Leguero Grande Santiaguito #3 Nacional",
+  "longDesc": "BOMBO LEGUERO GRANDE SANTIAGUITO #3  Estado: Nuevo Marca: Santiaguito Origen: Argentina Garantía: 6 meses (oficial) - no incluye parches  Excelente bombo leguero de fabricación santiagueña ideal para folklore. IMPORTANTE: EL COLOR DE LOS PARCHES PUEDE CAMBIAR SIN PREVIO AVISO, SUJETO A DISPONIBILIDAD DEL MOMENTO  Características del producto: · Casco de ceibo de 1 sola pieza · Aros de quebracho blanco · Parches de cabra · Doble lijado · Incluye palillos  Medidas: · Diámetro: 39 cm · Altura: 49 cm ________________________________________ Garantía: • Los productos tienen garantía desde la fecha de compra y cubren únicamente desperfectos de la fábrica. • Se debe entregar en las mismas condiciones en la que fue entregado, con su embalaje original, completo y en perfecto estado. • El producto en garantía se toma en revisión por nuestro soporte técnico y puede demorar hasta 7 días hábiles • No se aceptan productos quemados, golpeados, rayados o con signos de maltrato. • El transporte hasta nuestro domicilio corre por cuenta y orden del cliente, así como el retiro del mismo _________",
+  "price": "32500",
+  "discount": "5",
+  "stock": "6",
+  "marca": "Santiaguito ",
+  "image": [
+   "/products/producto-1663879993808.jpg",
+   "/products/producto-1663879993807.jpg"
+  ]
+ },
+ {
+  "id": 37,
+  "categoria": "Sin categoría",
+  "name": "Amplificador Multifunción",
+  "shortDesc": "Amplificador Multifunción Laney Audiohub Ah80",
+  "longDesc": "AMPLIFICADOR MULTIFUNCIÓN LANEY AUDIOHUB AH80  Estado: Nuevo Marca: Laney Origen: China Garantía: 6 meses (oficial)  El combo AH80 con múltiples entradas ofrece 3 canales, EQ grafico de 5 bandas y delay digital y está diseñado para abastecer un gran número de instrumentos diferentes. Ideal para equipos de dúos y de tamaño mediano, o para configuraciones más grandes donde puede usarse como monitor personal en el escenario! Su diseño compacto es genial para escenarios pequeños y es fácil de transportar. El AH80 entrega una performance óptima, flexibilidad y calidad de sonido para varias entradas de audio: teclados, baterías electrónicas, mics, instrumentos electroacústicos y playback, todos suenan bien en el AH80. El principio detrás del AH80 es simple: recibe todos los instrumentos! Los efectos digitales internos tienen un diseño personalizado por Laney. Podés elegir entre Reverb. Chorus y Multi FX. La posición de Reverb tiene una variedad de tiempos de decay desde Plate a Rooms y hasta Hall. En Chorus hay variedad de largos/delay y Multi FX posee una mezcla diferente de Reverb/Chorus/Delay en cada opción de efectos. El amplificador puede usarse en dos orientaciones según lo que sea necesario. En lugar de pararse de manera convencional, si es necesario acercarlo al músico, puede “reclinarse hacia atrás” para que la salida apunte más directamente a los oídos de quien toca.  Especificaciones: - Potencia: 80W - Entradas: 1 XLR Balanceada/Jack no balanceada; 1 Line estéreo no balanceada (2 x Jack); 1 Line/Hi-Z (Jack), Aux In (3.5mm) - Canales: 3 - EQ: Gráfico de 5 bandas (+/- 12dB) - Salida para grabación: Si (Pre Master Volume) - Auriculares: Si (Post Master Volume) - DSP: Delay con controles Time y Feedback, Master Level y Switches de efectos por canal - Parlante: Driver Custom Designed de 10” con HF - Dimensiones: 433 x 413 x 368mm - Peso: 13.5Kg",
+  "price": "118560",
+  "discount": "0",
+  "stock": "14",
+  "marca": "Laney ",
+  "image": [
+   "/products/producto-1663880102328.jpg",
+   "/products/producto-1663880102330.jpg",
+   "/products/producto-1663880102325.jpg"
+  ]
+ },
+ {
+  "id": 38,
+  "categoria": "Percusión",
+  "name": "Batería Acústica Premier",
+  "shortDesc": "Batería Acústica Premier Apk Modern Rock 22 Gbw G Black Wrap",
+  "longDesc": "BATERÍA ACÚSTICA PREMIER APK MODERN ROCK 22 GALACTIC BLACK WRAP  Estado: Nuevo Marca: Premier Origen: China Garantía: 6 meses (oficial)  La serie APK ofrece una increíble relación precio-calidad y tiene una gran performance sonora. El kit APK es uno de los mas sencillos de armar y afinar al sacarlo de la caja y con sus cascos 100% de álamo, ofrece un tono de cuerpo completo adecuado para cualquier genero musical. Usando toda la experiencia de Premier, la APK esta llena de características que incluyen torres de baja masa, un sistema de montaje enchapado en cromo ISO fabuloso y aros llenos de estilo que van a mantener no solo tu batería sonando genial, sino que viéndose genial durante años. Como la línea XPK, trae los mismos pequeños detalles como los zócalos de goma bajo los ganchos para proteger tu instrumento. El APK está disponible como un pack de cascos y ofrece el outfit completo; la elección correcta para sonido, calidad y precio.  Características del producto: • Kits pre-configurados • Cascos (6 capas – 7.5mm) 100% birch shells • Acabado: GBW – Galactic Black Wrap • Montura ISO • Aros de acero con triple borde de 1.5mm • Redoblante de acero  INCLUYE: - 10\" x 8\" Tom - 12\" x 9\" Tom - 16\" x 16\" Tom de piso - 22\" x 18\" Bombo - 14\" x 6\" Redoblante de acero IMPORTANTE: el set no incluye platillos, fierros ni pedales.",
+  "price": "220000",
+  "discount": "0",
+  "stock": "5",
+  "marca": "Premier",
+  "image": [
+   "/products/producto-1663880282938.jpg"
+  ]
+ },
+ {
+  "id": 39,
+  "categoria": "Vientos",
+  "name": "Kazoo Jim Dunlop",
+  "shortDesc": "Kazoo Jim Dunlop 7700s Scotty Kazoo Varios Colores Nuevo",
+  "longDesc": "JIM DUNLOP 7700S SCOTTY KAZOO  Estado: Nuevo Marca: Jim Dunlop Origen: USA Garantía: Sin garantía  Importante: consultar por colores disponibles a la hora de realizar la compra. Los kazoos de Scotty están hechos de polipropileno seguro y robusto, disponible en rojo, naranja, amarillo, verde y violeta. Divertido para todas las edades, y a un precio increíble! No son lo que uno consideraría “profesional” – son definitivamente buenos para muchos usos, tanto para niños como adultos buscando divertirse. Su calidad es elevada para un precio tan económico. ________________________________________ Garantía: • Los productos tienen garantía desde la fecha de compra y cubren únicamente desperfectos de la fábrica. • Se debe entregar en las mismas condiciones en la que fue entregado, con su embalaje original, completo y en perfecto estado. • El producto en garantía se toma en revisión por nuestro soporte técnico y puede demorar hasta 7 días hábiles • No se aceptan productos quemados, golpeados, rayados o con signos de maltrato. • El transporte hasta nuestro domicilio corre por cuenta y orden del cliente, así como el retiro del mismo",
+  "price": "850",
+  "discount": "10",
+  "stock": "6",
+  "marca": "Dunlop",
+  "image": [
+   "/products/producto-1663880410057.jpg"
+  ]
+ },
+ {
+  "id": 40,
+  "categoria": "Vientos",
+  "name": "Acordeón Hohner Bravo",
+  "shortDesc": "Acordeón Hohner Bravo Ii 48 Red 26 Teclas 48 Bajos",
+  "longDesc": "ACORDEÓN HOHNER BRAVO II 48 RED  Estado: Nuevo Marca: Hohner Origen: China Garantía: 6 meses (oficial)  El Bravo II 60 es el modelo más pequeño en la serie Bravo, pero es tan poderoso como sus contrapartes más grandes. Un compañero perfecto especialmente para los aprendices pequeños, el Bravo II 48 es tu entrada en el mundo de los acordeones.  Características del producto: · SilentKey es un diseño nuevo de montado de teclas que minimiza el molesto ruido de las mismas · Grill de agudos nuevo para una apariencia más moderna y con estilo · Mecanismos de graves mejorados garantizando una operación casi sin desgaste de deslizamiento de dedos  Teclas de piano: 26 Número de notas: 26, H - C Clase: Cromático Voces: 2 Número de registros: 2 Colores de tono: 2 Bajos estándar: 48 Voces de bajo estándar: 4 Tamaño: 31 x 18.5 cm Peso: 4.9 kg Color: Rojo Calidad de lenguetas: Estándar Correas: Correas estándar Funda: Original Hohner",
+  "price": "405630",
+  "discount": "0",
+  "stock": "5",
+  "marca": "Hohner ",
+  "image": [
+   "/products/producto-1663880538446.jpg",
+   "/products/producto-1663880538443.jpg",
+   "/products/producto-1663880538445.jpg",
+   "/products/producto-1663880538444.jpg",
+   "/products/producto-1663880538442.jpg"
+  ]
+ }
+]
