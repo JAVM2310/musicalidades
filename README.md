@@ -4,9 +4,9 @@ Musicalidades es una web de venta de instrumentos musicales y accesorios. Está 
 
 EL EQUIPO DE DESARROLLO: 
 
-Juan Agustín Vázquez: Tiene 26 años años y vive en Ciudad de Buenos Aires. Completo 2 años de ingenieria aeroespacial. Trabajo independientemente diagnosticando y reparando computadoras. Estudiante de programador full stack. En su tiempo libre le gusta tocar el piano y jugar al tenis.
+Juan Agustín Vázquez: Tiene 26 años años y vive en Ciudad de Buenos Aires. Completó 2 años de ingenieria aeroespacial. Trabajó independientemente diagnosticando y reparando computadoras. Estudiante de programador full stack. En su tiempo libre le gusta tocar el piano y jugar al tenis.
 
-Guadalupe Flores Cottet: Tiene 39 años años y vive en Ciudad de Buenos Aires. Es Diseñadora Gráfica y Licenciada en Tecnologías Educativas. Actualmente trabaja en análisis de información. Se desempeñó en diseño web varios años (front end) y recientemente realizó un curso QA Tesing. Busca volcarse 100% al mundo IT.
+Guadalupe Flores Cottet: Tiene 39 años años y vive en Ciudad de Buenos Aires. Es Diseñadora Gráfica y Licenciada en Tecnologías Educativas. Actualmente trabaja en análisis de información. Se desempeñó en diseño web durante varios años (front end) y recientemente realizó un curso QA Tesing. Busca volcarse 100% al mundo IT.
 
 Referencias: 
 

@@ -3,6 +3,7 @@ const router = express.Router();
 const path = require('path');
 const db = require("../database/models/index")
 const Sequelize = require('sequelize');
+const { indexOf } = require('../middlewares/validacionProductosBack');
 const Op = Sequelize.Op;
 
 const productsApi = {
@@ -11,23 +12,45 @@ const productsApi = {
 
         let products = db.Producto.findAll()
         let categories = db.Categoria.findAll()
-        let categoriasPorProducto = db.Producto.findAll({
-            group: ["categoria_id"],
-            attributes: ['categoria_id', [Sequelize.fn('COUNT', 'categoria_id'), 'asdasdasd']],
+        let brands = db.Marca.findAll()
+        let productosPorCategoria = db.Categoria.findAll({
+            attributes: ['tipo', [Sequelize.fn('COUNT', 'tipo'), 'cantidad']],
+            include: [{
+                model: db.Producto,
+                attributes: ['categoria_id'],
+                as: 'categoriaProducto'
+            }],
+            group: ["tipo"],
         })
 
-        
-        Promise.all([products, categories, categoriasPorProducto])
-        .then(([resultProducts, resultCategories, resultCategoriasPorProducto]) => {
-                    return res.json({
-                    productosPorCategoria: resultCategoriasPorProducto,
+        Promise.all([products, categories, brands, productosPorCategoria])
+        .then(([resultProducts, resultCategories, resultBrands, resultProductosPorCategoria]) => {
+            console.log(resultProducts.length)
+
+            /* for (let i=0, i< in ultimoProductoImg){
+                console.log(ultimoProductoImg[imagenes])
+            } 
+            for (let imagenes in ultimoProductoImg){
+                console.log(ultimoProductoImg[imagenes])
+            }*/
+
+
+            return res.json({
+                    
+                data: {
                     productos: resultProducts,
                     categorias: resultCategories,
-                    productosTotal: resultProducts.length,
-                    categoriasTotal: resultCategories.length,
-                    url: "api/products/:id",
+                    marcas: resultBrands,
+                    countProductos: resultProducts.length,
+                    countCategorias: resultCategories.length,
+                    countMarcas: resultBrands.length,
+                    countProductosPorCategoria: resultProductosPorCategoria,
+                },
+                info: {
+                    url: "api/products",
                     status: 200
-                })
+                }
+            })
         })
     },
 
@@ -37,7 +60,7 @@ const productsApi = {
             console.log(productDetail)
             return res.json({
                 data: productDetail,
-                urlImages: "",
+                urlImages: productDetail.imagenes,
                 status: 200
             })
         })
