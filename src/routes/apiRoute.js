@@ -17,7 +17,6 @@ router.get("/users/:id", api.userDetail)
 /************** API PRODUCTOS *****************/
 router.get("/products", productsApi.listadoProductos)
 router.get("/products/:id", productsApi.detalleProducto)
-router.get("/latestProduct", productsApi.ultimoProducto)
 
 
 module.exports = router
