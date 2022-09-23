@@ -60,14 +60,14 @@ window.addEventListener('load', function() {
                 errores++;
             }
         }else{
-            if(marca.value == "seleccionar"){
+            if(marca.value == -1){
                 marcaLabel.innerHTML += '<p class="error">Debe seleccionar una Marca</p>'
                 errores++; 
             }
         }
 
         /* validación categoria */
-        if(categoria.value == "5"){
+        if(categoria.value == -1){
             categoriaLabel.innerHTML += '<p class="error">Debe seleccionar una Categoría</p>'
             errores++;
         }

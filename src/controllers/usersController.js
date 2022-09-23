@@ -233,7 +233,7 @@ const controller = {
 
     cambiarPasswordGet: (req, res) => {
         let idUsuario = req.session.usuariosLogueado.id
-        return res.render('./users/cambiarContraseña', {titulo: "Cambiar contraseña", idUsuario, error: "", errors: ""});
+        return res.render('./users/cambiarPassword', {titulo: "Cambiar contraseña", idUsuario, error: "", errors: ""});
     },
 
     cambiarPasswordPost: (req, res) => {
@@ -242,12 +242,12 @@ const controller = {
         const resultValidation = validationResult(req);
         console.log(resultValidation.mapped());
         if (resultValidation.errors.length > 0) {
-            return res.render('./users/cambiarContraseña', {titulo: "Cambiar contraseña", idUsuario, error: "", errors: resultValidation.mapped()});
+            return res.render('./users/cambiarPassword', {titulo: "Cambiar contraseña", idUsuario, error: "", errors: resultValidation.mapped()});
         } else {
             db.Usuario.findByPk(req.params.id)
             .then(result =>{
                 if (!bcrypt.compareSync(req.body.password, result.dataValues.password)){
-                    return res.render('./users/cambiarContraseña', {titulo: "Cambiar contraseña", idUsuario, error: "La contraseña actual no es correcta", errors: ""});
+                    return res.render('./users/cambiarPassword', {titulo: "Cambiar contraseña", idUsuario, error: "La contraseña actual no es correcta", errors: ""});
                 } else {
                     db.Usuario.update(
                     {
