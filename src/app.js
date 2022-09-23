@@ -3,6 +3,8 @@ const app = express();
 const path = require("path");
 const methodOverride = require("method-override");
 const session = require('express-session');
+const recordarUserMiddleware = require("./middlewares/recordarUserMiddleware.js");
+const cookieParser = require('cookie-parser')
 
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static('./public'));
@@ -16,6 +18,8 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
 }))
+app.use(cookieParser());
+app.use(recordarUserMiddleware)
 
 const rutasIndex = require('./routes/indexRoute');
 const rutastienda = require('./routes/tiendaRoute');
