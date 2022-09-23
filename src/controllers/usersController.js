@@ -31,7 +31,6 @@ const controller = {
 
     logueado: (req, res) => {
         const resultValidation = validationResult(req);
-        console.log(resultValidation);
         db.Usuario.findOne({
             where: {
                 email: req.body.email,
@@ -39,24 +38,31 @@ const controller = {
         })
         .then(function(resultado){
 
-            if (resultValidation.errors.length > 0) {
-                console.log("entré")
+            if (resultValidation.errors.length == 0) {
+
+                if (resultado == null){
+                    let error = "No existe el Usuario";
+                    return res.render('./users/login', {titulo: 'login', error, errors: resultValidation.mapped()});
+                }
+                if (!bcrypt.compareSync(req.body.password, resultado.dataValues.password)){
+                    let error = "La contraseña no es correcta";
+                    return res.render('./users/login', {titulo: 'login', error, errors: resultValidation.mapped()});
+                }
+                
+
+
+                delete resultado.dataValues.password;
+                req.session.usuariosLogueado = resultado.dataValues;
+                console.log(req.session.usuariosLogueado)
+                if(req.body.recordarme != undefined){
+                    res.cookie('recordarme', req.session.usuariosLogueado.email, {maxAge: 60000})
+                }
+                            
+                return res.redirect('/'); 
+            }else{
                 return res.render('./users/login', {titulo: 'login', error, errors: resultValidation.mapped(), old: req.body});
-            }
 
-            if (resultado == null){
-                let error = "No existe el Usuario";
-                return res.render('./users/login', {titulo: 'login', error, errors: resultValidation.mapped()});
             }
-            if (!bcrypt.compareSync(req.body.password, resultado.dataValues.password)){
-                let error = "La contraseña no es correcta";
-                return res.render('./users/login', {titulo: 'login', error, errors: resultValidation.mapped()});
-            }
-
-            delete resultado.dataValues.password;
-            req.session.usuariosLogueado = resultado.dataValues;
-
-            return res.redirect('/'); 
 
         })
 
@@ -68,8 +74,6 @@ const controller = {
         
         
         if (validacionRegistro.array().length > 0){
-            console.log("hay errores");
-            console.log(validacionRegistro.array());
             return res.render('./users/register', {titulo: "Registro", error: validacionRegistro.array()});
         } else {
             db.Usuario.findOne({
@@ -79,7 +83,6 @@ const controller = {
             })
             .then(function(resultado){
                 if (resultado != null){
-                    console.log("mail ya registrado");
                     return res.render('./users/register', {titulo: "Registro", error: [{msg: "el mail ya esta registrado"}]});
                 }else{
                     let nombreImagen = '';
@@ -137,10 +140,8 @@ const controller = {
     profileEdition: (req, res) => {// ESTE ESTÁ OK
 
         const error = validationResult(req)
-        console.log(error.array());
 
         if (error.array().length > 0) {
-            console.log("hay errores");
             db.Usuario.findByPk(req.params.id)
             .then((usuario) =>{
                 return res.render('./users/modifyuser', {titulo: "Editar Usuario", user: usuario.dataValues, error: error.array()});
@@ -238,9 +239,7 @@ const controller = {
 
     cambiarPasswordPost: (req, res) => {
         let idUsuario = req.session.usuariosLogueado.id
-        console.log("aca arranca la funcion");
         const resultValidation = validationResult(req);
-        console.log(resultValidation.mapped());
         if (resultValidation.errors.length > 0) {
             return res.render('./users/cambiarPassword', {titulo: "Cambiar contraseña", idUsuario, error: "", errors: resultValidation.mapped()});
         } else {

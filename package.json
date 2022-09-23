@@ -23,6 +23,7 @@
   "homepage": "https://github.com/JAVM2310/grupo_6_musicalidades#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
     "express-session": "^1.17.3",

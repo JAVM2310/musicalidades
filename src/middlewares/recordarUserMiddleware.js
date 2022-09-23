@@ -2,9 +2,24 @@ const db = require("../database/models");
 
 function recordarUserMiddleware(req,res,next){
     next();
-    if(req.cookie.recordarUsuario != undefined && req.session.usuarioLogueado == undefined){
+    
+    console.log("llegas acá?")
 
-        db.Producto
-        
+    if(req.cookies.recordarme != undefined && !req.session.usuariosLogueado){
+        db.Usuario.findOne({
+            where: {
+                email: req.cookies.recordarme,
+            }
+        }).then((resultado)=>{
+
+            if(resultado.email == req.cookies.recordarme){
+                req.session.usuariosLogueado = resultado;
+                console.log("yyyy acá?")
+                console.log(req.session.usuariosLogueado)
+
+            }
+        })
     }
 }
+
+module.exports = recordarUserMiddleware;
