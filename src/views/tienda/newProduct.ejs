@@ -6,25 +6,43 @@
             <form class="form" method="POST" action="/tienda/newProduct" enctype="multipart/form-data">
                 <div class="datos">
                     <label for="categoria"><span style="text-align:right">Categoría:</span>
+                        <% if(laCategoria.length > 0){ %>
+                            <select name="categoria" id="categoria">
+                                <% let categoriaActual = categorias.splice(categorias.findIndex(element => element.id == laCategoria), 1) %>
+                                    <option value="<%= laCategoria %>"><%= categoriaActual[0].tipo %></option>
+                                <%categorias.forEach((categoria) => {%>
+                                    <option value="<%= categoria.id %>"><%= categoria.tipo %></option>
+                                <% }) %>
+                            </select>
+                        <%} else {%>
                         <select name="categoria" id="categoria"> 
-                            <option value="5">Seleccionar</option> 
-                            <option value="1">Cuerdas</option>
-                            <option value="3">Percusión</option>
-                            <option value="2">Teclas</option>
-                            <option value="4">Vientos</option>
-                            <option value="6">Sin Categoría</option>                            
+                            <option value="-1">Seleccionar</option> 
+                            <%categorias.forEach((categoria) => {%>
+                                <option value="<%= categoria.id %>"><%= categoria.tipo %></option>
+                            <% }) %>                            
                         </select>
+                        <% } %>
                     </label>
                     <% if (locals.errors && errors.categoria) { %>
                         <p class="error-validacion"><%= errors.categoria.msg %></p>
                     <% } %>
                     <label for="marca"><span style="text-align:right">Marca:</span>
-                        <select name="marca" id="marca"> 
-                            <option value="seleccionar">Seleccionar</option> 
-                            <%marcas.forEach((marca) => {%>
-                                <option value="<%= marca.id %>"><%= marca.nombre %></option>
-                            <% }) %>
-                        </select>
+                        <%if (laMarca.length > 0) {%>
+                            <select name="marca" id="marca">
+                                <% let marcaActual = marcas.splice(marcas.findIndex(element => element.id == laMarca), 1) %>
+                                    <option value="<%= laMarca %>"><%= marcaActual[0].nombre %></option>
+                                <%marcas.forEach((marca) => {%>
+                                    <option value="<%= marca.id %>"><%= marca.nombre %></option>
+                                <% }) %>
+                            </select>
+                        <% } else { %>
+                            <select name="marca" id="marca">
+                                <option value="-1">Seleccionar</option> 
+                                <%marcas.forEach((marca) => {%>
+                                    <option value="<%= marca.id %>"><%= marca.nombre %></option>
+                                <% }) %>
+                            </select>
+                        <% } %>
                     </label>
                     <% if (locals.errors && errors.marca) { %>
                         <p class="error-validacion"><%= errors.marca.msg %></p>

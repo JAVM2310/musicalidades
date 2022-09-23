@@ -12,7 +12,7 @@ const verificarUsuarioMiddleware = require("../middlewares/verificarUsuarioMiddl
 const validacionRegistroBack = require("../middlewares/validacionRegistroBack.js")
 const validacionLoginBack = require("../middlewares/validacionLoginBack.js")
 const validacionModificarUsuario = require("../middlewares/validacionModificarUsuarioBack")
-const validacionCambiarContraseña = require("../middlewares/validacionCambiarContraseñaBack")
+const validacionCambiarPassword = require("../middlewares/validacionCambiarPasswordBack")
 
 /************************** MULTER **************************/
 
@@ -41,7 +41,7 @@ router.get("/signout", usersController.signOut)
 router.get("/myprofile", authMiddleware, usersController.profile)
 
 router.get("/cambiarPassword", authMiddleware, usersController.cambiarPasswordGet)
-router.patch("/cambiarPassword/:id", authMiddleware, verificarUsuarioMiddleware, validacionCambiarContraseña, usersController.cambiarPasswordPost)
+router.patch("/cambiarPassword/:id", authMiddleware, verificarUsuarioMiddleware, validacionCambiarPassword, usersController.cambiarPasswordPost)
 
 
 router.get("/modifyuser/:id", usersController.modifyUser);

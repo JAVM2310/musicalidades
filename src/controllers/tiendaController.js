@@ -74,32 +74,20 @@ const controller = {
 
         res.render('./tienda/productCart', {titulo: "Carrito", user: req.session.usuariosLogueado});
     },
-    newProduct: (req, res) => {
+    newProductGet: (req, res) => {
         let marcas = []
-        db.Marca.findAll({
-            order:[['nombre', 'ASC']]
+        let categorias = []
+        let laMarca ="";
+        let laCategoria ="";
+        db.Categoria.findAll({
+            order:[['tipo', 'ASC']]
         })
-        .then((result) =>{
+        .then(result =>{
             result.forEach(element => {
-                marcas.push(element.dataValues)
+                categorias.push(element.dataValues)
             })
         })
-        .then(() => {
-        res.render('./tienda/newProduct', {titulo: "Nuevo Producto", user: req.session.usuariosLogueado, marcas});
-        })
-    },
-    createProduct: (req, res) => {
-    
-        let imagenes = []
-        let marca;
-
-        const resultValidation = validationResult(req);
-
-        if (resultValidation.errors.length > 0) {
-            console.log(resultValidation.errors)
-            console.log("entré")
-
-            let marcas = []
+        .then(()=>{
             db.Marca.findAll({
                 order:[['nombre', 'ASC']]
             })
@@ -109,7 +97,42 @@ const controller = {
                 })
             })
             .then(() => {
-                return res.render('./tienda/newProduct', {titulo: "Nuevo Producto", user: req.session.usuariosLogueado, marcas, errors: resultValidation.mapped(), old: req.body});
+                res.render('./tienda/newProduct', {titulo: "Nuevo Producto", user: req.session.usuariosLogueado, marcas, laMarca, categorias, laCategoria});
+            })
+        })
+    },
+    newProductPost: (req, res) => {
+    
+        let imagenes = []
+        let marca;
+
+        const resultValidation = validationResult(req);
+
+        if (resultValidation.errors.length > 0) {
+            let marcas = []
+            let categorias = []
+            let laMarca = req.body.marca;
+            let laCategoria = req.body.categoria
+            db.Categoria.findAll({
+                order:[['tipo', 'ASC']]
+            })
+            .then(result =>{
+                result.forEach(element => {
+                    categorias.push(element.dataValues)
+                })
+            })
+            .then(()=>{
+                db.Marca.findAll({
+                    order:[['nombre', 'ASC']]
+                })
+                .then((result) =>{
+                    result.forEach(element => {
+                        marcas.push(element.dataValues)
+                    })
+                })
+                .then(() => {
+                    return res.render('./tienda/newProduct', {titulo: "Nuevo Producto", user: req.session.usuariosLogueado, marcas, errors: resultValidation.mapped(), laMarca, laCategoria, categorias});
+                })
             })
         } else {
             req.files.forEach(file =>{
@@ -156,9 +179,11 @@ const controller = {
             }
         }
     },
-    modifyProduct: (req, res) => {
+    modifyProductGet: (req, res) => {
         let marcas = [];
         let categorias = [];
+        let laMarca = "";
+        let laCategoria = "";
         let promesaMarcas = db.Marca.findAll({
             order:[['nombre', 'ASC']]
         })
@@ -166,7 +191,6 @@ const controller = {
             order:[['tipo', 'ASC']]
         })
         Promise.all([promesaMarcas, promesaCategorias])
-
         .then(([resultMarcas, resultCategorias]) =>{
             resultMarcas.forEach(element => {
                 marcas.push(element.dataValues)
@@ -180,18 +204,16 @@ const controller = {
             .then((producto) =>{
                 productoElegido = producto.dataValues
                 productoElegido.imagenes = JSON.parse(productoElegido.imagenes)
-                res.render('./tienda/modifyProduct', {titulo: "Modificar Producto", product: productoElegido, user: req.session.usuariosLogueado, marcas, categorias});
+                res.render('./tienda/modifyProduct', {titulo: "Modificar Producto", product: productoElegido, user: req.session.usuariosLogueado, marcas, categorias, laMarca, laCategoria});
                 
             })
         })
     },
-    modify: (req, res) => {
+    modifyProductPost: (req, res) => {
+        let laMarca = req.body.marca
+        let laCategoria = req.body.categoria
         const resultValidation = validationResult(req);
-        console.log(resultValidation.errors)
-        console.log(resultValidation.errors.length)
         if (resultValidation.errors.length > 0) {
-            console.log(resultValidation.errors)
-            console.log("entré")
             let marcas = [];
             let categorias = [];
             let promesaMarcas = db.Marca.findAll({
@@ -215,8 +237,7 @@ const controller = {
                 .then((producto) =>{
                     productoElegido = producto.dataValues
                     productoElegido.imagenes = JSON.parse(productoElegido.imagenes)
-                    console.log("lees esto??????????????????")
-                    return res.render('./tienda/modifyProduct', {titulo: "Modificar Producto", product: productoElegido, user: req.session.usuariosLogueado, marcas, categorias, errors: resultValidation.mapped(), old: req.body});
+                    return res.render('./tienda/modifyProduct', {titulo: "Modificar Producto", product: productoElegido, user: req.session.usuariosLogueado, marcas, categorias, errors: resultValidation.mapped(), old: req.body, laMarca, laCategoria});
                     
                 })
             })
@@ -261,7 +282,7 @@ const controller = {
                     }
                 })
             })
-            res.redirect("/tienda/productDetail/" + req.params.id);
+            return res.redirect("/tienda/productDetail/" + req.params.id);
         }
     },
     delete(req, res){

@@ -233,7 +233,6 @@ db.Marca.bulkCreate([
         product.descuento = Number(product.discount)
         delete product.discount
         product.stock = Number(product.stock)
-        product.descLarga = "a"
     })
     
     db.Producto.bulkCreate(products)

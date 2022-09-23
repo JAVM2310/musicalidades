@@ -49,10 +49,10 @@ const tiendaController = require ('../controllers/tiendaController');
 router.get('/', tiendaController.tienda);
 router.get('/productDetail/:id', tiendaController.productDetail);
 router.get('/productCart', tiendaController.productCart);
-router.get("/newProduct", adminMiddleware, tiendaController.newProduct);
-router.post("/newProduct", upload.array('images'), validacionProductos, tiendaController.createProduct);
-router.get("/modifyProduct/:id", adminMiddleware, tiendaController.modifyProduct);
-router.put("/productDetail/:id", adminMiddleware, upload.array('images'), validacionModificarProductos, tiendaController.modify)
+router.get("/newProduct", adminMiddleware, tiendaController.newProductGet);
+router.post("/newProduct", upload.array('images'), validacionProductos, tiendaController.newProductPost);
+router.get("/modifyProduct/:id", adminMiddleware, tiendaController.modifyProductGet);
+router.put("/productDetail/:id", adminMiddleware, upload.array('images'), validacionModificarProductos, tiendaController.modifyProductPost)
 router.get("/deleteProduct/:id", adminMiddleware, tiendaController.delete)
 
 

@@ -19,36 +19,14 @@ module.exports = [
             return true;
         }
     }), 
-
-    /* body('marcaNuevaNombre').custom((value, { body }) => {
-        
-        console.log(body.marcaNueva)
-        
-        if (value == "" && body.marcaNueva.value == 1) {
-            throw new Error("Adjunte una image con formato")
-        }
-    }),*/
-    
-   
-    /*
-    body('marcaNuevaNombre').custom(value => {
-        if (value == "" && body('marcaNueva') == 1) {
-            throw new Error('Debes ingresar el Nombre de la Nueva Marca.');
-        }
-        return true;
-    })
-    */
-
-
-
     body('categoria').custom(value => {
-        if (value == 5) {
+        if (value == -1) {
             throw new Error('Debes elegir una Categoría.');
         }
         return true;
     }),
     body('marca').custom(value => {
-        if (value == "seleccionar") {
+        if (value == -1) {
             throw new Error('Debes elegir una Marca.');
         }
         return true;
@@ -56,16 +34,12 @@ module.exports = [
 
     body('images').custom((value, {req}) => {
         value = req.files
-        console.log(req.body)
 
         if (value.length == 0){
             
-            console.log("mirameeee")
-
             throw new Error ("Debes cargar al menos un archivo .jpg, .jpeg, .png o .gif")
 
         }else if(value.length > 0){
-            console.log("holaaaaa cheee")
 
             for (let i = 0; i < value.length; i++) {
                 let file = value[i];
@@ -75,8 +49,6 @@ module.exports = [
                     }
             }
         }
-        console.log("Ok todo")
-        console.log(value)
         return true;
     }).bail(),
     
