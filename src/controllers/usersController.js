@@ -21,15 +21,15 @@ let error = '';
 
 const controller = {
 
-    login: (req, res) => {
+    loginGet: (req, res) => {
         res.render('./users/login', {titulo: "Login", error});
     },
 
-    register: (req, res) => {
+    registerGet: (req, res) => {
         res.render('./users/register', {titulo: "Registro", error});
     },
 
-    logueado: (req, res) => {
+    loginPost: (req, res) => {
         const resultValidation = validationResult(req);
         console.log(resultValidation);
         db.Usuario.findOne({
@@ -61,7 +61,7 @@ const controller = {
         })
 
     },
-    crearUsuario: (req, res) => {
+    registerPost: (req, res) => {
         
         
         const validacionRegistro =  validationResult(req);

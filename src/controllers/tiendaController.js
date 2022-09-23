@@ -17,7 +17,7 @@ let user = undefined
 let admin = false
 
 const controller = {
-    tienda: (req, res) => {
+    tiendaGet: (req, res) => {
         db.Producto.findAll(/* {
             limit: 4,
             offset:4
@@ -41,7 +41,7 @@ const controller = {
         })
             
     },
-    productDetail(req, res){
+    productDetailGet(req, res){
         let marca;
         let categoria;
         db.Producto.findByPk(req.params.id)
@@ -70,7 +70,7 @@ const controller = {
             }
         })
     },
-    productCart: (req, res) => {
+    productCartGet: (req, res) => {
 
         res.render('./tienda/productCart', {titulo: "Carrito", user: req.session.usuariosLogueado});
     },
@@ -210,8 +210,11 @@ const controller = {
         })
     },
     modifyProductPost: (req, res) => {
+        console.log("log de req.body.marcaNueva");
+        console.log(req.body.marcaNueva);
         let laMarca = req.body.marca
         let laCategoria = req.body.categoria
+        var marca;
         const resultValidation = validationResult(req);
         if (resultValidation.errors.length > 0) {
             let marcas = [];
@@ -223,7 +226,6 @@ const controller = {
                 order:[['tipo', 'ASC']]
             })
             Promise.all([promesaMarcas, promesaCategorias])
-
             .then(([resultMarcas, resultCategorias]) =>{
                 resultMarcas.forEach(element => {
                     marcas.push(element.dataValues)
@@ -241,12 +243,11 @@ const controller = {
                     
                 })
             })
-        }else{
+        } else {
             db.Producto.findByPk(req.params.id)
             .then((result) => {
                 let productToEdit = result.dataValues
                 productToEdit.imagenes = JSON.parse(productToEdit.imagenes)
-                
                 let i = 0
                 productToEdit.imagenes.forEach((element, index) => {
                     if(eval("req.body.imgDel"+i) == 1) {
@@ -258,31 +259,60 @@ const controller = {
                 productToEdit.imagenes = productToEdit.imagenes.filter(element => {
                     return element !== "deleted";
                 });
-                
                 for (let i=0; i<req.files.length; i++){
                     imagenesNuevas = '/products/' + req.files[i].filename;
                     productToEdit.imagenes.push(imagenesNuevas)            
                 }
-                
-                productToEdit = {
-                    categoria_id: req.body.categoria,
-                    nombre: req.body.name,
-                    descripcion: req.body.shortDesc,
-                    descLarga: req.body.longDesc,
-                    precio: req.body.price,
-                    descuento: req.body.discount,
-                    stock: req.body.stock,
-                    marca_id: req.body.marca,
-                    imagenes: JSON.stringify(productToEdit.imagenes)
-                };
-
-                db.Producto.update(productToEdit,{
-                    where:{
-                        id: req.params.id
-                    }
-                })
+                console.log(req.body.marcaNueva);
+                if (req.body.marcaNueva == 1){
+                    db.Marca.create({
+                        nombre: req.body.marcaNuevaNombre
+                    })
+                    .then((result) =>{
+                        marca = result.dataValues.id
+                        productToEdit = {
+                            categoria_id: req.body.categoria,
+                            nombre: req.body.name,
+                            descripcion: req.body.shortDesc,
+                            descLarga: req.body.longDesc,
+                            precio: req.body.price,
+                            descuento: req.body.discount,
+                            stock: req.body.stock,
+                            marca_id: marca,
+                            imagenes: JSON.stringify(productToEdit.imagenes)
+                        };
+                        db.Producto.update(productToEdit,{
+                            where:{
+                                id: req.params.id
+                            }
+                        })
+                        .then(()=>{    
+                            return res.redirect("/tienda/productDetail/" + req.params.id);
+                        })
+                    })
+                } else {
+                    marca = req.body.marca
+                    productToEdit = {
+                        categoria_id: req.body.categoria,
+                        nombre: req.body.name,
+                        descripcion: req.body.shortDesc,
+                        descLarga: req.body.longDesc,
+                        precio: req.body.price,
+                        descuento: req.body.discount,
+                        stock: req.body.stock,
+                        marca_id: marca,
+                        imagenes: JSON.stringify(productToEdit.imagenes)
+                    };
+                    db.Producto.update(productToEdit,{
+                        where:{
+                            id: req.params.id
+                        }
+                    })
+                    .then(()=>{    
+                        return res.redirect("/tienda/productDetail/" + req.params.id);
+                    })
+                }
             })
-            return res.redirect("/tienda/productDetail/" + req.params.id);
         }
     },
     delete(req, res){
@@ -300,9 +330,6 @@ const controller = {
             res.redirect("/")
         })
     },
-
 };
-
-
 
 module.exports = controller;
