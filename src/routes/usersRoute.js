@@ -32,11 +32,12 @@ const upload = multer({storage});
 
 const usersController = require ('../controllers/usersController.js');
 
-router.get('/login', guestMiddleware, usersController.login);
-router.get('/register', guestMiddleware, usersController.register);
-router.post('/login', validacionLoginBack, usersController.logueado); 
-router.post('/register', upload.single('avatar'), validacionRegistroBack, usersController.crearUsuario);
-/* router.get("/disponible/:email", usersController.checkearDisponibilidad) */
+router.get('/register', guestMiddleware, usersController.registerGet);
+router.post('/register', upload.single('avatar'), validacionRegistroBack, usersController.registerPost);
+
+router.get('/login', guestMiddleware, usersController.loginGet);
+router.post('/login', validacionLoginBack, usersController.loginPost); 
+
 router.get("/signout", usersController.signOut) 
 router.get("/myprofile", authMiddleware, usersController.profile)
 
