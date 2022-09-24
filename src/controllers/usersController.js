@@ -53,7 +53,7 @@ const controller = {
 
                 delete resultado.dataValues.password;
                 req.session.usuariosLogueado = resultado.dataValues;
-                console.log(req.session.usuariosLogueado)
+
                 if(req.body.recordarme != undefined){
                     res.cookie('recordarme', req.session.usuariosLogueado.email, {maxAge: 60000})
                 }

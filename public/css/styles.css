@@ -445,10 +445,6 @@ main {
     background-color: #FFF;
 }
 
-/*#productos-destacados {
-    display: flex;
-}*/
-
 #productos-destacados {
     display: flex;
     flex-wrap: wrap;
@@ -460,6 +456,8 @@ main {
     text-align: left;
     float: left;
     padding: 5px 5px 15px;
+    margin-top: 0px;
+
 }
 
 .ocultar,
@@ -467,21 +465,26 @@ main {
     display: none;
 }
 .productos-destacados img {
-    width: 200px;
-    height: 200px;
+    width: 126px;
+    height: 126px;
     border-radius: 10PX;
     box-shadow: 0px 0px 10px #666;
     object-fit: contain;
-    background-color: white;
+    background-color: white;    
+    vertical-align: top;
+
 }
 .productos-destacados img:hover {
     box-shadow: 0px 0px 10px #F9AF14;
 }
-    .productos-destacados h3 {
-    text-align: center;
-    color: #000;
-    font-weight: bold;
-    font-size: 0.9em;
+.productos-destacados h3 {
+text-align: center;
+color: #000;
+font-weight: bold;
+font-size: 0.9em;
+width: 126px;
+margin: 5px 0px;
+
 }  
 .precio-tachado {
     color: #9D9D9D;
@@ -501,23 +504,24 @@ main {
 }
 
 .descuento{
+    text-align: left;
     height: 12px;
     font-weight: bold;
     color:crimson;
+    margin: 5px;
 }
 
 .productos-destacados button {
     border: none;
-    width: 50%;
-    padding: 5px;
+    padding: 5px 15px;
     border-radius: 10px;
     float: right;
-    margin-top: -10px;
     color: white;
     background-color: #9D9D9D;
     text-align: center;
     cursor: pointer;
     font-size: 0.7em;
+    margin-right: 8px;
 }
 
 .productos-destacados button:hover {
@@ -692,10 +696,9 @@ hr {
 }
 .volver{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     text-align: center;
-    padding: 3%;
-    margin-top: -40px;
+    padding: 0px 0px 30px 0px;
 }
 .filtros {
     margin-top: 10px;
@@ -1018,6 +1021,10 @@ footer {
     color: white;
 
 }
+.section-footer li {
+    margin-left: 15px;
+
+}
 
 .section-footer img {
     width: 140px;
@@ -1034,6 +1041,8 @@ footer {
 footer .whatsapp {
     font-size: 1em;
     color: green;
+    margin-bottom: 0px;
+
 }
 footer .email {
     font-size: 1em;
@@ -1052,9 +1061,16 @@ footer .email i {
     display: flex;
     align-items: center;
 }
+.logo-footer img{    
+    margin-top: -10px;
+
+}
 
 .logo-footer a {
-    margin-left: -6px;
+    display: flex;
+    align-items: center;
+    margin-top: 60px;
+    margin-left: -80px
 }
 
 .fa-brands {
@@ -1151,7 +1167,7 @@ footer .email i {
 }
 .quienes-somos .container .logo{
     margin-top: 30px;
-    width: 250px;
+    width: 200px;
 
 }
 .quienes-somos .marcas{
@@ -1270,7 +1286,6 @@ footer .email i {
     }
     .quienes-somos .container .logo{
         width: 250px;
-
     }    
     body {
         font-size: 14px;
@@ -1290,18 +1305,30 @@ footer .email i {
         font-size: 0.9em;
     }
     .productos-destacados {
-        max-width: 33%;
+        max-width: 50%;
     }
+    .productos-destacados img {
+        width: 165px;
+        height: 165px;
+    }
+    .productos-destacados h3 {
+        width: 165px;
+    } 
     .ocultar {
         display: block;
     }
+    
     .menu-footer {
         font-size: 0.85em;
     }
     .datos-footer {
         font-size: 0.85em;
     }
-
+    
+    .logo-footer a {
+        margin-top: 0px;
+        margin-left: -6px
+    }
 }  
 
 
@@ -1317,7 +1344,14 @@ footer .email i {
     body {
         font-size: 16px;
     }
-
+    .productos-destacados img {
+        width: 200px;
+        height: 200px;
+        margin: 0px 10px;
+    }
+    .productos-destacados h3 {
+        width: 200px;
+    } 
     .dropdown{
         top: 50px;
         right: 70px;
@@ -1348,8 +1382,8 @@ footer .email i {
     }
     #productos-destacados
     {
-        padding-right: 10%;
-        padding-left: 10%;
+        padding-right: 4%;
+        padding-left: 4%;
     }
     .header,
     footer {
@@ -1364,7 +1398,6 @@ footer .email i {
     }
     .menu-footer p {
         text-align: right;
-
     }
     
     .menu-footer {
@@ -1373,7 +1406,10 @@ footer .email i {
     .datos-footer {
         font-size: 0.9em;
     }
-    
+    footer .whatsapp p,
+    footer .email {
+        margin-right: 0px;
+    }
     .header {
         height: 70px;
     }
@@ -1395,9 +1431,7 @@ footer .email i {
         
         display: flex;
         align-items:flex-start;
-        
     }
-
     .menu a{
         font-size: 0.85em;
         padding-right: 0px;
@@ -1436,7 +1470,6 @@ footer .email i {
     } 
     .productos-destacados {
         max-width: 25%;
-        margin-left: 0px;
     }
     .ocultar4 {
         display: block;
@@ -1459,7 +1492,6 @@ footer .email i {
     .cont-producto-descripcion {
         width: 50%;
         margin: auto;
-
     }
     .contacto {
         display: flex;
@@ -1473,8 +1505,4 @@ footer .email i {
     .direccion img {
         width: 40%;
     }
-    
-
-
-    
 }

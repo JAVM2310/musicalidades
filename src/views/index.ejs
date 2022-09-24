@@ -61,17 +61,17 @@
             <div>
                 <i class="fa-solid fa-credit-card fa-2x"></i>
                 <h4>Comprá con todas las Tarjeras</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Pagá con cualquier tarjeta de crédito o débito de forma segura a través de Mercado Pago.</p>
             </div>
             <div>
                 <i class="fa-solid fa-truck-fast fa-2x"></i>
                 <h4>Envíos a todo el país</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Ingresá tu dirección al momento del pago para calcular tu costo de envío a través de Correo Argentino.</p>
             </div>
             <div>
                 <i class="fa-solid fa-tags fa-2x"></i>
                 <h4>Ahora 12</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Comprá en 3, 6 y 12 cuotas fijas mensuales con tarjeta de crédito, todos los días de la semana.</p>
             </div>
         </div>
         <!-- PRODUCTOS DESTACADOS-->
@@ -81,7 +81,7 @@
             <% let i =0;
             products.forEach((product) => {
                 i++; 
-                if (i > 6){ %>
+                if (i < 7){ %>
                 <div class="productos-destacados">
                     <a href="/tienda/productDetail/<%= product.id %>"><img src="/img/<%= product.imagenes[0] %>" alt=<%= product.nombre %>></a>
                     <h3><%= product.nombre %></h3>
@@ -90,33 +90,17 @@
                         <span class="precio">$<%= Intl.NumberFormat('sp-SP').format((product.precio * (100-product.descuento))/100) %></span>
                         <p class="descuento"><%= product.descuento %>% OFF</p>
                     <% } else { %>
-                        <p class="precio">$<%= Intl.NumberFormat('sp-SP').format(product.precio) %></p>
-                        <p class="descuento">      </p>
+                        <span class="precio">$<%= Intl.NumberFormat('sp-SP').format(product.precio) %></span>
+                        <p class="descuento"></p>
                     <% } %>
                     <% if (admin == true) { %>
                         <p class="p-admin"><a class="botones-admin" href="/tienda/modifyProduct/<%= product.id %>">EDITAR</a><a class="botones-admin" href="/tienda/deleteProduct/<%= product.id %>">ELIMINAR</a></p>
                         
                     <% }else{ %>
-                    <p><button>AGREGAR</button></p>
+                    <button><i class="fa-solid fa-cart-shopping"></i> AGREGAR</button>
                     <% } %>
                 </div>
             <% }}) %>
-            <div class="pagina">
-                <div class="busqueda-paginacion">
-                    <ul>
-                        <li class="pagina-anterior">
-                            <span class="pagina-anterior">Anterior</span>
-                        </li>
-                        <li class="pagina-corriente">
-                            <span class="pagina-1">1 </span>
-                        </li>
-                        <li class="pagina-de-hasta">de  1</li>
-                        <li class="pagina-siguiente">
-                            <span class="titulo-flecha-sig">Siguiente</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
         </section>
     </main>
     <!-------------------------FOOTER------------------------------->
