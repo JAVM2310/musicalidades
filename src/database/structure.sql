@@ -48,11 +48,12 @@ CREATE TABLE musicalidades.productosUsuarios (
   FOREIGN KEY (producto_id) REFERENCES musicalidades.productos(id),
   FOREIGN KEY (usuario_id) REFERENCES musicalidades.usuarios(id)
 );
-CREATE TABLE `musicalidades`.`passwordresettoken` (
-  `id` INT NOT NULL,
+CREATE TABLE `musicalidades`.`passwordreset` (
+  id INT NOT NULL AUTO_INCREMENT,
   `token` VARCHAR(45) NOT NULL,
   `fecha` INT NOT NULL,
-  PRIMARY KEY (`id`)
+	email TEXT NOT NULL,
+  PRIMARY KEY (id)
 );
 
 
