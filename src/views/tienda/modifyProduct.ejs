@@ -60,13 +60,13 @@
                             <p class="error-validacion"><%= errors.marcaNuevaNombre.msg %></p>
                         <% } %>
                         <label for="name">
-                            <input type="text" name="name" id="name" value="<%if(locals.old){%><%=locals.old.nombre%><%}else{%><%= product.nombre %><%}%>" placeholder="Nombre del producto*">
+                            <input type="text" name="name" id="name" value="<%if(locals.old){%><%=locals.old.name%><%}else{%><%= product.nombre %><%}%>" placeholder="Nombre del producto*">
                         </label>
                         <% if (locals.errors && errors.name) { %>
                             <p class="error-validacion"><%= errors.name.msg %></p>
                         <% } %>
                         <label for="shortDesc">
-                            <input type="text" name="shortDesc" id="shortDesc" value="<%if(locals.old){%><%=locals.old.descripcion%><%}else{%><%= product.descripcion %><%}%>" placeholder="Breve descripción*">
+                            <input type="text" name="shortDesc" id="shortDesc" value="<%if(locals.old){%><%=locals.old.shortDesc%><%}else{%><%= product.descripcion %><%}%>" placeholder="Breve descripción*">
                         </label>
                         <% if (locals.errors && errors.shortDesc) { %>
                             <p class="error-validacion"><%= errors.shortDesc.msg %></p>
@@ -78,19 +78,19 @@
                             <p class="error-validacion"><%= errors.longDesc.msg %></p>
                         <% } %>
                         <label for="price">
-                            <input type="number" name="price" id="price" value="<%if(locals.old){%><%=locals.old.precio%><%}else{%><%= product.precio %><%}%>" placeholder="Precio*">
+                            <input type="number" name="price" id="price" value="<%if(locals.old){%><%=locals.old.price%><%}else{%><%= product.precio %><%}%>" placeholder="Precio*">
                         </label>
                         <% if (locals.errors && errors.price) { %>
                             <p class="error-validacion"><%= errors.price.msg %></p>
                         <% } %>
                         <label for="discount">
-                            <input type="number" name="discount" id="discount" value="<%if(locals.old){%><%=locals.old.descuento%><%}else{%><%= product.descuento %><%}%>" placeholder="% de Descuento*">
+                            <input type="number" name="discount" id="discount" value="<%if(locals.old){%><%=locals.old.discount%><%}else{%><%= product.descuento %><%}%>" placeholder="% de Descuento*">
                         </label>
                         <% if (locals.errors && errors.discount) { %>
                             <p class="error-validacion"><%= errors.discount.msg %></p>
                         <% } %>
                         <label for="stock">
-                            <input type="number" name="stock" id="stock" value="<%if(locals.old){%><%=locals.old.stock%><%}else{%><%= product.stock %><%}%>"" placeholder="Stock*">
+                            <input type="number" name="stock" id="stock" value="<%if(locals.old){%><%=locals.old.stock%><%}else{%><%= product.stock %><%}%>" placeholder="Stock*">
                         </label>
                         <% if (locals.errors && errors.stock) { %>
                             <p class="error-validacion"><%= errors.stock.msg %></p>
@@ -122,8 +122,8 @@
                 </form>
         </article>
     </main>
-    <%- include('../partials/footer') %>
+    <%- include('../partials/footer') %><!-- 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/js/validacionModificarProductoFront.js"></script>
+    <script src="/js/validacionModificarProductoFront.js"></script> -->
 </body>
 </html>

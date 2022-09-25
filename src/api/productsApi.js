@@ -32,8 +32,9 @@ const productsApi = {
 
             for(let i=0; i<resultProducts.length; i++){
                 resultProducts[i].dataValues.url = "http://localhost:3001/api/products/" + resultProducts[i].dataValues.id
+                resultProducts[i].dataValues.imagenes = JSON.parse(resultProducts[i].dataValues.imagenes)
             }
-
+            
             resultLastProduct[0].dataValues.url = "http://localhost:3001/api/products/" + resultLastProduct[0].dataValues.id
             resultLastProduct[0].dataValues.imagenes = resultLastProduct[0].dataValues.imagenes.replaceAll("/products/", "http://localhost:3001/img/products/");
             resultLastProduct[0].dataValues.imagenes = JSON.parse(resultLastProduct[0].dataValues.imagenes)[0]

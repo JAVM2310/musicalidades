@@ -14,7 +14,7 @@ module.exports = [
     body('marcaNuevaNombre').custom((value, { req }) => {
         
         if (value == "" && req.body.marcaNueva == 1) {
-            throw new Error("Adjunte una image con formato")
+            throw new Error("Debes escribir el Nombre de la Marca Nueva")
         }else{
             return true;
         }
@@ -22,12 +22,7 @@ module.exports = [
 
     body('images').custom((value, {req}) => {
         value = req.files
-
-        if (value.length == 0){
-
-            throw new Error ("Debes cargar al menos un archivo .jpg, .jpeg, .png o .gif")
-
-        }else if(value.length > 0){
+        if(value.length > 0){
 
             for (let i = 0; i < value.length; i++) {
                 let file = value[i];

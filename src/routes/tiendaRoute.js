@@ -19,9 +19,25 @@ const storage = multer.diskStorage ({
     }
 });
 
-
-
 const upload = multer({storage});
+
+const fileFilter = (req, file, cb) => {
+    if ((file.mimetype).includes("jpeg") || (file.mimetype).includes("png") || (file.mimetype).includes("jpg")) {
+        console.log(file)
+        cb(null, true);
+    }
+    else {
+        console.log(file)
+        cb(null, false)
+        req.errorMulter = "Subiste imagenes con formato incorrecto";
+    }
+}
+
+
+const uploadFile = multer({
+    fileFilter: fileFilter,
+    storage: storage
+})
 
 /********* VALIDACION IMAGENES MULTER ********/
 
@@ -51,10 +67,10 @@ router.get('/productDetail/:id', tiendaController.productDetailGet);
 router.get('/productCart', tiendaController.productCartGet);
 
 router.get("/newProduct", adminMiddleware, tiendaController.newProductGet);
-router.post("/newProduct", upload.array('images'), validacionProductos, tiendaController.newProductPost);
+router.post("/newProduct", uploadFile.array('images'), validacionProductos, tiendaController.newProductPost);
 
 router.get("/modifyProduct/:id", adminMiddleware, tiendaController.modifyProductGet);
-router.put("/productDetail/:id", adminMiddleware, upload.array('images'), validacionModificarProductos, tiendaController.modifyProductPost)
+router.put("/productDetail/:id", adminMiddleware, uploadFile.array('images'), validacionModificarProductos, tiendaController.modifyProductPost)
 router.get("/deleteProduct/:id", adminMiddleware, tiendaController.delete)
 
 

@@ -88,7 +88,7 @@
                         <p class="error-validacion"><%= errors.discount.msg %></p>
                     <% } %>
                     <label for="stock">
-                        <input type="number" name="stock" id="stock" placeholder="Stock*"  value="<%=locals.old && old.stock ? old.discount : ''%>" >
+                        <input type="number" name="stock" id="stock" placeholder="Stock*"  value="<%=locals.old && old.stock ? old.stock : ''%>" >
                     </label>
                     <% if (locals.errors && errors.stock) { %>
                         <p class="error-validacion"><%= errors.stock.msg %></p>
@@ -111,6 +111,6 @@
     </main>
     <%- include('../partials/footer') %>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/js/validacionProductosFront.js"></script>
-</body>
+<!--     <script src="/js/validacionProductosFront.js"></script>
+ --></body>
 </html>

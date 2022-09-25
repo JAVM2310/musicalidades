@@ -29,12 +29,29 @@ const storage = multer.diskStorage ({
 
 const upload = multer({storage});
 
+const fileFilter = (req, file, cb) => {
+    if ((file.mimetype).includes("jpeg") || (file.mimetype).includes("png") || (file.mimetype).includes("jpg")) {
+        console.log(file)
+        cb(null, true);
+    }
+    else {
+        console.log(file)
+        cb(null, false)
+        req.errorMulter = "Subiste imagenes con formato incorrecto";
+    }
+}
+
+
+const uploadFile = multer({
+    fileFilter: fileFilter,
+    storage: storage
+})
 /* CON ARCHIVO CONTROLLER*/
 
 const usersController = require ('../controllers/usersController.js');
 
 router.get('/register', guestMiddleware, usersController.registerGet);
-router.post('/register', upload.single('avatar'), validacionRegistroBack, usersController.registerPost);
+router.post('/register', uploadFile.single('avatar'), validacionRegistroBack, usersController.registerPost);
 
 router.get('/login', guestMiddleware, usersController.loginGet);
 router.post('/login', validacionLoginBack, usersController.loginPost); 
@@ -46,7 +63,7 @@ router.get("/cambiarPassword", authMiddleware, usersController.cambiarPasswordGe
 router.patch("/cambiarPassword/:id", authMiddleware, verificarUsuarioMiddleware, validacionCambiarPassword, usersController.cambiarPasswordPost)
 
 router.get("/modifyuser/:id", usersController.modifyUser);
-router.patch("/myprofile/:id", authMiddleware, verificarUsuarioMiddleware, upload.single('avatar'), validacionModificarUsuario, usersController.profileEdition)
+router.patch("/myprofile/:id", authMiddleware, verificarUsuarioMiddleware, uploadFile.single('avatar'), validacionModificarUsuario, usersController.profileEdition)
 
 router.get("/deleteuser/:id", usersController.borrar)
 

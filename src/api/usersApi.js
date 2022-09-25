@@ -67,9 +67,23 @@ const api = {
                 delete result.dataValues.password
                 return  res.json(result.dataValues)
             } else {
-                return res.json("no se encontro el usuario en la base")
+                return res.json("No se encontro el usuario en la base")
             }
         })
+    },
+
+    adminCheck: (req, res) => {
+        // preguntar si estas logueado, si si,  checkaer si como admin, desp devolver true or false y   
+        /* .then((result)=>{
+            if (result == null){
+                return res.json(true)
+            } else {
+                return res.json(false)
+            }
+        }) */
+
+        //capturar frontend
+
     },
 
     //genera un token en la base de datos para usar en el proceso de restablecer contraseña, manda un mail con el link
