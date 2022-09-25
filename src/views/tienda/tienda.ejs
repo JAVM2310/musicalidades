@@ -50,14 +50,14 @@
                         <span class="precio">$<%= Intl.NumberFormat('sp-SP').format((product.precio * (100-product.descuento))/100) %></span>
                         <p class="descuento"><%= product.descuento %>% OFF</p>
                     <% } else { %>
-                        <p class="precio">$<%= Intl.NumberFormat('sp-SP').format(product.precio) %></p>
-                        <p class="descuento">      </p>
+                        <span class="precio">$<%= Intl.NumberFormat('sp-SP').format(product.precio) %></span>
+                        <p class="descuento"></p>
                     <% } %>
                     <% if (admin == true) { %>
                         <p class="p-admin"><a class="botones-admin" href="/tienda/modifyProduct/<%= product.id %>">EDITAR</a><a class="botones-admin" href="/tienda/deleteProduct/<%= product.id %>">ELIMINAR</a></p>
                         
                     <% }else{ %>
-                    <p><button>AGREGAR</button></p>
+                    <button><i class="fa-solid fa-cart-shopping"></i> AGREGAR</button>
                     <% } %>
                 </div>
             <% }) %>
