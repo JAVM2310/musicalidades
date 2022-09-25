@@ -12,6 +12,7 @@ const productsApi = require("../api/productsApi")
 router.get("/disponible/:email", api.checkearDisponibilidad)
 router.get("/users", api.users)
 router.get("/users/:id", api.userDetail)
+router.get("/resetPassword/:email", api.resetPassword)
 
 
 /************** API PRODUCTOS *****************/

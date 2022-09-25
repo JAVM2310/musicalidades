@@ -4,6 +4,10 @@ const path = require('path');
 const db = require("../database/models/index")
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
+const nodemailer = require("nodemailer")
+const enviarMail = require("../database/email")
+
+
 
 const api = {
 
@@ -67,6 +71,36 @@ const api = {
             }
         })
     },
+
+    //genera un token en la base de datos para usar en el proceso de restablecer contraseña, manda un mail con el link
+    resetPassword: (req, res) => {
+        let respuesta = {}
+        db.Usuario.findOne({
+            where:{
+                email: req.params.email
+            }
+        })
+        .then((result)=>{
+            if (result == null){
+                respuesta.mensaje = "Ese email no esta registrado"
+                return res.json(respuesta.mensaje)
+            } else {
+                let caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+                let token = "";
+                for (i = 0; i < 30; i++) {
+                    token += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+                }
+                db.PasswordReset.create({
+                    token: token,
+                    fecha: Date.now(),
+                    email: req.params.email
+                })
+                enviarMail.enviarMail(req.params.email, token)
+                respuesta.mensaje = `Enviamos un mail a ${req.params.email} para restablecer tu contraseña`
+                return res.json(respuesta.mensaje)
+            }
+        })
+    }
 }   
 
 module.exports = api

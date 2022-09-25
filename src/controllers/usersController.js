@@ -24,11 +24,9 @@ const controller = {
     loginGet: (req, res) => {
         res.render('./users/login', {titulo: "Login", error});
     },
-
     registerGet: (req, res) => {
         res.render('./users/register', {titulo: "Registro", error});
     },
-
     loginPost: (req, res) => {
         const resultValidation = validationResult(req);
         db.Usuario.findOne({
@@ -110,12 +108,10 @@ const controller = {
             })
         }
     },
-
     signOut: (req, res) => {
         delete req.session.usuariosLogueado
         res.redirect("/")
     },
-
     profile: (req, res) => {
         db.Usuario.findOne({
             where: {
@@ -126,7 +122,6 @@ const controller = {
             return res.render('./users/myprofile', {titulo: "Perfil", user: usuario.dataValues});
         })
     },
-
     modifyUser: (req, res) => {//ESTE ESTÁ OK, HAY QUE RETOCAR LA VISTA PARA QUE QUEDE MÁS BELLA
         
         db.Usuario.findByPk(req.params.id)
@@ -136,7 +131,6 @@ const controller = {
         })
 
     },
-
     profileEdition: (req, res) => {// ESTE ESTÁ OK
 
         const error = validationResult(req)
@@ -231,12 +225,10 @@ const controller = {
             return res.redirect("/")
         })
     },
-
     cambiarPasswordGet: (req, res) => {
         let idUsuario = req.session.usuariosLogueado.id
         return res.render('./users/cambiarPassword', {titulo: "Cambiar contraseña", idUsuario, error: "", errors: ""});
     },
-
     cambiarPasswordPost: (req, res) => {
         let idUsuario = req.session.usuariosLogueado.id
         const resultValidation = validationResult(req);
@@ -259,6 +251,65 @@ const controller = {
                 }
             })
         }
+    },
+    resetPasswordGet: (req, res) => {
+        res.render("./users/resetPassword",{ titulo: "Olvide mi contraseña", error})
+    },
+    generateNewPasswordGet: (req, res) => {
+        db.PasswordReset.findOne({
+            where:{
+                token: req.params.token
+            }
+        })
+        .then((result)=>{
+            email = result.dataValues.email
+            if (result.dataValues.fecha > (Date.now() - 3600000 )){
+                return res.render("./users/linkExpirado", {titulo: "Link expirado"})
+            } else {
+                let caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+                let password = "";
+                for (i = 0; i < 10; i++) {
+                    password += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+                }
+                db.Usuario.update({
+                    password: bcrypt.hashSync(password, 10)
+                },
+                {
+                    where: {
+                        email: result.dataValues.email
+                    }
+                })
+                .then((result) =>{
+                    db.PasswordReset.destroy({
+                        where:{
+                            token: req.params.token
+                        }
+                    })
+                    return res.render("./users/passwordReseteada", {titulo: "Contraseña restablecida", email, password})
+                })
+                
+            }
+        })
+    },
+    resetPasswordPost: (req, res) =>{
+        console.log("se llamo a resetPasswordPost");
+
+        let caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+        let password = "";
+        for (i = 0; i < 10; i++) {
+            password += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+        }
+        db.Usuario.update({
+            password: bcrypt.hashSync(password, 10)
+        },
+        {
+            where: {
+                email: req.body.email
+            }
+        })
+        .then((result) =>{
+            return res.render("./users/passwordReseteada", {titulo: "Contraseña restablecida", email: req.body.email, password})
+        })
     }
 };
 
