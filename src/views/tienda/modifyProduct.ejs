@@ -1,10 +1,17 @@
-<%- include('../partials/head') %>
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head') %>
 <body class="registro-body">
-    <%- include('../partials/header') %>
+    <header>
+        <nav>
+        </nav>
+    </header>
+    <section class="logoAdmin">
+        <a href="/"><img src="../img/logo-musicalidades-header.png" alt=""></a>
+    </section>
     <main>
         <article class="registro">
             <form class="form" method="POST" action="/tienda/productDetail/<%= product.id %>?_method=PUT" enctype="multipart/form-data">
-                <!--enctype="multipart/form-data"-->
                     <div class="datos">
                         <label for="categoria"><span>Categoría:</span>
                             <% if(laCategoria.length > 0){ %>
@@ -122,8 +129,8 @@
                 </form>
         </article>
     </main>
-    <%- include('../partials/footer') %><!-- 
+    <%- include('../partials/footer') %>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/js/validacionModificarProductoFront.js"></script> -->
+    <script src="/js/validacionModificarProductoFront.js"></script>
 </body>
 </html>

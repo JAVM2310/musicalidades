@@ -21,18 +21,25 @@ async function display() {
 }
 
 function displayAllProds(products) {
-    let admin = false;
+    let admin;
 
-   /*  fetch('/api/adminCheck')
-            .then(response => response.json())
-            .then(userIsAdmin => {
-                admin = userIsAdmin
-             */
+    fetch('/api/adminCheck')
+        .then(response => response.json())
+        .then(userIsAdmin => {
+            admin = userIsAdmin
+            console.log(admin)
+
                 //capturar el cartelito de VISTA DE ADMIN
                 let container = document.querySelector("main")
                 container.innerHTML= ``
-                container.innerHTML += `<h3 class="titulo">Tienda</h3>
-                <div class="volver">
+                if(admin == true){
+                    container.innerHTML += `<h2 class="titulo-admin">VISTA DE ADMINISTRACIÓN</h2>`
+                }
+                container.innerHTML += `<h3 class="titulo">Tienda</h3>`
+                if(admin== true){
+                    container.innerHTML += `<a class="botones-admin naranja" href="/tienda/newProduct">AGREGAR NUEVO PRODUCTO</a>`
+                }
+                container.innerHTML += `<div class="volver">
                 <div class="filtros">
                     <label for="filtros"><span style="text-align:right"></span>
                         <select name="filtros" id="filtros" required> 
@@ -81,7 +88,7 @@ function displayAllProds(products) {
                 let volver = document.querySelector(".volverInicio")
                 volver.innerHTML += `<a class="botones-admin blanco" href="/"><i class="fa-solid fa-arrow-rotate-left"></i> VOLVER A LA PÁGINA PRINCIPAL</a>`
 
-    /* }) */
+    })
 }
 
 

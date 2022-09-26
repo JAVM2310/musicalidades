@@ -47,8 +47,6 @@ const controller = {
                     return res.render('./users/login', {titulo: 'login', error, errors: resultValidation.mapped()});
                 }
                 
-
-
                 delete resultado.dataValues.password;
                 req.session.usuariosLogueado = resultado.dataValues;
 

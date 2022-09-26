@@ -8,9 +8,12 @@
     <%- include('./partials/header') %>
     <!-------------------------MAIN------------------------------->
     <main>
+        <% if (admin == true) { %>
+            <h2 class="titulo-admin">VISTA DE ADMINISTRACIÓN</h2>
+        <% }%>
         <section>
             <h3 class="titulo-faq">PREGUNTAS FRECUENTES</h3
-                <div class="faq-content">
+            <div class="faq-content">
                 <div class="faq-question">
                     <input id="q1" type="checkbox" class="panel">
                     <label for="q1" class="panel-title"><strong>+</strong>   Cómo compro los productos?</label>

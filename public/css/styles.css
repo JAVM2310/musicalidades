@@ -966,6 +966,19 @@ hr {
 .direccion-contacto {
     color: black;
 }
+/* logo admin */
+
+.logoAdmin {
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+
+}
+.logoAdmin img{
+    margin-top: 50px;
+    margin-bottom: -50px;
+    width: 50%;
+}
 
 /* pagina de registro */
 
@@ -1135,7 +1148,7 @@ footer .email i {
     text-align: center;
     background-color: #F9AF14;
     font-size: 1em;
-    margin: 25px 10.5em 25px 8em;
+    margin: 25px 8em;
 }
 .titulo-admin{
     background-color: blue;

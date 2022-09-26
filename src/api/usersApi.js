@@ -73,6 +73,16 @@ const api = {
     },
 
     adminCheck: (req, res) => {
+        if (req.session.usuariosLogueado) {
+            if (req.session.usuariosLogueado.permisos == 9){
+                return res.json(true)            
+            }else{
+                return res.json(false)
+
+            }
+        }else{
+            return res.json(false)
+        }
         // preguntar si estas logueado, si si,  checkaer si como admin, desp devolver true or false y   
         /* .then((result)=>{
             if (result == null){

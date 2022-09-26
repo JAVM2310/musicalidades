@@ -1,6 +1,14 @@
-<%- include('../partials/head') %>
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head') %>
 <body class="registro-body">
-    <%- include('../partials/header') %>
+    <header>
+        <nav>
+        </nav>
+    </header>
+    <section class="logoAdmin">
+        <a href="/"><img src="../img/logo-musicalidades-header.png" alt=""></a>
+    </section>
     <main>
         <article class="registro">
             <form class="form" method="POST" action="/tienda/newProduct" enctype="multipart/form-data">
@@ -111,6 +119,6 @@
     </main>
     <%- include('../partials/footer') %>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<!--     <script src="/js/validacionProductosFront.js"></script>
- --></body>
+    <script src="/js/validacionProductosFront.js"></script>  
+</body>
 </html>
