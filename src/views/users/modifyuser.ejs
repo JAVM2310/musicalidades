@@ -7,6 +7,9 @@
     <h2 style="text-align: center;"> Editar datos de <%= user.nombre%> <%=user.apellido%></h2>
     <hr>
     <main class="myProfile">
+        <% if (admin == true) { %>
+            <h2 class="titulo-admin">VISTA DE ADMINISTRACIÓN</h2>
+        <% }%>
         <span class="text-danger">
             <ul>
                 <% if (error){ %>
@@ -65,6 +68,8 @@
 </form>
 </main>
 <%- include('../partials/footer') %>
-<script src="/js/validacionModificarUsuarioFront.js"></script>
+<script src="/js/validacionModificarUsuarioFront.js"></script>    
+<script src="/js/busquedaProductos.js"></script> 
+
 </body>
 </html>

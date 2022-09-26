@@ -18,10 +18,10 @@ let admin = false
 
 const controller = {
     tiendaGet: (req, res) => {
-        db.Producto.findAll(/* {
+        /*db.Producto.findAll(/* {
             limit: 4,
             offset:4
-        } */)
+        })
         .then((result) => {
             productos = []
             result.forEach(element => {
@@ -31,14 +31,14 @@ const controller = {
                 producto.imagenes = JSON.parse(producto.imagenes)
             })
         })
-        .then(()=>{
+        .then(()=>{*/
             if (req.session.usuariosLogueado) {
                 if (req.session.usuariosLogueado.permisos == 9){
-                    return res.render('./tienda/tienda', {titulo: "Tienda", products: productos, user: req.session.usuariosLogueado, admin: true});
+                    return res.render('./tienda/tienda', {titulo: "Tienda", /* products: productos,  */user: req.session.usuariosLogueado, admin: true});
                 }
             }
-            return res.render('./tienda/tienda', {titulo: "Tienda", products: productos, user: req.session.usuariosLogueado, admin: false});
-        })
+            return res.render('./tienda/tienda', {titulo: "Tienda", /* products: productos,  */user: req.session.usuariosLogueado, admin: false});
+        /* }) */
             
     },
     productDetailGet(req, res){
@@ -72,7 +72,7 @@ const controller = {
     },
     productCartGet: (req, res) => {
 
-        res.render('./tienda/productCart', {titulo: "Carrito", user: req.session.usuariosLogueado});
+        return res.render('./tienda/productCart', {titulo: "Carrito", user: req.session.usuariosLogueado});
     },
     newProductGet: (req, res) => {
         let marcas = []
@@ -97,7 +97,7 @@ const controller = {
                 })
             })
             .then(() => {
-                res.render('./tienda/newProduct', {titulo: "Nuevo Producto", user: req.session.usuariosLogueado, marcas, laMarca, categorias, laCategoria});
+                return res.render('./tienda/newProduct', {titulo: "Nuevo Producto", user: req.session.usuariosLogueado, marcas, laMarca, categorias, laCategoria});
             })
         })
     },
@@ -131,7 +131,7 @@ const controller = {
                     })
                 })
                 .then(() => {
-                    return res.render('./tienda/newProduct', {titulo: "Nuevo Producto", user: req.session.usuariosLogueado, marcas, errors: resultValidation.mapped(), laMarca, laCategoria, categorias});
+                    return res.render('./tienda/newProduct', {titulo: "Nuevo Producto", user: req.session.usuariosLogueado, marcas, errors: resultValidation.mapped(), laMarca, laCategoria, categorias, old: req.body});
                 })
             })
         } else {
@@ -204,14 +204,13 @@ const controller = {
             .then((producto) =>{
                 productoElegido = producto.dataValues
                 productoElegido.imagenes = JSON.parse(productoElegido.imagenes)
-                res.render('./tienda/modifyProduct', {titulo: "Modificar Producto", product: productoElegido, user: req.session.usuariosLogueado, marcas, categorias, laMarca, laCategoria});
+                return res.render('./tienda/modifyProduct', {titulo: "Modificar Producto", product: productoElegido, user: req.session.usuariosLogueado, marcas, categorias, laMarca, laCategoria});
                 
             })
         })
     },
     modifyProductPost: (req, res) => {
-        console.log("log de req.body.marcaNueva");
-        console.log(req.body.marcaNueva);
+        console.log(req.files.length)
         let laMarca = req.body.marca
         let laCategoria = req.body.categoria
         var marca;
@@ -243,6 +242,44 @@ const controller = {
                     
                 })
             })
+        } 
+        let cantidadImagenes;
+        let contadorImagenesBorradas = 0
+        db.Producto.findByPk(req.params.id)
+        .then((result)=>{
+            cantidadImagenes = JSON.parse(result.dataValues.imagenes).length
+            for (i = 0 ; i < cantidadImagenes; i++){
+                if (eval("req.body.imgDel"+i) == 1){
+                    contadorImagenesBorradas += 1
+                }
+            }
+        if (cantidadImagenes == contadorImagenesBorradas && req.files.length == 0){
+            let marcas = [];
+            let categorias = [];
+            let mensajeErrorImg = "El producto debe conservar al menos 1 imagen"
+            let promesaMarcas = db.Marca.findAll({
+                order:[['nombre', 'ASC']]
+            })
+            let promesaCategorias = db.Categoria.findAll({
+                order:[['tipo', 'ASC']]
+            })
+            Promise.all([promesaMarcas, promesaCategorias])
+            .then(([resultMarcas, resultCategorias]) =>{
+                resultMarcas.forEach(element => {
+                    marcas.push(element.dataValues)
+                })
+                resultCategorias.forEach(element => {
+                    categorias.push(element.dataValues)
+                })
+            })
+            .then(()=>{
+                db.Producto.findByPk(req.params.id)
+                .then((producto) =>{
+                    productoElegido = producto.dataValues
+                    productoElegido.imagenes = JSON.parse(productoElegido.imagenes)
+                    return res.render('./tienda/modifyProduct', {titulo: "Modificar Producto", product: productoElegido, user: req.session.usuariosLogueado, marcas, categorias, errors: {images:{msg: mensajeErrorImg}}, old: req.body, laMarca, laCategoria});
+                })
+            })
         } else {
             db.Producto.findByPk(req.params.id)
             .then((result) => {
@@ -251,7 +288,7 @@ const controller = {
                 let i = 0
                 productToEdit.imagenes.forEach((element, index) => {
                     if(eval("req.body.imgDel"+i) == 1) {
-                        fs.unlink(path.join(__dirname, "../../public/img/") + element, log => console.log("se borro el archivo: " + element + " en la carpeta: " + path.join(__dirname, "../../public/img/products/")))
+                        fs.unlink(path.join(__dirname, "../../public/img/") + element, log => console.log("Se borró el archivo: " + element + " en la carpeta: " + path.join(__dirname, "../../public/img/products/")))
                         productToEdit.imagenes[index] = "deleted"
                     }
                     i +=1;
@@ -263,7 +300,6 @@ const controller = {
                     imagenesNuevas = '/products/' + req.files[i].filename;
                     productToEdit.imagenes.push(imagenesNuevas)            
                 }
-                console.log(req.body.marcaNueva);
                 if (req.body.marcaNueva == 1){
                     db.Marca.create({
                         nombre: req.body.marcaNuevaNombre
@@ -314,6 +350,7 @@ const controller = {
                 }
             })
         }
+    })
     },
     delete(req, res){
         db.Producto.findByPk(req.params.id)

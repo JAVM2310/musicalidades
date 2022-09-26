@@ -5,6 +5,9 @@
     <h2 style="text-align: center;"> Hola <i><%= user.nombre%> <%=user.apellido%> </i>!</h2>
     <hr>
     <main class="myProfile">
+        <% if (admin == true) { %>
+            <h2 class="titulo-admin">VISTA DE ADMINISTRACIÓN</h2>
+        <% }%>
         <div id="img">
             <img src="/img/<%= user.avatar %>" alt="">
         </div>
@@ -25,7 +28,9 @@
             </p>
         </div>
     </main>
-    <%- include('../partials/footer') %>
-    <!-- <script src="../js/myProfile.js"></script> -->
+    <%- include('../partials/footer') %>    
+    <script src="/js/busquedaProductos.js"></script> 
+
+    
 </body>
 </html>

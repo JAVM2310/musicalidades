@@ -36,15 +36,28 @@ const controller = {
         })
     },
     faq: (req, res) => {
-        let titulo = "FAQ"
-        res.render('faq', {titulo: titulo, user: req.session.usuariosLogueado});
+        if (req.session.usuariosLogueado) {
+            if (req.session.usuariosLogueado.permisos == 9){
+                return res.render('faq', {titulo: "FAQ", user: req.session.usuariosLogueado, admin: true});
+            }
+        }
+        return res.render('faq', {titulo: "FAQ", user: req.session.usuariosLogueado, admin: false});
     },
     quienesSomos: (req, res) => {
-        let titulo = "Quienes Somos"
-        res.render('quienes-somos', {titulo: titulo, user: req.session.usuariosLogueado});
+        if (req.session.usuariosLogueado) {
+            if (req.session.usuariosLogueado.permisos == 9){
+                return res.render('quienes-somos', {titulo: "Quienes Somos", user: req.session.usuariosLogueado, admin: true});
+            }
+        }
+        return res.render('quienes-somos', {titulo: "Quienes Somos", user: req.session.usuariosLogueado, admin: false});
     },
     contactoGet: (req, res) => {
-        res.render('contacto', {titulo: "Contacto", user: req.session.usuariosLogueado});
+        if (req.session.usuariosLogueado) {
+            if (req.session.usuariosLogueado.permisos == 9){
+                return res.render('contacto', {titulo: "Contacto", user: req.session.usuariosLogueado, admin: true});
+            }
+        }
+        return res.render('contacto', {titulo: "Contacto", user: req.session.usuariosLogueado, admin: false});
     },
     contactoPost: (req, res) => {
         let errors = validationResult(req);
@@ -55,7 +68,12 @@ const controller = {
             fs.appendFileSync(path.join(__dirname, "../../mensajes-contacto/" + req.body.email + "-" + Date.now() + ".txt"),`de parte de ${req.body.nombre}: \n ${req.body.mensaje}`)
             return res.redirect("/")
         }else{
-            return res.render('contacto', {titulo: "Contacto", errors: errors.array(), old: req.body, user: req.session.usuariosLogueado});
+            if (req.session.usuariosLogueado) {
+                if (req.session.usuariosLogueado.permisos == 9){
+                    return res.render('contacto', {titulo: "Contacto", errors: errors.array(), old: req.body, user: req.session.usuariosLogueado, admin: true});
+                }
+            }
+            return res.render('contacto', {titulo: "Contacto", errors: errors.array(), old: req.body, user: req.session.usuariosLogueado, admin: false});
         }
         
     }

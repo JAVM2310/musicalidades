@@ -14,7 +14,7 @@ module.exports = [
     body('stock').notEmpty().withMessage('Debes completar el Stock').bail().isInt({ min: 1}).withMessage('El Stock debe ser mayor a 0'),
     body('marcaNuevaNombre').custom((value, { req }) => {
         if (value == "" && req.body.marcaNueva == 1) {
-            throw new Error("Adjunte una image con formato")
+            throw new Error("Debes escribir el Nombre de la Marca Nueva")
         }else{
             return true;
         }

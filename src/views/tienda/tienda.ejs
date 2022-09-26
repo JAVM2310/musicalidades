@@ -8,78 +8,28 @@
     <%- include('../partials/header') %>
     <!-------------------------MAIN------------------------------->
     <main>
-        <% if (admin == true) { %>
-            <h2 class="titulo-admin">VISTA DE ADMINISTRACIÓN</h2>
-        <%}%>
-        <h1 class="titulo">TIENDA</h1>
-        <% if (admin == true) { %>
-            <a class="botones-admin naranja" href="/tienda/newProduct">AGREGAR NUEVO PRODUCTO</a>
-        <%}%>
-        <div class="volver">
-            <a href="/"><i class="fa-solid fa-arrow-rotate-left"></i> Volver a la Página Principal</a>
-            <p></p>
-            <div class="filtros">
-                <label for="filtros"><span style="text-align:right"></span>
-                    <select name="filtros" id="filtros" required> 
-                        <option value="Sin categoría">FILTRAR POR</option> 
-                        <option value="Cuerdas">Marcas</option>
-                        <option value="Percusión">Categorías</option>
-                        <option value="Teclas">Más Recientes</option>
-                        <option value="Vientos">Más Baratos</option>                           
-                    </select>
-                    <select name="ordenar-por" id="ordenador" required> 
-                        <option value="Sin categoría">ORDENAR POR</option> 
-                        <option value="Cuerdas">A-Z</option>
-                        <option value="Percusión">Z-A</option>
-                        <option value="Teclas">Más Recientes</option>
-                        <option value="Vientos">Más Baratos</option>
-                        <option value="Vientos">Más Caros</option>                                
-                    </select>
-            </label>
+        <section id="productos-destacados">
+        </section>
+        <div class="pagina">
+            <div class="busqueda-paginacion">
+                <ul>
+                    <li class="pagina-anterior">
+                        <span class="pagina-anterior">Anterior</span>
+                    </li>
+                    <li class="pagina-corriente">
+                        <span class="pagina-1">1 </span>
+                    </li>
+                    <li class="pagina-de-hasta">de  1</li>
+                    <li class="pagina-siguiente">
+                        <span class="titulo-flecha-sig">Siguiente</span>
+                    </li>
+                </ul>
             </div>
         </div>
-        
-        <section id="productos-destacados">
-            
-            <%products.forEach((product) => { %>
-                <div class="productos-destacados">
-                    <a href="/tienda/productDetail/<%= product.id %>"><img src="/img/<%= product.imagenes[0] %>" alt=<%= product.nombre %>></a>
-                    <h3><%= product.nombre %></h3>
-                    <% if (product.descuento > 0){ %>
-                        <span class="precio-tachado">$<%= Intl.NumberFormat('sp-SP').format(product.precio) %></span>
-                        <span class="precio">$<%= Intl.NumberFormat('sp-SP').format((product.precio * (100-product.descuento))/100) %></span>
-                        <p class="descuento"><%= product.descuento %>% OFF</p>
-                    <% } else { %>
-                        <span class="precio">$<%= Intl.NumberFormat('sp-SP').format(product.precio) %></span>
-                        <p class="descuento"></p>
-                    <% } %>
-                    <% if (admin == true) { %>
-                        <p class="p-admin"><a class="botones-admin" href="/tienda/modifyProduct/<%= product.id %>">EDITAR</a><a class="botones-admin" href="/tienda/deleteProduct/<%= product.id %>">ELIMINAR</a></p>
-                        
-                    <% }else{ %>
-                    <button><i class="fa-solid fa-cart-shopping"></i> AGREGAR</button>
-                    <% } %>
-                </div>
-            <% }) %>
-            <div class="pagina">
-                <div class="busqueda-paginacion">
-                    <ul>
-                        <li class="pagina-anterior">
-                            <span class="pagina-anterior">Anterior</span>
-                        </li>
-                        <li class="pagina-corriente">
-                            <span class="pagina-1">1 </span>
-                        </li>
-                        <li class="pagina-de-hasta">de  1</li>
-                        <li class="pagina-siguiente">
-                            <span class="titulo-flecha-sig">Siguiente</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
     </main>
     <!-------------------------FOOTER------------------------------->
     <%- include('../partials/footer') %>
+	<script src="/js/productos.js"></script> 
+	<script src="/js/busquedaProductos.js"></script> 
 </body>
 </html>
