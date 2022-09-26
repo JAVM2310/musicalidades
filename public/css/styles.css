@@ -694,12 +694,14 @@ hr {
     font-size: 1em;
     line-height: 1.5em;
 }
-.volver{
+.volver, .volverInicio{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 12px;
     text-align: center;
-    padding: 0px 0px 30px 0px;
+    margin: 25px;
+
 }
+
 .filtros {
     margin-top: 10px;
     margin-bottom: -10px;
@@ -915,7 +917,11 @@ hr {
 
 }
 
-
+.resultados-busqueda{
+    color: #000;
+    text-align: center;
+    margin-bottom: 10px;
+}
 /* pagina de contacto */
 
 
@@ -931,6 +937,7 @@ hr {
 }
 .direccion-contacto a {
     color: #000;
+    text-align: center;
 }
 .mapouter iframe {
     margin-top: 20px;
@@ -1116,7 +1123,6 @@ footer .email i {
     background-color: blue;
     color: #FFF;
     padding: 5px 20px;
-    margin-right: 10px;
     border-radius: 10px;
     font-size: 0.7em;
 }
@@ -1277,7 +1283,17 @@ footer .email i {
     width: 50px;
     height: 50px;
 }
-
+.blanco {
+    margin-top: 200px;
+    font-size: 0.7rem;
+    color: #F9AF14;
+    font-weight: normal;
+    background-color: #fff;
+}
+.blanco:hover {
+    color: #fff;
+    background-color: #F9AF14;
+}
 /* Responsive */
 
 @media (min-width: 361px) {

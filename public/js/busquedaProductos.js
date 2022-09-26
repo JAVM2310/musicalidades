@@ -1,5 +1,5 @@
 window.addEventListener('load', function() {
-    display()
+    ready()
 })
 
 async function fetchProducts() {
@@ -11,16 +11,18 @@ async function fetchProducts() {
         }
     })
     const info = await res.json()
-    console.log(info.data.productos)
     return info.data.productos
 }
 
-async function display() {
+async function ready() {
     const PRODUCTOS = await fetchProducts()
-    displayAllProds(PRODUCTOS)
+    let searchBar = document.querySelector("#buscador-menu")
+    searchBar.addEventListener("change", (event) => {
+        busqueda(event.target.value, PRODUCTOS)
+    })
 }
 
-function displayAllProds(products) {
+function displayProds(products) {
     let admin = false;
 
    /*  fetch('/api/adminCheck')
@@ -31,7 +33,8 @@ function displayAllProds(products) {
                 //capturar el cartelito de VISTA DE ADMIN
                 let container = document.querySelector("main")
                 container.innerHTML= ``
-                container.innerHTML += `<h3 class="titulo">Tienda</h3>
+                container.innerHTML += `<h3 class="titulo">Resultado de la Búsqueda</h3>
+                <div class="resultados-busqueda"><strong>${products.length}</strong> productos encontrados</div>
                 <div class="volver">
                 <div class="filtros">
                     <label for="filtros"><span style="text-align:right"></span>
@@ -45,7 +48,7 @@ function displayAllProds(products) {
                             <option value="Cuerdas">A-Z</option>
                             <option value="Percusión">Z-A</option>
                             <option value="Vientos">Más Baratos</option>
-                            <option value="Vientos">Más Caros</option>                               
+                            <option value="Vientos">Más Caros</option>                                    
                         </select>
                     </label>
                     </div>
@@ -80,21 +83,17 @@ function displayAllProds(products) {
                 })
                 let volver = document.querySelector(".volverInicio")
                 volver.innerHTML += `<a class="botones-admin blanco" href="/"><i class="fa-solid fa-arrow-rotate-left"></i> VOLVER A LA PÁGINA PRINCIPAL</a>`
-
     /* }) */
 }
 
 
+
 function busqueda(busca, products) {
-    if (busca == "") {
-        displayAllProds(products)
-    }
-    else {
+
         let filtro = products.filter(row => row.nombre.toLowerCase().includes(busca.toLowerCase()) || row.descripcion.toLowerCase().includes(busca.toLowerCase()) || row.descLarga.toLowerCase().includes(busca.toLowerCase()))
         /* filtro.sort((a,b) => {
             return a.price - b.price
         }) */
-        displayAllProds(filtro)
-    }
+        displayProds(filtro)
 }
 
