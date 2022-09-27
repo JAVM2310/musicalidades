@@ -31,14 +31,16 @@ function displayProds(products) {
         .then(userIsAdmin => {
             admin = userIsAdmin
             
+                let tituloAdmin = document.querySelector(".tituloAdmin")
+                tituloAdmin.innerHTML = ``
                 let container = document.querySelector("main")
                 container.innerHTML = ``
                 if(admin == true){
-                    container.innerHTML += `<h2 class="titulo-admin">VISTA DE ADMINISTRACIÓN</h2>
+                    tituloAdmin.innerHTML += `<h2 class="main titulo-admin">VISTA DE ADMINISTRACIÓN</h2>
                     <a class="botones-admin naranja" href="/tienda/newProduct">AGREGAR NUEVO PRODUCTO</a>`
                 }
-                container.innerHTML += `
-                <h5 class="titulo">Resultado de la Búsqueda</h5>
+                container.innerHTML += `<br/>
+                <h4 class="resultados-busqueda gray">Resultado de la Búsqueda</h4>
                 <div class="resultados-busqueda"><strong>${products.length}</strong> productos encontrados</div>
     
                 <div id="productos-destacados"></div>
@@ -84,34 +86,36 @@ function busqueda(busca, products) {
         let filtro = products.filter(row => row.nombre.toLowerCase().includes(busca.toLowerCase()) || row.descripcion.toLowerCase().includes(busca.toLowerCase()) || row.descLarga.toLowerCase().includes(busca.toLowerCase()))
         let ordenarProductos = document.querySelector("#ordenador")
         let ordenados;
-        ordenarProductos.addEventListener("change", (event) => {
-            if(event.target.value == "a-z"){
-                ordenados = filtro.sort((a,b) => {
-                    if (a.nombre < b.nombre) return -1
-                    if (a.nombre > b.nombre) return 1
-                    return 0
-                })
-            }else if (event.target.value == "z-a"){
-                ordenados = filtro.sort((a,b) => {
-                    if (a.nombre > b.nombre) return -1
-                    if (a.nombre < b.nombre) return 1
-                    return 0
-                })
-            }else if (event.target.value == "baratos"){
-                ordenados = filtro.sort((a,b) => {
-                    return a.precio - b.precio
-                })
+        if(ordenarProductos){
+            ordenarProductos.addEventListener("change", (event) => {
+                if(event.target.value == "a-z"){
+                    ordenados = filtro.sort((a,b) => {
+                        if (a.nombre < b.nombre) return -1
+                        if (a.nombre > b.nombre) return 1
+                        return 0
+                    })
+                }else if (event.target.value == "z-a"){
+                    ordenados = filtro.sort((a,b) => {
+                        if (a.nombre > b.nombre) return -1
+                        if (a.nombre < b.nombre) return 1
+                        return 0
+                    })
+                }else if (event.target.value == "baratos"){
+                    ordenados = filtro.sort((a,b) => {
+                        return a.precio - b.precio
+                    })
 
-            }else if (event.target.value == "caros"){
-                ordenados = filtro.sort((a,b) => {
-                    return b.precio - a.precio
-                })
-            }else if (event.target.value == ""){
-                ordenados = filtro
-            }
-            
-            displayProds(ordenados)
-        })
+                }else if (event.target.value == "caros"){
+                    ordenados = filtro.sort((a,b) => {
+                        return b.precio - a.precio
+                    })
+                }else if (event.target.value == ""){
+                    ordenados = filtro
+                }
+                
+                displayProds(ordenados)
+            })
+        }
         
         displayProds(filtro)
         

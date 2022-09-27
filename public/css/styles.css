@@ -409,7 +409,6 @@ main {
     text-align: center;
     color: #9D9D9D;
     border-bottom: #9D9D9D 2px solid;
-    margin-bottom: 10px;
     background-color: #FFF;
 }
 .iconos-compras {
@@ -1298,6 +1297,11 @@ footer .email i {
 .blanco:hover {
     color: #fff;
     background-color: #F9AF14;
+}
+.gray {
+    color: #FFF;
+    background-color:#F9AF14;
+    font-size: 1.1rem;
 }
 /* Responsive */
 

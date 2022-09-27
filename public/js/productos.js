@@ -83,10 +83,12 @@ function displayAllProds(products) {
         .then(userIsAdmin => {
             admin = userIsAdmin
 
+                let tituloAdmin = document.querySelector(".tituloAdmin")
+                tituloAdmin.innerHTML = ``
                 let container = document.querySelector("main")
                 container.innerHTML = ``
                 if(admin == true){
-                    container.innerHTML += `<h2 class="titulo-admin">VISTA DE ADMINISTRACIÓN</h2>
+                    tituloAdmin.innerHTML += `<h2 class="main titulo-admin">VISTA DE ADMINISTRACIÓN</h2>
                     <a class="botones-admin naranja" href="/tienda/newProduct">AGREGAR NUEVO PRODUCTO</a>`
                 }
                 container.innerHTML += `
