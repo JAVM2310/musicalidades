@@ -25,7 +25,6 @@ ol {
 }
 
 
-
 /********************* HEADER **********************/
 
 
@@ -49,6 +48,7 @@ ol {
     font-size: 20px;
     font-family: 'Roboto Condensed', 'Arial Narrow', sans-serif ;
 }
+
 
 .img-logo {
     width: 150px;
@@ -702,10 +702,14 @@ hr {
 
 }
 
+
+/***********************filtros****************************/
 .filtros {
     margin-top: 10px;
     margin-bottom: -10px;
 }
+
+
 
 .pagina{
     width: 100%;
@@ -966,19 +970,7 @@ hr {
 .direccion-contacto {
     color: black;
 }
-/* logo admin */
 
-.logoAdmin {
-    max-width: 400px;
-    margin: auto;
-    text-align: center;
-
-}
-.logoAdmin img{
-    margin-top: 50px;
-    margin-bottom: -50px;
-    width: 50%;
-}
 
 /* pagina de registro */
 

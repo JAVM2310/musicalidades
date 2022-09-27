@@ -7,29 +7,38 @@
     <!-----------------------HEADER-------------------------->
     <%- include('../partials/header') %>
     <!-------------------------MAIN------------------------------->
+    <section class="ordenYfiltros">
+        <h3 class="titulo">Tienda</h3>
+        <div class="volver">
+            <div class="filtros">
+
+                <label for="filtros">
+                    <select name="filtrarPor" class="filtrarPor" > 
+                        <option value="">FILTRAR POR</option>
+                        <optgroup class="selectCategorias" label="Categorias">
+                        </optgroup>
+                        <optgroup class="selectMarcas" label="Marcas">
+                        </optgroup>
+                    </select>
+                    <select name="ordenar-por" id="ordenador" required> 
+                        <option value="">ORDENAR POR</option> 
+                        <option value="a-z">A-Z</option>
+                        <option value="z-a">Z-A</option>
+                        <option value="baratos">Más Baratos</option>
+                        <option value="caros">Más Caros</option>                                    
+                    </select>
+                </label>
+            </div>
+        </div>
+    </section>
     <main>
         <section id="productos-destacados">
         </section>
-        <div class="pagina">
-            <div class="busqueda-paginacion">
-                <ul>
-                    <li class="pagina-anterior">
-                        <span class="pagina-anterior">Anterior</span>
-                    </li>
-                    <li class="pagina-corriente">
-                        <span class="pagina-1">1 </span>
-                    </li>
-                    <li class="pagina-de-hasta">de  1</li>
-                    <li class="pagina-siguiente">
-                        <span class="titulo-flecha-sig">Siguiente</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
     </main>
     <!-------------------------FOOTER------------------------------->
     <%- include('../partials/footer') %>
-	<script src="/js/productos.js"></script> 
-	<script src="/js/busquedaProductos.js"></script> 
+	<script src="/js/productos.js"></script>  
+	<script src="/js/busquedaProductos.js"></script><!-- 
+	<script src="/js/filtrarProductos.js"></script>  -->
 </body>
 </html>

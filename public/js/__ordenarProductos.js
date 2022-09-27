@@ -1,5 +1,5 @@
 window.addEventListener('load', function() {
-    ready()
+    cargado()
 })
 
 async function fetchProducts() {
@@ -14,17 +14,18 @@ async function fetchProducts() {
     return info.data.productos
 }
 
-async function ready() {
+
+async function cargado() {
     const PRODUCTOS = await fetchProducts()
-    let searchBar = document.querySelector("#buscador-menu")
-    searchBar.addEventListener("change", (event) => {
-        busqueda(event.target.value, PRODUCTOS)
+    /* let listCheckbox = document.querySelector("#filtros")
+    listCheckbox.multiselect(); */
+    let ordenarProductos = document.querySelector("#ordenador")
+    ordenarProductos.addEventListener("change", (event) => {
+        ordenarPor(event.target.value, PRODUCTOS)
     })
 }
 
-
 function displayProds(products) {
-    console.log(products)
     let admin;
     fetch('/api/adminCheck')
         .then(response => response.json())
@@ -32,15 +33,13 @@ function displayProds(products) {
             admin = userIsAdmin
             
                 let container = document.querySelector("main")
-                container.innerHTML = ``
+                container.innerHTML= ``
                 if(admin == true){
                     container.innerHTML += `<h2 class="titulo-admin">VISTA DE ADMINISTRACIÓN</h2>
                     <a class="botones-admin naranja" href="/tienda/newProduct">AGREGAR NUEVO PRODUCTO</a>`
                 }
                 container.innerHTML += `
-                <h5 class="titulo">Resultado de la Búsqueda</h5>
-                <div class="resultados-busqueda"><strong>${products.length}</strong> productos encontrados</div>
-    
+                
                 <div id="productos-destacados"></div>
                 <div class="volverInicio"></div>`
                 let busqueda = document.getElementById("productos-destacados")
@@ -74,47 +73,36 @@ function displayProds(products) {
     })
 }
 
-
-
-function busqueda(busca, products) {
-    if (busca == "") {
-        displayProds(products)
-    }
-    else {
-        let filtro = products.filter(row => row.nombre.toLowerCase().includes(busca.toLowerCase()) || row.descripcion.toLowerCase().includes(busca.toLowerCase()) || row.descLarga.toLowerCase().includes(busca.toLowerCase()))
-        let ordenarProductos = document.querySelector("#ordenador")
-        let ordenados;
-        ordenarProductos.addEventListener("change", (event) => {
-            if(event.target.value == "a-z"){
-                ordenados = filtro.sort((a,b) => {
-                    if (a.nombre < b.nombre) return -1
-                    if (a.nombre > b.nombre) return 1
-                    return 0
-                })
-            }else if (event.target.value == "z-a"){
-                ordenados = filtro.sort((a,b) => {
-                    if (a.nombre > b.nombre) return -1
-                    if (a.nombre < b.nombre) return 1
-                    return 0
-                })
-            }else if (event.target.value == "baratos"){
-                ordenados = filtro.sort((a,b) => {
-                    return a.precio - b.precio
-                })
-
-            }else if (event.target.value == "caros"){
-                ordenados = filtro.sort((a,b) => {
-                    return b.precio - a.precio
-                })
-            }else if (event.target.value == ""){
-                ordenados = filtro
-            }
-            
-            displayProds(ordenados)
+function ordenarPor(orden, productos) {
+    console.log(orden)
+    let ordenProductos;
+    if(orden == "a-z"){
+        ordenProductos = productos.sort((a,b) => {
+            if (a.nombre < b.nombre) return -1
+            if (a.nombre > b.nombre) return 1
+            return 0
         })
-        
-        displayProds(filtro)
-        
+    }else if (orden == "z-a"){
+        ordenProductos = productos.sort((a,b) => {
+            if (a.nombre > b.nombre) return -1
+            if (a.nombre < b.nombre) return 1
+            return 0
+        })
+    }else if (orden == "baratos"){
+        ordenProductos = productos.sort((a,b) => {
+            return a.precio - b.precio
+        })
+
+    }else if (orden == "caros"){
+        ordenProductos = productos.sort((a,b) => {
+            return b.precio - a.precio
+        })
     }
+    displayProds(ordenProductos)
 }
 
+
+/*selectElement.addEventListener('change', (event) => {
+  const result = document.querySelector('.result');
+  result.textContent = `You like ${event.target.value}`;
+});*/

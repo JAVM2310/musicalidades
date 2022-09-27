@@ -27,6 +27,8 @@ async function displayApi() {
         return 0
     })
     
+    let filtro;
+
     marcas.forEach((marca) => {
         filtrarPorMarca.innerHTML += `<option value="${marca.id}">${marca.nombre}</option>`
     })
@@ -37,40 +39,23 @@ async function displayApi() {
         if (a.nombre > b.nombre) return 1
         return 0
     })
-    categorias.forEach((categoria) => {
-        filtrarPor.innerHTML += `<option class="categoria${categoria.id}" value="${categoria.id}">${categoria.tipo}</option>`
-    })
-    let ordenarProductos = document.querySelector("#ordenador")
-    let ordenados;
-    ordenarProductos.addEventListener("change", (event) => {
-        if(event.target.value == "a-z"){
-            ordenados = API.productos.sort((a,b) => {
-                if (a.nombre < b.nombre) return -1
-                if (a.nombre > b.nombre) return 1
-                return 0
-            })
-        }else if (event.target.value == "z-a"){
-            ordenados = API.productos.sort((a,b) => {
-                if (a.nombre > b.nombre) return -1
-                if (a.nombre < b.nombre) return 1
-                return 0
-            })
-        }else if (event.target.value == "baratos"){
-            ordenados = API.productos.sort((a,b) => {
-                return a.precio - b.precio
-            })
+    categorias.forEach((categoria, i) => {
+        
+        i = document.querySelector(`.categoria${categoria.id}`)
+        console.log(i)
+        i.addEventListener("change", (event) => {
+            if(event.target.value == `${categoria.id}`){
+                filtro = API.productos.filter(row => row.categoria_id.includes(`${categoria.id}`))
+                console.log(filtro)
+                displayAllProds(filtro)
+            }
+        })
 
-        }else if (event.target.value == "caros"){
-            ordenados = API.productos.sort((a,b) => {
-                return b.precio - a.precio
-            })
-        }else if (event.target.value == ""){
-            ordenados = API.productos
-        }
-        
-        displayAllProds(ordenados)
+/*             filtrarProductos(event.target.value, API.productos)
+ */        
     })
-        
+
+    
     displayAllProds(API.productos)
 }
 
