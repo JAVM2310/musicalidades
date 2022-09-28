@@ -8,30 +8,13 @@
     <%- include('../partials/header') %>
     <!-------------------------MAIN------------------------------->
     
-    <section class="ordenYfiltros">
-        <h3 class="titulo">Tienda</h3>
-        <section class="tituloAdmin"></section>
-        <div class="volver">
-            <div class="filtros">
-                <label for="filtros">
-                    <select name="filtrarPor" class="filtrarPor" > 
-                        <option value="">FILTRAR POR</option>
-                        <optgroup class="selectCategorias" label="Categorias">
-                        </optgroup>
-                        <optgroup class="selectMarcas" label="Marcas">
-                        </optgroup>
-                    </select>
-                    <select name="ordenar-por" id="ordenador" required> 
-                        <option value="">ORDENAR POR</option> 
-                        <option value="a-z">A-Z</option>
-                        <option value="z-a">Z-A</option>
-                        <option value="baratos">Más Baratos</option>
-                        <option value="caros">Más Caros</option>                                    
-                    </select>
-                </label>
-            </div>
-        </div>
+    <section class="tituloAdmin">
+        <% if (admin == true) { %>
+            <h2 class="titulo-admin">VISTA DE ADMINISTRACIÓN</h2>
+            <a class="botones-admin naranja" href="/tienda/newProduct">AGREGAR NUEVO PRODUCTO</a>
+        <% }%>
     </section>
+    <section class="ordenYfiltros"></section>
     
     <main>
         <section id="productos-destacados">
@@ -40,7 +23,6 @@
     <!-------------------------FOOTER------------------------------->
     <%- include('../partials/footer') %>
 	<script src="/js/productos.js"></script>  
-	<script src="/js/busquedaProductos.js"></script><!-- 
-	<script src="/js/filtrarProductos.js"></script>  -->
+	<script src="/js/busquedaProductos.js"></script>
 </body>
 </html>

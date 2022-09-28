@@ -7,10 +7,14 @@
     <!-----------------------HEADER-------------------------->
     <%- include('./partials/header') %>
     <!-------------------------MAIN------------------------------->
-    <main>
+    
+    <section class="tituloAdmin">
         <% if (admin == true) { %>
             <h2 class="titulo-admin">VISTA DE ADMINISTRACIÓN</h2>
         <% }%>
+    </section>
+    <section class="ordenYfiltros"></section>
+    <main>
         <section class="quienes-somos">
             <h3>QUIENES SOMOS</h3>
             <div class="container">

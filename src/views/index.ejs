@@ -7,11 +7,15 @@
     <!-----------------------HEADER-------------------------->
     <%- include('./partials/header') %>
     <!-------------------------MAIN------------------------------->
-    <main>
+    <section class="tituloAdmin">
         <% if (admin == true) { %>
             <h2 class="titulo-admin">VISTA DE ADMINISTRACIÓN</h2>
             <a class="botones-admin naranja" href="/tienda/newProduct">AGREGAR NUEVO PRODUCTO</a>
         <% }%>
+    </section>
+    <section class="ordenYfiltros"></section>
+    <main>
+        
         <section class="section-carousel">
             <div class="carousel">
                 <div class="carousel-inner">

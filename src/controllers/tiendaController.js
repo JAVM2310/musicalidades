@@ -71,8 +71,13 @@ const controller = {
         })
     },
     productCartGet: (req, res) => {
+        if (req.session.usuariosLogueado) {
+            if (req.session.usuariosLogueado.permisos == 9){
+                return res.render('./tienda/productCart', {titulo: "Carrito", user: req.session.usuariosLogueado, admin: true});
+            }
+        }
 
-        return res.render('./tienda/productCart', {titulo: "Carrito", user: req.session.usuariosLogueado});
+        return res.render('./tienda/productCart', {titulo: "Carrito", user: req.session.usuariosLogueado, admin: false});
     },
     newProductGet: (req, res) => {
         let marcas = []
