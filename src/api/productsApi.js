@@ -5,6 +5,7 @@ const db = require("../database/models/index")
 const Sequelize = require('sequelize');
 const { indexOf } = require('../middlewares/validacionProductosBack');
 const Op = Sequelize.Op;
+const { validationResult } = require("express-validator");
 
 const productsApi = {
 
@@ -88,6 +89,120 @@ const productsApi = {
             }else{
                 return res.json("No se encontró el producto en la Base de Datos")
             }
+        })
+    },
+
+    agregarCarrito: (req, res)=>{
+        console.log("arranca la funcion");
+        console.log("log de req.body");
+        console.log(req.body);
+        console.log(req.session.usuariosLogueado.id);
+        const resultValidation = validationResult(req);
+        console.log(resultValidation);
+        if (resultValidation.errors.length > 0) {
+            return res.json("Ocurrio un error, velva a intentarlo")
+        } else {
+            db.ProductoUsuario.create({
+                cantidad: req.body.cantidad,
+                producto_id: req.body.productoId,
+                usuario_id: req.session.usuariosLogueado.id
+            })
+            .then(()=>{
+                return res.json(`Agregamos el producto a tu carrito`)
+            })
+        }
+    },
+    listaCarrito: (req,res)=>{
+        let listaCarrito = [];
+        let listaProd = [];
+        let productosEnCarrito = []
+        let infoUsuario = {}
+        db.ProductoUsuario.findAll({
+            where:{
+                usuario_id: req.session.usuariosLogueado.id
+            }
+        })
+        .then((result)=>{
+            result.map(entrada =>{
+                listaCarrito.push(entrada.dataValues)
+            })
+            listaCarrito.forEach(entrada =>{
+                listaProd.push(entrada.producto_id)
+            })
+            db.Producto.findAll({
+                where:{
+                    id: {[Op.in]: listaProd}
+                }
+            })
+            .then(result =>{
+                result.map(producto =>{
+                    productosEnCarrito.push(producto.dataValues)
+                })
+                listaCarrito.forEach((entrada, i) =>{
+                    productosEnCarrito[i].cantidadEnCarrito = entrada.cantidad
+                    productosEnCarrito[i].imagenes = JSON.parse(productosEnCarrito[i].imagenes )
+                })
+                db.Usuario.findByPk(req.session.usuariosLogueado.id)
+                .then(result =>{
+                    delete result.dataValues.password
+                    delete result.dataValues.permisos
+                    infoUsuario = result.dataValues
+                    return res.json({productosEnCarrito, infoUsuario})
+                })
+            })
+        })
+    },
+    sacarCarrito: (req, res)=>{
+        db.ProductoUsuario.destroy({
+            where:{
+                usuario_id: req.session.usuariosLogueado.id,
+                producto_id: req.body.id
+            }
+        })
+        .then(()=>{
+            return res.json("Ocurrio un error, velva a intentarlo")
+        })
+    },
+    comprar: (req, res) =>{
+        let mensajeRespuesta = ""
+        console.log("arranca la funcion comprar");
+        console.log("log de req.body");
+        let compra = {monto: 0}
+        console.log(req.body);
+        let listaProd = []
+        req.body.productosAComprar.map(element =>{
+            listaProd.push(element.id)
+        })
+        console.log("log de listaProd");
+        console.log(listaProd);
+        let promesaProductos = db.Producto.findAll({
+            where:{
+                id: {[Op.in]: listaProd}
+            }
+        })
+        Promise.all([promesaProductos])
+        .then(([resultProductos])=>{
+            resultProductos.map((product, i) =>{
+                if (product.descuento > 0) {
+                    compra.monto += (product.dataValues.precio * (100-product.dataValues.descuento)/100) * req.body.productosAComprar[i].cantidad
+                    mensajeRespuesta += product.dataValues.nombre + " x" + req.body.productosAComprar[i].cantidad + ", "
+                } else {
+                    compra.monto += product.dataValues.precio * req.body.productosAComprar[i].cantidad
+                }
+            })
+            compra.comprador_id = req.session.usuariosLogueado.id
+            db.Venta.create(compra)
+            .then(result =>{
+                db.ProductoUsuario.destroy({
+                    where:{
+                        usuario_id: req.session.usuariosLogueado.id
+                    }
+                })
+                resultProductos.forEach((producto, i) =>{
+                    db.Producto.update({stock: producto.stock - req.body.productosAComprar[i].cantidad},{where:{id: producto.id}})
+                })
+                return res.json(`se realizo tu compra de ${mensajeRespuesta} el total de la compra es de ${Intl.NumberFormat("sp-SP").format((compra.monto + 1000))}. Se enviara a ${req.body.infoUsuarioCarrito.ciudad}, ${req.body.infoUsuarioCarrito.provincia}, ${req.body.infoUsuarioCarrito.direccion}`)
+            })
         })
     },
 }   

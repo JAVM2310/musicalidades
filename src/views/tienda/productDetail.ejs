@@ -95,7 +95,7 @@
                         <% } %>
                         
                     </form>
-                    <p class="stock">Stock: <%= product.stock %></p>
+                    <span class="stock">Stock: <span class="stock" id="stockCantidad"><%= product.stock %></span></span>
                 </article>
                 <article class="producto-descripcion">
                     <div>
@@ -112,5 +112,6 @@
     <%- include('../partials/footer') %>
     <script src="/js/jsDetalleProducto.js"></script>    
     <script src="/js/busquedaProductos.js"></script> 
+    <script src="/js/detalleProductoCarrito.js"></script>
 </body>
 </html>

@@ -55,6 +55,13 @@ CREATE TABLE `musicalidades`.`passwordreset` (
 	email TEXT NOT NULL,
   PRIMARY KEY (id)
 );
+CREATE TABLE `musicalidades`.`ventas` (
+  id INT NOT NULL AUTO_INCREMENT,
+  `monto` INT NOT NULL,
+  `comprador_id` INT NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (comprador_id) REFERENCES musicalidades.usuarios(id)
+);
 
 
 ALTER TABLE musicalidades.productos
