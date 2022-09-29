@@ -25,7 +25,6 @@ ol {
 }
 
 
-
 /********************* HEADER **********************/
 
 
@@ -49,6 +48,7 @@ ol {
     font-size: 20px;
     font-family: 'Roboto Condensed', 'Arial Narrow', sans-serif ;
 }
+
 
 .img-logo {
     width: 150px;
@@ -409,7 +409,6 @@ main {
     text-align: center;
     color: #9D9D9D;
     border-bottom: #9D9D9D 2px solid;
-    margin-bottom: 10px;
     background-color: #FFF;
 }
 .iconos-compras {
@@ -702,10 +701,14 @@ hr {
 
 }
 
+
+/***********************filtros****************************/
 .filtros {
     margin-top: 10px;
     margin-bottom: -10px;
 }
+
+
 
 .pagina{
     width: 100%;
@@ -966,19 +969,7 @@ hr {
 .direccion-contacto {
     color: black;
 }
-/* logo admin */
 
-.logoAdmin {
-    max-width: 400px;
-    margin: auto;
-    text-align: center;
-
-}
-.logoAdmin img{
-    margin-top: 50px;
-    margin-bottom: -50px;
-    width: 50%;
-}
 
 /* pagina de registro */
 
@@ -1306,6 +1297,11 @@ footer .email i {
 .blanco:hover {
     color: #fff;
     background-color: #F9AF14;
+}
+.gray {
+    color: #FFF;
+    background-color:#F9AF14;
+    font-size: 1.1rem;
 }
 /* Responsive */
 

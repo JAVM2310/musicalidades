@@ -71,41 +71,13 @@ const controller = {
         })
     },
     productCartGet: (req, res) => {
-       /*  let listaCarrito = [];
-        let listaProd = [];
-        let productosEnCarrito = []
-        db.ProductoUsuario.findAll({
-            where:{
-                usuario_id: req.session.usuariosLogueado.id
+        if (req.session.usuariosLogueado) {
+            if (req.session.usuariosLogueado.permisos == 9){
+                return res.render('./tienda/productCart', {titulo: "Carrito", user: req.session.usuariosLogueado, admin: true});
             }
-        })
-        .then((result)=>{
-            result.map(entrada =>{
-                listaCarrito.push(entrada.dataValues)
-            })
-            console.log(listaCarrito);
-            listaCarrito.forEach(entrada =>{
-                listaProd.push(entrada.producto_id)
-            })
-            console.log(listaProd);
-            db.Producto.findAll({
-                where:{
-                    id: {[Op.in]: listaProd}
-                }
-            })
-            .then(result =>{
-                result.map(producto =>{
-                    productosEnCarrito.push(producto.dataValues)
-                })
-                console.log(productosEnCarrito);
-                listaCarrito.forEach((entrada, i) =>{
-                    productosEnCarrito[i].cantidadEnCarrito = entrada.cantidad
-                    productosEnCarrito[i].imagenes = JSON.parse(productosEnCarrito[i].imagenes )
-                })
-                console.log(productosEnCarrito);
-            })
-        }) */
-        return res.render('./tienda/productCart', {titulo: "Carrito", user: req.session.usuariosLogueado});
+        }
+
+        return res.render('./tienda/productCart', {titulo: "Carrito", user: req.session.usuariosLogueado, admin: false});
     },
     newProductGet: (req, res) => {
         let marcas = []

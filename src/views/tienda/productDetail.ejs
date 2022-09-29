@@ -7,10 +7,13 @@
     <!-----------------------HEADER-------------------------->
     <%- include('../partials/header') %>
     <!-------------------------MAIN------------------------------->
-    <main>
+    <section class="tituloAdmin">
         <% if (admin == true) { %>
             <h2 class="titulo-admin">VISTA DE ADMINISTRACIÓN</h2>
-        <%}%>
+        <% }%>
+    </section>
+    <section class="ordenYfiltros"></section>
+    <main>
         <h4 class="titulo-nav-paginas">> Categoría: <%= categoria %> <span>> Marca: <%= marca %> <span>> <%= product.nombre %></span></h4>
         <section class="producto">
             
@@ -110,7 +113,7 @@
     </main>
     <!-------------------------FOOTER------------------------------->
     <%- include('../partials/footer') %>
-    <script src="/js/jsDetalleProducto.js"></script>    
+    <script src="/js/imgsDetalleProducto.js"></script>    
     <script src="/js/busquedaProductos.js"></script> 
     <script src="/js/detalleProductoCarrito.js"></script>
 </body>

@@ -2,13 +2,10 @@
 <html lang="en">
     <%- include('../partials/head') %>
 <body class="registro-body">
-    <header>
-        <nav>
-        </nav>
+    <header class="header">
+    <!-- LOGO -->
+        <a href="/"><p class="logo"><img class="img-logo" src="/img/logo-musicalidades-header.png" alt="logo musicalidades"></p></a>
     </header>
-    <section class="logoAdmin">
-        <a href="/"><img src="../img/logo-musicalidades-header.png" alt=""></a>
-    </section>
     <main>
         <article class="registro">
             <form class="form" method="POST" action="/tienda/productDetail/<%= product.id %>?_method=PUT" enctype="multipart/form-data">
