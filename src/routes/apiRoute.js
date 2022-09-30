@@ -10,6 +10,8 @@ const productsApi = require("../api/productsApi")
 /************** VALIDACIONES *****************/
 
 const validacionAgregarCarrito = require("../middlewares/validacionAgregarCarritoBack")
+const validacionSacarCarrito = require("../middlewares/validacionSacarCarritoBack")
+const validacionComprarCarrito = require("../middlewares/validacionComprarCarritoBack")
 
 /************************** MIDDLEWARES *********************/
 const authMiddleware = require('../middlewares/authMiddleware.js');
@@ -30,9 +32,9 @@ router.get("/resetPassword/:email", api.resetPassword)
 router.get("/products", productsApi.listadoProductos)
 router.get("/products/:id", productsApi.detalleProducto)
 router.post("/agregarCarrito", validacionAgregarCarrito, productsApi.agregarCarrito)
-router.get("/listaCarrito", authMiddleware, productsApi.listaCarrito)
-router.post("/sacarCarrito", productsApi.sacarCarrito)
-router.post("/comprarCarrito", productsApi.comprar)
+router.get("/listaCarrito", productsApi.listaCarrito)
+router.post("/sacarCarrito", validacionSacarCarrito, productsApi.sacarCarrito)
+router.post("/comprarCarrito", validacionComprarCarrito, productsApi.comprar)
 
 
 module.exports = router

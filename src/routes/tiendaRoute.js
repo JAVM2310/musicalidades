@@ -66,7 +66,7 @@ const tiendaController = require ('../controllers/tiendaController');
 router.get('/', tiendaController.tiendaGet);
 router.get('/productDetail/:id', tiendaController.productDetailGet);
 
-router.get('/productCart', authMiddleware, tiendaController.productCartGet);
+router.get('/productCart', tiendaController.productCartGet);
 
 router.get("/newProduct", adminMiddleware, tiendaController.newProductGet);
 router.post("/newProduct", uploadFile.array('images'), validacionProductos, tiendaController.newProductPost);
