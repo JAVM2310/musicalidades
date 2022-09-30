@@ -102,6 +102,7 @@
                     <p></p>
                     <% if (product.stock == 1) { %>
                     <span class="stock">Último en Stock!</span>
+                    <span class="stock" style="display:none">Stock: <span class="stock" id="stockCantidad"><%= product.stock %></span>
                     <%}%>
                     <%if (product.stock > 1){%>
                         <span class="stock">Stock: <span class="stock" id="stockCantidad"><%= product.stock %></span>

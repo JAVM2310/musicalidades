@@ -11,9 +11,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             allowNull: false
         },
-        comprador_id: {
-            type: dataTypes.INTEGER
-        }
+        infoenvio: {
+            type: dataTypes.STRING(200),
+            allowNull: false
+        },
     };
     let config = {
         tableName: 'ventas',
