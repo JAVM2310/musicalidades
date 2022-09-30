@@ -2,10 +2,17 @@
 <html lang="en">
     <%- include('../partials/head') %>
 <body class="registro-body">
-    <header class="header">
-    <!-- LOGO -->
-        <a href="/"><p class="logo"><img class="img-logo" src="/img/logo-musicalidades-header.png" alt="logo musicalidades"></p></a>
+    <header>
+        <nav>
+        </nav>
     </header>
+    <section class="login">
+        <section class="registro">
+        <!-- LOGO -->
+            <a href="/"><p class="logo centro"><img class="img-logo" src="/img/logo-musicalidades-header.png" alt="logo musicalidades"><!--MUSICALIDADES--></p></a>
+        </section>
+        <h2 class="titulo-admin">MODIFICAR PRODUCTO: <i><%=product.nombre%></i></h2>
+    </section>
     <main>
         <article class="registro">
             <form class="form" method="POST" action="/tienda/productDetail/<%= product.id %>?_method=PUT" enctype="multipart/form-data">
@@ -126,7 +133,7 @@
                 </form>
         </article>
     </main>
-    <%- include('../partials/footer') %>
+    <div class="margen-logo"></div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/validacionModificarProductoFront.js"></script>
 </body>

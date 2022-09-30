@@ -133,10 +133,10 @@ window.addEventListener('load', function() {
 
         /* validación stock */
         if(!isNaN(stock)){
-            stockLabel.innerHTML += '<p class="error">El % de Descuento debe ser un número</p>';
+            stockLabel.innerHTML += '<p class="error">El Stock debe ser un número</p>';
             errores++;
-        }else if(stock.value < 0){
-            stockLabel.innerHTML += '<p class="error">El Stock debe ser un número mayor o igual a 0</p>';
+        }else if(stock.value <= 0){
+            stockLabel.innerHTML += '<p class="error">El Stock debe ser un número mayor 0</p>';
             errores++;
         }
 

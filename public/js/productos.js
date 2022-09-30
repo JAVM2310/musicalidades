@@ -190,7 +190,20 @@ async function funcionesSelect(API) {
 }
 
 
+
+
 function displayAllProds(products) {
+    let productosPerPag = 20;
+    let cantPags = products.length / productosPerPag;
+    if(!Number.isInteger(cantPags)){
+        cantPags = parseInt(cantPags+1)
+    }
+    let allPages = [];
+    for(i=1; i<=cantPags; i++){
+        allPages.push(i)
+    }
+    let currentPage = 1;
+
     let admin;
 
     fetch('/api/adminCheck')
@@ -216,7 +229,12 @@ function displayAllProds(products) {
                 <div id="productos-destacados"></div>
                 <div class="volverInicio"></div>`
                 let busqueda = document.getElementById("productos-destacados")
+
+
                 products.forEach((product, i) => {
+
+
+
                     busqueda.innerHTML += `<div class="productos-destacados" id="productos-destacados${i}"></div>`
                     let cadaProductoContainer = document.getElementById(`productos-destacados${i}`)
                     cadaProductoContainer.innerHTML += `
@@ -240,26 +258,74 @@ function displayAllProds(products) {
                     }else{ 
                         cadaProductoContainer.innerHTML += `<button><i class="fa-solid fa-cart-shopping"></i> AGREGAR</button>`
                     } 
+
                 })
                 container.innerHTML += `<div class="pagina">
                 <div class="busqueda-paginacion">
                     <ul>
                         <li class="pagina-anterior">
-                            <span class="pagina-anterior">Anterior</span>
+                            <span class="titulo-flecha-ant"></span>
                         </li>
-                        <li class="pagina-corriente">
-                            <span class="pagina-1">1 </span>
+                        <li class="pagina-actual">
                         </li>
-                        <li class="pagina-de-hasta">de  1</li>
+                        <li class="pagina-de-hasta"></li>
                         <li class="pagina-siguiente">
-                            <span class="titulo-flecha-sig">Siguiente</span>
+                            <span class="titulo-flecha-sig"></span>
                         </li>
                     </ul>
                 </div>
             </div>`
                 let volver = document.querySelector(".volverInicio")
                 volver.innerHTML += `<a class="botones-admin blanco" href="/tienda"><i class="fa-solid fa-arrow-rotate-left"></i> VOLVER A LA TIENDA</a>`
+                
+                
+                
+                let prevPage =  document.querySelector(".titulo-flecha-ant")
+                let totalPags = document.querySelector(".pagina-de-hasta")
+                let paginaActual = document.querySelector(".pagina-actual")
+                paginaActual.innerHTML = `<span>${currentPage}</span>`
+                
+                totalPags.innerHTML = `<span>de ${cantPags}</span>`
 
+
+                let nextPage =  document.querySelector(".titulo-flecha-sig")
+                nextPage.innerHTML = `<button class="link">Siguiente</button>`
+                if(cantPags == 1){
+                    nextPage.innerHTML = `<span class="white">Siguiente</span>`
+                    }
+                prevPage.innerHTML = `<span class="white">Anterior</span>`
+
+
+                let nextPageEvent = function(){
+                    currentPage = currentPage+1
+                    if(currentPage <= allPages.length){
+                        prevPage.addEventListener("click", prevPageEvent)
+                        paginaActual.innerHTML = `<span>${currentPage}</span>`
+                        prevPage.innerHTML = `<button class="link">Anterior</button>`
+                        if(currentPage == allPages.length){
+                            nextPage.innerHTML = `<span class="white">Siguiente</span>`
+                            nextPage.removeEventListener("click", nextPageEvent)
+                        }
+                    }
+                }
+
+                nextPage.addEventListener("click", nextPageEvent)
+                
+                let prevPageEvent = function(){
+                    currentPage = currentPage-1
+                    paginaActual.innerHTML = `<span>${currentPage}</span>`
+                    
+                    nextPage.addEventListener("click", nextPageEvent)
+                    if(currentPage-1 > 1){
+                        paginaActual.innerHTML = `<span>${currentPage}</span>`
+                        nextPage.innerHTML = `<button class="link">Siguiente</button>`
+                    }
+                    if(currentPage == 1 && cantPags != 1){
+                        prevPage.innerHTML = `<span class="white">Anterior</span>`
+                        nextPage.innerHTML = `<button class="link">Siguiente</button>`
+                        prevPage.removeEventListener("click", prevPageEvent)
+                    }
+                }
     })
 }
 

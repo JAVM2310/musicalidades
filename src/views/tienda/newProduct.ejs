@@ -2,10 +2,17 @@
 <html lang="en">
     <%- include('../partials/head') %>
 <body class="registro-body">
-    <header class="header">
+    <header>
+        <nav>
+        </nav>
+    </header>
+    <section class="login">
+        <section class="registro">
         <!-- LOGO -->
             <a href="/"><p class="logo centro"><img class="img-logo" src="/img/logo-musicalidades-header.png" alt="logo musicalidades"><!--MUSICALIDADES--></p></a>
-        </header>
+        </section>
+        <h2 class="titulo-admin">AGREGAR NUEVO PRODUCTO</h2>
+    </section>
     <main>
         <article class="registro">
             <form class="form" method="POST" action="/tienda/newProduct" enctype="multipart/form-data">
@@ -114,7 +121,7 @@
             </form>
         </article>
     </main>
-    <%- include('../partials/footer') %>
+    <div class="margen-logo"></div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/validacionProductosFront.js"></script>  
 </body>

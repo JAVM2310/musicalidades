@@ -98,7 +98,10 @@
                         <p class="descuento"></p>
                     <% } %>
                     <% if (admin == true) { %>
-                        <p class="p-admin"><a class="botones-admin" href="/tienda/modifyProduct/<%= product.id %>">EDITAR</a><a class="botones-admin" href="/tienda/deleteProduct/<%= product.id %>">ELIMINAR</a></p>
+                        <p class="p-admin">
+                            <a class="botones-admin" href="/tienda/modifyProduct/<%= product.id %>">EDITAR</a>
+                            <span id="botonEliminar" ><a class="botones-admin" onclick="confirmarEliminar(e)" href="/tienda/deleteProduct/<%= product.id %>">ELIMINAR</a></span>
+                        </p>
                         
                     <% }else{ %>
                     <button><i class="fa-solid fa-cart-shopping"></i> AGREGAR</button>
@@ -109,6 +112,9 @@
     </main>
     <!-------------------------FOOTER------------------------------->
     <%- include('./partials/footer') %>
+    
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/busquedaProductos.js"></script> 
+    <script src="/js/eliminarProducto.js"></script> 
 </body>
 </html>

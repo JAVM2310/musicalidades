@@ -3,7 +3,6 @@ window.addEventListener('load', function() {
     let imgsCarousel = document.querySelectorAll(".imgsCarousel .imgsDiv")
     console.log(imgsCarousel)
     for(let div of imgsCarousel){
-        console.log(div)
         if(div.id == ""){ 
             div.remove();
         }
@@ -11,6 +10,7 @@ window.addEventListener('load', function() {
 
     let imgsThumbnails = document.querySelectorAll(".carousel-indicadores li")
     for(let thumbnail of imgsThumbnails){
+        console.log(thumbnail)
         if(thumbnail.id == ""){ 
             thumbnail.remove();
         }

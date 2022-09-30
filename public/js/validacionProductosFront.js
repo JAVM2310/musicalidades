@@ -130,8 +130,8 @@ window.addEventListener('load', function() {
         if(!isNaN(stock) || stock.value == ""){
             stockLabel.innerHTML += '<p class="error">Debe ingresar un número en Stock</p>';
             errores++;
-        }else if(stock.value < 0){
-            stockLabel.innerHTML += '<p class="error">El Stock debe ser un número mayor o igual a 0</p>';
+        }else if(stock.value <= 0){
+            stockLabel.innerHTML += '<p class="error">El Stock debe ser un número mayor a 0</p>';
             errores++;
         }
 

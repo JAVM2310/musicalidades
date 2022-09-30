@@ -401,6 +401,14 @@ main {
     font-weight: bold;
 }
 
+.link{
+    color: #515151;
+    font-weight: bold;
+    border: 0px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
 
 /****************ICONOS DE COMPRAS*************************/
 .titulo{
@@ -692,6 +700,7 @@ hr {
     color: black;
     font-size: 1em;
     line-height: 1.5em;
+    margin: 0px;
 }
 .volver, .volverInicio{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -713,7 +722,7 @@ hr {
 .pagina{
     width: 100%;
 }
-.busqueda-paginacion ul {
+.busqueda-paginacion ul{
     width: 100%;
     color: rgba(0,0,0,.45);
     display: flex;
@@ -721,21 +730,10 @@ hr {
     margin: 12px 0;
     flex-wrap: wrap;
 }
-.pagina-anterior{
+.pagina-anterior, .pagina-actual, .pagina-de-hasta, .pagina-siguiente{
     width: auto;
     padding: 6px;
-}
-.pagina-corriente{
-    width: auto;
-    padding: 6px;
-}    
-.pagina-de-hasta{
-    width: auto;
-    padding: 6px;
-}    
-.pagina-siguiente{
-    width: auto;
-    padding: 6px;
+    color: #515151;
 }
 .carrito .boton-enviar{
     width: 160px;
@@ -980,9 +978,18 @@ hr {
 
 .registro {
     max-width: 400px;
-    margin: 10vh auto 10vh;
+    margin: auto;
     text-align: center;
+    margin-top: 30px;
 }
+.registro .logo{
+
+    margin-bottom: 30px;
+}
+.margen-logo{
+    margin: 50px;
+}
+
 
 .registro img{
     width: 50%;
@@ -1302,6 +1309,9 @@ footer .email i {
     color: #FFF;
     background-color:#F9AF14;
     font-size: 1.1rem;
+}
+.white {
+    color: lightgray;
 }
 /* Responsive */
 
