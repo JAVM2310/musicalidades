@@ -13,6 +13,7 @@
             <a class="botones-admin naranja" href="/tienda/newProduct">AGREGAR NUEVO PRODUCTO</a>
         <% }%>
     </section>
+    <section class="busquedaTitulo"></section>
     <section class="ordenYfiltros"></section>
     <main>
         
@@ -100,7 +101,7 @@
                     <% if (admin == true) { %>
                         <p class="p-admin">
                             <a class="botones-admin" href="/tienda/modifyProduct/<%= product.id %>">EDITAR</a>
-                            <span id="botonEliminar" ><a class="botones-admin" onclick="confirmarEliminar(e)" href="/tienda/deleteProduct/<%= product.id %>">ELIMINAR</a></span>
+                            <span id="botonEliminar" ><a class="botones-admin-eliminar" id="/tienda/deleteProduct/<%= product.id %>" rel="<%= product.nombre %>">ELIMINAR</a></span>
                         </p>
                         
                     <% }else{ %>
@@ -110,6 +111,7 @@
             <% }}) %>
         </section>
     </main>
+    <div class="pagina" id="paginado-tienda"></div>
     <!-------------------------FOOTER------------------------------->
     <%- include('./partials/footer') %>
     

@@ -1130,14 +1130,14 @@ footer .email i {
     display: flex;
     padding-top: -100px;
 }
-.botones-admin{
+.botones-admin, .botones-admin-eliminar{
     background-color: blue;
     color: #FFF;
     padding: 5px 20px;
     border-radius: 10px;
     font-size: 0.7em;
 }
-.botones-admin:hover{
+.botones-admin:hover, .botones-admin-eliminar:hover{
     background-color:#9D9D9D;
     cursor: pointer;
 }
@@ -1342,6 +1342,11 @@ footer .email i {
     .productos-destacados {
         max-width: 50%;
     }
+    #productos-destacados
+    {
+        padding-right: 8%;
+        padding-left: 8%;
+    }
     .productos-destacados img {
         width: 165px;
         height: 165px;
@@ -1417,8 +1422,8 @@ footer .email i {
     }
     #productos-destacados
     {
-        padding-right: 4%;
-        padding-left: 4%;
+        padding-right: 5%;
+        padding-left: 5%;
     }
     .header,
     footer {

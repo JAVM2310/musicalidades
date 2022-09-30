@@ -12,6 +12,7 @@
             <h2 class="titulo-admin">VISTA DE ADMINISTRACIÓN</h2>
         <% }%>
     </section>
+    <section class="busquedaTitulo"></section>
     <section class="ordenYfiltros"></section>
     <main>
         <h4 class="titulo-nav-paginas">> Categoría: <%= categoria %> <span>> Marca: <%= marca %> <span>> <%= product.nombre %></span></h4>
@@ -63,7 +64,7 @@
                 
             <div class="cont-producto-descripcion">
                 <% if (admin == true) { %>
-                    <p class="p-admin"><a class="botones-admin" href="/tienda/modifyProduct/<%= product.id %>">EDITAR</a><a class="botones-admin" href="/tienda/deleteProduct/<%= product.id %>">ELIMINAR</a></p>
+                    <p class="p-admin"><a class="botones-admin" href="/tienda/modifyProduct/<%= product.id %>">EDITAR</a><a class="botones-admin-eliminar" id="/tienda/deleteProduct/<%= product.id %>" rel="<%= product.nombre %>">ELIMINAR</a></p>
                 <% }%> 
                 <article class="producto-descripcion">
                     <h2><%= product.nombre%></h2>
@@ -117,11 +118,14 @@
                 </article>
             </div>
         </section>
-    </main>
+    </main>    
+    <div class="pagina" id="paginado-tienda"></div>
     <!-------------------------FOOTER------------------------------->
     <%- include('../partials/footer') %>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/imgsDetalleProducto.js"></script>    
-    <script src="/js/busquedaProductos.js"></script>        
+    <script src="/js/busquedaProductos.js"></script>
+    <script src="/js/eliminarProducto.js"></script>         
     <% if (admin == false) { %>
         <script src="/js/detalleProductoCarrito.js"></script>
     <%}%>

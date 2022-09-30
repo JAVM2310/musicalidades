@@ -23,25 +23,115 @@ async function ready() {
     })
 }
 
+function displayProdsPorPag(products) {
+    let productosPerPag = 15;
+    let cantPags = products.length / productosPerPag;
+    if(!Number.isInteger(cantPags)){
+        cantPags = parseInt(cantPags+1)
+    }
+    let allPages = [];
+    for(i=1; i<=cantPags; i++){
+        allPages.push(i)
+    }
+    let currentPage = 1;
+
+    let paginado = document.getElementById("paginado-tienda")
+    paginado.innerHTML = `
+    <div class="busqueda-paginacion">
+        <ul>
+            <li class="pagina-anterior">
+                <span class="titulo-flecha-ant"></span>
+            </li>
+            <li class="pagina-actual">
+            </li>
+            <li class="pagina-de-hasta"></li>
+            <li class="pagina-siguiente">
+                <span class="titulo-flecha-sig"></span>
+            </li>
+        </ul>
+    </div>`
+
+    let prevPage =  document.querySelector(".titulo-flecha-ant")
+    let totalPags = document.querySelector(".pagina-de-hasta")
+    let paginaActual = document.querySelector(".pagina-actual")
+    paginaActual.innerHTML = `<span>${currentPage}</span>`
+    totalPags.innerHTML = `<span>de ${cantPags}</span>`
+
+    let nextPage =  document.querySelector(".titulo-flecha-sig")
+    nextPage.innerHTML = `<button class="link">Siguiente</button>`
+    if(cantPags == 1){
+        nextPage.innerHTML = `<span class="white">Siguiente</span>`
+        }
+    prevPage.innerHTML = `<span class="white">Anterior</span>`
+
+
+    let nextPageEvent = function(){
+        currentPage = currentPage+1
+        if(currentPage <= allPages.length){
+            prevPage.addEventListener("click", prevPageEvent)
+            paginaActual.innerHTML = `<span>${currentPage}</span>`
+            prevPage.innerHTML = `<button class="link">Anterior</button>`
+            mostrarPagina(products, currentPage)
+            if(currentPage == allPages.length){
+                nextPage.innerHTML = `<span class="white">Siguiente</span>`
+                nextPage.removeEventListener("click", nextPageEvent)
+            }
+        }
+    }
+
+    nextPage.addEventListener("click", nextPageEvent)
+    
+    let prevPageEvent = function(){
+        currentPage = currentPage-1
+        paginaActual.innerHTML = `<span>${currentPage}</span>`
+        nextPage.addEventListener("click", nextPageEvent)
+        mostrarPagina(products, currentPage)
+        if(currentPage-1 > 1){
+            paginaActual.innerHTML = `<span>${currentPage}</span>`
+            nextPage.innerHTML = `<button class="link">Siguiente</button>`
+        }
+        if(currentPage == 1 && cantPags != 1){
+            prevPage.innerHTML = `<span class="white">Anterior</span>`
+            nextPage.innerHTML = `<button class="link">Siguiente</button>`
+            prevPage.removeEventListener("click", prevPageEvent)
+        }
+    }
+
+    let mostrarPagina = function(productos, pagina){
+        if(pagina == 1){
+            
+            let tituloBusquedaAdmin = document.querySelector(".busquedaTitulo")
+            tituloBusquedaAdmin.innerHTML = `<h4 class="resultados-busqueda gray">Resultado de la Búsqueda</h4>
+                <div class="resultados-busqueda"><strong>${productos.length}</strong> productos encontrados</div>`
+            
+            productos = productos.slice(0,productosPerPag)
+            displayProds(productos)
+        }else{
+            productos = productos.slice(((pagina-1)*productosPerPag), ((pagina-1)*productosPerPag)+productosPerPag)
+            console.log(productos)
+            displayProds(productos)
+        }
+    }
+    
+    mostrarPagina(products, currentPage)
+}
+
 
 
 function displayProds(products) {
+
     fetch('/api/adminCheck')
         .then(response => response.json())
         .then(userIsAdmin => {
                 let tituloAdmin = document.querySelector(".tituloAdmin")
-                tituloAdmin.innerHTML = ``
-                
+                tituloAdmin = ``
                 if (userIsAdmin == true) {
                     tituloAdmin.innerHTML += `<h2 class="titulo-admin">VISTA DE ADMINISTRACIÓN</h2>>`
                 }
-                tituloAdmin.innerHTML += `<h4 class="resultados-busqueda gray">Resultado de la Búsqueda</h4>
-                <div class="resultados-busqueda"><strong>${products.length}</strong> productos encontrados</div>`
                 let container = document.querySelector("main")
                 container.innerHTML = ``
                 container.innerHTML += `
-                <div id="productos-destacados"></div>
-                <div class="volverInicio"></div>`
+                <div id="productos-destacados"></div>`
                 let busqueda = document.getElementById("productos-destacados")
                 products.forEach((product, i) => {
                     busqueda.innerHTML += `<div class="productos-destacados" id="productos-destacados${i}"></div>`
@@ -62,14 +152,12 @@ function displayProds(products) {
                     } 
                     if (userIsAdmin == true) {
                         cadaProductoContainer.innerHTML += ` 
-                        <p class="p-admin"><a class="botones-admin" href="/tienda/modifyProduct/${product.id}">EDITAR</a><a class="botones-admin" href="/tienda/deleteProduct/${product.id}">ELIMINAR</a></p>
+                        <p class="p-admin"><a class="botones-admin" href="/tienda/modifyProduct/${product.id}">EDITAR</a><a class="botones-admin-eliminar" id="/tienda/deleteProduct/${product.id}">ELIMINAR</a></p>
                         `
                     }else{ 
                         cadaProductoContainer.innerHTML += `<button><i class="fa-solid fa-cart-shopping"></i> AGREGAR</button>`
                     } 
                 })
-                let volver = document.querySelector(".volverInicio")
-                volver.innerHTML += `<a class="botones-admin blanco" href="/tienda">IR LA TIENDA</a>`
     })
 }
 
@@ -78,7 +166,7 @@ function displayProds(products) {
 function busqueda(busca, products) {
     let ordenYfiltros = document.querySelector(".ordenYfiltros");
     if (busca == "") {
-        displayProds(products.productos)
+        displayProdsPorPag(products.productos)
     }
     else {
         
@@ -170,7 +258,7 @@ function busqueda(busca, products) {
             }
         }
         
-        displayProds(ordenados)
+        displayProdsPorPag(ordenados)
         
     })
 
@@ -196,15 +284,15 @@ function busqueda(busca, products) {
                 }else{
                     filtrados = filtro.filter(row => row.marca_id == `${marca.id}`)
                 }
-                displayProds(filtrados)
+                displayProdsPorPag(filtrados)
             }else if (event.target.value == ""){
                 if(ordenados != undefined){
                     filtrados = filtro
                     optionSelectOrden = optionSelectOrden.selected = 'selected'
-                    displayProds(filtrados)
+                    displayProdsPorPag(filtrados)
                 }else{
                     filtrados = filtro
-                    displayProds(filtrados)
+                    displayProdsPorPag(filtrados)
                 }
             }
 
@@ -229,21 +317,21 @@ function busqueda(busca, products) {
                 }else{
                     filtrados = filtro.filter(row => row.categoria_id == `${categoria.id}`)
                 }
-                displayProds(filtrados)
+                displayProdsPorPag(filtrados)
             }else if (event.target.value == ""){
                 if(ordenados != undefined){
                     filtrados = filtro
                     optionSelectOrden = optionSelectOrden.selected = 'selected'
-                    displayProds(filtrados)
+                    displayProdsPorPag(filtrados)
                 }else{
                     filtrados = filtro
-                    displayProds(filtrados)
+                    displayProdsPorPag(filtrados)
                 }
             }
         }) 
     })
 
-    displayProds(filtro)
+    displayProdsPorPag(filtro)
     }
 }
 
