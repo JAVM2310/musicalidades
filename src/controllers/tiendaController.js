@@ -60,6 +60,7 @@ const controller = {
                 .then(() => {
                 if (req.session.usuariosLogueado) {
                     if (req.session.usuariosLogueado.permisos == 9){
+                        console.log(marca)
                         return res.render('./tienda/productDetail', {titulo: "Detalle de Producto", product:productoElegido, user: req.session.usuariosLogueado, admin: true, marca, categoria});
                     }
                 }
@@ -107,10 +108,8 @@ const controller = {
         })
     },
     newProductPost: (req, res) => {
-    
         let imagenes = []
         let marca;
-
         const resultValidation = validationResult(req);
 
         if (resultValidation.errors.length > 0) {
@@ -162,7 +161,7 @@ const controller = {
                         categoria_id:  req.body.categoria,
                     })
                     .then((result)=>{
-                            res.redirect("/tienda/productDetail/" + result.dataValues.id);
+                            return res.redirect("/tienda/productDetail/" + result.dataValues.id);
                     })
                 })
             } else {
@@ -179,7 +178,7 @@ const controller = {
                     categoria_id:  req.body.categoria,
                 })
                 .then((result) => {
-                    res.redirect("/tienda/productDetail/" + result.dataValues.id);
+                    return res.redirect("/tienda/productDetail/" + result.dataValues.id);
                 })
             }
         }
@@ -215,7 +214,7 @@ const controller = {
         })
     },
     modifyProductPost: (req, res) => {
-        console.log(req.files.length)
+        let paramsId = req.params.id;
         let laMarca = req.body.marca
         let laCategoria = req.body.categoria
         var marca;
@@ -243,6 +242,8 @@ const controller = {
                 .then((producto) =>{
                     productoElegido = producto.dataValues
                     productoElegido.imagenes = JSON.parse(productoElegido.imagenes)
+                    
+                    console.log('return de validaciones') 
                     return res.render('./tienda/modifyProduct', {titulo: "Modificar Producto", product: productoElegido, user: req.session.usuariosLogueado, marcas, categorias, errors: resultValidation.mapped(), old: req.body, laMarca, laCategoria});
                     
                 })
@@ -282,6 +283,8 @@ const controller = {
                 .then((producto) =>{
                     productoElegido = producto.dataValues
                     productoElegido.imagenes = JSON.parse(productoElegido.imagenes)
+                    
+                    console.log('return de borrado de img') 
                     return res.render('./tienda/modifyProduct', {titulo: "Modificar Producto", product: productoElegido, user: req.session.usuariosLogueado, marcas, categorias, errors: {images:{msg: mensajeErrorImg}}, old: req.body, laMarca, laCategoria});
                 })
             })
@@ -310,6 +313,8 @@ const controller = {
                         nombre: req.body.marcaNuevaNombre
                     })
                     .then((result) =>{
+                        console.log(paramsId)
+                        console.log(productToEdit.id)
                         marca = result.dataValues.id
                         productToEdit = {
                             categoria_id: req.body.categoria,
@@ -324,11 +329,13 @@ const controller = {
                         };
                         db.Producto.update(productToEdit,{
                             where:{
-                                id: req.params.id
+                                id: paramsId
                             }
                         })
-                        .then(()=>{    
-                            return res.redirect("/tienda/productDetail/" + req.params.id);
+                        .then(()=>{   
+                            
+                        console.log('return que deberia ser') 
+                            return res.redirect("/tienda/productDetail/" + paramsId);
                         })
                     })
                 } else {
@@ -349,7 +356,8 @@ const controller = {
                             id: req.params.id
                         }
                     })
-                    .then(()=>{    
+                    .then(()=>{   
+                        console.log('return que es sin marca nueva')  
                         return res.redirect("/tienda/productDetail/" + req.params.id);
                     })
                 }

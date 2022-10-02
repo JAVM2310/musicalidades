@@ -15,7 +15,7 @@
     </section>
     <main>
         <article class="registro">
-            <form class="form" method="POST" action="/tienda/productDetail/<%= product.id %>?_method=PUT" enctype="multipart/form-data">
+            <form class="form" method="POST" action="/tienda/modifyProduct/<%= product.id %>?_method=PUT" enctype="multipart/form-data">
                     <div class="datos">
                         <label for="categoria"><span>Categoría:</span>
                             <% if(laCategoria.length > 0){ %>

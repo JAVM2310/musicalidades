@@ -62,3 +62,32 @@ SPRINT 7
 4. Hacer menos: Preguntar por el proyecto sólo en las instancia de trabajo en grupo durante la cursada en vivo.
 
 5. Dejar de hacer: No asignarse ninguna tarea, esperando que el resto del equipo resuelva todo.
+
+------
+SPRINT 8. Siendo el último Sprint del Proyecto, se plantea una dinámica diferente, en donde evaluamos el trabajo realizado cronológicamente, en una línea del tiempo, focalizando en sus aspectos positivos y negativos. Se presentan aquí las principales conclusiones:
+
+NEGATIVO
+Se planteó un Proyecto a ser realizado por 4 desarrolladores, pero el trabajo terminó siendo realizado única e íntegramente por 2 personas.
+
+Las altas/bajas de miembros del equipo.
+
+La falta de compromiso de algunos integrantes iniciales dificultó y retrasó el trabajo grupal.
+
+Los problemas de comunicación grupal al inicio del Proyecto.
+
+Los cambios de profesores dificultaron el desarrollo del proyecto en los Sprints iniciales.
+
+POSITIVO:
+La comunicación del equipo fue mejorando con el correr de los Sprints. Se comenzó trabajando individualmente en un proyecto grupal y se finalizó socializando constantemente los avances y dudas, en contacto permanente.
+
+El equipo se pudo apoyar en sus miembros y pedir su ayuda cuando fue necesario.
+
+Se complementaron las funciones y el trabajo fluyó con naturalidad.
+
+Se finalizaron todos las tareas planteadas en tiempo y forma.
+
+El compromiso del equipo fue creciendo exponencialmente con el transcurrir del proyecto.
+
+Se sobrellevó eficientemente el trabajo a pesar de la baja de sus miembros iniciales y de los cambios de docentes.
+
+Los miembros se sienten orgullosos del trabajo realizado y resultado final!

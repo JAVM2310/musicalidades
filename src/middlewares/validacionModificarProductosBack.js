@@ -10,7 +10,19 @@ module.exports = [
     body('discount').notEmpty().withMessage('Debes completar el % de Descuento').bail().isInt({ min: 0, max: 100 }).withMessage('El % de Descuento debe ser un número entre 0 y 100'),
     body('stock').notEmpty().withMessage('Debes completar el Stock').bail().isInt({ min: 1}).withMessage('El Stock debe ser mayor a 0'),
     body('categoria').notEmpty().withMessage('Debes elegir una Categoría'),
-    body('marca').notEmpty().withMessage('Debes elegir una Marca'),
+    body('marca').custom((value, { req }) => {
+        console.log(value)
+        if(req.body.marcaNueva == 1){
+            return true;
+        }else{
+            if(value == null){
+            throw new Error("Debes elegir una Marca")
+            }else{
+                return true;
+            }
+        }
+    }),
+    
     body('marcaNuevaNombre').custom((value, { req }) => {
         
         if (value == "" && req.body.marcaNueva == 1) {
