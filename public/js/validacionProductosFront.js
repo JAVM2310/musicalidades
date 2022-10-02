@@ -86,7 +86,7 @@ window.addEventListener('load', function() {
             shortDescLabel.innerHTML += '<p class="error">La Breve Descripción no puede estar vacía</p>';
             errores++;
 
-        }else if(shortDesc.value.length < 28 || shortDesc.value.length > 60){
+        }else if(shortDesc.value.length < 20 || shortDesc.value.length > 60){
             shortDescLabel.innerHTML += '<p class="error">La Breve Descripción debe tener entre 20 y 60 caracteres</p>';
             errores++;
         }
@@ -168,17 +168,19 @@ window.addEventListener('load', function() {
         }
 
         /* validación errores */
+        
         if(errores > 0){
             evento.preventDefault();
         }else{
+            evento.preventDefault();
             Swal.fire({
                 icon: 'success',
                 title: 'Producto creado!',
-                showConfirmButton: true,
+                showConfirmButton: false,
                 timer: 1500
             })
-            .then((result)=>{
-                console.log(result)
+            .then(()=>{
+                document.querySelector("form").submit();
             })
         }
     })

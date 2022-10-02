@@ -95,7 +95,7 @@ const productsApi = {
         const resultValidation = validationResult(req);
         console.log(resultValidation);
         if (resultValidation.errors.length > 0) {
-            return res.json("Ocurrio un error, velva a intentarlo")
+            return res.json("Ocurrió un error, vuelva a intentarlo")
         }
         if (req.session.usuariosLogueado != null) {
             console.log("arranca la funcion");
@@ -108,7 +108,7 @@ const productsApi = {
                     usuario_id: req.session.usuariosLogueado.id
                 })
                 .then(()=>{
-                    return res.json(`Agregamos el producto a tu carrito`)
+                    return res.json(`Producto agregado a tu carrito`)
                 })
         } else {
             
@@ -121,7 +121,7 @@ const productsApi = {
                     usuario_id: 0,
                 })
                 console.log(req.session.carrito);
-                return res.json(`Agregamos el producto a tu carrito`)
+                return res.json(`Producto agregado a tu carrito`)
             } else {
                 console.log("es array");
                 req.session.carrito.push({
@@ -130,7 +130,7 @@ const productsApi = {
                     usuario_id: 0,
                 })
                 console.log(req.session.carrito);
-                return res.json(`Agregamos el producto a tu carrito`)
+                return res.json(`Producto agregado tu carrito`)
             }
         }
     },
@@ -235,7 +235,7 @@ const productsApi = {
         const resultValidation = validationResult(req);
         console.log(resultValidation);
         if (resultValidation.errors.length > 0) {
-            return res.json("Ocurrio un error, velva a intentarlo")
+            return res.json("Ocurrió un error, vuelva a intentarlo")
         }
         if (req.session.usuariosLogueado != null) {
             db.ProductoUsuario.destroy({
@@ -245,18 +245,18 @@ const productsApi = {
                 }
             })
             .then(()=>{
-                return res.json("Ocurrio un error, velva a intentarlo")
+                return res.json("Ocurrió un error, vuelva a intentarlo")
             })
         } else {
             req.session.carrito.splice(req.session.carrito.findIndex(element => element.producto_id == req.body.id), 1)
-            return res.json("Ocurrio un error, velva a intentarlo")
+            return res.json("Ocurrió un error, vuelva a intentarlo")
         }
     },
     comprar: (req, res) =>{
         const resultValidation = validationResult(req);
         console.log(resultValidation.mapped());
         if (resultValidation.errors.length > 0) {
-            return res.json("Ocurrio un error, revise las cantidades de los productos e informacion de envio y vuelva a intentarlo")
+            return res.json("Ocurrió un error, revise las cantidades de los productos e información de envio y vuelva a intentarlo")
         }
             let mensajeRespuesta = ""
             console.log("arranca la funcion comprar");
@@ -301,7 +301,7 @@ const productsApi = {
                     resultProductos.forEach((producto, i) =>{
                         db.Producto.update({stock: producto.stock - req.body.productosAComprar[i].cantidad},{where:{id: producto.id}})
                     })
-                    return res.json(`Se realizo tu compra de ${mensajeRespuesta} el total de la compra es de ${Intl.NumberFormat("sp-SP").format((compra.monto + 1000))}. Se enviara a ${req.body.infoUsuarioCarrito.ciudad}, ${req.body.infoUsuarioCarrito.provincia}, ${req.body.infoUsuarioCarrito.direccion}`)
+                    return res.json(`Se realizó tu compra de ${mensajeRespuesta} el total de la compra es de ${Intl.NumberFormat("sp-SP").format((compra.monto + 1000))}. Se enviara a ${req.body.infoUsuarioCarrito.ciudad}, ${req.body.infoUsuarioCarrito.provincia}, ${req.body.infoUsuarioCarrito.direccion}`)
                 })
             })
     },

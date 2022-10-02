@@ -90,7 +90,7 @@ window.addEventListener('load', function() {
             shortDescLabel.innerHTML += '<p class="error">La Breve Descripción no puede estar vacía</p>';
             errores++;
 
-        }else if(shortDesc.value.length < 28 || shortDesc.value.length > 60){
+        }else if(shortDesc.value.length < 20 || shortDesc.value.length > 60){
             shortDescLabel.innerHTML += '<p class="error">La Breve Descripción debe tener entre 20 y 60 caracteres</p>';
             errores++;
         }
@@ -186,8 +186,7 @@ window.addEventListener('load', function() {
         }else{
             evento.preventDefault();
             Swal.fire({
-                title: 'Quieres modificar el producto?',
-                text: "Esta acción no se puede deshacer!",
+                title: 'Quieres modificar el producto'+name.value+'?',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',

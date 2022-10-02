@@ -24,7 +24,11 @@ window.onload = ()=>{
     botonMas.addEventListener("click", (event)=>{
         event.preventDefault()
         if (contador >= stock){
-            window.alert(`lo sentimos nuestro stock es de ${stock}`)
+            Swal.fire({
+                icon: 'warning',
+                title: `Lo sentimos nuestro stock es de ${stock} unidades`,
+                showConfirmButton: true,
+            })
             contador = stock
             cantidad.value = stock
         } else if (contador >=0 && contador < stock){
@@ -39,7 +43,12 @@ window.onload = ()=>{
     botonEnviar.addEventListener("click", (event)=>{
         event.preventDefault()
         if ( Number(cantidad.value) > stock || Number(cantidad.value) < 1) {
-            return window.alert("Para agregar al carrito la orden debe ser un numero entre 1 y el stock")
+            return Swal.fire({
+                icon: 'warning',
+                title: `Debe agregar entre 1 y ${stock} unidades`,
+                showConfirmButton: true,
+            })
+            
         } else {
             data = {cantidad: Number(cantidad.value), productoId}
             fetch(`/api/agregarCarrito`,{
@@ -49,7 +58,12 @@ window.onload = ()=>{
             })
                 .then(response => response.json())
                 .then(respuesta => {
-                    window.alert(respuesta)
+                    Swal.fire({
+                        icon: 'success',
+                        title: respuesta,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
         })
         }
     })

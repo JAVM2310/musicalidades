@@ -41,7 +41,11 @@ window.onload = ()=>{
             })
                 .then(response => response.json())
                 .then(respuesta => {
-                    window.alert(respuesta)
+                    Swal.fire({
+                        icon: 'warning',
+                        title: respuesta,
+                        showConfirmButton: true,
+                    })
         })
     }
 
@@ -157,14 +161,26 @@ window.onload = ()=>{
                 })
                 .then(response => response.json())
                 .then(respuesta => {
-                    window.alert(respuesta)
+                    Swal.fire({
+                        icon: 'success',
+                        title: respuesta,
+                        showConfirmButton: true,
+                    })
                 })
             } else {
-                window.alert("ocurrio un error, revise la informacion de envio y vuelva a intentarlo")
+                Swal.fire({
+                    icon: 'warning',
+                    title: `Ocurrió un error, revise la informacion de envio y vuelva a intentarlo`,
+                    showConfirmButton: true,
+                })
             }
         }
         } else {
-            window.alert("ocurrio un error, revise que las cantidades de los productos sea un numero entre 1 y el stock")
+            Swal.fire({
+                icon: 'warning',
+                title: `un error, revise que las cantidades de los productos sea un numero entre 1 y el stock total`,
+                showConfirmButton: true,
+            })
         }
     }
     let carrito = document.getElementById("carrito")

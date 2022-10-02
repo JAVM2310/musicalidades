@@ -268,8 +268,11 @@ main {
     position: relative;
     overflow: hidden;
     width: 100%;
-    height: 200px;
+    height: 180px;
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .carousel-open:checked + .carousel-item {
@@ -283,13 +286,23 @@ main {
     -webkit-transition: opacity 0.6s ease-out;
     transition: opacity 0.6s ease-out;
     margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
 
 }
 
 .carousel-item img {
-    display: block;
-    max-width: 100%;
+    position: absolute;
+    opacity: 100;
+    -webkit-transition: opacity 0.6s ease-out;
+    transition: opacity 0.6s ease-out;
     margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
 }
 
 .carousel-control {
@@ -765,9 +778,11 @@ hr {
 /* CARRITO DE COMPRAS */
 
 .carrito{
-    width: 90vw;
-    margin-left: 5vw;
     margin-top: 10px;
+}
+#carrito-container, #carrito{
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .carrito-productos{
@@ -850,8 +865,6 @@ hr {
     border: none;
     font-size: 1.5em;
     font-weight: bold;
-    margin-left: 20px;
-    
 }
 
 .carrito h2{
@@ -1339,6 +1352,10 @@ footer .email i {
 /* Responsive */
 
 @media (min-width: 361px) {
+    .faq-content {
+        padding-left: 5%;
+        padding-right: 5%;
+      }
     .quienes-somos .container{
         display: block;
     }
@@ -1374,18 +1391,16 @@ footer .email i {
         width: 145px;
         height: 145px;
     }
-
-    
     .productos-destacados h3 {
         width: 165px;
     } 
     .producto .carousel{
-        height: 300px;
+        height: 330px;
         max-width: 450px;
     }
     
     .producto .carousel-inner {
-        height: 300px;
+        height: 330px;
     }
     .carousel-indicadores{
         margin: 50px;
@@ -1411,10 +1426,15 @@ footer .email i {
         margin-top: 0px;
         margin-left: -6px
     }
+
 }  
 
 
 @media (min-width: 890px) { /*769*/
+    .faq-content {
+        padding-left: 10%;
+        padding-right: 10%;
+      }
     .quienes-somos .container{
         display: flex;
         justify-content: center;
@@ -1447,19 +1467,12 @@ footer .email i {
     }
 
     .botones-redondos {
-    
         width: 100px;
         height: 100px;
     }
     
     .botones-redondos p {
         font-size: 1.2em;
-    }
-
-    .section-carousel,
-    .carrito {
-        padding-right: 5%;
-        padding-left: 5%;
     }
     #productos-destacados
     {
@@ -1509,7 +1522,6 @@ footer .email i {
         /*margin: auto;*/
         margin-top: 5px;
         /*display: unset;*/
-        
         display: flex;
         align-items:flex-start;
     }
@@ -1547,14 +1559,18 @@ footer .email i {
     }
     
     .producto .carousel-inner {
-
         height: 400px;
     }
 
-    .carousel-inner .banner-home{
+    .producto .carousel-inner {
 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .carousel-inner {
         height: 400px;
-        
     }
     .iconos-compras div {
         max-width: 33%;
@@ -1600,5 +1616,9 @@ footer .email i {
     }
     .direccion img {
         width: 40%;
+    }
+    #carrito-container, #carrito{
+        padding-left: 20%;
+        padding-right: 20%;
     }
 }
