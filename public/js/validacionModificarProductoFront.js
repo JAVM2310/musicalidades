@@ -20,7 +20,6 @@ window.addEventListener('load', function() {
     })
 
     formulario.addEventListener("submit", function(evento){
-        console.log("entro al submit")
         //evento.preventDefault(); //borrar cuando todo ande
 
         let categoria = document.querySelector("#categoria")
@@ -51,7 +50,6 @@ window.addEventListener('load', function() {
         let errores = 0;
 
         let borrarTextoErrores = document.querySelectorAll("p.error");
-        console
         if(borrarTextoErrores){
             for(let textos of borrarTextoErrores){
                 textos.remove();
@@ -72,11 +70,11 @@ window.addEventListener('load', function() {
         }
 
         /* validación categoria */
-        if(categoria.value == "5"){
+/*         if(categoria.value == "5"){
             categoriaLabel.innerHTML += '<p class="error">Debe seleccionar una Categoría</p>'
             errores++;
         }
-
+ */
         /* validación name */
         if(name.value == "" ){
             nameLabel.innerHTML += '<p class="error">El Nombre del Producto no puede estar vacío</p>'
@@ -184,7 +182,6 @@ window.addEventListener('load', function() {
 
         /* validación errores */
         if(errores > 0){
-            console.log("no mando el form")
             evento.preventDefault();
         }else{
             evento.preventDefault();

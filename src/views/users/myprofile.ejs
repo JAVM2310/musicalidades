@@ -5,9 +5,6 @@
     <h2 style="text-align: center;"> Hola <i><%= user.nombre%> <%=user.apellido%> </i>!</h2>
     <hr>
     <section class="tituloAdmin">
-        <% if (admin == true) { %>
-            <h2 class="titulo-admin">VISTA DE ADMINISTRACIÓN</h2>
-        <% }%>
     </section>
     <section class="busquedaTitulo"></section>
     <section class="ordenYfiltros"></section>
@@ -33,7 +30,8 @@
         </div>
     </main>
     <div class="pagina" id="paginado-tienda"></div>
-    <%- include('../partials/footer') %>    
+    <%- include('../partials/footer') %>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>    
     <script src="/js/busquedaProductos.js"></script> 
 
     

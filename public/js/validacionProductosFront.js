@@ -20,7 +20,6 @@ window.addEventListener('load', function() {
     })
 
     formulario.addEventListener("submit", function(evento){
-        console.log("entro al submit")
         //evento.preventDefault(); //borrar cuando todo ande
 
         let categoria = document.querySelector("#categoria")
@@ -170,7 +169,6 @@ window.addEventListener('load', function() {
 
         /* validación errores */
         if(errores > 0){
-            console.log("no mando el form")
             evento.preventDefault();
         }else{
             Swal.fire({

@@ -55,10 +55,10 @@
     
         <!-- BOTONES REDONDEOS-->
         <section id="botones-redondos">
-            <a href="/tienda"><button class="botones-redondos"><img class="img-boton" src="./img/guitarra.png" alt="guitarra"><p>Cuerdas</p></button></a>
-            <a href="/tienda"><button class="botones-redondos"><img class="img-boton" src="./img/bateria.png" alt="bateria"><p>Percusión</p></button></a>
-            <a href="/tienda"><button class="botones-redondos"><img class="img-boton" src="./img/piano-de-cola.png" alt="piano de cola"></i><p>Teclas</p></button></a>
-            <a href="/tienda"><button class="botones-redondos"><img class="img-boton" src="./img/tuba.png" alt="tuba"></i><p>Vientos</p></button></a>
+            <a><button class="botones-redondos" id="botones-redondos-cuerdas"><img class="img-boton" src="./img/guitarra.png" alt="guitarra"><p>Cuerdas</p></button></a>
+            <a><button class="botones-redondos" id="botones-redondos-percusion"><img class="img-boton" src="./img/bateria.png" alt="bateria"><p>Percusión</p></button></a>
+            <a><button class="botones-redondos" id="botones-redondos-teclas"><img class="img-boton" src="./img/piano-de-cola.png" alt="piano de cola"></i><p>Teclas</p></button></a>
+            <a><button class="botones-redondos" id="botones-redondos-vientos"><img class="img-boton" src="./img/tuba.png" alt="tuba"></i><p>Vientos</p></button></a>
         </section>
 
         <!--ICONOS COMPRAS-->
@@ -86,7 +86,7 @@
             <% let i =0;
             products.forEach((product) => {
                 i++; 
-                if (i < 7){ %>
+                if (i < 6){ %>
                 <div class="productos-destacados">
                     <a href="/tienda/productDetail/<%= product.id %>"><img src="/img/<%= product.imagenes[0] %>" alt=<%= product.nombre %>></a>
                     <h3><%= product.nombre %></h3>
@@ -117,6 +117,8 @@
     
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/busquedaProductos.js"></script> 
+    <script src="/js/linksPorCategoria.js"></script> 
     <script src="/js/eliminarProducto.js"></script> 
+    
 </body>
 </html>

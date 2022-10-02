@@ -409,6 +409,13 @@ main {
     cursor: pointer;
 }
 
+.link-contacto{
+    color: #F9AF14;
+    margin-top: -30px;
+    text-align: center;
+    font-weight: bold;
+    padding: 20px;
+}
 
 /****************ICONOS DE COMPRAS*************************/
 .titulo{

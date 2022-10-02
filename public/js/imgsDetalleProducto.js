@@ -10,7 +10,6 @@ window.addEventListener('load', function() {
 
     let imgsThumbnails = document.querySelectorAll(".carousel-indicadores li")
     for(let thumbnail of imgsThumbnails){
-        console.log(thumbnail)
         if(thumbnail.id == ""){ 
             thumbnail.remove();
         }
