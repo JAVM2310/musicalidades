@@ -60,7 +60,6 @@ const productsApi = {
             })
         })
     },
-
     detalleProducto: (req, res) =>{
         let detalleProducto = {};
         db.Producto.findByPk(req.params.id)
@@ -98,17 +97,29 @@ const productsApi = {
             return res.json("Ocurrió un error, vuelva a intentarlo")
         }
         if (req.session.usuariosLogueado != null) {
-            console.log("arranca la funcion");
-            console.log("log de req.body");
-            console.log(req.body);
-            console.log(req.session.usuariosLogueado.id);
-                db.ProductoUsuario.create({
-                    cantidad: req.body.cantidad,
-                    producto_id: req.body.productoId,
-                    usuario_id: req.session.usuariosLogueado.id
-                })
-                .then(()=>{
-                    return res.json(`Producto agregado a tu carrito`)
+            db.ProductoUsuario.findOne({
+                where:{
+                    usuario_id: req.session.usuariosLogueado.id,
+                    producto_id: req.body.productoId
+                }
+            })
+            .then((result)=>{
+                if (result == null){
+                    console.log("arranca la funcion");
+                    console.log("log de req.body");
+                    console.log(req.body);
+                    console.log(req.session.usuariosLogueado.id);
+                    db.ProductoUsuario.create({
+                        cantidad: req.body.cantidad,
+                        producto_id: req.body.productoId,
+                        usuario_id: req.session.usuariosLogueado.id
+                    })
+                    .then(()=>{
+                        return res.json(`Producto agregado a tu carrito`)
+                    })
+                } else {
+                    return res.json(`Ese producto ya esta agregado, revisa tu carrito`)
+                }
                 })
         } else {
             
@@ -123,14 +134,18 @@ const productsApi = {
                 console.log(req.session.carrito);
                 return res.json(`Producto agregado a tu carrito`)
             } else {
-                console.log("es array");
-                req.session.carrito.push({
+                if ((req.session.carrito.findIndex(elemento => elemento.producto_id == req.body.productoId)) == -1) {
+                    console.log("es array");
+                    req.session.carrito.push({
                     cantidad: req.body.cantidad,
                     producto_id: req.body.productoId,
                     usuario_id: 0,
                 })
                 console.log(req.session.carrito);
                 return res.json(`Producto agregado tu carrito`)
+            } else {
+                return res.json(`Ese producto ya esta agregado, revisa tu carrito`)
+            }
             }
         }
     },
@@ -235,6 +250,7 @@ const productsApi = {
         const resultValidation = validationResult(req);
         console.log(resultValidation);
         if (resultValidation.errors.length > 0) {
+            console.log( resultValidation.mapped())
             return res.json("Ocurrió un error, vuelva a intentarlo")
         }
         if (req.session.usuariosLogueado != null) {
@@ -245,11 +261,11 @@ const productsApi = {
                 }
             })
             .then(()=>{
-                return res.json("Ocurrió un error, vuelva a intentarlo")
+                return res.json("El producto fue eliminado del carrito")
             })
         } else {
             req.session.carrito.splice(req.session.carrito.findIndex(element => element.producto_id == req.body.id), 1)
-            return res.json("Ocurrió un error, vuelva a intentarlo")
+            return res.json("El producto fue eliminado del carrito")
         }
     },
     comprar: (req, res) =>{

@@ -33,7 +33,7 @@ window.onload = ()=>{
         productosIDS.splice(productosIDS.findIndex(element => element == id), 1)
         document.getElementById("productoNumero"+id).remove()
         calcularTotal()
-        data = {id}
+        data = {id: Number(id)}
             fetch("/api/sacarCarrito",{
                 method: "POST",
                 headers: {'Content-Type': 'application/json'},
@@ -205,6 +205,7 @@ window.onload = ()=>{
             '<label for="x-borrar" class="x-borrar-l">' +
             '<button class="x-borrar" id="xBorrar' + producto.id + '">x</button>' +
             '</label>' +
+            '<span class="stock" id="stock' + producto.id + '"></span>' +
             '<div class="cantidad">' +
             '<label for="-">' +
             '<button id="-' + producto.id + '" name="menos">-</button>' +
@@ -219,16 +220,26 @@ window.onload = ()=>{
             '</div>' +
             '</div>' +
             '</article>'
+
+            if (producto.stock == 1) {
+                document.getElementById("stock"+producto.id).innerText += "Último en Stock!"
+            }  else if ( producto.stock == 0){
+                document.getElementById("stock"+producto.id).innerText += "Sin Stock!"
+                document.getElementById("stock"+producto.id).classList.add("gray")
+            } else {
+                document.getElementById("stock"+producto.id).innerText += `Stock: ${producto.stock}`
+            }
+
             if (producto.descuento > 0){
                 document.getElementById("precio"+producto.id).innerHTML += 
                 '<span class="precio-tachado-big">$' + Intl.NumberFormat("sp-SP").format(producto.precio) + '</span>' +
                 '<span class="precio">$' + Intl.NumberFormat("sp-SP").format((producto.precio * (100-producto.descuento))/100) + '</span>' +
                 '<p class="descuento">' + producto.descuento + '% OFF</p>'
-                } else {
-                    document.getElementById("precio"+producto.id).innerHTML += 
-                    '<p class="precio">$' + Intl.NumberFormat("sp-SP").format(producto.precio) + '</p>' +
-                    '<p class="descuento">      </p>'
-                }
+            } else {
+                document.getElementById("precio"+producto.id).innerHTML += 
+                '<p class="precio">$' + Intl.NumberFormat("sp-SP").format(producto.precio) + '</p>' +
+                '<p class="descuento">      </p>'
+            }
             })
             
             productosEnCarrito.map((producto,)=>{
@@ -259,14 +270,18 @@ window.onload = ()=>{
                 })
                 
             })
-            calcularTotal()
-            document.getElementById("direccion").value = infoUsuario.direccion
-            document.getElementById("provincia").value = infoUsuario.provincia
-            document.getElementById("ciudad").value = infoUsuario.ciudad
-            document.getElementById("codigo").value = infoUsuario.codPostal
-            document.getElementById("botonFinalizarCompra").addEventListener("click", event=>{
-                event.preventDefault()
-                finalizarCompra()
-            })
+        calcularTotal()
+        document.getElementById("direccion").value = infoUsuario.direccion
+        document.getElementById("provincia").value = infoUsuario.provincia
+        document.getElementById("ciudad").value = infoUsuario.ciudad
+        document.getElementById("codigo").value = infoUsuario.codPostal
+        document.getElementById("botonFinalizarCompra").addEventListener("click", event=>{
+            event.preventDefault()
+            finalizarCompra()
         })
+        document.getElementById("botonSeguirComprando").addEventListener("click", event=>{
+            event.preventDefault()
+            window.location.href = "http://localhost:3001/tienda";
+        })
+    })
 }
