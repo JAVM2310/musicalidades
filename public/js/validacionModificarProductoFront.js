@@ -62,19 +62,8 @@ window.addEventListener('load', function() {
                 marcaNuevaNombreLabel.innerHTML += '<p class="error">El Nombre de la nueva Marca debe tener entre 2 y 15 caracteres</p>'
                 errores++;
             }
-        }else{
-            if(marca.value == "seleccionar"){
-                marcaLabel.innerHTML += '<p class="error">Debe seleccionar una Marca</p>'
-                errores++; 
-            }
         }
 
-        /* validación categoria */
-/*         if(categoria.value == "5"){
-            categoriaLabel.innerHTML += '<p class="error">Debe seleccionar una Categoría</p>'
-            errores++;
-        }
- */
         /* validación name */
         if(name.value == "" ){
             nameLabel.innerHTML += '<p class="error">El Nombre del Producto no puede estar vacío</p>'
@@ -186,7 +175,7 @@ window.addEventListener('load', function() {
         }else{
             evento.preventDefault();
             Swal.fire({
-                title: 'Quieres modificar el producto'+name.value+'?',
+                title: 'Quieres modificar el producto '+name.value+'?',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',

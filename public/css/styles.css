@@ -583,7 +583,7 @@ hr {
 
 .producto .carousel{
     height: 270px;
-    max-width: 480px;
+    max-width: 100%;
     background-color: #FFF;
 }
 
@@ -615,9 +615,9 @@ hr {
 }
 
 .producto .carousel-indicadores img{
-    height: 60px;
-    width: 60px;
-    margin-right: 20px;
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
     object-fit: cover;
     border-radius: 5px;
     border: black 1px solid;
@@ -1246,56 +1246,56 @@ footer .email i {
     color: #515151;
     border-bottom: 1px dotted #ccc;
     padding: 24px;
-  }
-  
-  .faq-content {
-    margin: 0 auto;
-  }
-  
-  .faq-question {
-    padding: 20px 0;
-    border-bottom: 1px dotted #ccc;
-  }
-  
-  .panel-title {
-    color: #515151;
-    font-size: 1em;
-    width: 100%;
-    position: relative;
-    margin: 0;
-    padding: 10px 10px 0 48px;
-    display: block;
-    cursor: pointer;
-  }
-  
-  .panel-content {
-    color: #515151;
-    font-size: 0.9em;
-    padding: 0px 14px;
-    margin: 0 40px;
-    height: 0;
-    overflow: hidden;
-    z-index: -1;
-    position: relative;
-    opacity: 0;
-    transition: .4s ease;
-  }
-  
-  .panel:checked ~ .panel-content{
-    height: auto;
-    opacity: 1;
-    padding: 14px;
-  }
+}
 
-  
-  .panel {
-    display: none;
-  }
+.faq-content {
+margin: 0 auto;
+}
 
-  .error-validacion{
-    font-size: 0.8em;
-    color: red
-  }
+.faq-question {
+padding: 20px 0;
+border-bottom: 1px dotted #ccc;
+}
+
+.panel-title {
+color: #515151;
+font-size: 1em;
+width: 100%;
+position: relative;
+margin: 0;
+padding: 10px 10px 0 48px;
+display: block;
+cursor: pointer;
+}
+
+.panel-content {
+color: #515151;
+font-size: 0.9em;
+padding: 0px 14px;
+margin: 0 40px;
+height: 0;
+overflow: hidden;
+z-index: -1;
+position: relative;
+opacity: 0;
+transition: .4s ease;
+}
+
+.panel:checked ~ .panel-content{
+height: auto;
+opacity: 1;
+padding: 14px;
+}
+
+
+.panel {
+display: none;
+}
+
+.error-validacion{
+font-size: 0.8em;
+color: red
+}
 
 
 /***************************MY PROFILE *********************************/
@@ -1313,6 +1313,10 @@ footer .email i {
 }
 .myProfile p {
     margin: 10px 0px;
+    color: #333;
+}
+.myProfile span {
+    color: #fff;
 }
 .datos{
     display: inherit;
@@ -1352,10 +1356,20 @@ footer .email i {
 /* Responsive */
 
 @media (min-width: 361px) {
+    .producto .carousel-indicadores img{
+        height: 50px;
+        width: 50px;
+        margin-right: 15px;
+    }
     .faq-content {
         padding-left: 5%;
         padding-right: 5%;
-      }
+    }
+    .myProfile {
+        margin-left: 10%;
+        margin-right: 10%;
+        flex-direction: row;
+    }
     .quienes-somos .container{
         display: block;
     }
@@ -1431,10 +1445,19 @@ footer .email i {
 
 
 @media (min-width: 890px) { /*769*/
+    .producto .carousel-indicadores img{
+        height: 60px;
+        width: 60px;
+        margin-right: 20px;
+    }
+    .myProfile {
+        margin-left: 15%;
+        margin-right: 15%;
+    }
     .faq-content {
         padding-left: 10%;
         padding-right: 10%;
-      }
+    }
     .quienes-somos .container{
         display: flex;
         justify-content: center;

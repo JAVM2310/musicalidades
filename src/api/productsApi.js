@@ -11,7 +11,9 @@ const productsApi = {
 
     listadoProductos: (req, res) => {
 
-        let products = db.Producto.findAll()
+        let products = db.Producto.findAll({
+            order: [ [ 'id', 'DESC' ]]
+        })
         let categories = db.Categoria.findAll()
         let brands = db.Marca.findAll()
         let productsByCategorie = db.Categoria.findAll({

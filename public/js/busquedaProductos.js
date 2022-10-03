@@ -34,6 +34,9 @@ function displayProdsPorPag(products) {
         allPages.push(i)
     }
     let currentPage = 1;
+    if(products.length == 0){
+        currentPage = 0;
+    }
 
     let paginado = document.getElementById("paginado-tienda")
     paginado.innerHTML = `
@@ -59,7 +62,7 @@ function displayProdsPorPag(products) {
 
     let nextPage =  document.querySelector(".titulo-flecha-sig")
     nextPage.innerHTML = `<button class="link">Siguiente</button>`
-    if(cantPags == 1){
+    if(cantPags == 1 || currentPage == 0){
         nextPage.innerHTML = `<span class="white">Siguiente</span>`
         }
     prevPage.innerHTML = `<span class="white">Anterior</span>`
@@ -98,17 +101,31 @@ function displayProdsPorPag(products) {
     }
 
     let mostrarPagina = function(productos, pagina){
-        if(pagina == 1){
-            
+        if (productos.length == 0) {
             let tituloBusquedaAdmin = document.querySelector(".busquedaTitulo")
             tituloBusquedaAdmin.innerHTML = `<h4 class="resultados-busqueda gray">Resultado de la Búsqueda</h4>
                 <div class="resultados-busqueda"><strong>${productos.length}</strong> productos encontrados</div>`
-            
-            productos = productos.slice(0,productosPerPag)
-            displayProds(productos)
+                productos = productos.slice(0,productosPerPag)
+                displayProds(productos)
+        }else if (productos.length == 1){
+            let tituloBusquedaAdmin = document.querySelector(".busquedaTitulo")
+            tituloBusquedaAdmin.innerHTML = `<h4 class="resultados-busqueda gray">Resultado de la Búsqueda</h4>
+                <div class="resultados-busqueda"><strong>${productos.length}</strong> producto encontrado</div>`
+                productos = productos.slice(0,productosPerPag)
+                displayProds(productos)
         }else{
-            productos = productos.slice(((pagina-1)*productosPerPag), ((pagina-1)*productosPerPag)+productosPerPag)
-            displayProds(productos)
+            if (pagina == 1){
+                
+                let tituloBusquedaAdmin = document.querySelector(".busquedaTitulo")
+                tituloBusquedaAdmin.innerHTML = `<h4 class="resultados-busqueda gray">Resultado de la Búsqueda</h4>
+                    <div class="resultados-busqueda"><strong>${productos.length}</strong> productos encontrados</div>`
+                
+                productos = productos.slice(0,productosPerPag)
+                displayProds(productos)
+            }else{
+                productos = productos.slice(((pagina-1)*productosPerPag), ((pagina-1)*productosPerPag)+productosPerPag)
+                displayProds(productos)
+            }
         }
     }
     
@@ -340,15 +357,19 @@ function busqueda(busca, products) {
                     optionSelectOrden = optionSelectOrden.selected = 'selected'
                 }else{
                     filtrados = filtro.filter(row => row.categoria_id == `${categoria.id}`)
+                    
                 }
+                console.log(filtrados)
                 displayProdsPorPag(filtrados)
             }else if (event.target.value == ""){
                 if(ordenados != undefined){
                     filtrados = filtro
                     optionSelectOrden = optionSelectOrden.selected = 'selected'
+                    console.log(filtrados)
                     displayProdsPorPag(filtrados)
                 }else{
                     filtrados = filtro
+                    console.log(filtrados)
                     displayProdsPorPag(filtrados)
                 }
             }

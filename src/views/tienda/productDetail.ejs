@@ -37,23 +37,39 @@
                                     <img src="/img<%= product.imagenes[1] %>" alt="<%= product.imagenes[1] %>">
                                 </div>
                             </div>
-                            <div class="imgsDiv" id="<%= product.imagenes[1] %>">
+                            <div class="imgsDiv" id="<%= product.imagenes[2] %>">
                                 <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
                                 <div class="carousel-item">
                                     <img src="/img<%= product.imagenes[2] %>" alt="<%= product.imagenes[2] %>">
                                 </div>
                             </div>
+                            <div class="imgsDiv" id="<%= product.imagenes[3] %>">
+                                <input class="carousel-open" type="radio" id="carousel-4" name="carousel" aria-hidden="true" hidden="">
+                                <div class="carousel-item">
+                                    <img src="/img<%= product.imagenes[3] %>" alt="<%= product.imagenes[3] %>">
+                                </div>
+                            </div>
+                            <div class="imgsDiv" id="<%= product.imagenes[4] %>">
+                                <input class="carousel-open" type="radio" id="carousel-5" name="carousel" aria-hidden="true" hidden="">
+                                <div class="carousel-item">
+                                    <img src="/img<%= product.imagenes[4] %>" alt="<%= product.imagenes[4] %>">
+                                </div>
+                            </div>
                         </div>
-                        <label for="carousel-3" class="carousel-control prev control-1">‹</label>
-                        <label for="carousel-2" class="carousel-control next control-1">›</label>
-                        <label for="carousel-1" class="carousel-control prev control-2">‹</label>
-                        <label for="carousel-3" class="carousel-control next control-2">›</label>
-                        <label for="carousel-2" class="carousel-control prev control-3">‹</label>
-                        <label for="carousel-1" class="carousel-control next control-3">›</label>
+                        <label for="carousel-5" class="carousel-control prev control-1">‹</label>
+                        <label for="carousel-4" class="carousel-control next control-1">›</label>
+                        <label for="carousel-3" class="carousel-control prev control-2">‹</label>
+                        <label for="carousel-2" class="carousel-control next control-2">›</label>
+                        <label for="carousel-1" class="carousel-control prev control-3">‹</label>
+                        <label for="carousel-5" class="carousel-control next control-3">›</label>
+                        <label for="carousel-4" class="carousel-control prev control-4">‹</label>
+                        <label for="carousel-3" class="carousel-control next control-4">›</label>
+                        <label for="carousel-2" class="carousel-control prev control-5">‹</label>
+                        <label for="carousel-1" class="carousel-control next control-5">›</label>
                     </div>
                 </div>
-                <ol class="carousel-indicadores"><!--i<product.imagenes.length   JUANCHO DESP VEAMOS LA FORMA DE ARMAR ESTO CON TODAS LAS FOTOS QUE SE SUBAM, PERO PARA QUE NO QUEDE UNA TORRE DE IMAGENES, QUE SE OCULTEN LAS QUE SOBRAN Y SE MUEVAN CON FLECHAS <- FOTO-FOTO-FOTO ->  -->
-                    <% for (let i=0; i<3; i++) { %>
+                <ol class="carousel-indicadores">
+                    <% for (let i=0; i<5; i++) { %>
                         <li id="<%= product.imagenes[i] %>">
                             <label for="carousel-<%=i+1%>" class="carousel-bullet"><img src="/img<%= product.imagenes[i] %>" alt="<%= product.imagenes[i] %>"></label>
                         </li>
@@ -69,7 +85,7 @@
                 <% }%> 
                 <article class="producto-descripcion">
                     <h2><%= product.nombre%></h2>
-                    <h3><%= product.descripcion%></h3>
+                    <h3><%= product.descripcion%>.<b> Marca: </b><%= marca%></h3>
                     <% if (product.descuento > 0){ %>
                         <span class="precio-tachado-big">$<%= Intl.NumberFormat('sp-SP').format(product.precio) %></span>
                         <span class="precio">$<%= Intl.NumberFormat('sp-SP').format((product.precio * (100-product.descuento))/100) %></span>

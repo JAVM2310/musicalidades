@@ -22,7 +22,7 @@ window.onload = ()=>{
             valNombre = false
             if (document.querySelector('label[for="nombre"] .error-validacion') == null){
                 let nombreLabel = document.querySelector('label[for="nombre"]')
-                nombreLabel.innerHTML = "<p class=error-validacion >Debes especificar tu nombre</p>" + nombreLabel.innerHTML
+                nombreLabel.innerHTML = "<p class=error-validacion >Debes completar tu nombre</p>" + nombreLabel.innerHTML
                 document.querySelector("#nombre").value = nombreValor
             } else {
                 document.querySelector('label[for="nombre"] .error-validacion').style.display = "block"
@@ -38,7 +38,7 @@ window.onload = ()=>{
             valEmail = false
             if (document.querySelector('label[for="email"] .error-validacion') == null){
                 let emailLabel = document.querySelector('label[for="email"]')
-                emailLabel.innerHTML = "<p class=error-validacion >El mail es invalido</p>" + emailLabel.innerHTML
+                emailLabel.innerHTML = "<p class=error-validacion >Debes ingresar un mail válido</p>" + emailLabel.innerHTML
                 document.querySelector("#email").value = emailValor
             } else {
                 document.querySelector('label[for="email"] .error-validacion').style.display = "block"
@@ -54,7 +54,7 @@ window.onload = ()=>{
             valMensaje = false
             if (document.querySelector('label[for="mensaje"] .error-validacion') == null){
                 let mensajeLabel = document.querySelector('label[for="mensaje"]')
-                mensajeLabel.innerHTML = "<p class=error-validacion >Debes especificar tu mensaje</p>" + mensajeLabel.innerHTML
+                mensajeLabel.innerHTML = "<p class=error-validacion >Debes ingresar tu mensaje</p>" + mensajeLabel.innerHTML
                 document.querySelector("#mensaje").value = mensajeValor
             } else {
                 document.querySelector('label[for="mensaje"] .error-validacion').style.display = "block"
@@ -67,7 +67,15 @@ window.onload = ()=>{
         }
 
         if (valNombre == true && valEmail == true && valMensaje == true) {
-            document.querySelector("form").submit()
+            Swal.fire({
+                icon: 'success',
+                title: 'Mensaje enviado!',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            .then(()=>{
+                document.querySelector("form").submit()
+            })
         }
     })
 }
