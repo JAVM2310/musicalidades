@@ -82,7 +82,11 @@ window.onload = ()=>{
                 )
             })
             if (productosAComprar.length < 1) {
-                window.alert("debes agregar por lo menos un producto para realizar tu compra")
+                Swal.fire({
+                    icon: 'warning',
+                    title: `Debes agregar por lo menos un producto para realizar tu compra`,
+                    showConfirmButton: true,
+                })
             } else {
 
                 let infoUsuarioCarrito ={

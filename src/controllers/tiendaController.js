@@ -377,7 +377,7 @@ const controller = {
             })
         })
         .then(()=>{
-            res.redirect("/")
+            res.redirect("/tienda")
         })
     },
 };
