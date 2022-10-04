@@ -130,7 +130,7 @@ const controller = {
 
     },
     profileEdition: (req, res) => {// ESTE ESTÁ OK
-
+        console.log("se disparo la funcion de editar");
         const error = validationResult(req)
 
         if (error.array().length > 0) {

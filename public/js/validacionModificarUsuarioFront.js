@@ -217,7 +217,8 @@ window.onload = ()=>{
             }
         } else{
             valEmail = true
-            if (valNombre && valApellido && valEmail && valPassword && valPasswordRepetida && valAvatar && valPais && valProvincia && valCiudad && valDireccion && valCodigo){
+            if (valNombre && valApellido && valEmail && valAvatar && valPais && valProvincia && valCiudad && valDireccion && valCodigo){
+                console.log("se submitea");
                 document.querySelector("form").submit()
             }
         }
