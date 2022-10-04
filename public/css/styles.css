@@ -916,11 +916,11 @@ hr {
     width: 300px;
 }
 
-#subtotal::after{
+/* #subtotal::after{
     content: "(2 productos)";
     font-size: 0.8em;
     color: gray;
-}
+} */
 
 .total{
     border-top: #000 1px solid;

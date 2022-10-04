@@ -260,32 +260,35 @@ const controller = {
             }
         })
         .then((result)=>{
-            email = result.dataValues.email
-            if (result.dataValues.fecha > (Date.now() - 3600000 )){
+            if (result == null) {
                 return res.render("./users/linkExpirado", {titulo: "Link expirado"})
             } else {
-                let caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-                let password = "";
-                for (i = 0; i < 10; i++) {
-                    password += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
-                }
-                db.Usuario.update({
-                    password: bcrypt.hashSync(password, 10)
-                },
-                {
-                    where: {
-                        email: result.dataValues.email
+                email = result.dataValues.email
+                if (result.dataValues.fecha > (Date.now() - 3600000 )){
+                    return res.render("./users/linkExpirado", {titulo: "Link expirado"})
+                } else {
+                    let caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+                    let password = "";
+                    for (i = 0; i < 10; i++) {
+                        password += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
                     }
-                })
-                .then((result) =>{
-                    db.PasswordReset.destroy({
-                        where:{
-                            token: req.params.token
+                    db.Usuario.update({
+                    password: bcrypt.hashSync(password, 10)
+                    },
+                    {
+                        where: {
+                            email: result.dataValues.email
                         }
                     })
-                    return res.render("./users/passwordReseteada", {titulo: "Contraseña restablecida", email, password})
-                })
-                
+                    .then((result) =>{
+                        db.PasswordReset.destroy({
+                            where:{
+                                token: req.params.token
+                            }
+                        })
+                        return res.render("./users/passwordReseteada", {titulo: "Contraseña restablecida", email, password})
+                    })
+                }
             }
         })
     },
