@@ -244,6 +244,8 @@ window.onload = ()=>{
                             let emailLabel = document.querySelector('label[for="email"]')
                             emailLabel.innerHTML = "<p class=error-validacion >El mail ya está registrado</p>" + emailLabel.innerHTML
                             document.querySelector("#email").value = emailValor
+                        } else if (document.querySelector('label[for="email"] .error-validacion').innerText == "El mail es invalido") {
+                            document.querySelector('label[for="email"] .error-validacion').innerText = "El mail ya está registrado"
                         } else {
                             document.querySelector('label[for="email"] .error-validacion').style.display = "block"
                         }
