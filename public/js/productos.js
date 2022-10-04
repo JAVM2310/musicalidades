@@ -202,6 +202,9 @@ function displayProdsPerPage(products) {
     }
 
     let currentPage = 1;
+    if(products.length == 0){
+        currentPage = 0;
+    }
 
     let paginado = document.getElementById("paginado-tienda")
     paginado.innerHTML = `
@@ -227,7 +230,7 @@ function displayProdsPerPage(products) {
 
     let nextPage =  document.querySelector(".titulo-flecha-sig")
     nextPage.innerHTML = `<button class="link">Siguiente</button>`
-    if(cantPags == 1){
+    if(cantPags == 1 || currentPage == 0){
         nextPage.innerHTML = `<span class="white">Siguiente</span>`
         }
     prevPage.innerHTML = `<span class="white">Anterior</span>`

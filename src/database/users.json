@@ -16,9 +16,9 @@
  },
  {
   "id": 2,
-  "nombre": "Juan",
-  "apellido": "Vázquez",
-  "email": "juan.vazquez1611@gmail.com",
+  "nombre": "León",
+  "apellido": "Gómez",
+  "email": "lgomez@gmail.com",
   "password": "$2a$10$L/.4cEW8/gnfg0hZYtxPQuizU8Ibr0fiqRBFP.r95uXAl0/YJv.hy",
   "passwordRepetida": "$2a$10$Wihayf/8IDCoBBehnTUvK.sjBo.l4LoAUlxWt1.hWvyOwAmx0ZOVW",
   "pais": "Argentina",
