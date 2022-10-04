@@ -303,7 +303,7 @@ const productsApi = {
                         compra.monto += (product.dataValues.precio * (100-product.dataValues.descuento)/100) * req.body.productosAComprar[i].cantidad
                         mensajeRespuesta = mensajeRespuesta + "• " + product.dataValues.nombre + " x" + req.body.productosAComprar[i].cantidad + ".\n"
                     } else {
-                        compra.monto += product.dataValues.precio * req.body.productosAComprar[i].cantidad
+                        mensajeRespuesta = mensajeRespuesta + "• " + product.dataValues.nombre + " x" + req.body.productosAComprar[i].cantidad + ".\n"
                     }
                     console.log("log en el map");
                     console.log(mensajeRespuesta);
