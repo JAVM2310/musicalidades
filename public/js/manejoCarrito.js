@@ -16,7 +16,11 @@ window.onload = ()=>{
 
     funcionBotonMas = function(id){
         if (window["contador"+id] >= window["stock"+id]){
-            window.alert(`lo sentimos nuestro stock es de ${window["stock"+id]}`)
+            Swal.fire({
+                icon: 'warning',
+                title: `Lo sentimos nuestro stock es de ${window["stock"+id]} unidades`,
+                showConfirmButton: true,
+            })
             window["contador"+id] = window["stock"+id]
             document.getElementById("cantidad"+id).value = window["stock"+id]
         } else if (window["contador"+id] >=0 && window["contador"+id] < window["stock"+id]){

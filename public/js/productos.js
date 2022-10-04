@@ -200,10 +200,7 @@ function displayProdsPerPage(products) {
     if(!Number.isInteger(cantPags)){
         cantPags = parseInt(cantPags+1)
     }
-    let allPages = [];
-    for(i=1; i<=cantPags; i++){
-        allPages.push(i)
-    }
+
     let currentPage = 1;
 
     let paginado = document.getElementById("paginado-tienda")
@@ -238,12 +235,12 @@ function displayProdsPerPage(products) {
 
     let nextPageEvent = function(){
         currentPage = currentPage+1
-        if(currentPage <= allPages.length){
+        if(currentPage <= cantPags){
             prevPage.addEventListener("click", prevPageEvent)
             paginaActual.innerHTML = `<span>${currentPage}</span>`
             prevPage.innerHTML = `<button class="link">Anterior</button>`
             mostrarPagina(products, currentPage)
-            if(currentPage == allPages.length){
+            if(currentPage == cantPags){
                 nextPage.innerHTML = `<span class="white">Siguiente</span>`
                 nextPage.removeEventListener("click", nextPageEvent)
             }
@@ -364,7 +361,7 @@ function displayAllProducts(products) {
 }
 
 
-function displayOrdenYfiltros(products) {
+/* function displayOrdenYfiltros(products) {
     if (busca == "") {
         displayProdsPerPage(products)
     }
@@ -374,3 +371,4 @@ function displayOrdenYfiltros(products) {
     }
 }
 
+ */
