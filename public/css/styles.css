@@ -1292,7 +1292,7 @@ padding: 14px;
 display: none;
 }
 
-.error-validacion, .myProfile .error-validacion{
+.error-validacion, .myProfile .error-validacion, .error{
 font-size: 0.8em;
 color: red
 }
