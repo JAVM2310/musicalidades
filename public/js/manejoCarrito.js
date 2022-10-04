@@ -182,7 +182,7 @@ window.onload = ()=>{
         } else {
             Swal.fire({
                 icon: 'warning',
-                title: `un error, revise que las cantidades de los productos sea un numero entre 1 y el stock total`,
+                title: `Ocurrió un error, revise que las cantidades de los productos sea un numero entre 1 y el stock total`,
                 showConfirmButton: true,
             })
         }

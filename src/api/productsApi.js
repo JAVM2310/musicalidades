@@ -276,7 +276,7 @@ const productsApi = {
         if (resultValidation.errors.length > 0) {
             return res.json("Ocurrió un error, revise las cantidades de los productos e información de envio y vuelva a intentarlo")
         }
-            let mensajeRespuesta = ""
+            let mensajeRespuesta = ": \n"
             console.log("arranca la funcion comprar");
             console.log("log de req.body");
             let compra = {monto: 0}
@@ -292,17 +292,23 @@ const productsApi = {
                     id: {[Op.in]: listaProd}
                 }
             })
+            console.log("log antes del promise all");
+            console.log(mensajeRespuesta);
             Promise.all([promesaProductos])
             .then(([resultProductos])=>{
+                console.log("log antes del map");
+                console.log(mensajeRespuesta);
                 resultProductos.map((product, i) =>{
                     if (product.descuento > 0) {
                         compra.monto += (product.dataValues.precio * (100-product.dataValues.descuento)/100) * req.body.productosAComprar[i].cantidad
-                        mensajeRespuesta += `${product.dataValues.nombre} x${req.body.productosAComprar[i].cantidad}, `
+                        mensajeRespuesta = mensajeRespuesta + "• " + product.dataValues.nombre + " x" + req.body.productosAComprar[i].cantidad + ".\n"
                     } else {
                         compra.monto += product.dataValues.precio * req.body.productosAComprar[i].cantidad
                     }
+                    console.log("log en el map");
+                    console.log(mensajeRespuesta);
                 })
-                console.log("log de mensajeRespuesta");
+                console.log("log despues del map");
                 console.log(mensajeRespuesta);
                 compra.infoenvio =  `${req.body.infoUsuarioCarrito.ciudad}, ${req.body.infoUsuarioCarrito.provincia}, ${req.body.infoUsuarioCarrito.direccion} codigo postal ${req.body.infoUsuarioCarrito.codPostal}`
                 db.Venta.create(compra)
@@ -319,7 +325,7 @@ const productsApi = {
                     resultProductos.forEach((producto, i) =>{
                         db.Producto.update({stock: producto.stock - req.body.productosAComprar[i].cantidad},{where:{id: producto.id}})
                     })
-                    return res.json(`Se realizó tu compra de ${mensajeRespuesta} el total de la compra es de ${Intl.NumberFormat("sp-SP").format((compra.monto + 1000))}. Se enviara a ${req.body.infoUsuarioCarrito.ciudad}, ${req.body.infoUsuarioCarrito.provincia}, ${req.body.infoUsuarioCarrito.direccion}`)
+                    return res.json(`Se realizó tu compra de${mensajeRespuesta} El total de la compra es de ${Intl.NumberFormat("sp-SP").format((compra.monto + 1000))}. Se enviara a ${req.body.infoUsuarioCarrito.ciudad}, ${req.body.infoUsuarioCarrito.provincia}, ${req.body.infoUsuarioCarrito.direccion}`)
                 })
             })
     },
