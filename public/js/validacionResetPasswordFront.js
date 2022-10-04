@@ -44,7 +44,11 @@ window.onload = ()=>{
                         fetch(`api/resetPassword/${email.value}`)
                         .then(response => response.json())
                         .then(respuesta => {
-                            window.alert(respuesta)
+                            Swal.fire({
+                                icon: 'success',
+                                title: respuesta,
+                                showConfirmButton: true,
+                            })
                         })
                     }
                 })

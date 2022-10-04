@@ -1335,15 +1335,15 @@ color: red
     height: 50px;
 }
 .blanco {
-    margin-top: 200px;
-    font-size: 0.7rem;
-    color: #F9AF14;
+    border-radius: 20px;
+    padding: 5px 10px;
     font-weight: normal;
-    background-color: #fff;
-}
-.blanco:hover {
     color: #fff;
     background-color: #F9AF14;
+}
+.blanco:hover {
+    color: #F9AF14;
+    background-color: #fff;
 }
 .gray {
     color: #FFF;

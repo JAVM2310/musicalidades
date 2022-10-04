@@ -21,195 +21,54 @@ async function listo() {
     botonesRedondosVientos.addEventListener("click", () => {
         API.productos = API.productos.filter(row => row.categoria_id == 4)
         let container = document.querySelector("main")
-        container.innerHTML = ``
-        container.innerHTML += `<div><p class="link-contacto">CATEGORÍA VIENTOS | <a href="/tienda" class="link">Ver toda la Tienda</a></p> </div>` 
-        displaySelectores(API)
+        container.innerHTML = `<br/><br/>`
+        container.innerHTML += `<div><p class="link-contacto">CATEGORÍA VIENTOS | <a href="/tienda" class="blanco">Ver toda la Tienda</a></p> </div>` 
+        displayProdsPerPage(API)
     })
 
     let botonesRedondosCuerdas = document.getElementById("botones-redondos-cuerdas")
     botonesRedondosCuerdas.addEventListener("click", () => {
         API.productos = API.productos.filter(row => row.categoria_id == 1)
         let container = document.querySelector("main")
-        container.innerHTML = ``
-        container.innerHTML += `<div><p class="link-contacto">CATEGORÍA CUERDAS | <a href="/tienda" class="link">Ver toda la Tienda</a></p> </div>` 
+        container.innerHTML = `<br/><br/>`
+        container.innerHTML += `<div><p class="link-contacto">CATEGORÍA CUERDAS | <a href="/tienda" class="blanco">Ver toda la Tienda</a></p> </div>` 
         
-        displaySelectores(API)
+        displayProdsPerPage(API)
     })
 
     let botonesRedondosPercusion = document.getElementById("botones-redondos-percusion")
     botonesRedondosPercusion.addEventListener("click", () => {
         API.productos = API.productos.filter(row => row.categoria_id == 3)
         let container = document.querySelector("main")
-        container.innerHTML = ``
-        container.innerHTML += `<div><p class="link-contacto">CATEGORÍA PERCUSIÓN | <a href="/tienda" class="link">Ver toda la Tienda</a></p> </div>` 
-        displaySelectores(API)
+        container.innerHTML = `<br/><br/>`
+        container.innerHTML += `<div><p class="link-contacto">CATEGORÍA PERCUSIÓN | <a href="/tienda" class="blanco">Ver toda la Tienda</a></p> </div>` 
+        displayProdsPerPage(API)
     })
     
     let botonesRedondosTeclas = document.getElementById("botones-redondos-teclas")
     botonesRedondosTeclas.addEventListener("click", () => {
         API.productos = API.productos.filter(row => row.categoria_id == 2)
         let container = document.querySelector("main")
-        container.innerHTML = ``
-        container.innerHTML += `<div><p class="link-contacto">CATEGORÍA TECLAS | <a href="/tienda" class="link">Ver toda la Tienda</a></p> </div>` 
-        displaySelectores(API)
+        container.innerHTML = `<br/><br/>`
+        container.innerHTML += `<div><p class="link-contacto">CATEGORÍA TECLAS | <a href="/tienda" class="blanco">Ver toda la Tienda</a></p> </div>` 
+        displayProdsPerPage(API)
     })
-
 
 }
 
 
-async function displaySelectores(API) {
 
-    let ordenYfiltros = document.querySelector(".ordenYfiltros");
-        
-        ordenYfiltros.innerHTML = ``
-        ordenYfiltros.innerHTML += `
-        <section class="ordenYfiltros">
-        <div class="volver">
-            <div class="filtros">
-                <label for="filtros">
-                    <select name="filtrarPor" class="filtrarPor" id="selectFiltros" > 
-                        <option class="optionSelectFiltro" value="">FILTRAR POR</option>
-                        <optgroup class="selectMarcas" label="Marcas">
-                        </optgroup>
-                    </select>
-                    <select name="ordenar-por" id="ordenador" required> 
-                        <option class="optionSelectOrden" value="">ORDENAR POR</option> 
-                        <option value="a-z">A-Z</option>
-                        <option value="z-a">Z-A</option>
-                        <option value="baratos">Más Baratos</option>
-                        <option value="caros">Más Caros</option>                                    
-                    </select>
-                </label>
-            </div>
-        </div>
-    </section>
-    <br/>`
-    funcionesSelect(API)
-}
-async function funcionesSelect(API) {
-    let optionSelectOrden = document.querySelector(".optionSelectOrden")
-    let filtrados;
-    let ordenados;
-    
-/* /////////// FUNCIÓN SELECT ORDENAR POR ///////////////////// */
-    let ordenarProductos = document.querySelector("#ordenador")
-    ordenarProductos.addEventListener("change", (event) => {
-        if(event.target.value == "a-z"){
-            if(filtrados != undefined){
-                ordenados = filtrados.sort((a,b) => {
-                    if (a.nombre < b.nombre) return -1
-                    if (a.nombre > b.nombre) return 1
-                    return 0
-                })
-            }else{
-                ordenados = API.productos.sort((a,b) => {
-                    if (a.nombre < b.nombre) return -1
-                    if (a.nombre > b.nombre) return 1
-                    return 0
-                })
-            }
-        }else if (event.target.value == "z-a"){
-            if(filtrados != undefined){
-                ordenados = filtrados.sort((a,b) => {
-                    if (a.nombre > b.nombre) return -1
-                    if (a.nombre < b.nombre) return 1
-                    return 0
-                })
-            }else{
-                ordenados = API.productos.sort((a,b) => {
-                    if (a.nombre > b.nombre) return -1
-                    if (a.nombre < b.nombre) return 1
-                    return 0
-                })
-            }
-        }else if (event.target.value == "baratos"){
-            if(filtrados != undefined){
-                ordenados = filtrados.sort((a,b) => {
-                    return a.precio - b.precio
-                })
-            }else{
-                ordenados = API.productos.sort((a,b) => {
-                    return a.precio - b.precio
-                })
-            }
-
-        }else if (event.target.value == "caros"){
-            if(filtrados != undefined){
-                ordenados = filtrados.sort((a,b) => {
-                    return b.precio - a.precio
-                })
-            }else{
-                ordenados = API.productos.sort((a,b) => {
-                    return b.precio - a.precio
-                })
-            }
-        }else if (event.target.value == ""){
-            if(filtrados != undefined){
-                ordenados = filtrados
-            }else{
-                ordenados = API.productos
-            }
-        }
-        
-        displayProdsPerPage(ordenados)
-        
-    })
-
-
-/* /////////// FUNCIÓN SELECT FILTRAR POR ///////////////////// */
-
-/* MARCA */
-    let filtrarPorMarca = document.querySelector(".selectMarcas")
-    filtrarPorMarca.innerHTML += ``
-    let marcas = API.marcas.sort((a,b) => {
-        if (a.nombre < b.nombre) return -1
-        if (a.nombre > b.nombre) return 1
-        return 0
-    })
-    let selectFiltros = document.querySelector("#selectFiltros")
-    marcas.forEach((marca) => {
-        filtrarPorMarca.innerHTML += `<option value="marca${marca.id}">${marca.nombre}</option>`
-        selectFiltros.addEventListener("change", (event) => {
-            if(event.target.value == `marca${marca.id}`){
-                if(ordenados != undefined){
-                    filtrados = API.productos.filter(row => row.marca_id == `${marca.id}`)
-                    optionSelectOrden = optionSelectOrden.selected = 'selected'
-                }else{
-                    filtrados = API.productos.filter(row => row.marca_id == `${marca.id}`)
-                }
-                displayProdsPerPage(filtrados)
-            }else if (event.target.value == ""){
-                if(ordenados != undefined){
-                    filtrados = API.productos
-                    optionSelectOrden = optionSelectOrden.selected = 'selected'
-                    displayProdsPerPage(filtrados)
-                }else{
-                    filtrados = API.productos
-                    displayProdsPerPage(filtrados)
-                }
-            }
-
-        })
-    })
-
-    displayProdsPerPage(API.productos)
-}
-
-
-
-
-function displayProdsPerPage(products) {
+function displayProdsPerPage(API) {
     let productosPerPag = 15;
-    let cantPags = products.length / productosPerPag;
+    let cantPags = API.productos.length / productosPerPag;
     if(!Number.isInteger(cantPags)){
         cantPags = parseInt(cantPags+1)
     }
-    let allPages = [];
-    for(i=1; i<=cantPags; i++){
-        allPages.push(i)
-    }
+
     let currentPage = 1;
+    if(API.productos.length == 0){
+        currentPage = 0;
+    }
 
     let paginado = document.getElementById("paginado-tienda")
     paginado.innerHTML = `
@@ -235,7 +94,7 @@ function displayProdsPerPage(products) {
 
     let nextPage =  document.querySelector(".titulo-flecha-sig")
     nextPage.innerHTML = `<button class="link">Siguiente</button>`
-    if(cantPags == 1){
+    if(cantPags == 1 || currentPage == 0){
         nextPage.innerHTML = `<span class="white">Siguiente</span>`
         }
     prevPage.innerHTML = `<span class="white">Anterior</span>`
@@ -243,12 +102,12 @@ function displayProdsPerPage(products) {
 
     let nextPageEvent = function(){
         currentPage = currentPage+1
-        if(currentPage <= allPages.length){
+        if(currentPage <= cantPags){
             prevPage.addEventListener("click", prevPageEvent)
             paginaActual.innerHTML = `<span>${currentPage}</span>`
             prevPage.innerHTML = `<button class="link">Anterior</button>`
-            mostrarPagina(products, currentPage)
-            if(currentPage == allPages.length){
+            mostrarPagina(API.productos, currentPage)
+            if(currentPage == cantPags){
                 nextPage.innerHTML = `<span class="white">Siguiente</span>`
                 nextPage.removeEventListener("click", nextPageEvent)
             }
@@ -261,7 +120,7 @@ function displayProdsPerPage(products) {
         currentPage = currentPage-1
         paginaActual.innerHTML = `<span>${currentPage}</span>`
         nextPage.addEventListener("click", nextPageEvent)
-        mostrarPagina(products, currentPage)
+        mostrarPagina(API.productos, currentPage)
         if(currentPage-1 > 1){
             paginaActual.innerHTML = `<span>${currentPage}</span>`
             nextPage.innerHTML = `<button class="link">Siguiente</button>`
@@ -283,13 +142,14 @@ function displayProdsPerPage(products) {
         }
     }
     
-    mostrarPagina(products, currentPage)
+    mostrarPagina(API.productos, currentPage)
 }
 
 
 
 
 function displayAllProducts(products) {
+    console.log(products)
     let admin;
     fetch('/api/adminCheck')
         .then(response => response.json())
