@@ -22,7 +22,7 @@ async function listo() {
         API.productos = API.productos.filter(row => row.categoria_id == 4)
         let container = document.querySelector("main")
         container.innerHTML = `<br/><br/>`
-        container.innerHTML += `<div><p class="link-contacto">CATEGORÍA VIENTOS | <a href="/tienda" class="blanco">Ver toda la Tienda</a></p> </div>` 
+        container.innerHTML += `<div><p class="link-contacto"><a href="/" class="blanco">Volver al Home</a> | CATEGORÍA VIENTOS | <a href="/tienda" class="blanco">Ver toda la Tienda</a></p> </div>` 
         displayProdsPerPage(API)
     })
 
@@ -31,7 +31,7 @@ async function listo() {
         API.productos = API.productos.filter(row => row.categoria_id == 1)
         let container = document.querySelector("main")
         container.innerHTML = `<br/><br/>`
-        container.innerHTML += `<div><p class="link-contacto">CATEGORÍA CUERDAS | <a href="/tienda" class="blanco">Ver toda la Tienda</a></p> </div>` 
+        container.innerHTML += `<div><p class="link-contacto"><a href="/" class="blanco">Volver al Home</a> | CATEGORÍA CUERDAS | <a href="/tienda" class="blanco">Ver toda la Tienda</a></p> </div>` 
         
         displayProdsPerPage(API)
     })
@@ -41,7 +41,7 @@ async function listo() {
         API.productos = API.productos.filter(row => row.categoria_id == 3)
         let container = document.querySelector("main")
         container.innerHTML = `<br/><br/>`
-        container.innerHTML += `<div><p class="link-contacto">CATEGORÍA PERCUSIÓN | <a href="/tienda" class="blanco">Ver toda la Tienda</a></p> </div>` 
+        container.innerHTML += `<div><p class="link-contacto"><a href="/" class="blanco">Volver al Home</a> | CATEGORÍA PERCUSIÓN | <a href="/tienda" class="blanco">Ver toda la Tienda</a></p> </div>` 
         displayProdsPerPage(API)
     })
     
@@ -50,7 +50,7 @@ async function listo() {
         API.productos = API.productos.filter(row => row.categoria_id == 2)
         let container = document.querySelector("main")
         container.innerHTML = `<br/><br/>`
-        container.innerHTML += `<div><p class="link-contacto">CATEGORÍA TECLAS | <a href="/tienda" class="blanco">Ver toda la Tienda</a></p> </div>` 
+        container.innerHTML += `<div><p class="link-contacto"><a href="/" class="blanco">Volver al Home</a> | CATEGORÍA TECLAS | <a href="/tienda" class="blanco">Ver toda la Tienda</a></p> </div>` 
         displayProdsPerPage(API)
     })
 
